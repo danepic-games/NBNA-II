@@ -1,0 +1,127 @@
+{
+  "frames": [
+    {
+      "core": {
+        "id": 1,
+        "frame_count": 1,
+        "name": "Example",
+        "state": "WALK_RUN_SIDEDASH",
+        "anim": "Characters/Naruto/Kage/Anim/Standing",
+        "pic": "naruto_0",
+        "nextAnim": "",
+        "touchHurtBoxNextAnim": "",
+        "sound": "",
+        "recoverHP": 0,
+        "usageHP": 0,
+        "recoverMP": 0,
+        "usageMP": 0,
+        "hurtBoxType": "NORMAL",
+        "resetRunningInterval": false,
+        "resetSideDashInterval": false,
+        "resetCombinations": false,
+        "resetAnimation": false,
+        "pauseBreak": false
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "size": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        }
+      ],
+      "spawns": [],
+      "interaction": [],
+      "flip": {
+        "canFlip": true,
+        "executeFlip": false,
+        "disableFlipInterference": false,
+        "enableLastVelocityObservability": false
+      },
+      "combinations": {
+        "defenseJumpAttackAnim": "",
+        "defenseForwardAttackAnim": "",
+        "defenseUpAttackAnim": "",
+        "defenseDownAttackAnim": "",
+        "defenseForwardJumpAnim": "",
+        "defenseUpJumpAnim": "",
+        "defenseDownJumpAnim": "",
+        "defenseForwardWeaponAnim": "",
+        "defenseUpWeaponAnim": "",
+        "defenseDownWeaponAnim": ""
+      },
+      "physics": {
+        "dvx": 0,
+        "dvy": 0,
+        "dvz": 0,
+        "teleportToEnemy": false,
+        "teleportToAlly": false,
+        "hasHorizontalMovement": false,
+        "resetInertiaMoveHorizontal": false,
+        "useHorizontalInertia": false,
+        "hasVerticalMovement": false,
+        "useVerticalInertia": false,
+        "useConstantGravity": false,
+        "lockDirectionForce": false,
+        "useEnemyForceInNextFrame": false,
+        "stopGravity": false,
+        "resetExternalGravityForce": false,
+        "resetExternalForce": false,
+        "stopHorizontalMovement": false,
+        "stopVerticalMovement": false,
+        "stopUpDownMovement": false,
+        "stopHorizontalVerticalMovement": false,
+        "stopHorizontalUpDownMovement": false,
+        "stopVerticalUpDownMovement": false,
+        "stopAllDirectionsMovement": false,
+        "movementValueFixedVertical": 0,
+        "enableMovementFixedVertical": false,
+        "externalForceX": 0,
+        "externalForceY": 0,
+        "externalForceZ": 0
+      },
+      "triggers": {
+        "deathAnim": "",
+        "defenseButtonAnim": "",
+        "attackButtonAnim": "",
+        "jumpButtonAnim": "",
+        "weaponButtonAnim": "",
+        "groundAnim": "",
+        "flyAnim": "",
+        "wallAnim": "",
+        "wallDebugAnim": "",
+        "forwardAttackAnim": "",
+        "upAttackAnim": "",
+        "downAttackAnim": "",
+        "walkingAnim": "",
+        "runningAnim": "",
+        "holdHorizontalAnim": "",
+        "holdUpAnim": "",
+        "holdDownAnim": "",
+        "holdUpLeftAnim": "",
+        "holdUpRightAnim": "",
+        "holdDownLeftAnim": "",
+        "holdDownRightAnim": "",
+        "tauntAnim": "",
+        "disableOpoints": false
+      },
+      "childGameObjects": {
+        "removeWalls": false,
+        "walls": [
+          "Backgrounds/Akatsuki Entrance/Wall Right",
+          "Backgrounds/Akatsuki Entrance/Wall Left",
+          "Backgrounds/Akatsuki Entrance/Wall Vertical Up",
+          "Backgrounds/Akatsuki Entrance/Wall Vertical Down",
+          "Backgrounds/Akatsuki Entrance/Wall Ceiling",
+          "Backgrounds/Akatsuki Entrance/Wall Floor"
+        ]
+      }
+    }
+  ]
+}
