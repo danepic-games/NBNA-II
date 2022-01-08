@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using Back.Model.Type;
+using Components.Managers;
 using Model;
 using Model.Type;
 using UnityEngine;
 using Util;
-using Components.Managers;
-using Components.Handlers;
-using Components.Controllers;
 
 namespace Components.Handlers {
 
@@ -331,9 +329,11 @@ namespace Components.Handlers {
         [SerializeField]
         private List<string> defaultInjuredAnims;
 
-        void Start() {
+        void Awake() {
             data = DataChangerUtil.GetDataFromJson(dataPath);
+        }
 
+        void Start() {
             var transformHurtboxManager = transform.Find("HurtboxManager");
             GetComponentInChild(transformHurtboxManager, hurtboxManager);
 
@@ -379,6 +379,18 @@ namespace Components.Handlers {
 #if UNITY_EDITOR
             ExecutePauseBreak();
 #endif
+            if (owner.actualFrame.bodies.Length == 3) {
+                mainHurtbox.gameObject.SetActive(true);
+                additionalHitbox1.gameObject.SetActive(true);
+                additionalHitbox2.gameObject.SetActive(true);
+            } else if (owner.actualFrame.bodies.Length == 2) {
+                mainHurtbox.gameObject.SetActive(true);
+                additionalHitbox1.gameObject.SetActive(true);
+            } else if (owner.actualFrame.bodies.Length == 1) {
+                mainHurtbox.gameObject.SetActive(true);
+            } else {
+                gameObject.SetActive(false);
+            }
 
             SetupAnimResets();
 
@@ -1660,7 +1672,7 @@ namespace Components.Handlers {
             }
         }
 
-        void GetFrameData(AnimationEvent animationEvent) {
+        void UpdateFrameData(AnimationEvent animationEvent) {
             switch (currentAnim) {
                 case "Standing":
                     actualFrame = data.standing[animationEvent.intParameter];
@@ -1668,6 +1680,9 @@ namespace Components.Handlers {
                 case "Walking":
                     actualFrame = data.walking[animationEvent.intParameter];
                     break;
+            }
+            if (actualFrame != null) {
+                actualFrame.name = currentAnim;
             }
         }
 

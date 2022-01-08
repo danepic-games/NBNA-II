@@ -19,12 +19,7 @@ namespace Components.Handlers {
         }
 
         void Update() {
-            if(owner.actualFrame.bodies.Length >= (bodyNumber + 1)){
-                gameObject.SetActive(true);
-                SetupBody();
-            } else {
-                gameObject.SetActive(false);
-            }
+            SetupBody();
         }
 
         void OnTriggerStay(Collider enemy) {

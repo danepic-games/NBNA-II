@@ -10,7 +10,7 @@ namespace Util {
         public static Data GetDataFromJson(string dataPath) {
             Data data = new Data();
 
-            var fileNames = new string[]{"Standing", "Walking"};
+            var fileNames = new string[]{"Standing", "Walking", "SEILA"};
 
             GetFramesByDataFileName(data, dataPath, fileNames);
 
