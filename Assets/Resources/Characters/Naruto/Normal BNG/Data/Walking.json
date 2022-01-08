@@ -1,10 +1,9 @@
 {
-  "standing": [
+  "walking": [
     {
       "id": 1,
       "core": {
         "frameCount": 1,
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL"
       },
       "bodies": [
@@ -36,7 +35,6 @@
       "id": 2,
       "core": {
         "frameCount": 2,
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL"
       },
       "bodies": [
@@ -68,7 +66,6 @@
       "id": 3,
       "core": {
         "frameCount": 3,
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL"
       },
       "bodies": [

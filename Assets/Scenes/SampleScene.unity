@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 803715522}
   - component: {fileID: 803715525}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Naruto Kage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,13 +490,255 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51a271cf26b7244fa8d2646bfccb283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPath: Assets/Resources/Characters/Naruto/Normal BNG/Data.json
+  walking_speed: 0
+  walking_speedz: 0
+  running_speed: 0
+  running_speedz: 0
+  jump_distance: 0
+  dash_distance: 0
+  sideDash_distance: 0
+  totalHP: 0
+  totalMP: 0
+  initialHP: 0
+  initialMP: 0
+  currentHP: 0
+  currentMP: 0
+  owner: {fileID: 0}
+  lastSprite: {fileID: 0}
+  currentSprite: {fileID: 0}
+  currentAnim: 
+  lastAttackAnim: 
   objectType: 0
-  constantGravity: 0
-  onGround: 0
-  onWall: 0
+  playerType: 0
   animator: {fileID: 803715522}
   spriteRenderer: {fileID: 803715523}
+  audioSource: {fileID: 0}
+  boxCollider: {fileID: 0}
+  hurtboxManager: {fileID: 0}
+  mainHurtbox: {fileID: 0}
+  additionalHurtBox1: {fileID: 0}
+  additionalHurtBox2: {fileID: 0}
+  hitboxManager: {fileID: 0}
+  mainHitbox: {fileID: 0}
+  additionalHitbox1: {fileID: 0}
+  additionalHitbox2: {fileID: 0}
+  agressive: 0
+  technique: 0
+  inteligent: 0
+  speed: 0
+  resistence: 0
+  stamina: 0
+  execOpointOneTime: 1
+  execRecoverManaOneTime: 0
+  execUsageManaOneTime: 0
+  execAudioOneTime: 0
+  previousSpriteEnemyForce: {fileID: 0}
+  nextFrameDvx: 0
+  nextFrameDvy: 0
+  nextFrameDvz: 0
+  inertiaMoveHorizontal: 0
+  inertiaMoveVertical: 0
+  constantGravity: 0
+  lockRightForce: 0
+  fixedValueForDirection: 0
+  data:
+    standing: []
+    walking: []
+  actualFrame:
+    name: 
+    id: 0
+    core:
+      frameCount: 0
+      state: 0
+      anim: 
+      hurtBoxType: 0
+      recoverHP: 0
+      usageHP: 0
+      recoverMP: 0
+      usageMP: 0
+      resetRunningInterval: 0
+      resetCombinations: 0
+      resetAnimation: 0
+      pauseBreak: 0
+      touchHurtBoxNextAnim: 
+      nextAnim: 
+      audio: {fileID: 0}
+    bodies: []
+    flip:
+      canFlip: 0
+      executeFlip: 0
+      disableFlipInterference: 0
+    spawns: []
+    physic:
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      teleportToEnemy: 0
+      teleportToAlly: 0
+      hasHorizontalMovement: 0
+      resetInertiaMoveHorizontal: 0
+      useHorizontalInertia: 0
+      hasVerticalMovement: 0
+      useVerticalInertia: 0
+      useConstantGravity: 0
+      lockDirectionForce: 0
+      useEnemyForceInNextFrame: 0
+      stopGravity: 0
+      resetExternalGravityForce: 0
+      resetExternalForce: 0
+      movementValueFixedVertical: 0
+      enableMovementFixedVertical: 0
+      externalForceX: 0
+      externalForceY: 0
+      externalForceZ: 0
+    childObjects:
+      removeWalls: 0
+      walls: []
+    trigger:
+      deathAnim: 
+      defenseButtonAnim: 
+      attackButtonAnim: 
+      jumpButtonAnim: 
+      weaponButtonAnim: 
+      groundAnim: 
+      flyAnim: 
+      wallAnim: 
+      wallDebugAnim: 
+      forwardAttackAnim: 
+      upAttackAnim: 
+      downAttackAnim: 
+      walkingAnim: 
+      runningAnim: 
+      holdHorizontalAnim: 
+      holdUpAnim: 
+      holdDownAnim: 
+      holdUpLeftAnim: 
+      holdUpRightAnim: 
+      holdDownLeftAnim: 
+      holdDownRightAnim: 
+      disableOpoints: 0
+      tauntAnim: 
+    combination:
+      defenseJumpAttackAnim: 
+      defenseForwardAttackAnim: 
+      defenseUpAttackAnim: 
+      defenseDownAttackAnim: 
+      defenseForwardJumpAnim: 
+      defenseUpJumpAnim: 
+      defenseDownJumpAnim: 
+      defenseForwardWeaponAnim: 
+      defenseUpWeaponAnim: 
+      defenseDownWeaponAnim: 
+    interactions: []
+  dataPath: Characters/Naruto/Normal BNG/Data/
+  intervalDoubleTapRunning: 0
+  stepOneRunningRightEnabled: 0
+  stepOneRunningLeftEnabled: 0
+  runningCountTapRight: 0
+  runningCountTapLeft: 0
+  intervalDoubleTapSideDash: 0
+  stepOneSideDashUpEnabled: 0
+  stepOneSideDashDownEnabled: 0
+  sideDashCountTapUp: 0
+  sideDashCountTapDown: 0
+  isRunningEnabled: 0
+  isWalkingEnabled: 0
+  isSideDashEnabled: 0
+  moveHorizontal: 0
+  moveVertical: 0
+  pressJumpDown: 0
+  moveHorizontalDown: 0
+  moveHorizontalUp: 0
+  moveVerticalUp: 0
+  pressForwardAttackDown: 0
+  pressUpAttackDown: 0
+  pressDownAttackDown: 0
+  pressDefenseDown: 0
+  pressWeaponDown: 0
+  pressAttackDown: 0
+  pressTauntDown: 0
+  lastMoveVerticalUpValue: 0
+  defense_up_attack: 0
+  defense_up_jump: 0
+  defense_up_weapon: 0
+  defense_forward_attack: 0
+  defense_forward_jump: 0
+  defense_forward_weapon: 0
+  defense_down_attack: 0
+  defense_down_jump: 0
+  defense_down_weapon: 0
+  defense_jump_attack: 0
+  isLyingDown: 0
+  isFacingRight: 0
+  isDead: 0
+  isAttacking: 0
+  hasTouchedHurtBox: 0
+  hasAttacked: 0
+  onWall: 0
+  onWallDebug: 0
+  onCeiling: 0
+  onGround: 0
+  enableInjured: 0
+  isInjured: 0
+  executeExternalForce: 0
+  team: 0
+  enemies: []
+  alies: []
+  highY: 0
+  isDummy: 0
+  externalItr:
+    position: {x: 0, y: 0, z: 0}
+    size: {x: 0, y: 0, z: 0}
+    kind: 0
+    force: {x: 0, y: 0, z: 0}
+    inverseForceDvx: 0
+    damageRestTU: 0
+    ignoreDamageRestTU: 0
+    resetDamageRestTime: 0
+    affectedAnimation: 
+    nextAnimation: 
+    nextIfPressedAttackAnimation: 
+    injury: 0
+    effect: 0
+    level: 0
+    origin: {fileID: 0}
+    active: 0
+  sameExternalItr: 0
+  lastButtonPressed: 18
+  buttonsPressed:
+  - 
+  - 
+  - 
+  selfOpointAffectedFrame: 0
+  ownerFrame: 
+  flipOneTimeForFrame: 1
+  opointPosition: {x: 0, y: 0, z: 0}
+  spawnDirection: 0
+  disableOpoint: 0
+  relativePositionFromOwner: {x: 0, y: 0, z: 0}
+  destroyInOwnerAnimation: 
+  startAnimation: 
+  defaultStandingAnim: 
+  defaultWalkingAnim: 
+  defaultRunningAnim: 
+  defaultRunning2Anim: 
+  defaultDefenseAnim: 
+  defaultJumpDefenseAnim: 
+  defaultDefenseMovementDebugAnim: 
+  defaultJumpDefenseMovementDebugAnim: 
+  defaultStopRunningAnim: 
+  defaultSideDashAnim: 
+  defaultCrouchAnim: 
+  defaultJumping3Anim: 
+  defaultJumping4Anim: 
+  defaultJumpingDash3Anim: 
+  defaultJumpingDash4Anim: 
+  defaultJumping3WithComboAnim: 
+  defaultJumping4WithComboAnim: 
+  defaultJumpingFrontBackDashAnim: 
+  defaultDisableCombinationAnim: 
+  defaultMovementAnims: []
+  defaultInjuredAnims: []
 --- !u!1 &950419046
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 namespace Util {
@@ -9,6 +10,10 @@ namespace Util {
 
         public static void MissingGameObject() {
             throw new MissingReferenceException();
+        }
+
+        public static void MissingDataFile() {
+            throw new FileNotFoundException("Data files not found!");
         }
 
     }

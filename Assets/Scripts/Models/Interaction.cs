@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Model {
     [System.Serializable]
     public class Interaction {
+        public Vector3 position;
+        public Vector3 size;
         public InteractionKindEnum kind;
         public Vector3 force;
         public bool inverseForceDvx;

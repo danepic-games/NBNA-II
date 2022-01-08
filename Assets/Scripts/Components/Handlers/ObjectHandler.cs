@@ -4,8 +4,11 @@ using Model;
 using Model.Type;
 using UnityEngine;
 using Util;
+using Components.Managers;
+using Components.Handlers;
+using Components.Controllers;
 
-namespace Components {
+namespace Components.Handlers {
 
     public class ObjectHandler : MonoBehaviour {
 
@@ -38,8 +41,7 @@ namespace Components {
         private int currentMP;
 
         //Dono do objeto
-        [SerializeField]
-        private ObjectHandler owner;
+        public ObjectHandler owner;
 
         //Animações e Sprites
         [SerializeField]
@@ -66,13 +68,13 @@ namespace Components {
         private AudioSource audioSource;
         public BoxCollider boxCollider;
         [SerializeField]
-        private HurtboxManager hurtboxManager;
+        private HurtboxsManager hurtboxManager;
         public Transform mainHurtbox;
         public Transform additionalHurtBox1;
         public Transform additionalHurtBox2;
 
         [SerializeField]
-        private HitboxManager hitboxManager;
+        private HitboxsManager hitboxManager;
         public Transform mainHitbox;
         public Transform additionalHitbox1;
         public Transform additionalHitbox2;
@@ -100,15 +102,23 @@ namespace Components {
         [SerializeField]
         private bool execAudioOneTime;
 
+        //Enemy Force Next Anim
+        [SerializeField]
+        private Sprite previousSpriteEnemyForce;
+        [SerializeField]
+        private float nextFrameDvx;
+        [SerializeField]
+        private float nextFrameDvy;
+        [SerializeField]
+        private float nextFrameDvz;
+
         //Alguns parametros de fisica
         [SerializeField]
         private float inertiaMoveHorizontal;
         [SerializeField]
         private float inertiaMoveVertical;
-        [SerializeField]
-        private float constantGravity;
-        [SerializeField]
-        private bool lockRightForce;
+        public float constantGravity;
+        public bool lockRightForce;
         [SerializeField]
         private float fixedValueForDirection = 0f;
 
@@ -120,23 +130,36 @@ namespace Components {
         private string dataPath;
 
         //RUNNING
-        [SerializeField] private float intervalDoubleTapRunning;
-        [SerializeField] private bool stepOneRunningRightEnabled;
-        [SerializeField] private bool stepOneRunningLeftEnabled;
-        [SerializeField] private float runningCountTapRight;
-        [SerializeField] private float runningCountTapLeft;
+        [SerializeField]
+        private float intervalDoubleTapRunning;
+        [SerializeField]
+        private bool stepOneRunningRightEnabled;
+        [SerializeField]
+        private bool stepOneRunningLeftEnabled;
+        [SerializeField]
+        private float runningCountTapRight;
+        [SerializeField]
+        private float runningCountTapLeft;
 
         //SIDE DASH
-        [SerializeField] private float intervalDoubleTapSideDash;
-        [SerializeField] private bool stepOneSideDashUpEnabled;
-        [SerializeField] private bool stepOneSideDashDownEnabled;
-        [SerializeField] private float sideDashCountTapUp;
-        [SerializeField] private float sideDashCountTapDown;
+        [SerializeField]
+        private float intervalDoubleTapSideDash;
+        [SerializeField]
+        private bool stepOneSideDashUpEnabled;
+        [SerializeField]
+        private bool stepOneSideDashDownEnabled;
+        [SerializeField]
+        private float sideDashCountTapUp;
+        [SerializeField]
+        private float sideDashCountTapDown;
 
         //Disabled variables
-        [SerializeField] private bool isRunningEnabled;
-        [SerializeField] private bool isWalkingEnabled;
-        [SerializeField] private bool isSideDashEnabled;
+        [SerializeField]
+        private bool isRunningEnabled;
+        [SerializeField]
+        private bool isWalkingEnabled;
+        [SerializeField]
+        private bool isSideDashEnabled;
 
         //Catálogo de teclas
         [SerializeField]
@@ -195,12 +218,10 @@ namespace Components {
         [SerializeField]
         private bool isLyingDown;
         public bool isFacingRight;
-        [SerializeField]
-        private bool isDead = false;
-        [SerializeField]
-        private bool isAttacking;
-        [SerializeField]
-        private bool hasTouchedHurtBox = false;
+        public bool isDead = false;
+
+        public bool isAttacking;
+        public bool hasTouchedHurtBox = false;
         public bool hasAttacked;
 
         //Gatilhos externos
@@ -210,14 +231,11 @@ namespace Components {
         private bool onWallDebug;
         [SerializeField]
         private bool onCeiling;
-        [SerializeField]
         public bool onGround;
 
         //Eventos de interação com outro objeto
-        [SerializeField]
-        private bool enableInjured;
-        [SerializeField]
-        private bool isInjured;
+        public bool enableInjured;
+        public bool isInjured;
         [SerializeField]
         private bool executeExternalForce;
 
@@ -268,29 +286,50 @@ namespace Components {
         private string startAnimation;
 
         //Default Anims
-        [SerializeField] private string defaultStandingAnim;
-        [SerializeField] private string defaultWalkingAnim;
-        [SerializeField] private string defaultRunningAnim;
-        [SerializeField] private string defaultRunning2Anim;
-        [SerializeField] private string defaultDefenseAnim;
-        [SerializeField] private string defaultJumpDefenseAnim;
-        [SerializeField] private string defaultDefenseMovementDebugAnim;
-        [SerializeField] private string defaultJumpDefenseMovementDebugAnim;
-        [SerializeField] private string defaultStopRunningAnim;
-        [SerializeField] private string defaultSideDashAnim;
-        [SerializeField] private string defaultCrouchAnim;
-        [SerializeField] private string defaultJumping3Anim;
-        [SerializeField] private string defaultJumping4Anim;
-        [SerializeField] private string defaultJumpingDash3Anim;
-        [SerializeField] private string defaultJumpingDash4Anim;
-        [SerializeField] private string defaultJumping3WithComboAnim;
-        [SerializeField] private string defaultJumping4WithComboAnim;
-        [SerializeField] private string defaultJumpingFrontBackDashAnim;
+        [SerializeField]
+        private string defaultStandingAnim;
+        [SerializeField]
+        private string defaultWalkingAnim;
+        [SerializeField]
+        private string defaultRunningAnim;
+        [SerializeField]
+        private string defaultRunning2Anim;
+        [SerializeField]
+        private string defaultDefenseAnim;
+        [SerializeField]
+        private string defaultJumpDefenseAnim;
+        [SerializeField]
+        private string defaultDefenseMovementDebugAnim;
+        [SerializeField]
+        private string defaultJumpDefenseMovementDebugAnim;
+        [SerializeField]
+        private string defaultStopRunningAnim;
+        [SerializeField]
+        private string defaultSideDashAnim;
+        [SerializeField]
+        private string defaultCrouchAnim;
+        [SerializeField]
+        private string defaultJumping3Anim;
+        [SerializeField]
+        private string defaultJumping4Anim;
+        [SerializeField]
+        private string defaultJumpingDash3Anim;
+        [SerializeField]
+        private string defaultJumpingDash4Anim;
+        [SerializeField]
+        private string defaultJumping3WithComboAnim;
+        [SerializeField]
+        private string defaultJumping4WithComboAnim;
+        [SerializeField]
+        private string defaultJumpingFrontBackDashAnim;
 
-        [SerializeField] private  string defaultDisableCombinationAnim;
+        [SerializeField]
+        private string defaultDisableCombinationAnim;
 
-        [SerializeField] private  List<string> defaultMovementAnims;
-        [SerializeField] private  List<string> defaultInjuredAnims;
+        [SerializeField]
+        private List<string> defaultMovementAnims;
+        [SerializeField]
+        private List<string> defaultInjuredAnims;
 
         void Start() {
             data = DataChangerUtil.GetDataFromJson(dataPath);
@@ -385,12 +424,26 @@ namespace Components {
             } else if (!actualFrame.physic.enableMovementFixedVertical) {
                 fixedValueForDirection = 0f;
             }
-
-            Debug.Log(actualFrame.physic.externalForceX);
         }
 
         void FixedUpdate() {
+            UseRelativePositionFromOwner();
 
+            TeleportToEnemy();
+
+            TeleportToAlly();
+
+            UseEnemyForceInNextFrame();
+
+            ResetInertiaMoveHorizontal();
+
+            UpdateVelocity();
+
+            WalkingForce();
+
+            RunningForce();
+
+            SideDashForce();
         }
 
         void OnCollisionStay(Collision hit) {
@@ -417,36 +470,6 @@ namespace Components {
 
             } else if (hit.collider.tag.Equals("WallDebug")) {
                 onWallDebug = false;
-            }
-        }
-
-        void GetFrameData(AnimationEvent animationEvent) {
-            switch (animationEvent.stringParameter.ToLower()) {
-                case "standing":
-                    actualFrame = data.standing[animationEvent.intParameter];
-                    break;
-            }
-        }
-
-        void ExecOpoint() {
-            if (execOpointOneTime) {
-                execOpointOneTime = ExecOpoint(actualFrame.spawns);
-            }
-        }
-
-        void ExecRecoverManaOneTime(int manaPoints) {
-            if (manaPoints != 0) {
-                currentMP += manaPoints;
-
-                if (currentMP > totalMP) {
-                    currentMP = totalMP;
-                }
-            }
-        }
-
-        void SetupAudio() {
-            if (actualFrame.core.audio != null) {
-                audioSource.PlayOneShot(actualFrame.core.audio);
             }
         }
 
@@ -1256,7 +1279,7 @@ namespace Components {
         }
 
         private void JumpingFrontBackDash() {
-            if(!objectType.Equals(ObjectEnum.CHARACTER)){
+            if (!objectType.Equals(ObjectEnum.CHARACTER)) {
                 return;
             }
 
@@ -1355,6 +1378,319 @@ namespace Components {
 
         public void SetSameExternalItr(bool sameExternalItr) {
             this.sameExternalItr = sameExternalItr;
+        }
+
+        private void UseRelativePositionFromOwner() {
+            if (relativePositionFromOwner != Vector3.zero) {
+                if (owner != null) {
+                    float x = owner.transform.position.x + relativePositionFromOwner.x;
+                    float y = owner.transform.position.y + relativePositionFromOwner.y;
+                    float z = owner.transform.position.z + relativePositionFromOwner.z;
+                    transform.position = new Vector3(x, y, z);
+                    return;
+                }
+            }
+        }
+
+        private void TeleportToEnemy() {
+            if (actualFrame.physic.teleportToEnemy) {
+                Transform nearestObject = null;
+
+                float minDist = Mathf.Infinity;
+                Vector3 currentPos = transform.position;
+
+                foreach (Transform t in enemies) {
+                    float dist = Vector3.Distance(t.position, currentPos);
+                    if (dist < minDist) {
+                        nearestObject = t;
+                        minDist = dist;
+                    }
+                }
+                transform.position = nearestObject.position;
+                return;
+            }
+        }
+
+        private void TeleportToAlly() {
+            if (actualFrame.physic.teleportToAlly) {
+                Transform nearestObject = null;
+
+                float minDist = Mathf.Infinity;
+                Vector3 currentPos = transform.position;
+
+                foreach (Transform t in alies) {
+                    float dist = Vector3.Distance(t.position, currentPos);
+                    if (dist < minDist) {
+                        nearestObject = t;
+                        minDist = dist;
+                    }
+                }
+                transform.position = nearestObject.position;
+                return;
+            }
+        }
+
+        private void UseEnemyForceInNextFrame() {
+            if (actualFrame.physic.useEnemyForceInNextFrame) {
+                //TODO: possivel causa do erro de dano no sentido oposto
+                nextFrameDvx = actualFrame.physic.dvx;
+                //TODO: dvy deveria considerar o proximo frame o Constant Gravity, veja no legado
+                nextFrameDvy = actualFrame.physic.dvy;
+                nextFrameDvz = externalItr.force.z;
+
+                previousSpriteEnemyForce = spriteRenderer.sprite;
+            }
+
+            if (previousSpriteEnemyForce != null && !spriteRenderer.sprite.name.Equals(previousSpriteEnemyForce)) {
+                actualFrame.physic.dvx = nextFrameDvx;
+                actualFrame.physic.dvy = nextFrameDvy;
+                actualFrame.physic.dvz = nextFrameDvz;
+
+                previousSpriteEnemyForce = null;
+            }
+        }
+
+        private void UpdateVelocity(Vector3 force) {
+            HasVerticalMovement();
+
+            HasHorizontalMovement();
+
+            if (actualFrame.physic.enableMovementFixedVertical) {
+                if (!isFacingRight) {
+                    return;
+                } else {
+                    return;
+                }
+            } else if (actualFrame.physic.useHorizontalInertia || actualFrame.physic.useVerticalInertia) {
+                InertiaForce();
+            } else {
+                bool dvxCondition = force.x != 0;
+                bool dvyCondition = force.y != 0;
+                bool dvzCondition = force.z != 0;
+
+                //execute dvx, dvy, dvz
+                if ((dvxCondition || dvyCondition || dvzCondition) && !actualFrame.flip.disableFlipInterference) {
+                    //Setup constant gravity
+                    float dvy = 0f;
+                    if (actualFrame.physic.useConstantGravity) {
+                        dvy = constantGravity;
+                    } else {
+                        dvy = force.y;
+                    }
+
+                    if (isInjured) {
+                        return;
+                    } else {
+                        if (!isFacingRight) {
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+
+                //execute dx, dy, dz without flip interference lock direction
+                if ((dvxCondition || dvyCondition || dvzCondition) && actualFrame.flip.disableFlipInterference && actualFrame.physic.lockDirectionForce) {
+                    //Setup constant gravity
+                    float dvy = 0f;
+                    if (actualFrame.physic.useConstantGravity) {
+                        dvy = constantGravity;
+                    } else {
+                        dvy = force.y;
+                    }
+
+                    if (isInjured) {
+                        return;
+                    } else {
+                        if (!lockRightForce) {
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+
+                //execute dx, dy, dz without flip interference
+                if ((dvxCondition || dvyCondition || dvzCondition) && actualFrame.flip.disableFlipInterference) {
+                    //Setup constant gravity
+                    float dvy = 0f;
+                    if (actualFrame.physic.useConstantGravity) {
+                        dvy = constantGravity;
+                    } else {
+                        dvy = force.y;
+                    }
+
+                    if (isInjured) {
+                        return;
+                    } else {
+                        if (!isFacingRight) {
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+
+                //execute stop gravity
+                if (!dvyCondition && actualFrame.physic.stopGravity) {
+                    if (isInjured) {
+                        return;
+                    } else {
+                        if (!isFacingRight) {
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void UpdateVelocity() {
+            if (!executeExternalForce) {
+                //Self Force
+                UpdateVelocity(new Vector3(actualFrame.physic.dvx, actualFrame.physic.dvy, actualFrame.physic.dvz));
+            } else {
+                //External Force
+                executeExternalForce = false;
+                UpdateVelocity(new Vector3(actualFrame.physic.externalForceX, actualFrame.physic.externalForceY,
+                        actualFrame.physic.externalForceZ));
+            }
+        }
+
+        private void ResetInertiaMoveHorizontal() {
+            if (actualFrame.physic.resetInertiaMoveHorizontal) {
+                inertiaMoveHorizontal = 0f;
+                moveHorizontal = 0f;
+            }
+        }
+
+        private void HasVerticalMovement() {
+            //Check 550(inertia) value for vertical movement
+            if (actualFrame.physic.hasVerticalMovement) {
+                inertiaMoveVertical = 0f;
+                //Walk force
+                if (moveVertical != 0) {
+                    inertiaMoveVertical = moveVertical / 2;
+                }
+            }
+        }
+
+        private void HasHorizontalMovement() {
+            //Check 550(inertia) value for horizontal movement
+            if (actualFrame.physic.hasHorizontalMovement) {
+                inertiaMoveHorizontal = 0f;
+                //Walk force
+                if (moveHorizontal != 0 && actualFrame.physic.dvx == 0) {
+                    inertiaMoveHorizontal = moveHorizontal;
+                }
+            }
+        }
+
+        private void InertiaForce() {
+            //Use value(550) for movement
+            if (actualFrame.physic.dvx > 0) {
+                inertiaMoveHorizontal = 0f;
+            }
+
+            //Walk force
+            var transform2 = transform;
+            float x = transform2.position.x;
+            float y = transform2.position.y;
+            float z = transform2.position.z;
+        }
+
+        private void WalkingForce() {
+            if (isWalkingEnabled) {
+                //Walk force
+                if (moveHorizontal != 0 || moveVertical != 0) {
+                    if (!currentAnim.Equals(defaultWalkingAnim)) {
+                        flipOneTimeForFrame = true;
+                        ChangeAnimation(defaultWalkingAnim);
+                    }
+
+                    float x = transform.position.x;
+                    float y = transform.position.y;
+                    float z = transform.position.z;
+
+                }
+            }
+        }
+
+        private void RunningForce() {
+            if (isRunningEnabled) {
+                //Move running velocity
+                float x = transform.position.x;
+                float y = transform.position.y;
+                float z = transform.position.z;
+
+                //Get velocity by direction
+                float usedRunning = 0f;
+                float usedRunningZ = 0f;
+                if (!isFacingRight) {
+                    usedRunning = -running_speed;
+                } else if (isFacingRight) {
+                    usedRunning = running_speed;
+                }
+
+                if (moveVertical > 0) {
+                    usedRunningZ = running_speedz;
+                } else if (moveVertical < 0) {
+                    usedRunningZ = -running_speedz;
+                }
+            }
+        }
+
+        private void SideDashForce() {
+            if (isSideDashEnabled) {
+                if (!currentAnim.Equals(defaultCrouchAnim)) {
+                    //Move side dash velocity
+                    float x = transform.position.x;
+                    float y = transform.position.y;
+                    float z = transform.position.z;
+
+                    //Get velocity by direction
+                    float usedSideDash = 0f;
+                    if (lastMoveVerticalUpValue > 0) {
+                        usedSideDash = sideDash_distance;
+                    } else if (lastMoveVerticalUpValue < 0) {
+                        usedSideDash = -sideDash_distance;
+                    }
+                }
+            }
+        }
+
+        void GetFrameData(AnimationEvent animationEvent) {
+            switch (currentAnim) {
+                case "Standing":
+                    actualFrame = data.standing[animationEvent.intParameter];
+                    break;
+                case "Walking":
+                    actualFrame = data.walking[animationEvent.intParameter];
+                    break;
+            }
+        }
+
+        void ExecOpoint() {
+            if (execOpointOneTime) {
+                execOpointOneTime = ExecOpoint(actualFrame.spawns);
+            }
+        }
+
+        void ExecRecoverManaOneTime(int manaPoints) {
+            if (manaPoints != 0) {
+                currentMP += manaPoints;
+
+                if (currentMP > totalMP) {
+                    currentMP = totalMP;
+                }
+            }
+        }
+
+        void SetupAudio() {
+            if (actualFrame.core.audio != null) {
+                audioSource.PlayOneShot(actualFrame.core.audio);
+            }
         }
     }
 }

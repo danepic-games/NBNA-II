@@ -1,23 +1,41 @@
 using Back.Model.Type;
+using Components.Handlers;
 using Model;
 using Model.Type;
 using TMPro;
 using UnityEngine;
 
-namespace Components {
-    public class HurtboxManager : MonoBehaviour {
+namespace Components.Managers {
+    public class HurtboxsManager : MonoBehaviour {
+        [SerializeField]
         private ObjectHandler owner;
-        public GameObject hit;
-        public GameObject hit2;
-        public GameObject hit3;
-        public GameObject weaponHit;
-        public GameObject weaponHit2;
-        public GameObject weaponHit3;
-        public GameObject defensePush;
+
+        [SerializeField]
+        private HurtboxSpecifiedHandler mainHurtbox;
+        [SerializeField]
+        private HurtboxSpecifiedHandler additionalHurtBox1;
+        [SerializeField]
+        private HurtboxSpecifiedHandler additionalHurtBox2;
+
+        [SerializeField]
+        private GameObject hit;
+        [SerializeField]
+        private GameObject hit2;
+        [SerializeField]
+        private GameObject hit3;
+        [SerializeField]
+        private GameObject weaponHit;
+        [SerializeField]
+        private GameObject weaponHit2;
+        [SerializeField]
+        private GameObject weaponHit3;
+        [SerializeField]
+        private GameObject defensePush;
 
         public float damageRestTimer;
 
-        public TextMeshPro countText;
+        [SerializeField]
+        private TextMeshPro countText;
 
         // Start is called before the first frame update
         void Start() {
@@ -25,7 +43,6 @@ namespace Components {
         }
 
         void Update() {
-            SetupBodies();
             if (owner.externalItr != null && owner.externalItr.damageRestTU > 0 && damageRestTimer > 0) {
                 if (owner.externalItr.resetDamageRestTime) {
                     damageRestTimer = 0;
@@ -39,36 +56,11 @@ namespace Components {
             }
         }
 
-        private void SetupBodies() {
-            if (owner.actualFrame != null && owner.actualFrame.bodies != null && owner.actualFrame.bodies.Length > 0) {
-                Body mainBody = owner.actualFrame.bodies[0];
-                owner.mainHurtbox.localPosition = mainBody.position;
-                owner.mainHurtbox.localScale = mainBody.size;
+        //Chamado pelo hurtbox especifico que gatilhou algum evento
+        public void ObjectCollision(HitboxSpecifiedHandler enemyOwner) {
+            if (!owner.team.Equals(enemyOwner.owner.team) || enemyOwner.owner.team.Equals(TeamEnum.INDEPENDENT)) {
 
-                if (owner.mainHurtbox != null) {
-                    if (owner.mainHurtbox.gameObject.activeSelf) {
-                        SetupBody(owner.mainHurtbox.transform);
-                    }
-                }
-
-                if (owner.additionalHurtBox1 != null) {
-                    if (owner.additionalHurtBox1.gameObject.activeSelf) {
-                        SetupBody(owner.additionalHurtBox1.transform);
-                    }
-                }
-
-                if (owner.additionalHurtBox2 != null) {
-                    if (owner.additionalHurtBox2.gameObject.activeSelf) {
-                        SetupBody(owner.additionalHurtBox2.transform);
-                    }
-                }
-            }
-        }
-
-        public void ObjectCollision(HitboxManager enemyOwner) {
-            if (!owner.team.Equals(enemyOwner.team) || enemyOwner.team.Equals(TeamEnum.INDEPENDENT)) {
-
-                Interaction itr = enemyOwner.GetHigherPriorityInteraction(); //talvez ser statico para poder saber se o dano foi duplicado em multilplos hurtboxes
+                Interaction itr = enemyOwner.interaction; //talvez ser statico para poder saber se o dano foi duplicado em multilplos hurtboxes
 
                 SpriteRenderer enemySpriteRenderer = enemyOwner.GetComponentInParent<SpriteRenderer>();
 
@@ -149,35 +141,6 @@ namespace Components {
             return owner.isFacingRight ? dvx : -dvx;
         }
 
-        private Interaction BuildInteractionWithEnemyItr(HitboxManager enemyOwner) {
-            Interaction itr = new Interaction();
-            itr.kind = enemyOwner.interaction.kind;
-            itr.force.x = enemyOwner.interaction.force.x;
-            itr.inverseForceDvx = enemyOwner.interaction.inverseForceDvx;
-            itr.force.y = enemyOwner.interaction.force.y;
-            itr.force.z = enemyOwner.interaction.force.z;
-            itr.damageRestTU = enemyOwner.interaction.damageRestTU;
-            itr.resetDamageRestTime = enemyOwner.interaction.resetDamageRestTime;
-            itr.affectedAnimation = enemyOwner.interaction.affectedAnimation;
-            itr.nextAnimation = enemyOwner.interaction.nextAnimation;
-            itr.injury = enemyOwner.interaction.injury;
-            itr.effect = enemyOwner.interaction.effect;
-            itr.level = enemyOwner.interaction.level;
-            itr.origin = enemyOwner.transform.parent.gameObject;
-            return itr;
-        }
-
-        private InteractionArea BuildInteractionAreaWithEnemyItr(MainHitboxsHandler enemyOwner) {
-            InteractionArea itr = new InteractionArea();
-            itr.position.x = enemyOwner.interactionArea.position.x;
-            itr.position.y = enemyOwner.interactionArea.position.y;
-            itr.position.z = enemyOwner.interactionArea.position.z;
-            itr.size.x = enemyOwner.interactionArea.size.x;
-            itr.size.y = enemyOwner.interactionArea.size.y;
-            itr.size.z = enemyOwner.interactionArea.size.z;
-            return itr;
-        }
-
         private void InvokeContactEffect(Interaction itr, float x, float y, float z) {
             ContactEffect(itr, x, y, z);
         }
@@ -212,9 +175,9 @@ namespace Components {
             Instantiate(countText.gameObject, new Vector3(x, y, z), Quaternion.identity);
         }
 
-        private void SetupNormalInjured(HitboxManager enemyOwner, Interaction itr, float dvx) {
+        private void SetupNormalInjured(HitboxSpecifiedHandler enemyOwner, Interaction itr, float dvx) {
             if (itr.kind.Equals(InteractionKindEnum.NORMAL_DAMAGE) || itr.kind.Equals(InteractionKindEnum.FLOOR)) {
-                if (owner.externalItr != null && owner.externalItr.origin != null && owner.externalItr.origin.Equals(enemyOwner.transform.parent.gameObject)) {
+                if (owner.externalItr != null && owner.externalItr.origin != null && owner.externalItr.origin.name.Equals(enemyOwner.owner.gameObject.name)) {
                     owner.SetSameExternalItr(true);
                 } else {
                     owner.SetSameExternalItr(false);
@@ -229,9 +192,9 @@ namespace Components {
             }
         }
 
-        private void SetupDefendingInjured(HitboxManager enemyOwner, Interaction itr, float dvx, string damageAnimationType) {
+        private void SetupDefendingInjured(HitboxSpecifiedHandler enemyOwner, Interaction itr, float dvx, string damageAnimationType) {
             if (itr.kind.Equals(InteractionKindEnum.NORMAL_DAMAGE) || itr.kind.Equals(InteractionKindEnum.FLOOR)) {
-                if (owner.externalItr != null && owner.externalItr.origin.Equals(enemyOwner.transform.parent.gameObject)) {
+                if (owner.externalItr != null && owner.externalItr.origin.name.Equals(enemyOwner.owner.gameObject.name)) {
                     owner.SetSameExternalItr(true);
                 } else {
                     owner.SetSameExternalItr(false);
@@ -261,9 +224,9 @@ namespace Components {
             return this.owner;
         }
 
-        private void SetupStaticInjured(HitboxManager enemyOwner, Interaction itr, float dvx) {
+        private void SetupStaticInjured(HitboxSpecifiedHandler enemyOwner, Interaction itr, float dvx) {
             if (itr.kind.Equals(InteractionKindEnum.NORMAL_DAMAGE) || itr.kind.Equals(InteractionKindEnum.FLOOR) || itr.kind.Equals(InteractionKindEnum.DIRECT_STATIC_MAP_OBJ)) {
-                if (owner.externalItr != null && owner.externalItr.origin != null && owner.externalItr.origin.Equals(enemyOwner.transform.parent.gameObject)) {
+                if (owner.externalItr != null && owner.externalItr.origin != null && owner.externalItr.origin.name.Equals(enemyOwner.owner.gameObject.name)) {
                     owner.SetSameExternalItr(true);
                 } else {
                     owner.SetSameExternalItr(false);
@@ -275,44 +238,6 @@ namespace Components {
                 owner.isInjured = true;
 
                 InvokeContactEffect(itr);
-            }
-        }
-
-        private void SetupBody(Transform body) {
-            if (!owner.isFacingRight) {
-                if (bdy.Equals(owner.actualFrame.bodies[0])) {
-                    hurtBox1.transform.localPosition = new Vector3(-bdy.position.x, bdy.position.y, bdy.position.z);
-                    hurtBox1.transform.localScale = new Vector3(bdy.size.x, bdy.size.y, bdy.size.z);
-                    owner.boxCollider.center = hurtBox1.transform.localPosition;
-                    owner.boxCollider.size = hurtBox1.transform.localScale;
-
-                } else if (bdy.Equals(owner.actualFrame.bodies[1])) {
-                    hurtBox2.transform.localPosition = new Vector3(-bdy.position.x, bdy.position.y, bdy.position.z);
-                    hurtBox2.transform.localScale = new Vector3(bdy.size.x, bdy.size.y, bdy.size.z);
-
-                } else if (bdy.Equals(owner.actualFrame.bodies[2])) {
-                    hurtBox3.transform.localPosition = new Vector3(-bdy.position.x, bdy.position.y, bdy.position.z);
-                    hurtBox3.transform.localScale = new Vector3(bdy.size.x, bdy.size.y, bdy.size.z);
-                }
-
-
-            } else {
-
-                if (bdy.Equals(owner.actualFrame.bodies[0])) {
-                    hurtBox1.transform.localPosition = new Vector3(bdy.position.x, bdy.position.y, bdy.position.z);
-                    hurtBox1.transform.localScale = new Vector3(bdy.size.x, bdy.size.y, bdy.size.z);
-                    owner.boxCollider.center = hurtBox1.transform.localPosition;
-                    owner.boxCollider.size = hurtBox1.transform.localScale;
-
-                } else if (bdy.Equals(owner.actualFrame.bodies[1])) {
-                    hurtBox2.transform.localPosition = new Vector3(bdy.position.x, bdy.position.y, bdy.position.z);
-                    hurtBox2.transform.localScale = new Vector3(bdy.size.x, bdy.size.y, bdy.size.z);
-
-                } else if (bdy.Equals(owner.actualFrame.bodies[2])) {
-                    hurtBox3.transform.localPosition = new Vector3(bdy.position.x, bdy.position.y, bdy.position.z);
-                    hurtBox3.transform.localScale = new Vector3(bdy.size.x, bdy.size.y, bdy.size.z);
-
-                }
             }
         }
     }
