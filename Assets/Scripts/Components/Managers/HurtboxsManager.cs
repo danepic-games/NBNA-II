@@ -4,6 +4,7 @@ using Model;
 using Model.Type;
 using TMPro;
 using UnityEngine;
+using Util;
 
 namespace Components.Managers {
     public class HurtboxsManager : MonoBehaviour {
@@ -43,6 +44,8 @@ namespace Components.Managers {
         }
 
         void Update() {
+            EnableDisableBodies();
+
             if (owner.externalItr != null && owner.externalItr.damageRestTU > 0 && damageRestTimer > 0) {
                 if (owner.externalItr.resetDamageRestTime) {
                     damageRestTimer = 0;
@@ -238,6 +241,28 @@ namespace Components.Managers {
                 owner.isInjured = true;
 
                 InvokeContactEffect(itr);
+            }
+        }
+
+        private void EnableDisableBodies() {
+            if (owner.actualFrame.bodies.Length == 3) {
+                mainHurtbox.gameObject.SetActive(true);
+                additionalHurtBox1.gameObject.SetActive(true);
+                additionalHurtBox2.gameObject.SetActive(true);
+            } else if (owner.actualFrame.bodies.Length == 2) {
+                mainHurtbox.gameObject.SetActive(true);
+                additionalHurtBox1.gameObject.SetActive(true);
+                additionalHurtBox2.gameObject.SetActive(false);
+            } else if (owner.actualFrame.bodies.Length == 1) {
+                mainHurtbox.gameObject.SetActive(true);
+                additionalHurtBox1.gameObject.SetActive(false);
+                additionalHurtBox2.gameObject.SetActive(false);
+            } else if (owner.actualFrame.bodies.Length > 3) {
+                ExceptionThrowUtil.LimitReached();
+            } else {
+                mainHurtbox.gameObject.SetActive(false);
+                additionalHurtBox1.gameObject.SetActive(false);
+                additionalHurtBox2.gameObject.SetActive(false);
             }
         }
     }

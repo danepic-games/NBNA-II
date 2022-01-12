@@ -20,7 +20,9 @@ namespace Util {
         private static void GetFramesByDataFileName(Data data, string dataPath, string[] fileNames){
             foreach (string fileName in fileNames) {
                 var framesDataChanger = Resources.Load<TextAsset>($"{dataPath}{fileName}");
-                JsonUtility.FromJsonOverwrite(framesDataChanger.text, data);
+                if (framesDataChanger != null) {
+                    JsonUtility.FromJsonOverwrite(framesDataChanger.text, data);
+                }
             }
         }
     }

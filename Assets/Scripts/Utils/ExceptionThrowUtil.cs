@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace Util {
 
         public static void MissingDataFile() {
             throw new FileNotFoundException("Data files not found!");
+        }
+
+        public static void LimitReached() {
+            throw new InvalidOperationException("Specified function limit reached!");
         }
 
     }

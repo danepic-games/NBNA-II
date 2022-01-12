@@ -67,15 +67,6 @@ namespace Components.Handlers {
         public BoxCollider boxCollider;
         [SerializeField]
         private HurtboxsManager hurtboxManager;
-        public Transform mainHurtbox;
-        public Transform additionalHurtBox1;
-        public Transform additionalHurtBox2;
-
-        [SerializeField]
-        private HitboxsManager hitboxManager;
-        public Transform mainHitbox;
-        public Transform additionalHitbox1;
-        public Transform additionalHitbox2;
 
         [SerializeField]
         private int agressive;
@@ -283,44 +274,6 @@ namespace Components.Handlers {
         [SerializeField]
         private string startAnimation;
 
-        //Default Anims
-        [SerializeField]
-        private string defaultStandingAnim;
-        [SerializeField]
-        private string defaultWalkingAnim;
-        [SerializeField]
-        private string defaultRunningAnim;
-        [SerializeField]
-        private string defaultRunning2Anim;
-        [SerializeField]
-        private string defaultDefenseAnim;
-        [SerializeField]
-        private string defaultJumpDefenseAnim;
-        [SerializeField]
-        private string defaultDefenseMovementDebugAnim;
-        [SerializeField]
-        private string defaultJumpDefenseMovementDebugAnim;
-        [SerializeField]
-        private string defaultStopRunningAnim;
-        [SerializeField]
-        private string defaultSideDashAnim;
-        [SerializeField]
-        private string defaultCrouchAnim;
-        [SerializeField]
-        private string defaultJumping3Anim;
-        [SerializeField]
-        private string defaultJumping4Anim;
-        [SerializeField]
-        private string defaultJumpingDash3Anim;
-        [SerializeField]
-        private string defaultJumpingDash4Anim;
-        [SerializeField]
-        private string defaultJumping3WithComboAnim;
-        [SerializeField]
-        private string defaultJumping4WithComboAnim;
-        [SerializeField]
-        private string defaultJumpingFrontBackDashAnim;
-
         [SerializeField]
         private string defaultDisableCombinationAnim;
 
@@ -334,20 +287,6 @@ namespace Components.Handlers {
         }
 
         void Start() {
-            var transformHurtboxManager = transform.Find("HurtboxManager");
-            GetComponentInChild(transformHurtboxManager, hurtboxManager);
-
-            mainHurtbox = transformHurtboxManager.Find("MainHurtbox");
-            additionalHurtBox1 = transformHurtboxManager.Find("AdditionalHurtbox1");
-            additionalHurtBox2 = transformHurtboxManager.Find("AdditionalHurtbox2");
-
-            var transformHitboxManager = transform.Find("HitboxManager");
-            GetComponentInChild(transformHitboxManager, hitboxManager);
-
-            mainHitbox = transformHitboxManager.Find("MainHitbox");
-            additionalHurtBox1 = transformHitboxManager.Find("AdditionalHitbox1");
-            additionalHurtBox2 = transformHitboxManager.Find("AdditionalHitbox2");
-
             currentHP = initialHP;
             currentMP = initialMP;
 
@@ -379,18 +318,6 @@ namespace Components.Handlers {
 #if UNITY_EDITOR
             ExecutePauseBreak();
 #endif
-            if (owner.actualFrame.bodies.Length == 3) {
-                mainHurtbox.gameObject.SetActive(true);
-                additionalHitbox1.gameObject.SetActive(true);
-                additionalHitbox2.gameObject.SetActive(true);
-            } else if (owner.actualFrame.bodies.Length == 2) {
-                mainHurtbox.gameObject.SetActive(true);
-                additionalHitbox1.gameObject.SetActive(true);
-            } else if (owner.actualFrame.bodies.Length == 1) {
-                mainHurtbox.gameObject.SetActive(true);
-            } else {
-                gameObject.SetActive(false);
-            }
 
             SetupAnimResets();
 
@@ -429,7 +356,6 @@ namespace Components.Handlers {
             SharePositionToOwner();
 
             lastSprite = currentSprite;
-
 
             if (actualFrame.physic.enableMovementFixedVertical && fixedValueForDirection.Equals(0f)) {
                 fixedValueForDirection = moveVertical;
@@ -1072,7 +998,7 @@ namespace Components.Handlers {
 
         private void ToggleTriggersForState() {
             if (objectType.Equals(ObjectEnum.CHARACTER)) {
-                if (currentAnim.Equals(defaultStandingAnim)) {
+                if (currentAnim.Equals(CharacterAnimEnum.Standing.Name())) {
                     isWalkingEnabled = true;
                     isRunningEnabled = false;
                     isSideDashEnabled = false;
@@ -1095,8 +1021,8 @@ namespace Components.Handlers {
                     }
                 }
 
-                if ((currentAnim.Equals(defaultDefenseAnim.ToString()) && currentAnim.Equals(defaultDefenseMovementDebugAnim))
-                || (currentAnim.Equals(defaultJumpDefenseAnim) && currentAnim.Equals(defaultJumpDefenseMovementDebugAnim))) {
+                if ((currentAnim.Equals(CharacterAnimEnum.Defense.Name()) && currentAnim.Equals(CharacterAnimEnum.DefenseMovementDebug.Name()))
+                || (currentAnim.Equals(CharacterAnimEnum.JumpDefense.Name()) && currentAnim.Equals(CharacterAnimEnum.JumpDefenseMovementDebug.Name()))) {
                     isWalkingEnabled = false;
                     isRunningEnabled = false;
                     isSideDashEnabled = false;
@@ -1162,7 +1088,7 @@ namespace Components.Handlers {
                         runningCountTapRight = 0f;
                         runningCountTapLeft = 0f;
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(defaultRunningAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.Running.Name());
                         return;
 
                     } else if (moveHorizontal < 0f && stepOneRunningLeftEnabled && runningCountTapLeft > 0) {
@@ -1172,7 +1098,7 @@ namespace Components.Handlers {
                         runningCountTapRight = 0f;
                         runningCountTapLeft = 0f;
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(defaultRunningAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.Running.Name());
                         return;
                     }
 
@@ -1207,7 +1133,7 @@ namespace Components.Handlers {
                         sideDashCountTapDown = 0f;
                         sideDashCountTapUp = 0f;
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(defaultSideDashAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.SideDash.Name());
                         return;
 
                     } else if (moveVertical < 0f && stepOneSideDashDownEnabled && sideDashCountTapDown > 0) {
@@ -1217,7 +1143,7 @@ namespace Components.Handlers {
                         sideDashCountTapDown = 0f;
                         sideDashCountTapUp = 0f;
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(defaultSideDashAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.SideDash.Name());
                         return;
                     }
 
@@ -1227,17 +1153,17 @@ namespace Components.Handlers {
 
                     if (moveHorizontal == 0 && moveVertical == 0) {
                         //Standing anim
-                        if (!currentAnim.Equals(defaultStandingAnim)) {
+                        if (!currentAnim.Equals(CharacterAnimEnum.Standing.Name())) {
                             flipOneTimeForFrame = true;
-                            ChangeAnimation(defaultStandingAnim.ToString());
+                            ChangeAnimation(CharacterAnimEnum.Standing.Name().ToString());
                             return;
                         }
                     }
-                } else if (currentAnim.Equals(defaultWalkingAnim)) {
+                } else if (currentAnim.Equals(CharacterAnimEnum.Walking.Name())) {
                     //Standing anim
-                    if (!currentAnim.Equals(defaultStandingAnim)) {
+                    if (!currentAnim.Equals(CharacterAnimEnum.Standing.Name())) {
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(defaultStandingAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.Standing.Name().ToString());
                         return;
                     }
                 }
@@ -1251,12 +1177,12 @@ namespace Components.Handlers {
                     isWalkingEnabled = false;
                     isSideDashEnabled = false;
 
-                    if (!currentAnim.Equals(defaultRunningAnim) && !currentAnim.Equals(defaultRunning2Anim)) {
+                    if (!currentAnim.Equals(CharacterAnimEnum.Running.Name()) && !currentAnim.Equals(CharacterAnimEnum.Running2.Name())) {
                         flipOneTimeForFrame = true;
                         isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
-                        ChangeAnimation(defaultRunningAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.Running.Name());
                         return;
                     }
 
@@ -1268,12 +1194,12 @@ namespace Components.Handlers {
                     }
                 } else {
                     //Stop Running anim
-                    if (currentAnim.Equals(defaultRunningAnim) || currentAnim.Equals(defaultRunning2Anim)) {
+                    if (currentAnim.Equals(CharacterAnimEnum.Running.Name()) || currentAnim.Equals(CharacterAnimEnum.Running2.Name())) {
                         flipOneTimeForFrame = true;
                         isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
-                        ChangeAnimation(defaultStopRunningAnim.ToString());
+                        ChangeAnimation(CharacterAnimEnum.StopRunning.Name().ToString());
                         return;
                     }
                 }
@@ -1295,9 +1221,9 @@ namespace Components.Handlers {
                 return;
             }
 
-            if (currentAnim.Equals(defaultJumping3Anim) || currentAnim.Equals(defaultJumping4Anim)
-            || currentAnim.Equals(defaultJumpingDash3Anim) || currentAnim.Equals(defaultJumpingDash4Anim)
-            || currentAnim.Equals(defaultJumping3WithComboAnim) || currentAnim.Equals(defaultJumping4WithComboAnim)) {
+            if (currentAnim.Equals(CharacterAnimEnum.Jumping3.Name()) || currentAnim.Equals(CharacterAnimEnum.Jumping4.Name())
+            || currentAnim.Equals(CharacterAnimEnum.JumpingDash3.Name()) || currentAnim.Equals(CharacterAnimEnum.JumpingDash4.Name())
+            || currentAnim.Equals(CharacterAnimEnum.Jumping3WithCombo.Name()) || currentAnim.Equals(CharacterAnimEnum.Jumping4WithCombo.Name())) {
                 Flip(true);
                 //Jumping Front Back Dash Triggger
                 if (runningCountTapRight >= 0f) {
@@ -1328,7 +1254,7 @@ namespace Components.Handlers {
                     runningCountTapRight = 0f;
                     runningCountTapLeft = 0f;
                     flipOneTimeForFrame = true;
-                    ChangeAnimation(defaultJumpingFrontBackDashAnim.ToString());
+                    ChangeAnimation(CharacterAnimEnum.JumpingFrontBackDash.Name());
                     return;
 
                 } else if (moveHorizontal < 0f && stepOneRunningLeftEnabled && runningCountTapLeft > 0) {
@@ -1337,7 +1263,7 @@ namespace Components.Handlers {
                     runningCountTapRight = 0f;
                     runningCountTapLeft = 0f;
                     flipOneTimeForFrame = true;
-                    ChangeAnimation(defaultJumpingFrontBackDashAnim.ToString());
+                    ChangeAnimation(CharacterAnimEnum.JumpingFrontBackDash.Name());
                     return;
                 }
             }
@@ -1616,9 +1542,9 @@ namespace Components.Handlers {
             if (isWalkingEnabled) {
                 //Walk force
                 if (moveHorizontal != 0 || moveVertical != 0) {
-                    if (!currentAnim.Equals(defaultWalkingAnim)) {
+                    if (!currentAnim.Equals(CharacterAnimEnum.Walking.Name())) {
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(defaultWalkingAnim);
+                        ChangeAnimation(CharacterAnimEnum.Walking.Name());
                     }
 
                     float x = transform.position.x;
@@ -1655,7 +1581,7 @@ namespace Components.Handlers {
 
         private void SideDashForce() {
             if (isSideDashEnabled) {
-                if (!currentAnim.Equals(defaultCrouchAnim)) {
+                if (!currentAnim.Equals(CharacterAnimEnum.Crouch.Name())) {
                     //Move side dash velocity
                     float x = transform.position.x;
                     float y = transform.position.y;

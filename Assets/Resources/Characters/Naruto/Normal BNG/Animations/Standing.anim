@@ -82,43 +82,43 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: GetFrameData
-    data: Standing
+    functionName: UpdateFrameData
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.083333336
-    functionName: GetFrameData
-    data: Standing
+  - time: 0.06666667
+    functionName: UpdateFrameData
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.16666667
-    functionName: GetFrameData
-    data: Standing
+  - time: 0.15
+    functionName: UpdateFrameData
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.25
-    functionName: GetFrameData
-    data: Standing
+  - time: 0.23333333
+    functionName: UpdateFrameData
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.33333334
-    functionName: GetFrameData
-    data: Standing
+  - time: 0.31666666
+    functionName: UpdateFrameData
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 4
     messageOptions: 0
-  - time: 0.36666667
-    functionName: GetFrameData
-    data: Standing
+  - time: 0.35
+    functionName: UpdateFrameData
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 5

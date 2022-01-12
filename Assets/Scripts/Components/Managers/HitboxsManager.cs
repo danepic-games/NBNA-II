@@ -1,20 +1,27 @@
-using Model;
+using Components.Handlers;
 using TMPro;
 using UnityEngine;
-using Components.Handlers;
-using Components.Controllers;
+using Util;
 
 namespace Components.Managers {
     public class HitboxsManager : MonoBehaviour {
-        public TeamEnum team;
+        [SerializeField]
+        private TeamEnum team;
+        [SerializeField]
         private ObjectHandler owner;
         private ObjectHandler parentOwner;
 
-        public GameObject hitBox1;
-        public GameObject hitBox2;
-        public GameObject hitBox3;
+        [SerializeField]
+        private GameObject mainHitbox;
 
-        public TextMeshPro countText;
+        [SerializeField]
+        private GameObject additionalHitbox1;
+
+        [SerializeField]
+        private GameObject additionalHitbox2;
+
+        [SerializeField]
+        private TextMeshPro countText;
 
         public int hitsCount = 0;
         public float countResetHits;
@@ -22,17 +29,15 @@ namespace Components.Managers {
         private bool flagToDisableAsyncHits = false;
 
         void Start() {
-            owner = gameObject.GetComponentInParent <ObjectHandler>();
-            if (owner != null) {
-                team = owner.team;
+            team = owner.team;
 
-                if (owner.transform.parent != null) {
-                    parentOwner = owner.transform.parent.GetComponentInParent <ObjectHandler>();
-                }
+            if (owner.transform.parent != null) {
+                parentOwner = owner.transform.parent.GetComponentInParent <ObjectHandler>();
             }
         }
 
         void Update() {
+            EnableDisableInteractions();
             SetupResetCount();
         }
 
@@ -67,6 +72,28 @@ namespace Components.Managers {
                 hitsCount = 0;
                 countText.transform.parent.gameObject.SetActive(false);
                 flagToDisableAsyncHits = false;
+            }
+        }
+
+        private void EnableDisableInteractions() {
+            if (owner.actualFrame.interactions.Length == 3) {
+                mainHitbox.gameObject.SetActive(true);
+                additionalHitbox1.gameObject.SetActive(true);
+                additionalHitbox2.gameObject.SetActive(true);
+            } else if (owner.actualFrame.interactions.Length == 2) {
+                mainHitbox.gameObject.SetActive(true);
+                additionalHitbox1.gameObject.SetActive(true);
+                additionalHitbox2.gameObject.SetActive(false);
+            } else if (owner.actualFrame.interactions.Length == 1) {
+                mainHitbox.gameObject.SetActive(true);
+                additionalHitbox1.gameObject.SetActive(false);
+                additionalHitbox2.gameObject.SetActive(false);
+            } else if (owner.actualFrame.interactions.Length > 3) {
+                ExceptionThrowUtil.LimitReached();
+            } else {
+                mainHitbox.gameObject.SetActive(false);
+                additionalHitbox1.gameObject.SetActive(false);
+                additionalHitbox2.gameObject.SetActive(false);
             }
         }
     }

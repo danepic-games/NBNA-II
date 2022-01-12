@@ -1,9 +1,8 @@
 {
   "standing": [
     {
-      "id": 1,
+      "id": 0,
       "core": {
-        "frameCount": 1,
         "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL"
       },
@@ -12,7 +11,7 @@
           "position": {
             "x": 0.049,
             "y": 0.395,
-            "z": 1
+            "z": 0
           },
           "size": {
             "x": 0.36,
@@ -27,7 +26,40 @@
         "canFlip": true
       },
       "combinations": {},
-      "physics": {},
+      "physic": {
+        "resetExternalForce": true
+      },
+      "triggers": {
+      },
+      "childGameObjects": {}
+    },
+    {
+      "id": 1,
+      "core": {
+        "state": "WALK_RUN_SIDEDASH",
+        "hurtBoxType": "NORMAL"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.049,
+            "y": 0.395,
+            "z": 0
+          },
+          "size": {
+            "x": 0.36,
+            "y": 0.79,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {
+        "canFlip": true
+      },
+      "combinations": {},
+      "physic": {},
       "triggers": {
       },
       "childGameObjects": {}
@@ -35,7 +67,6 @@
     {
       "id": 2,
       "core": {
-        "frameCount": 2,
         "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL"
       },
@@ -44,103 +75,7 @@
           "position": {
             "x": 0.049,
             "y": 0.395,
-            "z": 1
-          },
-          "size": {
-            "x": 1.36,
-            "y": 0.79,
-            "z": 0.22
-          }
-        }
-      ],
-      "spawns": [],
-      "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combinations": {},
-      "physics": {},
-      "triggers": {
-      },
-      "childGameObjects": {}
-    },
-    {
-      "id": 3,
-      "core": {
-        "frameCount": 3,
-        "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
-      },
-      "bodies": [
-        {
-          "position": {
-            "x": 0.049,
-            "y": 0.395,
-            "z": 1
-          },
-          "size": {
-            "x": 2.36,
-            "y": 0.79,
-            "z": 0.22
-          }
-        }
-      ],
-      "spawns": [],
-      "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combinations": {},
-      "physics": {},
-      "triggers": {
-      },
-      "childGameObjects": {}
-    },
-    {
-      "id": 4,
-      "core": {
-        "frameCount": 4,
-        "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
-      },
-      "bodies": [
-        {
-          "position": {
-            "x": 0.049,
-            "y": 0.395,
-            "z": 1
-          },
-          "size": {
-            "x": 1.36,
-            "y": 0.79,
-            "z": 0.22
-          }
-        }
-      ],
-      "spawns": [],
-      "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combinations": {},
-      "physics": {},
-      "triggers": {
-      },
-      "childGameObjects": {}
-    },
-    {
-      "id": 5,
-      "core": {
-        "frameCount": 5,
-        "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
-      },
-      "bodies": [
-        {
-          "position": {
-            "x": 0.049,
-            "y": 0.395,
-            "z": 1
+            "z": 0
           },
           "size": {
             "x": 0.36,
@@ -155,15 +90,14 @@
         "canFlip": true
       },
       "combinations": {},
-      "physics": {},
+      "physic": {},
       "triggers": {
       },
       "childGameObjects": {}
     },
     {
-      "id": 6,
+      "id": 3,
       "core": {
-        "frameCount": 6,
         "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL"
       },
@@ -172,10 +106,10 @@
           "position": {
             "x": 0.049,
             "y": 0.395,
-            "z": 1
+            "z": 0
           },
           "size": {
-            "x": 1.36,
+            "x": 0.36,
             "y": 0.79,
             "z": 0.22
           }
@@ -187,7 +121,69 @@
         "canFlip": true
       },
       "combinations": {},
-      "physics": {},
+      "physic": {},
+      "triggers": {
+      },
+      "childGameObjects": {}
+    },
+    {
+      "id": 4,
+      "core": {
+        "state": "WALK_RUN_SIDEDASH",
+        "hurtBoxType": "NORMAL"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.049,
+            "y": 0.395,
+            "z": 0
+          },
+          "size": {
+            "x": 0.36,
+            "y": 0.79,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {
+        "canFlip": true
+      },
+      "combinations": {},
+      "physic": {},
+      "triggers": {
+      },
+      "childGameObjects": {}
+    },
+    {
+      "id": 5,
+      "core": {
+        "state": "WALK_RUN_SIDEDASH",
+        "hurtBoxType": "NORMAL"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.049,
+            "y": 0.395,
+            "z": 0
+          },
+          "size": {
+            "x": 0.36,
+            "y": 0.79,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {
+        "canFlip": true
+      },
+      "combinations": {},
+      "physic": {},
       "triggers": {
       },
       "childGameObjects": {}
