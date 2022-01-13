@@ -1,6 +1,7 @@
 using Back.Model.Type;
 using Model.Type;
 using UnityEngine;
+using Models;
 
 namespace Model {
     [System.Serializable]

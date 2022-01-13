@@ -1,3 +1,5 @@
+using System;
+
 namespace Back.Model.Type {
     public enum CharacterAnimEnum {
         Standing,
@@ -18,6 +20,7 @@ namespace Back.Model.Type {
         Jumping3WithCombo,
         Jumping4WithCombo,
         JumpingFrontBackDash,
+        Punch,
     }
 
     static class Extensions {

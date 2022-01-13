@@ -3,6 +3,7 @@ using UnityEngine;
 using Components.Managers;
 using Components.Handlers;
 using Components.Controllers;
+using Models;
 
 namespace Components.Handlers {
     public class HurtboxSpecifiedHandler : MonoBehaviour {

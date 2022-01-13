@@ -1,3 +1,5 @@
+using Models;
+
 namespace Model.Type {
     public enum ObjectEnum {
         CHARACTER,

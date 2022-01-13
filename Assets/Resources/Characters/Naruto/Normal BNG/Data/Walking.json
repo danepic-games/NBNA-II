@@ -36,9 +36,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -78,9 +79,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -120,9 +122,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -162,9 +165,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -204,9 +208,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -246,9 +251,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -288,9 +294,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -330,9 +337,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physics": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     }

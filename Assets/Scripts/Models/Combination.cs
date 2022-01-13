@@ -1,4 +1,5 @@
 using Back.Model.Type;
+using Models;
 
 namespace Model {
     [System.Serializable]

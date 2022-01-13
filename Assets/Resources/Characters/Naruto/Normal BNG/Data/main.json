@@ -1,0 +1,28 @@
+{
+  "headerData": {
+    "walking_speed": 0.04,
+    "walking_speedz": 0.025,
+    "running_speed": 0,
+    "running_speedz": 0,
+    "jump_distance": 0,
+    "dash_distance": 0,
+    "sideDash_distance": 0,
+    "totalHP": 0,
+    "totalMP": 0,
+    "initialHP": 0,
+    "initialMP": 0,
+    "currentHP": 0,
+    "currentMP": 0,
+    "agressive": 0,
+    "technique": 0,
+    "inteligent": 0,
+    "speed": 0,
+    "resistence": 0,
+    "stamina": 0,
+    "loadedAnimations": [
+      "Standing",
+      "Walking",
+      "Punch"
+    ]
+  }
+}

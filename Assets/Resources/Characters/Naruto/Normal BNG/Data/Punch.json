@@ -1,0 +1,183 @@
+{
+  "punch": [
+    {
+      "id": 0,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "resetRunningInterval": true
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.0701,
+            "y": 0.516,
+            "z": 0
+          },
+          "size": {
+            "x": 0.4008826,
+            "y": 0.5467095,
+            "z": 0.22
+          }
+        },
+        {
+          "position": {
+            "x": 0.3078,
+            "y": 0.7701,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2176258,
+            "y": 0.2491691,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {},
+      "trigger": {},
+      "childGameObjects": {}
+    },
+    {
+      "id": 1,
+      "core": {
+        "hurtBoxType": "NORMAL"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.0988,
+            "y": 0.516,
+            "z": 0
+          },
+          "size": {
+            "x": 0.3434361,
+            "y": 0.5467095,
+            "z": 0.22
+          }
+        },
+        {
+          "position": {
+            "x": 0.206,
+            "y": 0.8057,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2176258,
+            "y": 0.2938451,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {},
+      "trigger": {},
+      "childGameObjects": {}
+    },
+    {
+      "id": 2,
+      "core": {
+        "hurtBoxType": "NORMAL"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.1243,
+            "y": 0.666,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2923672,
+            "y": 0.8467436,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [
+        {
+          "position": {
+            "x": 0.273,
+            "y": 0.9422,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2223287,
+            "y": 0.5674226,
+            "z": 0.22
+          },
+          "damageRestTU": 0.15,
+          "affectedAnimation": "Injured",
+          "nextIfPressedAttackAnimation": "Punch2",
+          "injury":20,
+          "level":0
+        }
+      ],
+      "flip": {},
+      "combination": {},
+      "physic": {},
+      "trigger": {},
+      "childGameObjects": {}
+    },
+    {
+      "id": 3,
+      "core": {
+        "hurtBoxType": "NORMAL"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.1243,
+            "y": 0.666,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2923672,
+            "y": 0.8467436,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {},
+      "trigger": {},
+      "childGameObjects": {}
+    },
+    {
+      "id": 4,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "nextAnim": "Standing"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.1243,
+            "y": 0.666,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2923672,
+            "y": 0.8467436,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {},
+      "trigger": {},
+      "childGameObjects": {}
+    }
+  ]
+}

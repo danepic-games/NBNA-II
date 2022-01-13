@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using Utils;
 
 namespace Util {
     public class ExceptionThrowUtil {

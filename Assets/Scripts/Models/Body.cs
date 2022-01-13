@@ -1,4 +1,5 @@
 using UnityEngine;
+using Models;
 
 namespace Model {
     [System.Serializable]

@@ -25,11 +25,12 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physic": {
         "resetExternalForce": true
       },
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -58,9 +59,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physic": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -89,9 +91,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physic": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -120,9 +123,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physic": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -151,9 +155,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physic": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     },
@@ -182,9 +187,10 @@
       "flip": {
         "canFlip": true
       },
-      "combinations": {},
+      "combination": {},
       "physic": {},
-      "triggers": {
+      "trigger": {
+        "attackButtonAnim": "Punch"
       },
       "childGameObjects": {}
     }

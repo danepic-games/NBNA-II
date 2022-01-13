@@ -3,6 +3,7 @@ using UnityEngine;
 using Components.Managers;
 using Components.Handlers;
 using Components.Controllers;
+using Models;
 
 namespace Components.Controllers {
     public class ShadowController : MonoBehaviour {
@@ -12,7 +13,6 @@ namespace Components.Controllers {
         private Rigidbody rigidbody;
         public float maxY;
 
-        [SerializeField]
         private Background background;
 
         // Use this for initialization

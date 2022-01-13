@@ -5,6 +5,8 @@ using Model.Type;
 using TMPro;
 using UnityEngine;
 using Util;
+using Models;
+using Utils;
 
 namespace Components.Managers {
     public class HurtboxsManager : MonoBehaviour {
@@ -67,7 +69,7 @@ namespace Components.Managers {
 
                 SpriteRenderer enemySpriteRenderer = enemyOwner.GetComponentInParent<SpriteRenderer>();
 
-                if (itr != null && itr.active && enemySpriteRenderer != null) {
+                if (itr != null && enemySpriteRenderer != null) {
                     if (damageRestTimer.Equals(0)) {
 
                         float dvx = GetTrueDvxOfDamage(enemySpriteRenderer, itr);

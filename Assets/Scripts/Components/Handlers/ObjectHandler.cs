@@ -5,38 +5,12 @@ using Model;
 using Model.Type;
 using UnityEngine;
 using Util;
+using Models;
+using Utils;
 
 namespace Components.Handlers {
 
     public class ObjectHandler : MonoBehaviour {
-
-        //Parametros de definição de algumas ações
-        [SerializeField]
-        private float walking_speed;
-        [SerializeField]
-        private float walking_speedz;
-        [SerializeField]
-        private float running_speed;
-        [SerializeField]
-        private float running_speedz;
-        [SerializeField]
-        private float jump_distance;
-        [SerializeField]
-        private float dash_distance;
-        [SerializeField]
-        private float sideDash_distance;
-        [SerializeField]
-        private int totalHP;
-        [SerializeField]
-        private int totalMP;
-        [SerializeField]
-        private int initialHP;
-        [SerializeField]
-        private int initialMP;
-        [SerializeField]
-        private int currentHP;
-        [SerializeField]
-        private int currentMP;
 
         //Dono do objeto
         public ObjectHandler owner;
@@ -67,19 +41,6 @@ namespace Components.Handlers {
         public BoxCollider boxCollider;
         [SerializeField]
         private HurtboxsManager hurtboxManager;
-
-        [SerializeField]
-        private int agressive;
-        [SerializeField]
-        private int technique;
-        [SerializeField]
-        private int inteligent;
-        [SerializeField]
-        private int speed;
-        [SerializeField]
-        private int resistence;
-        [SerializeField]
-        private int stamina;
 
         //Execução de algum componente
         [SerializeField]
@@ -287,8 +248,8 @@ namespace Components.Handlers {
         }
 
         void Start() {
-            currentHP = initialHP;
-            currentMP = initialMP;
+            data.headerData.currentHP = data.headerData.initialHP;
+            data.headerData.currentMP = data.headerData.initialMP;
 
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent <SpriteRenderer>();
@@ -450,7 +411,7 @@ namespace Components.Handlers {
         }
 
         private void SetupDead() {
-            if (currentHP <= 0) {
+            if (data.headerData.currentHP <= 0) {
                 isDead = true;
             }
         }
@@ -467,8 +428,8 @@ namespace Components.Handlers {
         private void SetupControlsForPlayer(PlayerEnum playerType) {
             switch (playerType) {
                 case PlayerEnum.PLAYER1:
-                    moveHorizontal = Input.GetAxisRaw(ButtonEnum.Horizontal.ToString()) / 25;
-                    moveVertical = Input.GetAxisRaw(ButtonEnum.Vertical.ToString()) / 25;
+                    moveHorizontal = Input.GetAxisRaw(ButtonEnum.Horizontal.ToString());
+                    moveVertical = Input.GetAxisRaw(ButtonEnum.Vertical.ToString());
                     moveHorizontalDown = Input.GetButtonDown(ButtonEnum.Horizontal.ToString());
                     moveHorizontalUp = Input.GetButtonUp(ButtonEnum.Horizontal.ToString());
                     moveVerticalUp = Input.GetButtonUp(ButtonEnum.Vertical.ToString());
@@ -554,8 +515,8 @@ namespace Components.Handlers {
                     }
                     break;
                 case PlayerEnum.PLAYER2:
-                    moveHorizontal = Input.GetAxisRaw(ButtonEnum.Horizontal_P2.ToString()) / 25;
-                    moveVertical = Input.GetAxisRaw(ButtonEnum.Vertical_P2.ToString()) / 25;
+                    moveHorizontal = Input.GetAxisRaw(ButtonEnum.Horizontal_P2.ToString());
+                    moveVertical = Input.GetAxisRaw(ButtonEnum.Vertical_P2.ToString());
                     moveHorizontalDown = Input.GetButtonDown(ButtonEnum.Horizontal_P2.ToString());
                     moveHorizontalUp = Input.GetButtonUp(ButtonEnum.Horizontal_P2.ToString());
                     moveVerticalUp = Input.GetButtonUp(ButtonEnum.Vertical.ToString());
@@ -944,18 +905,18 @@ namespace Components.Handlers {
             }
 
             if (isDead && actualFrame.trigger.deathAnim != null) {
-                eventNextAnim = actualFrame.trigger.deathAnim.ToString();
+                eventNextAnim = actualFrame.trigger.deathAnim;
             }
 
             //Without Action
             if (eventNextAnim == null) {
                 if (actualFrame.core.touchHurtBoxNextAnim != null && hasTouchedHurtBox) {
                     hasTouchedHurtBox = false;
-                    eventNextAnim = actualFrame.core.touchHurtBoxNextAnim.ToString();
+                    eventNextAnim = actualFrame.core.touchHurtBoxNextAnim;
 
                 } else if (actualFrame.core.nextAnim != null) {
                     if (actualFrame.core.nextAnim != null) {
-                        eventNextAnim = actualFrame.core.nextAnim.ToString();
+                        eventNextAnim = actualFrame.core.nextAnim;
                     }
                 }
             }
@@ -989,7 +950,7 @@ namespace Components.Handlers {
                 actualFrame.physic.externalForceZ = externalItr.force.z;
             }
 
-            this.currentHP -= externalItr.injury;
+            this.data.headerData.currentHP -= externalItr.injury;
             enableInjured = false;
             sameExternalItr = false;
             executeExternalForce = true;
@@ -1041,7 +1002,6 @@ namespace Components.Handlers {
             execRecoverManaOneTime = true;
             execUsageManaOneTime = true;
             SetupAudio();
-            actualFrame.core.nextAnim = null;
         }
 
         private void ResetRunningInterval() {
@@ -1284,10 +1244,10 @@ namespace Components.Handlers {
             if (execUsageManaOneTime) {
                 if (usageMP > 0) {
 
-                    currentMP -= usageMP;
+                    data.headerData.currentMP -= usageMP;
 
-                    if (currentMP < 0) {
-                        currentMP = 0;
+                    if (data.headerData.currentMP < 0) {
+                        data.headerData.currentMP = 0;
                     }
 
                     execUsageManaOneTime = false;
@@ -1395,8 +1355,10 @@ namespace Components.Handlers {
 
             if (actualFrame.physic.enableMovementFixedVertical) {
                 if (!isFacingRight) {
+                    transform.Translate(new Vector3(-force.x, force.y, actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25)));
                     return;
                 } else {
+                    transform.Translate(new Vector3(force.x, force.y, actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25)));
                     return;
                 }
             } else if (actualFrame.physic.useHorizontalInertia || actualFrame.physic.useVerticalInertia) {
@@ -1417,11 +1379,14 @@ namespace Components.Handlers {
                     }
 
                     if (isInjured) {
+                        transform.Translate(new Vector3(force.x, dvy, force.z));
                         return;
                     } else {
                         if (!isFacingRight) {
+                            transform.Translate(new Vector3(-force.x, dvy, force.z));
                             return;
                         } else {
+                            transform.Translate(new Vector3(force.x, dvy, force.z));
                             return;
                         }
                     }
@@ -1438,11 +1403,14 @@ namespace Components.Handlers {
                     }
 
                     if (isInjured) {
+                        transform.Translate(new Vector3(force.x, dvy, force.z));
                         return;
                     } else {
                         if (!lockRightForce) {
+                            transform.Translate(new Vector3(-force.x, dvy, force.z));
                             return;
                         } else {
+                            transform.Translate(new Vector3(force.x, dvy, force.z));
                             return;
                         }
                     }
@@ -1459,11 +1427,14 @@ namespace Components.Handlers {
                     }
 
                     if (isInjured) {
+                        transform.Translate(new Vector3(force.x, dvy, force.z));
                         return;
                     } else {
                         if (!isFacingRight) {
+                            transform.Translate(new Vector3(-force.x, dvy, force.z));
                             return;
                         } else {
+                            transform.Translate(new Vector3(force.x, dvy, force.z));
                             return;
                         }
                     }
@@ -1472,11 +1443,14 @@ namespace Components.Handlers {
                 //execute stop gravity
                 if (!dvyCondition && actualFrame.physic.stopGravity) {
                     if (isInjured) {
+                        transform.Translate(new Vector3(force.x, force.y, force.z));
                         return;
                     } else {
                         if (!isFacingRight) {
+                            transform.Translate(new Vector3(-force.x, force.y, force.z));
                             return;
                         } else {
+                            transform.Translate(new Vector3(force.x, force.y, force.z));
                             return;
                         }
                     }
@@ -1536,6 +1510,8 @@ namespace Components.Handlers {
             float x = transform2.position.x;
             float y = transform2.position.y;
             float z = transform2.position.z;
+
+            transform.Translate(new Vector3(x + inertiaMoveHorizontal, y, z + inertiaMoveVertical));
         }
 
         private void WalkingForce() {
@@ -1551,6 +1527,7 @@ namespace Components.Handlers {
                     float y = transform.position.y;
                     float z = transform.position.z;
 
+                    transform.position = new Vector3(x + (moveHorizontal * data.headerData.walking_speed), y, z + (moveVertical * data.headerData.walking_speedz));
                 }
             }
         }
@@ -1566,16 +1543,17 @@ namespace Components.Handlers {
                 float usedRunning = 0f;
                 float usedRunningZ = 0f;
                 if (!isFacingRight) {
-                    usedRunning = -running_speed;
+                    usedRunning = -data.headerData.running_speed;
                 } else if (isFacingRight) {
-                    usedRunning = running_speed;
+                    usedRunning = data.headerData.running_speed;
                 }
 
                 if (moveVertical > 0) {
-                    usedRunningZ = running_speedz;
+                    usedRunningZ = data.headerData.running_speedz;
                 } else if (moveVertical < 0) {
-                    usedRunningZ = -running_speedz;
+                    usedRunningZ = -data.headerData.running_speedz;
                 }
+                transform.Translate(new Vector3(x + usedRunning, y, z + usedRunningZ));
             }
         }
 
@@ -1590,23 +1568,17 @@ namespace Components.Handlers {
                     //Get velocity by direction
                     float usedSideDash = 0f;
                     if (lastMoveVerticalUpValue > 0) {
-                        usedSideDash = sideDash_distance;
+                        usedSideDash = data.headerData.sideDash_distance;
                     } else if (lastMoveVerticalUpValue < 0) {
-                        usedSideDash = -sideDash_distance;
+                        usedSideDash = -data.headerData.sideDash_distance;
                     }
+                    transform.Translate(new Vector3(x, y, z + usedSideDash));
                 }
             }
         }
 
         void UpdateFrameData(AnimationEvent animationEvent) {
-            switch (currentAnim) {
-                case "Standing":
-                    actualFrame = data.standing[animationEvent.intParameter];
-                    break;
-                case "Walking":
-                    actualFrame = data.walking[animationEvent.intParameter];
-                    break;
-            }
+            actualFrame = DataChangerUtil.GetActualFrameFromData(animationEvent.intParameter, currentAnim, data);
             if (actualFrame != null) {
                 actualFrame.name = currentAnim;
             }
@@ -1620,10 +1592,10 @@ namespace Components.Handlers {
 
         void ExecRecoverManaOneTime(int manaPoints) {
             if (manaPoints != 0) {
-                currentMP += manaPoints;
+                data.headerData.currentMP += manaPoints;
 
-                if (currentMP > totalMP) {
-                    currentMP = totalMP;
+                if (data.headerData.currentMP > data.headerData.totalMP) {
+                    data.headerData.currentMP = data.headerData.totalMP;
                 }
             }
         }

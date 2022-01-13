@@ -1,6 +1,7 @@
 using Back.Model.Type;
 using Model.Type;
 using UnityEngine;
+using Models;
 
 namespace Model {
     [System.Serializable]
@@ -20,6 +21,5 @@ namespace Model {
         public InteractionEffectEnum effect;
         public LevelDamageEnum level;
         public GameObject origin;
-        public bool active;
     }
 }

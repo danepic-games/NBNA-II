@@ -1,28 +1,45 @@
-using System;
-using System.IO;
-using System.Linq;
-using Model;
+using Back.Model.Type;
+using Models;
 using UnityEngine;
+using Utils;
 
-namespace Util {
+namespace Utils {
     public class DataChangerUtil : MonoBehaviour {
 
         public static Data GetDataFromJson(string dataPath) {
             Data data = new Data();
 
-            var fileNames = new string[]{"Standing", "Walking", "SEILA"};
+            var headerData = Resources.Load<TextAsset>($"{dataPath}main");
+            if (headerData != null) {
+                JsonUtility.FromJsonOverwrite(headerData.text, data);
+            }
 
-            GetFramesByDataFileName(data, dataPath, fileNames);
+            GetFramesByDataFileName(data, dataPath, data.headerData.loadedAnimations);
 
             return data;
         }
 
-        private static void GetFramesByDataFileName(Data data, string dataPath, string[] fileNames){
+        private static void GetFramesByDataFileName(Data data, string dataPath, string[] fileNames) {
             foreach (string fileName in fileNames) {
                 var framesDataChanger = Resources.Load<TextAsset>($"{dataPath}{fileName}");
                 if (framesDataChanger != null) {
                     JsonUtility.FromJsonOverwrite(framesDataChanger.text, data);
                 }
+            }
+        }
+
+        public static Frame GetActualFrameFromData(int animationIndex, string currentAnim, Data data) {
+            var currentAnimType = EnumUtils.ParseEnum<CharacterAnimEnum>(currentAnim);
+            switch (currentAnimType) {
+                case CharacterAnimEnum.Standing:
+                    return data.standing[animationIndex];
+                case CharacterAnimEnum.Walking:
+                    return data.walking[animationIndex];
+                case CharacterAnimEnum.Punch:
+                    return data.punch[animationIndex];
+                default:
+                    Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
+                    return null;
             }
         }
     }

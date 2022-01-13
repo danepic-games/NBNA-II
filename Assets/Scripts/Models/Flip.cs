@@ -1,3 +1,5 @@
+using Models;
+
 namespace Model {
     [System.Serializable]
     public class Flip {

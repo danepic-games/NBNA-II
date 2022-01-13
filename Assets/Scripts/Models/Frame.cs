@@ -1,4 +1,6 @@
-namespace Model {
+using Model;
+
+namespace Models {
     [System.Serializable]
     public class Frame {
         public string name;
