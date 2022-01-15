@@ -385,12 +385,17 @@ namespace Components.Handlers {
                 execAudioOneTime = true;
             }
 
-            if (this.animator.GetCurrentAnimatorClipInfo(0).Length > 0) {
-                currentAnim = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-            }
+            UpdateCurrentAnim();
 
             if (lastAttackAnim != null && !lastAttackAnim.Equals(currentAnim)) {
                 hasAttacked = false;
+            }
+        }
+
+
+        private void UpdateCurrentAnim(){
+            if (this.animator.GetCurrentAnimatorClipInfo(0).Length > 0) {
+                currentAnim = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             }
         }
 
@@ -1578,10 +1583,20 @@ namespace Components.Handlers {
         }
 
         void UpdateFrameData(AnimationEvent animationEvent) {
+            UpdateCurrentAnim();
+            Debug.Log($"{currentAnim}-{animationEvent.intParameter}");
             actualFrame = DataChangerUtil.GetActualFrameFromData(animationEvent.intParameter, currentAnim, data);
+
             if (actualFrame != null) {
                 actualFrame.name = currentAnim;
             }
+        }
+
+        void UpdateFrameData(string anim, int animIndex) {
+            var animationEventParam = new AnimationEvent();
+            animationEventParam.intParameter = animIndex;
+            animationEventParam.stringParameter = anim;
+            UpdateFrameData(animationEventParam);
         }
 
         void ExecOpoint() {
