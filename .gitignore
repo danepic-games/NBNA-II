@@ -23,10 +23,6 @@ sysinfo.txt
 # Consulo
 .consulo/*
 
-# Images
-*.png
-*.pdn
-
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/unity,csharp,rider
