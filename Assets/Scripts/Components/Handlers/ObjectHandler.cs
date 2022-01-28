@@ -1053,7 +1053,7 @@ namespace Components.Handlers {
                         runningCountTapRight = 0f;
                         runningCountTapLeft = 0f;
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(CharacterAnimEnum.Running.Name());
+                        ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
                         return;
 
                     } else if (moveHorizontal < 0f && stepOneRunningLeftEnabled && runningCountTapLeft > 0) {
@@ -1063,7 +1063,7 @@ namespace Components.Handlers {
                         runningCountTapRight = 0f;
                         runningCountTapLeft = 0f;
                         flipOneTimeForFrame = true;
-                        ChangeAnimation(CharacterAnimEnum.Running.Name());
+                        ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
                         return;
                     }
 
@@ -1142,12 +1142,12 @@ namespace Components.Handlers {
                     isWalkingEnabled = false;
                     isSideDashEnabled = false;
 
-                    if (!currentAnim.Equals(CharacterAnimEnum.Running.Name()) && !currentAnim.Equals(CharacterAnimEnum.Running2.Name())) {
+                    if (!currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) && !currentAnim.Equals(CharacterAnimEnum.Running.Name())) {
                         flipOneTimeForFrame = true;
                         isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
-                        ChangeAnimation(CharacterAnimEnum.Running.Name());
+                        ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
                         return;
                     }
 
@@ -1159,7 +1159,7 @@ namespace Components.Handlers {
                     }
                 } else {
                     //Stop Running anim
-                    if (currentAnim.Equals(CharacterAnimEnum.Running.Name()) || currentAnim.Equals(CharacterAnimEnum.Running2.Name())) {
+                    if (currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) || currentAnim.Equals(CharacterAnimEnum.Running.Name())) {
                         flipOneTimeForFrame = true;
                         isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
@@ -1354,16 +1354,20 @@ namespace Components.Handlers {
         }
 
         private void UpdateVelocity(Vector3 force) {
-            HasVerticalMovement();
+            float x = transform.position.x;
+            float y = transform.position.y;
+            float z = transform.position.z;
 
-            HasHorizontalMovement();
+            CheckInertiaHasVerticalMovement();
+
+            CheckInertiaHasHorizontalMovement();
 
             if (actualFrame.physic.enableMovementFixedVertical) {
                 if (!isFacingRight) {
-                    transform.Translate(new Vector3(-force.x, force.y, actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25)));
+                    transform.position = new Vector3(x + -force.x, y + force.y, z + actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25));
                     return;
                 } else {
-                    transform.Translate(new Vector3(force.x, force.y, actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25)));
+                    transform.position = new Vector3(x + force.x, y + force.y, z + actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25));
                     return;
                 }
             } else if (actualFrame.physic.useHorizontalInertia || actualFrame.physic.useVerticalInertia) {
@@ -1384,14 +1388,14 @@ namespace Components.Handlers {
                     }
 
                     if (isInjured) {
-                        transform.Translate(new Vector3(force.x, dvy, force.z));
+                        transform.position = new Vector3(x + force.x, y + dvy, z + force.z);
                         return;
                     } else {
                         if (!isFacingRight) {
-                            transform.Translate(new Vector3(-force.x, dvy, force.z));
+                            transform.position = new Vector3(x + -force.x, y + dvy, z + force.z);
                             return;
                         } else {
-                            transform.Translate(new Vector3(force.x, dvy, force.z));
+                            transform.position = new Vector3(x + force.x, y + dvy, z + force.z);
                             return;
                         }
                     }
@@ -1408,14 +1412,14 @@ namespace Components.Handlers {
                     }
 
                     if (isInjured) {
-                        transform.Translate(new Vector3(force.x, dvy, force.z));
+                        transform.position = new Vector3(force.x, dvy, force.z);
                         return;
                     } else {
                         if (!lockRightForce) {
-                            transform.Translate(new Vector3(-force.x, dvy, force.z));
+                            transform.position = new Vector3(-force.x, dvy, force.z);
                             return;
                         } else {
-                            transform.Translate(new Vector3(force.x, dvy, force.z));
+                            transform.position = new Vector3(force.x, dvy, force.z);
                             return;
                         }
                     }
@@ -1432,14 +1436,14 @@ namespace Components.Handlers {
                     }
 
                     if (isInjured) {
-                        transform.Translate(new Vector3(force.x, dvy, force.z));
+                        transform.position = new Vector3(force.x, dvy, force.z);
                         return;
                     } else {
                         if (!isFacingRight) {
-                            transform.Translate(new Vector3(-force.x, dvy, force.z));
+                            transform.position = new Vector3(-force.x, dvy, force.z);
                             return;
                         } else {
-                            transform.Translate(new Vector3(force.x, dvy, force.z));
+                            transform.position = new Vector3(force.x, dvy, force.z);
                             return;
                         }
                     }
@@ -1448,14 +1452,14 @@ namespace Components.Handlers {
                 //execute stop gravity
                 if (!dvyCondition && actualFrame.physic.stopGravity) {
                     if (isInjured) {
-                        transform.Translate(new Vector3(force.x, force.y, force.z));
+                        transform.position = new Vector3(force.x, force.y, force.z);
                         return;
                     } else {
                         if (!isFacingRight) {
-                            transform.Translate(new Vector3(-force.x, force.y, force.z));
+                            transform.position = new Vector3(-force.x, force.y, force.z);
                             return;
                         } else {
-                            transform.Translate(new Vector3(force.x, force.y, force.z));
+                            transform.position = new Vector3(force.x, force.y, force.z);
                             return;
                         }
                     }
@@ -1482,7 +1486,7 @@ namespace Components.Handlers {
             }
         }
 
-        private void HasVerticalMovement() {
+        private void CheckInertiaHasVerticalMovement() {
             //Check 550(inertia) value for vertical movement
             if (actualFrame.physic.hasVerticalMovement) {
                 inertiaMoveVertical = 0f;
@@ -1493,7 +1497,7 @@ namespace Components.Handlers {
             }
         }
 
-        private void HasHorizontalMovement() {
+        private void CheckInertiaHasHorizontalMovement() {
             //Check 550(inertia) value for horizontal movement
             if (actualFrame.physic.hasHorizontalMovement) {
                 inertiaMoveHorizontal = 0f;
@@ -1516,7 +1520,7 @@ namespace Components.Handlers {
             float y = transform2.position.y;
             float z = transform2.position.z;
 
-            transform.Translate(new Vector3(x + inertiaMoveHorizontal, y, z + inertiaMoveVertical));
+            transform.position = new Vector3(x + inertiaMoveHorizontal, y, z + inertiaMoveVertical);
         }
 
         private void WalkingForce() {
@@ -1558,7 +1562,7 @@ namespace Components.Handlers {
                 } else if (moveVertical < 0) {
                     usedRunningZ = -data.headerData.running_speedz;
                 }
-                transform.Translate(new Vector3(x + usedRunning, y, z + usedRunningZ));
+                transform.position = new Vector3(x + usedRunning, y, z + usedRunningZ);
             }
         }
 
@@ -1577,7 +1581,7 @@ namespace Components.Handlers {
                     } else if (lastMoveVerticalUpValue < 0) {
                         usedSideDash = -data.headerData.sideDash_distance;
                     }
-                    transform.Translate(new Vector3(x, y, z + usedSideDash));
+                    transform.position = new Vector3(x, y, z + usedSideDash);
                 }
             }
         }

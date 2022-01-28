@@ -22,7 +22,9 @@
     "loadedAnimations": [
       "Standing",
       "Walking",
-      "Punch"
+      "Punch",
+      "SimpleDash",
+      "StopRunning"
     ]
   }
 }

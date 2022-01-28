@@ -1,32 +1,21 @@
 {
-  "simpleDash": [
+  "stopRunning": [
     {
       "id": 0,
       "core": {
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "resetRunning": true
       },
       "bodies": [
         {
           "position": {
-            "x": 0.022,
-            "y": 0.233,
+            "x": 0.1201,
+            "y": 0.5311,
             "z": 0
           },
           "size": {
-            "x": 0.4136786,
-            "y": 0.4796346,
-            "z": 0.22
-          }
-        },
-        {
-          "position": {
-            "x": 0.2676,
-            "y": 0.4617,
-            "z": 0
-          },
-          "size": {
-            "x": 0.34,
-            "y": 0.461,
+            "x": 0.390182,
+            "y": 0.5730184,
             "z": 0.22
           }
         }
@@ -36,7 +25,7 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.1
+        "dvx": 0.025
       },
       "trigger": {},
       "childGameObjects": {}
@@ -45,30 +34,18 @@
       "id": 1,
       "core": {
         "hurtBoxType": "NORMAL",
-        "nextAnim": "StopRunning"
+        "resetRunning": true
       },
       "bodies": [
         {
           "position": {
-            "x": 0.022,
-            "y": 0.233,
+            "x": 0.1201,
+            "y": 0.5311,
             "z": 0
           },
           "size": {
-            "x": 0.4136786,
-            "y": 0.4796346,
-            "z": 0.22
-          }
-        },
-        {
-          "position": {
-            "x": 0.2676,
-            "y": 0.4617,
-            "z": 0
-          },
-          "size": {
-            "x": 0.34,
-            "y": 0.461,
+            "x": 0.390182,
+            "y": 0.5730184,
             "z": 0.22
           }
         }
@@ -78,8 +55,65 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.1
+        "dvx": 0.025
       },
+      "trigger": {},
+      "childGameObjects": {}
+    },
+    {
+      "id": 2,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "resetRunning": true
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.1201,
+            "y": 0.5311,
+            "z": 0
+          },
+          "size": {
+            "x": 0.390182,
+            "y": 0.5730184,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {},
+      "trigger": {},
+      "childGameObjects": {}
+    },
+    {
+      "id": 3,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "resetRunning": false,
+        "nextAnim": "Standing"
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.1201,
+            "y": 0.5311,
+            "z": 0
+          },
+          "size": {
+            "x": 0.390182,
+            "y": 0.5730184,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {},
       "trigger": {},
       "childGameObjects": {}
     }

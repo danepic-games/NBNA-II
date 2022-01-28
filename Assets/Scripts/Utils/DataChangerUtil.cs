@@ -37,6 +37,10 @@ namespace Utils {
                     return data.walking[animationIndex];
                 case CharacterAnimEnum.Punch:
                     return data.punch[animationIndex];
+                case CharacterAnimEnum.SimpleDash:
+                    return data.simpleDash[animationIndex];
+                case CharacterAnimEnum.StopRunning:
+                    return data.stopRunning[animationIndex];
                 default:
                     Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
                     return null;

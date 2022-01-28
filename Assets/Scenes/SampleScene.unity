@@ -337,7 +337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434125491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.206, y: 0.8057, z: 0}
+  m_LocalPosition: {x: -0.352, y: 0.883, z: 0}
   m_LocalScale: {x: 0.21762584, y: 0.29384515, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
@@ -530,8 +530,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683710886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0277, y: 0.434, z: 0}
-  m_LocalScale: {x: 0.2849118, y: 0.84674364, z: 0.22}
+  m_LocalPosition: {x: 0.1201, y: 0.5311, z: 0}
+  m_LocalScale: {x: 0.39018196, y: 0.57301843, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 0
@@ -942,6 +942,8 @@ MonoBehaviour:
     standing: []
     walking: []
     punch: []
+    simpleDash: []
+    stopRunning: []
   actualFrame:
     name: 
     id: 0
@@ -1029,12 +1031,12 @@ MonoBehaviour:
       defenseDownWeaponAnim: 
     interactions: []
   dataPath: Characters/Naruto/Normal BNG/Data/
-  intervalDoubleTapRunning: 0
+  intervalDoubleTapRunning: 0.5
   stepOneRunningRightEnabled: 0
   stepOneRunningLeftEnabled: 0
   runningCountTapRight: 0
   runningCountTapLeft: 0
-  intervalDoubleTapSideDash: 0
+  intervalDoubleTapSideDash: 0.5
   stepOneSideDashUpEnabled: 0
   stepOneSideDashDownEnabled: 0
   sideDashCountTapUp: 0
@@ -1118,6 +1120,7 @@ MonoBehaviour:
   defaultDisableCombinationAnim: 
   defaultMovementAnims:
   - Punch
+  - StopRunning
   defaultInjuredAnims: []
 --- !u!65 &803715526
 BoxCollider:
@@ -1256,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858350127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.211, y: 0.708, z: 0}
+  m_LocalPosition: {x: 0.484, y: 0.712, z: 0}
   m_LocalScale: {x: 0.2223287, y: 0.5674226, z: 0.22}
   m_Children: []
   m_Father: {fileID: 950419047}

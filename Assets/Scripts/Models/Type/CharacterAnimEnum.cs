@@ -1,11 +1,9 @@
-using System;
-
 namespace Back.Model.Type {
     public enum CharacterAnimEnum {
         Standing,
         Walking,
+        SimpleDash,
         Running,
-        Running2,
         Defense,
         JumpDefense,
         DefenseMovementDebug,
