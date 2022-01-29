@@ -20,6 +20,11 @@ namespace Model {
         public bool resetCombinations = false;
         public bool resetAnimation = false;
 
+        public bool isWalkingEnabled;
+        public bool isRunningEnabled;
+        public bool isSideDashEnabled;
+        public bool isInjured;
+
         //Debug
         public bool pauseBreak;
 

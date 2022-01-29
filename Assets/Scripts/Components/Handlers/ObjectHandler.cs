@@ -103,14 +103,6 @@ namespace Components.Handlers {
         [SerializeField]
         private float sideDashCountTapDown;
 
-        //Disabled variables
-        [SerializeField]
-        private bool isRunningEnabled;
-        [SerializeField]
-        private bool isWalkingEnabled;
-        [SerializeField]
-        private bool isSideDashEnabled;
-
         //Catálogo de teclas
         [SerializeField]
         private float moveHorizontal;
@@ -185,7 +177,6 @@ namespace Components.Handlers {
 
         //Eventos de interação com outro objeto
         public bool enableInjured;
-        public bool isInjured;
         [SerializeField]
         private bool executeExternalForce;
 
@@ -237,11 +228,6 @@ namespace Components.Handlers {
 
         [SerializeField]
         private string defaultDisableCombinationAnim;
-
-        [SerializeField]
-        private List<string> defaultMovementAnims;
-        [SerializeField]
-        private List<string> defaultInjuredAnims;
 
         void Awake() {
             data = DataChangerUtil.GetDataFromJson(dataPath);
@@ -296,15 +282,11 @@ namespace Components.Handlers {
 
             CheckEvents();
 
-            ToggleTriggersForState();
-
             ResetRunningInterval();
 
             Walking();
 
             Running();
-
-            SideDash();
 
             JumpingFrontBackDash();
 
@@ -892,7 +874,7 @@ namespace Components.Handlers {
                 ownerFrame = null;
             }
 
-            if (enableInjured && isInjured && externalItr != null) {
+            if (enableInjured && actualFrame.core.isInjured && externalItr != null) {
                 if (!sameExternalItr) {
                     eventNextAnim = SetupInjuredEvent();
                 } else {
@@ -962,41 +944,6 @@ namespace Components.Handlers {
             return eventNextFrame;
         }
 
-        private void ToggleTriggersForState() {
-            if (objectType.Equals(ObjectEnum.CHARACTER)) {
-                if (currentAnim.Equals(CharacterAnimEnum.Standing.Name())) {
-                    isWalkingEnabled = true;
-                    isRunningEnabled = false;
-                    isSideDashEnabled = false;
-                }
-
-                foreach (string anim in defaultMovementAnims) {
-                    if (currentAnim.Equals(anim)) {
-                        isWalkingEnabled = false;
-                        isRunningEnabled = false;
-                        isSideDashEnabled = false;
-                    }
-                }
-
-                foreach (string anim in defaultInjuredAnims) {
-                    if (currentAnim.Equals(anim)) {
-                        isWalkingEnabled = false;
-                        isRunningEnabled = false;
-                        isSideDashEnabled = false;
-                        isInjured = false;
-                    }
-                }
-
-                if ((currentAnim.Equals(CharacterAnimEnum.Defense.Name()) && currentAnim.Equals(CharacterAnimEnum.DefenseMovementDebug.Name()))
-                || (currentAnim.Equals(CharacterAnimEnum.JumpDefense.Name()) && currentAnim.Equals(CharacterAnimEnum.JumpDefenseMovementDebug.Name()))) {
-                    isWalkingEnabled = false;
-                    isRunningEnabled = false;
-                    isSideDashEnabled = false;
-                    isInjured = false;
-                }
-            }
-        }
-
         private void ChangeAnimation(string anim) {
             if (!actualFrame.core.resetAnimation) {
                 animator.Play($"Base Layer.{anim}", 0);
@@ -1020,7 +967,7 @@ namespace Components.Handlers {
 
         private void Walking() {
             if (objectType.Equals(ObjectEnum.CHARACTER)) {
-                if (isWalkingEnabled) {
+                if (actualFrame.core.isWalkingEnabled) {
                     Flip(true);
 
                     //Running Triggger
@@ -1047,7 +994,6 @@ namespace Components.Handlers {
                         runningCountTapRight = 0f;
                     }
                     if (moveHorizontal > 0f && stepOneRunningRightEnabled && runningCountTapRight > 0) {
-                        isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
                         runningCountTapRight = 0f;
@@ -1057,7 +1003,6 @@ namespace Components.Handlers {
                         return;
 
                     } else if (moveHorizontal < 0f && stepOneRunningLeftEnabled && runningCountTapLeft > 0) {
-                        isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
                         runningCountTapRight = 0f;
@@ -1092,7 +1037,7 @@ namespace Components.Handlers {
                     }
 
                     if (moveVertical > 0f && stepOneSideDashUpEnabled && sideDashCountTapUp > 0) {
-                        isSideDashEnabled = true;
+                        actualFrame.core.isSideDashEnabled = true;
                         stepOneSideDashDownEnabled = false;
                         stepOneSideDashUpEnabled = false;
                         sideDashCountTapDown = 0f;
@@ -1102,7 +1047,7 @@ namespace Components.Handlers {
                         return;
 
                     } else if (moveVertical < 0f && stepOneSideDashDownEnabled && sideDashCountTapDown > 0) {
-                        isSideDashEnabled = true;
+                        actualFrame.core.isSideDashEnabled = true;
                         stepOneSideDashDownEnabled = false;
                         stepOneSideDashUpEnabled = false;
                         sideDashCountTapDown = 0f;
@@ -1137,46 +1082,23 @@ namespace Components.Handlers {
 
         private void Running() {
             if (objectType.Equals(ObjectEnum.CHARACTER)) {
-                if (isRunningEnabled) {
-                    //Disable transition to walking
-                    isWalkingEnabled = false;
-                    isSideDashEnabled = false;
-
+                if (actualFrame.core.isRunningEnabled) {
                     if (!currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) && !currentAnim.Equals(CharacterAnimEnum.Running.Name())) {
                         flipOneTimeForFrame = true;
-                        isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
                         ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
                         return;
                     }
-
-                    //Active Stop Running
-                    if (!isFacingRight && moveHorizontal > 0) {
-                        isRunningEnabled = false;
-                    } else if (isFacingRight && moveHorizontal < 0) {
-                        isRunningEnabled = false;
-                    }
                 } else {
                     //Stop Running anim
                     if (currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) || currentAnim.Equals(CharacterAnimEnum.Running.Name())) {
                         flipOneTimeForFrame = true;
-                        isRunningEnabled = true;
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
                         ChangeAnimation(CharacterAnimEnum.StopRunning.Name().ToString());
                         return;
                     }
-                }
-            }
-        }
-
-        private void SideDash() {
-            if (objectType.Equals(ObjectEnum.CHARACTER)) {
-                if (isSideDashEnabled) {
-                    //Disable transition to walking
-                    isWalkingEnabled = false;
-                    isRunningEnabled = false;
                 }
             }
         }
@@ -1387,7 +1309,7 @@ namespace Components.Handlers {
                         dvy = force.y;
                     }
 
-                    if (isInjured) {
+                    if (actualFrame.core.isInjured) {
                         transform.position = new Vector3(x + force.x, y + dvy, z + force.z);
                         return;
                     } else {
@@ -1411,7 +1333,7 @@ namespace Components.Handlers {
                         dvy = force.y;
                     }
 
-                    if (isInjured) {
+                    if (actualFrame.core.isInjured) {
                         transform.position = new Vector3(force.x, dvy, force.z);
                         return;
                     } else {
@@ -1435,7 +1357,7 @@ namespace Components.Handlers {
                         dvy = force.y;
                     }
 
-                    if (isInjured) {
+                    if (actualFrame.core.isInjured) {
                         transform.position = new Vector3(force.x, dvy, force.z);
                         return;
                     } else {
@@ -1451,7 +1373,7 @@ namespace Components.Handlers {
 
                 //execute stop gravity
                 if (!dvyCondition && actualFrame.physic.stopGravity) {
-                    if (isInjured) {
+                    if (actualFrame.core.isInjured) {
                         transform.position = new Vector3(force.x, force.y, force.z);
                         return;
                     } else {
@@ -1524,7 +1446,7 @@ namespace Components.Handlers {
         }
 
         private void WalkingForce() {
-            if (isWalkingEnabled) {
+            if (actualFrame.core.isWalkingEnabled) {
                 //Walk force
                 if (moveHorizontal != 0 || moveVertical != 0) {
                     if (!currentAnim.Equals(CharacterAnimEnum.Walking.Name())) {
@@ -1542,7 +1464,7 @@ namespace Components.Handlers {
         }
 
         private void RunningForce() {
-            if (isRunningEnabled) {
+            if (actualFrame.core.isRunningEnabled) {
                 //Move running velocity
                 float x = transform.position.x;
                 float y = transform.position.y;
@@ -1567,7 +1489,7 @@ namespace Components.Handlers {
         }
 
         private void SideDashForce() {
-            if (isSideDashEnabled) {
+            if (actualFrame.core.isSideDashEnabled) {
                 if (!currentAnim.Equals(CharacterAnimEnum.Crouch.Name())) {
                     //Move side dash velocity
                     float x = transform.position.x;
@@ -1588,15 +1510,16 @@ namespace Components.Handlers {
 
         void UpdateFrameData(AnimationEvent animationEvent) {
             UpdateCurrentAnim();
-            Debug.Log($"{currentAnim}-{animationEvent.intParameter}");
             actualFrame = DataChangerUtil.GetActualFrameFromData(animationEvent.intParameter, currentAnim, data);
 
             if (actualFrame != null) {
                 actualFrame.name = currentAnim;
             }
+
+            Debug.Log($"{currentAnim} - {animationEvent.intParameter} | {actualFrame.core.isWalkingEnabled}");
         }
 
-        void UpdateFrameData(string anim, int animIndex) {
+        private void UpdateFrameData(string anim, int animIndex) {
             var animationEventParam = new AnimationEvent();
             animationEventParam.intParameter = animIndex;
             animationEventParam.stringParameter = anim;

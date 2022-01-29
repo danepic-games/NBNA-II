@@ -191,7 +191,7 @@ namespace Components.Managers {
                 owner.externalItr = itr;
                 owner.externalItr.force.x = dvx;
                 owner.enableInjured = true;
-                owner.isInjured = true;
+                owner.actualFrame.core.isInjured = true;
 
                 InvokeContactEffect(itr);
             }
@@ -213,7 +213,7 @@ namespace Components.Managers {
 
                 owner.externalItr.affectedAnimation = damageAnimationType;
                 owner.enableInjured = true;
-                owner.isInjured = true;
+                owner.actualFrame.core.isInjured = true;
 
                 float x = owner.transform.position.x;
                 float y = owner.transform.position.y + (owner.transform.localScale.y / 1.75f);
@@ -240,7 +240,7 @@ namespace Components.Managers {
                 owner.externalItr = itr;
                 owner.externalItr.force = Vector3.zero;
                 owner.enableInjured = true;
-                owner.isInjured = true;
+                owner.actualFrame.core.isInjured = true;
 
                 InvokeContactEffect(itr);
             }

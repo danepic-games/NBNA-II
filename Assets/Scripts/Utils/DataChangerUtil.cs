@@ -1,7 +1,6 @@
 using Back.Model.Type;
 using Models;
 using UnityEngine;
-using Utils;
 
 namespace Utils {
     public class DataChangerUtil : MonoBehaviour {
@@ -29,6 +28,7 @@ namespace Utils {
         }
 
         public static Frame GetActualFrameFromData(int animationIndex, string currentAnim, Data data) {
+//            Debug.Log($"{animationIndex} | {currentAnim}");
             var currentAnimType = EnumUtils.ParseEnum<CharacterAnimEnum>(currentAnim);
             switch (currentAnimType) {
                 case CharacterAnimEnum.Standing:

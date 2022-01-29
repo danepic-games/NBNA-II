@@ -4,7 +4,10 @@
       "id": 0,
       "core": {
         "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": true,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
@@ -38,7 +41,10 @@
       "id": 1,
       "core": {
         "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": true,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
@@ -70,7 +76,10 @@
       "id": 2,
       "core": {
         "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": true,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
@@ -102,7 +111,10 @@
       "id": 3,
       "core": {
         "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": true,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
@@ -134,7 +146,10 @@
       "id": 4,
       "core": {
         "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": true,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
@@ -166,7 +181,10 @@
       "id": 5,
       "core": {
         "state": "WALK_RUN_SIDEDASH",
-        "hurtBoxType": "NORMAL"
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": true,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
