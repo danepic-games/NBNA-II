@@ -3,9 +3,9 @@ using Back.Model.Type;
 using Components.Managers;
 using Model;
 using Model.Type;
+using Models;
 using UnityEngine;
 using Util;
-using Models;
 using Utils;
 
 namespace Components.Handlers {
@@ -375,7 +375,7 @@ namespace Components.Handlers {
         }
 
 
-        private void UpdateCurrentAnim(){
+        private void UpdateCurrentAnim() {
             if (this.animator.GetCurrentAnimatorClipInfo(0).Length > 0) {
                 currentAnim = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             }
@@ -754,6 +754,14 @@ namespace Components.Handlers {
                 }
             }
 
+            if (actualFrame.trigger.opositeFacingMoveHorizontalButtonAnim != null) {
+                if (!isFacingRight && moveHorizontal > 0) {
+                    eventNextAnim = actualFrame.trigger.opositeFacingMoveHorizontalButtonAnim;
+                } else if (isFacingRight && moveHorizontal < 0) {
+                    eventNextAnim = actualFrame.trigger.opositeFacingMoveHorizontalButtonAnim;
+                }
+            }
+
             if (pressAttackDown) {
                 if (actualFrame.trigger.attackButtonAnim != null) {
                     //Attack Button
@@ -1088,15 +1096,6 @@ namespace Components.Handlers {
                         stepOneRunningRightEnabled = false;
                         stepOneRunningLeftEnabled = false;
                         ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
-                        return;
-                    }
-                } else {
-                    //Stop Running anim
-                    if (currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) || currentAnim.Equals(CharacterAnimEnum.Running.Name())) {
-                        flipOneTimeForFrame = true;
-                        stepOneRunningRightEnabled = false;
-                        stepOneRunningLeftEnabled = false;
-                        ChangeAnimation(CharacterAnimEnum.StopRunning.Name().ToString());
                         return;
                     }
                 }

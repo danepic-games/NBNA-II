@@ -48,7 +48,6 @@
       "id": 1,
       "core": {
         "hurtBoxType": "NORMAL",
-        "nextAnim": "StopRunning",
         "isWalkingEnabled": false,
         "isRunningEnabled": true,
         "isSideDashEnabled": false
@@ -86,7 +85,56 @@
       "physic": {
         "dvx": 0.1
       },
-      "trigger": {},
+      "trigger": {
+        "holdHorizontalAnim": "Running"
+      },
+      "childGameObjects": {}
+    },
+    {
+      "id": 2,
+      "core": {
+        "nextAnim": "StopRunning",
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": false,
+        "isRunningEnabled": true,
+        "isSideDashEnabled": false
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.022,
+            "y": 0.233,
+            "z": 0
+          },
+          "size": {
+            "x": 0.4136786,
+            "y": 0.4796346,
+            "z": 0.22
+          }
+        },
+        {
+          "position": {
+            "x": 0.2676,
+            "y": 0.4617,
+            "z": 0
+          },
+          "size": {
+            "x": 0.34,
+            "y": 0.461,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {},
+      "combination": {},
+      "physic": {
+        "dvx": 0.1
+      },
+      "trigger": {
+        "holdHorizontalAnim": "Running"
+      },
       "childGameObjects": {}
     }
   ]

@@ -21,6 +21,8 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.06666667
+      value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     - time: 0.2
       value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     attribute: m_Sprite
@@ -42,6 +44,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     - {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     - {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
   m_AnimationClipSettings:
@@ -76,10 +79,17 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.18333334
+  - time: 0.05
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 0.2
+    functionName: UpdateFrameData
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
     messageOptions: 0

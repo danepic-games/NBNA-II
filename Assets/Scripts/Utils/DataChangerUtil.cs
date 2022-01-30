@@ -41,6 +41,8 @@ namespace Utils {
                     return data.simpleDash[animationIndex];
                 case CharacterAnimEnum.StopRunning:
                     return data.stopRunning[animationIndex];
+                case CharacterAnimEnum.Running:
+                    return data.running[animationIndex];
                 default:
                     Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
                     return null;

@@ -1,6 +1,3 @@
-using Back.Model.Type;
-using Models;
-
 namespace Model {
     [System.Serializable]
     public class Trigger {
@@ -22,6 +19,8 @@ namespace Model {
         public string holdHorizontalAnim;
         public string holdUpAnim;
         public string holdDownAnim;
+
+        public string opositeFacingMoveHorizontalButtonAnim;
 
         public string holdUpLeftAnim;
         public string holdUpRightAnim;

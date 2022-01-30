@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Standing
+  m_Name: Running
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,17 +20,23 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -8080359570283609562, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - time: 0.083333336
-      value: {fileID: -4685487900697097250, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - time: 0.16666667
-      value: {fileID: -7556100304714471317, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+      value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.05
+      value: {fileID: -4298409878393967544, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.1
+      value: {fileID: 3827624236616040847, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.15
+      value: {fileID: -2134212613873048861, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.2
+      value: {fileID: -8934826994127073737, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     - time: 0.25
-      value: {fileID: -4685487900697097250, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - time: 0.33333334
-      value: {fileID: -8080359570283609562, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - time: 0.36666667
-      value: {fileID: -8080359570283609562, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+      value: {fileID: -7155320122646215084, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.3
+      value: {fileID: 3996199165197389811, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.35
+      value: {fileID: 3996199165197389811, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - time: 0.38333333
+      value: {fileID: 3996199165197389811, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,18 +56,21 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -8080359570283609562, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: -4685487900697097250, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: -7556100304714471317, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: -4685487900697097250, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: -8080359570283609562, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: -8080359570283609562, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: -4298409878393967544, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: 3827624236616040847, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: -2134212613873048861, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: -8934826994127073737, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: -7155320122646215084, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: 3996199165197389811, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: 3996199165197389811, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: 3996199165197389811, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.38333336
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -88,38 +97,59 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.06666667
+  - time: 0.033333335
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.15
+  - time: 0.083333336
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.23333333
+  - time: 0.13333334
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
-  - time: 0.31666666
+  - time: 0.18333334
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 4
     messageOptions: 0
-  - time: 0.36666667
+  - time: 0.23333333
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 5
+    messageOptions: 0
+  - time: 0.28333333
+    functionName: UpdateFrameData
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 6
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: UpdateFrameData
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 7
+    messageOptions: 0
+  - time: 0.36666667
+    functionName: UpdateFrameData
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 8
     messageOptions: 0

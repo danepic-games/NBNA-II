@@ -6,6 +6,7 @@ namespace Models {
         public Frame[] walking;
         public Frame[] punch;
         public Frame[] simpleDash;
+        public Frame[] running;
         public Frame[] stopRunning;
     }
 }

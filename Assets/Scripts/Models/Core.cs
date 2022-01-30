@@ -25,6 +25,10 @@ namespace Model {
         public bool isSideDashEnabled;
         public bool isInjured;
 
+        public bool disableStepOneRunningRight;
+        public bool disableStepOneRunningLeft;
+        public bool flipOneTimeForFrame;
+
         //Debug
         public bool pauseBreak;
 
