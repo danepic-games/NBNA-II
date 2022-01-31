@@ -337,8 +337,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434125491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.352, y: 0.883, z: 0}
-  m_LocalScale: {x: 0.21762584, y: 0.29384515, z: 0.22}
+  m_LocalPosition: {x: 0.105, y: 0.4927, z: 0}
+  m_LocalScale: {x: 0.26075518, y: 0.19523071, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 1
@@ -530,8 +530,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683710886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1201, y: 0.5311, z: 0}
-  m_LocalScale: {x: 0.39018196, y: 0.57301843, z: 0.22}
+  m_LocalPosition: {x: 0.0322, y: 0.2005, z: 0}
+  m_LocalScale: {x: 0.32265007, y: 0.38392237, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 0
@@ -963,6 +963,9 @@ MonoBehaviour:
       isRunningEnabled: 0
       isSideDashEnabled: 0
       isInjured: 0
+      disableStepOneRunningRight: 0
+      disableStepOneRunningLeft: 0
+      flipOneTimeForFrame: 0
       pauseBreak: 0
       touchHurtBoxNextAnim: 
       nextAnim: 
@@ -1016,6 +1019,7 @@ MonoBehaviour:
       holdHorizontalAnim: 
       holdUpAnim: 
       holdDownAnim: 
+      opositeFacingMoveHorizontalButtonAnim: 
       holdUpLeftAnim: 
       holdUpRightAnim: 
       holdDownLeftAnim: 
