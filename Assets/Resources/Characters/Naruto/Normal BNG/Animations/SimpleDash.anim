@@ -21,7 +21,7 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - time: 0.06666667
+    - time: 0.16666667
       value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     - time: 0.2
       value: {fileID: -6006047269604408579, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
@@ -79,7 +79,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.05
+  - time: 0.15
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}

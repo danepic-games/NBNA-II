@@ -1,3 +1,4 @@
+using System;
 using Back.Model.Type;
 using Models;
 using UnityEngine;
@@ -29,23 +30,29 @@ namespace Utils {
 
         public static Frame GetActualFrameFromData(int animationIndex, string currentAnim, Data data) {
 //            Debug.Log($"{animationIndex} | {currentAnim}");
-            var currentAnimType = EnumUtils.ParseEnum<CharacterAnimEnum>(currentAnim);
-            switch (currentAnimType) {
-                case CharacterAnimEnum.Standing:
-                    return data.standing[animationIndex];
-                case CharacterAnimEnum.Walking:
-                    return data.walking[animationIndex];
-                case CharacterAnimEnum.Punch:
-                    return data.punch[animationIndex];
-                case CharacterAnimEnum.SimpleDash:
-                    return data.simpleDash[animationIndex];
-                case CharacterAnimEnum.StopRunning:
-                    return data.stopRunning[animationIndex];
-                case CharacterAnimEnum.Running:
-                    return data.running[animationIndex];
-                default:
-                    Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
-                    return null;
+            try {
+                var currentAnimType = EnumUtils.ParseEnum<CharacterAnimEnum>(currentAnim);
+                switch (currentAnimType) {
+                    case CharacterAnimEnum.Standing:
+                        return data.standing[animationIndex];
+                    case CharacterAnimEnum.Walking:
+                        return data.walking[animationIndex];
+                    case CharacterAnimEnum.Punch:
+                        return data.punch[animationIndex];
+                    case CharacterAnimEnum.SimpleDash:
+                        return data.simpleDash[animationIndex];
+                    case CharacterAnimEnum.StopRunning:
+                        return data.stopRunning[animationIndex];
+                    case CharacterAnimEnum.Running:
+                        return data.running[animationIndex];
+                    default:
+                        Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
+                        return null;
+                }
+            } catch (Exception ex) {
+                Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
+                Debug.LogError(ex);
+                return null;
             }
         }
     }

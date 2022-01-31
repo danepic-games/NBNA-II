@@ -41,7 +41,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -85,7 +87,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -129,7 +133,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -173,7 +179,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -217,7 +225,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -261,7 +271,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -305,7 +317,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -349,7 +363,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {
@@ -393,7 +409,9 @@
       "physics": {
         "hasVerticalMovement": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     }
   ]

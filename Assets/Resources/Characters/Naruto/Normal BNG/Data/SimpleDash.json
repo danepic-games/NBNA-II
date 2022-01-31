@@ -39,7 +39,7 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.1
+        "dvx": 0.08
       },
       "trigger": {},
       "childGameObjects": {}
@@ -83,7 +83,7 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.1
+        "dvx": 0.08
       },
       "trigger": {
         "holdHorizontalAnim": "Running"
@@ -130,7 +130,7 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.1
+        "dvx": 0.08
       },
       "trigger": {
         "holdHorizontalAnim": "Running"

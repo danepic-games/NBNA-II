@@ -382,6 +382,9 @@ namespace Components.Handlers {
         }
 
         private void Flip(bool canFlip) {
+            if (actualFrame.core.flipOneTimeForFrame != null) {
+                flipOneTimeForFrame = actualFrame.core.flipOneTimeForFrame;
+            }
             if (canFlip) {
                 //Flip
                 if (moveHorizontal != 0) {
@@ -1090,6 +1093,12 @@ namespace Components.Handlers {
 
         private void Running() {
             if (objectType.Equals(ObjectEnum.CHARACTER)) {
+                if (actualFrame.core.disableStepOneRunningLeft != null && actualFrame.core.disableStepOneRunningLeft) {
+                    stepOneRunningLeftEnabled = false;
+                }
+                if (actualFrame.core.disableStepOneRunningRight != null && actualFrame.core.disableStepOneRunningRight) {
+                    stepOneRunningRightEnabled = false;
+                }
                 if (actualFrame.core.isRunningEnabled) {
                     if (!currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) && !currentAnim.Equals(CharacterAnimEnum.Running.Name())) {
                         flipOneTimeForFrame = true;

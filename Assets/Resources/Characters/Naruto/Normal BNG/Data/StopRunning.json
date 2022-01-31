@@ -7,7 +7,10 @@
         "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false
+        "isSideDashEnabled": false,
+        "disableStepOneRunningRight": false,
+        "disableStepOneRunningLeft": false,
+        "flipOneTimeForFrame": true
       },
       "bodies": [
         {
