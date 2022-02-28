@@ -1,16 +1,13 @@
 {
-  "stopRunning": [
+  "crouch": [
     {
       "id": 0,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false,
-        "disableStepOneRunningRight": false,
-        "disableStepOneRunningLeft": false,
-        "flipOneTimeForFrame": true
+        "resetRunningInterval": true
       },
       "bodies": [
         {
@@ -43,19 +40,34 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": -1
+        "dvx": -0.0001,
+        "dvy": 0,
+        "dvz": -0.0001,
+        "resetInertiaMoveHorizontal": true,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
-      "trigger": {},
+      "trigger": {
+        "jumpButtonAnim": "Jumping"
+      },
       "childGameObjects": {}
     },
     {
       "id": 1,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false
+        "isSideDashEnabled": false,
+        "resetRunningInterval": false
       },
       "bodies": [
         {
@@ -87,18 +99,36 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
-      "trigger": {},
+      "physic": {
+        "dvx": -0.0001,
+        "dvy": -0.0001,
+        "dvz": -0.0001,
+        "resetInertiaMoveHorizontal": false,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
+      "trigger": {
+        "jumpButtonAnim": "Jumping"
+      },
       "childGameObjects": {}
     },
     {
       "id": 2,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false
+        "isSideDashEnabled": false,
+        "resetRunningInterval": false,
+        "nextAnim": "Standing"
       },
       "bodies": [
         {
@@ -130,52 +160,25 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
-      "trigger": {},
-      "childGameObjects": {}
-    },
-    {
-      "id": 3,
-      "core": {
-        "hurtBoxType": "NORMAL",
-        "resetRunning": false,
-        "nextAnim": "Standing",
-        "isWalkingEnabled": false,
-        "isRunningEnabled": false,
-        "isSideDashEnabled": false
-      },
-      "bodies": [
-        {
-          "position": {
-            "x": 0.0322,
-            "y": 0.2005,
-            "z": 0
-          },
-          "size": {
-            "x": 0.3226501,
-            "y": 0.3839224,
-            "z": 0.22
-          }
+      "physic": {
+        "dvx": -0.0001,
+        "dvy": -0.0001,
+        "dvz": -0.0001,
+        "resetInertiaMoveHorizontal": false,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
         },
-        {
-          "position": {
-            "x": 0.105,
-            "y": 0.4927,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2607552,
-            "y": 0.1952307,
-            "z": 0.22
-          }
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
         }
-      ],
-      "spawns": [],
-      "interactions": [],
-      "flip": {},
-      "combination": {},
-      "physic": {},
-      "trigger": {},
+      },
+      "trigger": {
+        "jumpButtonAnim": "Jumping"
+      },
       "childGameObjects": {}
     }
   ]

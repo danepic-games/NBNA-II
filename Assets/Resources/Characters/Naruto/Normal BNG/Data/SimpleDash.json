@@ -39,9 +39,14 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.08
+        "dvx": 2,
+        "inertiaVertical": 0.5,
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "useVerticalInertia": true
       },
-      "trigger": {},
+      "trigger": {
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+      },
       "childGameObjects": {}
     },
     {

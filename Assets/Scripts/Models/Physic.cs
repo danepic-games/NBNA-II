@@ -1,5 +1,5 @@
 using System;
-using Models;
+using UnityEngine;
 
 namespace Model {
     [Serializable]
@@ -21,11 +21,25 @@ namespace Model {
         public bool resetExternalGravityForce;
         public bool resetExternalForce;
 
+        public float inertiaHorizontal;
+        public float inertiaVertical;
+        public bool lockInertiaHorizontal;
+        public bool lockInertiaVertical;
+        public bool freeMovementAllSidesInertiaHorizontalValue;
+        public bool freeMovementAllSidesInertiaVerticalValue;
+
         public float movementValueFixedVertical;
         public bool enableMovementFixedVertical;//enable movementValueFixedVertical
 
         public float externalForceX;
         public float externalForceY;
         public float externalForceZ;
+
+        public Vector3 customGroundDetectionPosition;
+        public Vector3 customGroundDetectionSize;
+
+        public Vector3 Force() {
+            return new Vector3(dvx, dvy, dvz);
+        }
     }
 }

@@ -29,31 +29,44 @@ namespace Utils {
         }
 
         public static Frame GetActualFrameFromData(int animationIndex, string currentAnim, Data data) {
-//            Debug.Log($"{animationIndex} | {currentAnim}");
+            //            Debug.Log($"{animationIndex} | {currentAnim}");
             try {
                 var currentAnimType = EnumUtils.ParseEnum<CharacterAnimEnum>(currentAnim);
                 switch (currentAnimType) {
                     case CharacterAnimEnum.Standing:
-                        return data.standing[animationIndex];
+                        return GetFrameSafety(data.standing, animationIndex, currentAnim);
                     case CharacterAnimEnum.Walking:
-                        return data.walking[animationIndex];
+                        return GetFrameSafety(data.walking, animationIndex, currentAnim);
                     case CharacterAnimEnum.Punch:
-                        return data.punch[animationIndex];
+                        return GetFrameSafety(data.punch, animationIndex, currentAnim);
                     case CharacterAnimEnum.SimpleDash:
-                        return data.simpleDash[animationIndex];
+                        return GetFrameSafety(data.simpleDash, animationIndex, currentAnim);
                     case CharacterAnimEnum.StopRunning:
-                        return data.stopRunning[animationIndex];
+                        return GetFrameSafety(data.stopRunning, animationIndex, currentAnim);
                     case CharacterAnimEnum.Running:
-                        return data.running[animationIndex];
+                        return GetFrameSafety(data.running, animationIndex, currentAnim);
+                    case CharacterAnimEnum.Jumping:
+                        return GetFrameSafety(data.jumping, animationIndex, currentAnim);
+                    case CharacterAnimEnum.Crouch:
+                        return GetFrameSafety(data.crouch, animationIndex, currentAnim);
+                    case CharacterAnimEnum.FallJumping:
+                        return GetFrameSafety(data.fallJumping, animationIndex, currentAnim);
                     default:
-                        Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
+                        Debug.LogWarning($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
                         return null;
                 }
             } catch (Exception ex) {
-                Debug.LogError($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
                 Debug.LogError(ex);
                 return null;
             }
+        }
+
+        private static Frame GetFrameSafety(Frame[] frames, int animationIndex, string currentAnim) {
+            if (frames.Length - 1 < animationIndex) {
+                Debug.LogWarning($"Frame of current animation {currentAnim} - {animationIndex} not mapped yet to extract actual frame!");
+                return null;
+            }
+            return frames[animationIndex];
         }
     }
 }

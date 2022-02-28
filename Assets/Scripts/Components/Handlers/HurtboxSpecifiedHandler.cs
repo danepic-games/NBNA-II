@@ -1,9 +1,6 @@
+using Components.Managers;
 using Model;
 using UnityEngine;
-using Components.Managers;
-using Components.Handlers;
-using Components.Controllers;
-using Models;
 
 namespace Components.Handlers {
     public class HurtboxSpecifiedHandler : MonoBehaviour {
@@ -11,6 +8,8 @@ namespace Components.Handlers {
         private ObjectHandler owner;
         [SerializeField]
         private HurtboxsManager manager;
+        [SerializeField]
+        private BoxCollider ownerBoxCollider;
 
         public int bodyNumber;
         private bool isMainBody;
@@ -72,6 +71,9 @@ namespace Components.Handlers {
 
         private void SetupBody() {
             if (owner.actualFrame != null && owner.actualFrame.bodies != null && owner.actualFrame.bodies.Length > 0) {
+                if (owner.actualFrame.bodies.Length - 1 < bodyNumber) {
+                    return;
+                }
                 Body body = owner.actualFrame.bodies[bodyNumber];
 
                 if (!owner.isFacingRight) {
@@ -79,8 +81,8 @@ namespace Components.Handlers {
                         transform.localPosition = new Vector3(-body.position.x, body.position.y, body.position.z);
                         transform.localScale = new Vector3(body.size.x, body.size.y, body.size.z);
                         if (isMainBody) {
-                            owner.boxCollider.center = transform.localPosition;
-                            owner.boxCollider.size = transform.localScale;
+                            ownerBoxCollider.center = transform.localPosition;
+                            ownerBoxCollider.size = transform.localScale;
                         }
                     }
 
@@ -90,9 +92,9 @@ namespace Components.Handlers {
                         transform.localPosition = new Vector3(body.position.x, body.position.y, body.position.z);
                         transform.localScale = new Vector3(body.size.x, body.size.y, body.size.z);
                         if (isMainBody) {
-                            owner.boxCollider.center = transform.localPosition;
-                            owner.boxCollider.size = transform.localScale;
-                        }
+                            ownerBoxCollider.size = transform.localScale;
+                            ownerBoxCollider.center = transform.localPosition;
+                    }
                     }
                 }
             }

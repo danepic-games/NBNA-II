@@ -8,5 +8,8 @@ namespace Models {
         public Frame[] simpleDash;
         public Frame[] running;
         public Frame[] stopRunning;
+        public Frame[] jumping;
+        public Frame[] fallJumping;
+        public Frame[] crouch;
     }
 }

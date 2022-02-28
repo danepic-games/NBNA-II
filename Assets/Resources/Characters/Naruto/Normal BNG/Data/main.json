@@ -1,9 +1,9 @@
 {
   "headerData": {
-    "walking_speed": 0.04,
-    "walking_speedz": 0.025,
-    "running_speed": 0.1,
-    "running_speedz": 0.065,
+    "walking_speed": 2,
+    "walking_speedz": 1.25,
+    "running_speed": 5,
+    "running_speedz": 2.25,
     "jump_distance": 0,
     "dash_distance": 0,
     "sideDash_distance": 0,
@@ -25,7 +25,10 @@
       "Punch",
       "SimpleDash",
       "Running",
-      "StopRunning"
+      "StopRunning",
+      "Jumping",
+      "Crouch",
+      "FallJumping"
     ]
   }
 }

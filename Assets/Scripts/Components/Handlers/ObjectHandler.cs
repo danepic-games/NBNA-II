@@ -37,14 +37,13 @@ namespace Components.Handlers {
         [SerializeField]
         private SpriteRenderer spriteRenderer;
         [SerializeField]
+        private Rigidbody rigidbody;
+        [SerializeField]
         private AudioSource audioSource;
-        public BoxCollider boxCollider;
         [SerializeField]
         private HurtboxsManager hurtboxManager;
 
         //Execução de algum componente
-        [SerializeField]
-        private bool execOpointOneTime = true;
         [SerializeField]
         private bool execRecoverManaOneTime;
         [SerializeField]
@@ -63,10 +62,8 @@ namespace Components.Handlers {
         private float nextFrameDvz;
 
         //Alguns parametros de fisica
-        [SerializeField]
-        private float inertiaMoveHorizontal;
-        [SerializeField]
-        private float inertiaMoveVertical;
+        public float fixedInertiaDvz = 0f;
+        public float fixedInertiaDvx = 0f;
         public float constantGravity;
         public bool lockRightForce;
         [SerializeField]
@@ -240,7 +237,6 @@ namespace Components.Handlers {
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent <SpriteRenderer>();
             audioSource = GetComponent <AudioSource>();
-            boxCollider = GetComponent <BoxCollider>();
 
             if (team == null) {
                 team = TeamEnum.INDEPENDENT;
@@ -315,43 +311,6 @@ namespace Components.Handlers {
             TeleportToAlly();
 
             UseEnemyForceInNextFrame();
-
-            ResetInertiaMoveHorizontal();
-
-            UpdateVelocity();
-
-            WalkingForce();
-
-            RunningForce();
-
-            SideDashForce();
-        }
-
-        void OnCollisionStay(Collision hit) {
-            if (objectType.Equals(ObjectEnum.CHARACTER)) {
-                if (hit.collider.tag.Equals("Ground")) {
-                    onGround = true;
-                    constantGravity = 0f;
-                } else if (hit.collider.tag.Equals("WallRight") || hit.collider.tag.Equals("WallLeft")) {
-                    //Detecta Parede com o Collider do objeto
-                    onWall = true;
-
-                } else if (hit.collider.tag.Equals("WallDebug")) {
-                    onWallDebug = true;
-                }
-            }
-        }
-
-        void OnCollisionExit(Collision hit) {
-            if (hit.collider.tag.Equals("Ground")) {
-                onGround = false;
-                lockRightForce = isFacingRight;
-            } else if (hit.collider.tag.Equals("WallRight") || hit.collider.tag.Equals("WallLeft")) {
-                onWall = false;
-
-            } else if (hit.collider.tag.Equals("WallDebug")) {
-                onWallDebug = false;
-            }
         }
 
         private void ExecutePauseBreak() {
@@ -363,7 +322,6 @@ namespace Components.Handlers {
         private void SetupAnimResets() {
             currentSprite = this.spriteRenderer.sprite;
             if (lastSprite != null && !lastSprite.name.Equals(currentSprite.name)) {
-                execOpointOneTime = true;
                 execAudioOneTime = true;
             }
 
@@ -379,6 +337,10 @@ namespace Components.Handlers {
             if (this.animator.GetCurrentAnimatorClipInfo(0).Length > 0) {
                 currentAnim = this.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
             }
+        }
+
+        private void UpdateCurrentAnim(string animation) {
+            currentAnim = animation;
         }
 
         private void Flip(bool canFlip) {
@@ -666,15 +628,12 @@ namespace Components.Handlers {
                         objectHandler.destroyInOwnerAnimation = opoint.destroyInOwnerAnimation;
                         objectHandler.team = this.team;
                         objectHandler.owner = this;
-                        objectHandler.execOpointOneTime = true;
-                        objectHandler.execOpointOneTime = true;
                         objectHandler.startAnimation = opoint.startAnim;
                         objInstatiate = objectHandler.gameObject;
                     } else {
                         ObjectHandler scriptChar = opoint.obj.GetComponent<ObjectHandler>();
                         if (scriptChar != null) {
                             scriptChar.owner = this;
-                            scriptChar.execOpointOneTime = true;
                             objInstatiate = scriptChar.gameObject;
                         }
                         else {
@@ -682,7 +641,6 @@ namespace Components.Handlers {
                         }
                     }
 
-                    execOpointOneTime = false;
                     Instantiate(objInstatiate, objSpawnPositon, Quaternion.identity).GetComponent<SpriteRenderer>().flipX = flipX;
                 }
                 return false;
@@ -722,6 +680,13 @@ namespace Components.Handlers {
             if (actualFrame.physic.resetExternalGravityForce) {
                 actualFrame.physic.externalForceY = 0f;
             }
+
+            if (!actualFrame.physic.useVerticalInertia) {
+                fixedInertiaDvz = 0f;
+            }
+            if (!actualFrame.physic.useHorizontalInertia) {
+                fixedInertiaDvx = 0f;
+            }
         }
 
         void CheckEvents() {
@@ -733,17 +698,17 @@ namespace Components.Handlers {
             }
 
             if (moveHorizontal != 0 && actualFrame.trigger.holdHorizontalAnim != null) {
-                if (moveVertical > 0 && moveHorizontal > 0) {
-                    eventNextAnim = actualFrame.trigger.holdUpRightAnim.ToString();
+                if (moveVertical > 0 && moveHorizontal > 0 && actualFrame.trigger.holdUpRightAnim != null) {
+                    eventNextAnim = actualFrame.trigger.holdUpRightAnim;
 
-                } else if (moveVertical > 0 && moveHorizontal < 0) {
-                    eventNextAnim = actualFrame.trigger.holdUpLeftAnim.ToString();
+                } else if (moveVertical > 0 && moveHorizontal < 0 && actualFrame.trigger.holdUpLeftAnim != null) {
+                    eventNextAnim = actualFrame.trigger.holdUpLeftAnim;
 
-                } else if (moveVertical < 0 && moveHorizontal > 0) {
-                    eventNextAnim = actualFrame.trigger.holdDownRightAnim.ToString();
+                } else if (moveVertical < 0 && moveHorizontal > 0 && actualFrame.trigger.holdDownRightAnim != null) {
+                    eventNextAnim = actualFrame.trigger.holdDownRightAnim;
 
-                } else if (moveVertical < 0 && moveHorizontal < 0) {
-                    eventNextAnim = actualFrame.trigger.holdDownLeftAnim.ToString();
+                } else if (moveVertical < 0 && moveHorizontal < 0 && actualFrame.trigger.holdDownLeftAnim != null) {
+                    eventNextAnim = actualFrame.trigger.holdDownLeftAnim;
 
                 } else {
                     eventNextAnim = actualFrame.trigger.holdHorizontalAnim.ToString();
@@ -961,10 +926,11 @@ namespace Components.Handlers {
             } else {
                 animator.Play($"Base Layer.{anim}", 0, 0f);
             }
-            execOpointOneTime = true;
             execRecoverManaOneTime = true;
             execUsageManaOneTime = true;
             SetupAudio();
+            UpdateFrameData(anim, 0);
+            //            UpdateCurrentAnim(anim);
         }
 
         private void ResetRunningInterval() {
@@ -1080,6 +1046,14 @@ namespace Components.Handlers {
                             return;
                         }
                     }
+
+                    if (moveHorizontal != 0 || moveVertical != 0) {
+                        if (!currentAnim.Equals(CharacterAnimEnum.Walking.Name())) {
+                            flipOneTimeForFrame = true;
+                            ChangeAnimation(CharacterAnimEnum.Walking.Name());
+                            return;
+                        }
+                    }
                 } else if (currentAnim.Equals(CharacterAnimEnum.Walking.Name())) {
                     //Standing anim
                     if (!currentAnim.Equals(CharacterAnimEnum.Standing.Name())) {
@@ -1116,9 +1090,7 @@ namespace Components.Handlers {
                 return;
             }
 
-            if (currentAnim.Equals(CharacterAnimEnum.Jumping3.Name()) || currentAnim.Equals(CharacterAnimEnum.Jumping4.Name())
-            || currentAnim.Equals(CharacterAnimEnum.JumpingDash3.Name()) || currentAnim.Equals(CharacterAnimEnum.JumpingDash4.Name())
-            || currentAnim.Equals(CharacterAnimEnum.Jumping3WithCombo.Name()) || currentAnim.Equals(CharacterAnimEnum.Jumping4WithCombo.Name())) {
+            if (actualFrame.core.enableJumpingFrontBackDash) {
                 Flip(true);
                 //Jumping Front Back Dash Triggger
                 if (runningCountTapRight >= 0f) {
@@ -1284,116 +1256,20 @@ namespace Components.Handlers {
         }
 
         private void UpdateVelocity(Vector3 force) {
-            float x = transform.position.x;
-            float y = transform.position.y;
-            float z = transform.position.z;
-
-            CheckInertiaHasVerticalMovement();
-
-            CheckInertiaHasHorizontalMovement();
-
             if (actualFrame.physic.enableMovementFixedVertical) {
                 if (!isFacingRight) {
-                    transform.position = new Vector3(x + -force.x, y + force.y, z + actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25));
+                    rigidbody.AddForce(new Vector3(-force.x, force.y, actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25)), ForceMode.Impulse);
                     return;
                 } else {
-                    transform.position = new Vector3(x + force.x, y + force.y, z + actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25));
+                    rigidbody.AddForce(new Vector3(force.x, force.y, actualFrame.physic.movementValueFixedVertical * (fixedValueForDirection * 25)), ForceMode.Impulse);
                     return;
                 }
             } else if (actualFrame.physic.useHorizontalInertia || actualFrame.physic.useVerticalInertia) {
-                InertiaForce();
+                Debug.Log("usou inertia");
+                InertiaForce(force);
             } else {
-                bool dvxCondition = force.x != 0;
-                bool dvyCondition = force.y != 0;
-                bool dvzCondition = force.z != 0;
-
-                //execute dvx, dvy, dvz
-                if ((dvxCondition || dvyCondition || dvzCondition) && !actualFrame.flip.disableFlipInterference) {
-                    //Setup constant gravity
-                    float dvy = 0f;
-                    if (actualFrame.physic.useConstantGravity) {
-                        dvy = constantGravity;
-                    } else {
-                        dvy = force.y;
-                    }
-
-                    if (actualFrame.core.isInjured) {
-                        transform.position = new Vector3(x + force.x, y + dvy, z + force.z);
-                        return;
-                    } else {
-                        if (!isFacingRight) {
-                            transform.position = new Vector3(x + -force.x, y + dvy, z + force.z);
-                            return;
-                        } else {
-                            transform.position = new Vector3(x + force.x, y + dvy, z + force.z);
-                            return;
-                        }
-                    }
-                }
-
-                //execute dx, dy, dz without flip interference lock direction
-                if ((dvxCondition || dvyCondition || dvzCondition) && actualFrame.flip.disableFlipInterference && actualFrame.physic.lockDirectionForce) {
-                    //Setup constant gravity
-                    float dvy = 0f;
-                    if (actualFrame.physic.useConstantGravity) {
-                        dvy = constantGravity;
-                    } else {
-                        dvy = force.y;
-                    }
-
-                    if (actualFrame.core.isInjured) {
-                        transform.position = new Vector3(force.x, dvy, force.z);
-                        return;
-                    } else {
-                        if (!lockRightForce) {
-                            transform.position = new Vector3(-force.x, dvy, force.z);
-                            return;
-                        } else {
-                            transform.position = new Vector3(force.x, dvy, force.z);
-                            return;
-                        }
-                    }
-                }
-
-                //execute dx, dy, dz without flip interference
-                if ((dvxCondition || dvyCondition || dvzCondition) && actualFrame.flip.disableFlipInterference) {
-                    //Setup constant gravity
-                    float dvy = 0f;
-                    if (actualFrame.physic.useConstantGravity) {
-                        dvy = constantGravity;
-                    } else {
-                        dvy = force.y;
-                    }
-
-                    if (actualFrame.core.isInjured) {
-                        transform.position = new Vector3(force.x, dvy, force.z);
-                        return;
-                    } else {
-                        if (!isFacingRight) {
-                            transform.position = new Vector3(-force.x, dvy, force.z);
-                            return;
-                        } else {
-                            transform.position = new Vector3(force.x, dvy, force.z);
-                            return;
-                        }
-                    }
-                }
-
-                //execute stop gravity
-                if (!dvyCondition && actualFrame.physic.stopGravity) {
-                    if (actualFrame.core.isInjured) {
-                        transform.position = new Vector3(force.x, force.y, force.z);
-                        return;
-                    } else {
-                        if (!isFacingRight) {
-                            transform.position = new Vector3(-force.x, force.y, force.z);
-                            return;
-                        } else {
-                            transform.position = new Vector3(force.x, force.y, force.z);
-                            return;
-                        }
-                    }
-                }
+                Debug.Log("usou normal");
+                NormalForce(force);
             }
         }
 
@@ -1409,64 +1285,138 @@ namespace Components.Handlers {
             }
         }
 
-        private void ResetInertiaMoveHorizontal() {
-            if (actualFrame.physic.resetInertiaMoveHorizontal) {
-                inertiaMoveHorizontal = 0f;
-                moveHorizontal = 0f;
-            }
-        }
-
-        private void CheckInertiaHasVerticalMovement() {
-            //Check 550(inertia) value for vertical movement
-            if (actualFrame.physic.hasVerticalMovement) {
-                inertiaMoveVertical = 0f;
-                //Walk force
-                if (moveVertical != 0) {
-                    inertiaMoveVertical = moveVertical / 2;
-                }
-            }
-        }
-
-        private void CheckInertiaHasHorizontalMovement() {
-            //Check 550(inertia) value for horizontal movement
-            if (actualFrame.physic.hasHorizontalMovement) {
-                inertiaMoveHorizontal = 0f;
-                //Walk force
-                if (moveHorizontal != 0 && actualFrame.physic.dvx == 0) {
-                    inertiaMoveHorizontal = moveHorizontal;
-                }
-            }
-        }
-
-        private void InertiaForce() {
+        private void InertiaForce(Vector3 force) {
             //Use value(550) for movement
-            if (actualFrame.physic.dvx > 0) {
-                inertiaMoveHorizontal = 0f;
+            if (!actualFrame.physic.lockInertiaVertical) {
+                if (actualFrame.physic.freeMovementAllSidesInertiaVerticalValue) {
+                    if (moveVertical > 0f) {
+                        fixedInertiaDvz = +actualFrame.physic.inertiaVertical;
+
+                    } else if (moveVertical < 0f) {
+                        fixedInertiaDvz = -actualFrame.physic.inertiaVertical;
+                    }
+                } else {
+                    fixedInertiaDvz = 0f;
+                }
             }
 
-            //Walk force
-            var transform2 = transform;
-            float x = transform2.position.x;
-            float y = transform2.position.y;
-            float z = transform2.position.z;
+            if (!actualFrame.physic.lockInertiaHorizontal) {
+                if (actualFrame.physic.freeMovementAllSidesInertiaHorizontalValue) {
+                    if (moveHorizontal > 0f) {
+                        fixedInertiaDvx = +actualFrame.physic.inertiaHorizontal;
 
-            transform.position = new Vector3(x + inertiaMoveHorizontal, y, z + inertiaMoveVertical);
+                    } else if (moveHorizontal < 0f) {
+                        fixedInertiaDvx = -actualFrame.physic.inertiaHorizontal;
+                    }
+                } else {
+                    fixedInertiaDvx = 0f;
+                }
+            }
+
+            Debug.Log($"{fixedInertiaDvx} | {fixedInertiaDvz}");
+            NormalForce(force + new Vector3(fixedInertiaDvx, 0f, fixedInertiaDvz));
+        }
+
+        private void NormalForce(Vector3 force) {
+            bool dvxCondition = force.x != 0;
+            bool dvyCondition = force.y != 0;
+            bool dvzCondition = force.z != 0;
+
+            //execute stop gravity
+            if (!dvyCondition && actualFrame.physic.stopGravity) {
+                if (actualFrame.core.isInjured) {
+                    rigidbody.AddForce(new Vector3(force.x, force.y, force.z), ForceMode.Impulse);
+                    return;
+                } else {
+                    if (!isFacingRight) {
+                        rigidbody.AddForce(new Vector3(-force.x, force.y, force.z), ForceMode.Impulse);
+                        return;
+                    } else {
+                        rigidbody.AddForce(new Vector3(force.x, force.y, force.z), ForceMode.Impulse);
+                        return;
+                    }
+                }
+            }
+
+            //execute dvx, dvy, dvz
+            if ((dvxCondition || dvyCondition || dvzCondition) && !actualFrame.flip.disableFlipInterference) {
+                //Setup constant gravity
+                float dvy = 0f;
+                if (actualFrame.physic.useConstantGravity) {
+                    dvy = constantGravity;
+                } else {
+                    dvy = force.y;
+                }
+
+                if (actualFrame.core.isInjured) {
+                    rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
+                    return;
+                } else {
+                    if (!isFacingRight) {
+                        rigidbody.AddForce(new Vector3(-force.x, dvy, force.z), ForceMode.Impulse);
+                        return;
+                    } else {
+                        rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
+                        return;
+                    }
+                }
+            }
+
+            //execute dx, dy, dz without flip interference lock direction
+            if ((dvxCondition || dvyCondition || dvzCondition) && actualFrame.flip.disableFlipInterference && actualFrame.physic.lockDirectionForce) {
+                //Setup constant gravity
+                float dvy = 0f;
+                if (actualFrame.physic.useConstantGravity) {
+                    dvy = constantGravity;
+                } else {
+                    dvy = force.y;
+                }
+
+                if (actualFrame.core.isInjured) {
+                    rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
+                    return;
+                } else {
+                    if (!lockRightForce) {
+                        rigidbody.AddForce(new Vector3(-force.x, dvy, force.z), ForceMode.Impulse);
+                        return;
+                    } else {
+                        rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
+                        return;
+                    }
+                }
+            }
+
+            //execute dx, dy, dz without flip interference
+            if ((dvxCondition || dvyCondition || dvzCondition) && actualFrame.flip.disableFlipInterference) {
+                //Setup constant gravity
+                float dvy = 0f;
+                if (actualFrame.physic.useConstantGravity) {
+                    dvy = constantGravity;
+                } else {
+                    dvy = force.y;
+                }
+
+                if (actualFrame.core.isInjured) {
+                    rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
+                    return;
+                } else {
+                    if (!isFacingRight) {
+                        rigidbody.AddForce(new Vector3(-force.x, dvy, force.z), ForceMode.Impulse);
+                        return;
+                    } else {
+                        rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
+                        return;
+                    }
+                }
+            }
         }
 
         private void WalkingForce() {
             if (actualFrame.core.isWalkingEnabled) {
                 //Walk force
                 if (moveHorizontal != 0 || moveVertical != 0) {
-                    if (!currentAnim.Equals(CharacterAnimEnum.Walking.Name())) {
-                        flipOneTimeForFrame = true;
-                        ChangeAnimation(CharacterAnimEnum.Walking.Name());
-                    }
-
-                    float x = transform.position.x;
-                    float y = transform.position.y;
-                    float z = transform.position.z;
-
-                    transform.position = new Vector3(x + (moveHorizontal * data.headerData.walking_speed), y, z + (moveVertical * data.headerData.walking_speedz));
+                    rigidbody.velocity = new Vector3(moveHorizontal * data.headerData.walking_speed,
+                            0f, moveVertical * data.headerData.walking_speedz);
                 }
             }
         }
@@ -1474,10 +1424,6 @@ namespace Components.Handlers {
         private void RunningForce() {
             if (actualFrame.core.isRunningEnabled) {
                 //Move running velocity
-                float x = transform.position.x;
-                float y = transform.position.y;
-                float z = transform.position.z;
-
                 //Get velocity by direction
                 float usedRunning = 0f;
                 float usedRunningZ = 0f;
@@ -1492,7 +1438,7 @@ namespace Components.Handlers {
                 } else if (moveVertical < 0) {
                     usedRunningZ = -data.headerData.running_speedz;
                 }
-                transform.position = new Vector3(x + usedRunning, y, z + usedRunningZ);
+                rigidbody.velocity = new Vector3(usedRunning, 0f, usedRunningZ);
             }
         }
 
@@ -1524,7 +1470,7 @@ namespace Components.Handlers {
                 actualFrame.name = currentAnim;
             }
 
-            Debug.Log($"{currentAnim} - {animationEvent.intParameter} | {actualFrame.core.isWalkingEnabled}");
+            //            Debug.Log($"{currentAnim} - {animationEvent.intParameter} | {actualFrame.core.isWalkingEnabled}");
         }
 
         private void UpdateFrameData(string anim, int animIndex) {
@@ -1535,9 +1481,17 @@ namespace Components.Handlers {
         }
 
         void ExecOpoint() {
-            if (execOpointOneTime) {
-                execOpointOneTime = ExecOpoint(actualFrame.spawns);
-            }
+            ExecOpoint(actualFrame.spawns);
+        }
+
+        void ExecMovement() {
+            UpdateVelocity();
+
+            WalkingForce();
+
+            RunningForce();
+
+            SideDashForce();
         }
 
         void ExecRecoverManaOneTime(int manaPoints) {

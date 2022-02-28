@@ -1,0 +1,54 @@
+{
+  "fallJumping": [
+    {
+      "id": 0,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": false,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false,
+        "enableJumpingFrontBackDash": true
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.0778,
+            "y": 0.3827,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2978287,
+            "y": 0.7483031,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {
+        "canFlip": true
+      },
+      "combination": {},
+      "physic": {
+        "dvy": -0.005,
+        "useHorizontalInertia": true,
+        "useVerticalInertia": true,
+        "useConstantGravity": true,
+        "customGroundDetectionPosition": {
+          "x": 0.0697,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.08761371,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
+      "trigger": {
+        "groundAnim": "Crouch"
+      },
+      "childGameObjects": {}
+    }
+  ]
+}

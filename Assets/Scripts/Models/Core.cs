@@ -1,7 +1,5 @@
-using Back.Model.Type;
 using Model.Type;
 using UnityEngine;
-using Models;
 
 namespace Model {
     [System.Serializable]
@@ -25,6 +23,7 @@ namespace Model {
         public bool isSideDashEnabled;
         public bool isInjured;
 
+        public bool enableJumpingFrontBackDash;
         public bool disableStepOneRunningRight;
         public bool disableStepOneRunningLeft;
         public bool flipOneTimeForFrame;

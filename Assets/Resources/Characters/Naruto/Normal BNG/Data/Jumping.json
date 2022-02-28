@@ -1,16 +1,14 @@
 {
-  "stopRunning": [
+  "jumping": [
     {
       "id": 0,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false,
-        "disableStepOneRunningRight": false,
-        "disableStepOneRunningLeft": false,
-        "flipOneTimeForFrame": true
+        "resetRunningInterval": true,
+        "resetCombinations": true
       },
       "bodies": [
         {
@@ -43,7 +41,8 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": -1
+        "hasHorizontalMovement": true,
+        "hasVerticalMovement": true
       },
       "trigger": {},
       "childGameObjects": {}
@@ -52,10 +51,11 @@
       "id": 1,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false
+        "isSideDashEnabled": false,
+        "resetRunningInterval": false,
+        "resetCombinations": false
       },
       "bodies": [
         {
@@ -87,7 +87,10 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
+      "physic": {
+        "hasHorizontalMovement": true,
+        "hasVerticalMovement": true
+      },
       "trigger": {},
       "childGameObjects": {}
     },
@@ -95,7 +98,6 @@
       "id": 2,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
@@ -128,9 +130,15 @@
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {},
+      "flip": {
+        "canFlip": true
+      },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "dvy": 5,
+        "useHorizontalInertia": true,
+        "useVerticalInertia": true
+      },
       "trigger": {},
       "childGameObjects": {}
     },
@@ -138,44 +146,78 @@
       "id": 3,
       "core": {
         "hurtBoxType": "NORMAL",
-        "resetRunning": false,
-        "nextAnim": "Standing",
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false
+        "isSideDashEnabled": false,
+        "enableJumpingFrontBackDash": true
       },
       "bodies": [
         {
           "position": {
-            "x": 0.0322,
-            "y": 0.2005,
+            "x": 0.0778,
+            "y": 0.3827,
             "z": 0
           },
           "size": {
-            "x": 0.3226501,
-            "y": 0.3839224,
-            "z": 0.22
-          }
-        },
-        {
-          "position": {
-            "x": 0.105,
-            "y": 0.4927,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2607552,
-            "y": 0.1952307,
+            "x": 0.2978287,
+            "y": 0.7483031,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {},
+      "flip": {
+        "canFlip": true
+      },
       "combination": {},
-      "physic": {},
-      "trigger": {},
+      "physic": {
+        "useHorizontalInertia": true,
+        "useVerticalInertia": true
+      },
+      "trigger": {
+        "groundAnim": "Crouch"
+      },
+      "childGameObjects": {}
+    },
+    {
+      "id": 4,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": false,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false,
+        "enableJumpingFrontBackDash": true
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.0778,
+            "y": 0.3827,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2978287,
+            "y": 0.7483031,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {
+        "canFlip": true
+      },
+      "combination": {},
+      "physic": {
+        "dvy": -0.005,
+        "useHorizontalInertia": true,
+        "useVerticalInertia": true,
+        "useConstantGravity": true
+      },
+      "trigger": {
+        "groundAnim": "Crouch"
+      },
       "childGameObjects": {}
     }
   ]

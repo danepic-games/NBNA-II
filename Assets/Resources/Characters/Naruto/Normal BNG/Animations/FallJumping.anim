@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StopRunning
+  m_Name: FallJumping
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 852380448681162341, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+      value: {fileID: -4536736845544887931, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
     - time: 0.083333336
-      value: {fileID: 852380448681162341, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - time: 0.28333333
-      value: {fileID: 852380448681162341, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+      value: {fileID: 38776068600876255, guid: e4862c34ed33a2847b586b5caa5bfcad, type: 3}
+    - time: 0.43333334
+      value: {fileID: 38776068600876255, guid: e4862c34ed33a2847b586b5caa5bfcad, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 852380448681162341, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: 852380448681162341, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
-    - {fileID: 852380448681162341, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: -4536736845544887931, guid: c144b54dcb052844f8bfd5557552a9df, type: 3}
+    - {fileID: 38776068600876255, guid: e4862c34ed33a2847b586b5caa5bfcad, type: 3}
+    - {fileID: 38776068600876255, guid: e4862c34ed33a2847b586b5caa5bfcad, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3
+    m_StopTime: 0.45000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,39 +78,4 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
-    messageOptions: 0
-  - time: 0
-    functionName: ExecMovement
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.06666667
-    functionName: UpdateFrameData
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0.083333336
-    functionName: ExecMovement
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.23333333
-    functionName: UpdateFrameData
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 2
-    messageOptions: 0
-  - time: 0.26666668
-    functionName: UpdateFrameData
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 3
     messageOptions: 0
