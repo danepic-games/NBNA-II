@@ -42,7 +42,17 @@
       "combination": {},
       "physic": {
         "hasHorizontalMovement": true,
-        "hasVerticalMovement": true
+        "hasVerticalMovement": true,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {},
       "childGameObjects": {}
@@ -89,7 +99,17 @@
       "combination": {},
       "physic": {
         "hasHorizontalMovement": true,
-        "hasVerticalMovement": true
+        "hasVerticalMovement": true,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {},
       "childGameObjects": {}
@@ -137,7 +157,17 @@
       "physic": {
         "dvy": 5,
         "useHorizontalInertia": true,
-        "useVerticalInertia": true
+        "useVerticalInertia": true,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {},
       "childGameObjects": {}
@@ -173,7 +203,17 @@
       "combination": {},
       "physic": {
         "useHorizontalInertia": true,
-        "useVerticalInertia": true
+        "useVerticalInertia": true,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {
         "groundAnim": "Crouch"
@@ -213,7 +253,17 @@
         "dvy": -0.005,
         "useHorizontalInertia": true,
         "useVerticalInertia": true,
-        "useConstantGravity": true
+        "useConstantGravity": true,
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {
         "groundAnim": "Crouch"

@@ -42,7 +42,17 @@
         "dvx": 2,
         "inertiaVertical": 0.5,
         "freeMovementAllSidesInertiaVerticalValue": true,
-        "useVerticalInertia": true
+        "useVerticalInertia": true,
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {
         "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
@@ -88,7 +98,17 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.08
+        "dvx": 0.08,
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {
         "holdHorizontalAnim": "Running"
@@ -135,7 +155,17 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": 0.08
+        "dvx": 0.08,
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
       },
       "trigger": {
         "holdHorizontalAnim": "Running"

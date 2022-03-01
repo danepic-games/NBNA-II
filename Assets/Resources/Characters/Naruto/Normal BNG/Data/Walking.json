@@ -40,7 +40,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -88,7 +99,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -136,7 +158,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -184,7 +217,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -232,7 +276,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -280,7 +335,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -328,7 +394,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",
@@ -376,7 +453,18 @@
         "canFlip": true
       },
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.04,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.33,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {
         "attackButtonAnim": "Punch",
         "jumpButtonAnim": "Jumping",

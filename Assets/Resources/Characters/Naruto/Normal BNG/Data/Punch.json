@@ -39,7 +39,18 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {},
       "childGameObjects": {}
     },
@@ -81,7 +92,18 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {},
       "childGameObjects": {}
     },
@@ -123,13 +145,24 @@
           "damageRestTU": 0.15,
           "affectedAnimation": "Injured",
           "nextIfPressedAttackAnimation": "Punch2",
-          "injury":20,
-          "level":0
+          "injury": 20,
+          "level": 0
         }
       ],
       "flip": {},
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {},
       "childGameObjects": {}
     },
@@ -159,7 +192,18 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {},
       "childGameObjects": {}
     },
@@ -190,7 +234,18 @@
       "interactions": [],
       "flip": {},
       "combination": {},
-      "physic": {},
+      "physic": {
+        "customGroundDetectionPosition": {
+          "x": 0.00724,
+          "y": -0.0068,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": 0.2659603,
+          "y": 0.0161677,
+          "z": 0.22
+        }
+      },
       "trigger": {},
       "childGameObjects": {}
     }
