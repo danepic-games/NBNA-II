@@ -14,7 +14,12 @@ namespace Components.Scripts {
         void Update() {
             var customGroundDetectionPosition = objectHandler.actualFrame.physic.customGroundDetectionPosition;
             if (customGroundDetectionPosition != null) {
-                transform.localPosition = customGroundDetectionPosition;
+                if (objectHandler.isFacingRight) {
+                    transform.localPosition = customGroundDetectionPosition;
+                } else {
+                    transform.localPosition = new Vector3(-customGroundDetectionPosition.x, customGroundDetectionPosition.y,
+                            customGroundDetectionPosition.z);
+                }
             }
 
             var customGroundDetectionSize = objectHandler.actualFrame.physic.customGroundDetectionSize;
