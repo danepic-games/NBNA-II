@@ -990,6 +990,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: naruto3_37
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 102
+        width: 56
+        height: 85
+      alignment: 9
+      pivot: {x: 0.4107143, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ef95038a3f68f50800000000000000
+      internalID: 6883456984173641290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_38
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 102
+        width: 56
+        height: 84
+      alignment: 9
+      pivot: {x: 0.39285716, y: 0.071428575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ea3b8ddfca9c8f0800000000000000
+      internalID: -519694075722224052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
