@@ -28,7 +28,14 @@
       "StopRunning",
       "Jumping",
       "Crouch",
-      "FallJumping"
+      "FallJumping",
+      "RunningPunch",
+      "RunningDash",
+      "Taunt",
+      "JumpingDash",
+      "StartCharge",
+      "Charge",
+      "StopCharge"
     ]
   }
 }

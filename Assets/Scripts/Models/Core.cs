@@ -16,6 +16,7 @@ namespace Model {
 
         public bool resetRunningInterval = false;
         public bool resetCombinations = false;
+        public bool resetCombinationsWhenInGround = false;
         public bool resetAnimation = false;
 
         public bool isWalkingEnabled;

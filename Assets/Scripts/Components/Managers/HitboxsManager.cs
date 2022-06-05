@@ -2,7 +2,6 @@ using Components.Handlers;
 using TMPro;
 using UnityEngine;
 using Util;
-using Utils;
 
 namespace Components.Managers {
     public class HitboxsManager : MonoBehaviour {
@@ -84,17 +83,22 @@ namespace Components.Managers {
             } else if (owner.actualFrame.interactions.Length == 2) {
                 mainHitbox.gameObject.SetActive(true);
                 additionalHitbox1.gameObject.SetActive(true);
-                additionalHitbox2.gameObject.SetActive(false);
+                DisableHitbox(additionalHitbox2);
             } else if (owner.actualFrame.interactions.Length == 1) {
                 mainHitbox.gameObject.SetActive(true);
-                additionalHitbox1.gameObject.SetActive(false);
-                additionalHitbox2.gameObject.SetActive(false);
+                DisableHitbox(additionalHitbox1, additionalHitbox2);
             } else if (owner.actualFrame.interactions.Length > 3) {
                 ExceptionThrowUtil.LimitReached();
             } else {
-                mainHitbox.gameObject.SetActive(false);
-                additionalHitbox1.gameObject.SetActive(false);
-                additionalHitbox2.gameObject.SetActive(false);
+                DisableHitbox(mainHitbox, additionalHitbox1, additionalHitbox2);
+            }
+        }
+
+        private void DisableHitbox(params GameObject[] hitboxes) {
+            foreach (GameObject hitbox in hitboxes) {
+                hitbox.transform.position = Vector3.zero;
+                hitbox.transform.localScale = Vector3.zero;
+                hitbox.SetActive(false);
             }
         }
     }

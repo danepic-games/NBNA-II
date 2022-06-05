@@ -37,22 +37,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -93,22 +98,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -149,22 +159,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -205,22 +220,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -261,22 +281,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -317,22 +342,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -373,22 +403,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -429,22 +464,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     },
@@ -485,22 +525,27 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
         "hasVerticalMovement": true,
         "customGroundDetectionPosition": {
-          "x": 0.04,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": -0.33,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
       "trigger": {
-        "opositeFacingMoveHorizontalButtonAnim": "StopRunning"
+        "defenseButtonAnim": "RunningDash",
+        "attackButtonAnim": "RunningPunch",
+        "opositeFacingMoveHorizontalButtonAnim": "StopRunning",
+        "jumpButtonAnim": "JumpingDash"
       },
       "childGameObjects": {}
     }

@@ -254,17 +254,23 @@ namespace Components.Managers {
             } else if (owner.actualFrame.bodies.Length == 2) {
                 mainHurtbox.gameObject.SetActive(true);
                 additionalHurtBox1.gameObject.SetActive(true);
-                additionalHurtBox2.gameObject.SetActive(false);
+                DisableHurtboxes(additionalHurtBox2);
             } else if (owner.actualFrame.bodies.Length == 1) {
                 mainHurtbox.gameObject.SetActive(true);
-                additionalHurtBox1.gameObject.SetActive(false);
-                additionalHurtBox2.gameObject.SetActive(false);
+                DisableHurtboxes(additionalHurtBox1, additionalHurtBox2);
             } else if (owner.actualFrame.bodies.Length > 3) {
                 ExceptionThrowUtil.LimitReached();
             } else {
-                mainHurtbox.gameObject.SetActive(false);
-                additionalHurtBox1.gameObject.SetActive(false);
-                additionalHurtBox2.gameObject.SetActive(false);
+                DisableHurtboxes(mainHurtbox, additionalHurtBox1, additionalHurtBox2);
+            }
+        }
+
+        private void DisableHurtboxes(params HurtboxSpecifiedHandler[] hurtboxes) {
+            foreach (HurtboxSpecifiedHandler hurtboxHandler in hurtboxes) {
+                var hurtbox = hurtboxHandler.gameObject;
+                hurtbox.transform.position = Vector3.zero;
+                hurtbox.transform.localScale = Vector3.zero;
+                hurtbox.SetActive(false);
             }
         }
     }

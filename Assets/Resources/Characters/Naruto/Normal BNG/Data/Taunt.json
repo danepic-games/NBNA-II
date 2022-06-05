@@ -1,37 +1,23 @@
 {
-  "crouch": [
+  "taunt": [
     {
       "id": 0,
       "core": {
         "hurtBoxType": "NORMAL",
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false,
-        "resetRunningInterval": true,
-        "resetCombinationsWhenInGround": false
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.0322,
-            "y": 0.2005,
+            "x": 0.049,
+            "y": 0.395,
             "z": 0
           },
           "size": {
-            "x": 0.3226501,
-            "y": 0.3839224,
-            "z": 0.22
-          }
-        },
-        {
-          "position": {
-            "x": 0.105,
-            "y": 0.4927,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2607552,
-            "y": 0.1952307,
+            "x": 0.36,
+            "y": 0.79,
             "z": 0.22
           }
         }
@@ -41,10 +27,6 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": -0.0001,
-        "dvy": 0,
-        "dvz": -0.0001,
-        "resetInertiaMoveHorizontal": true,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -56,9 +38,7 @@
           "z": 0.22
         }
       },
-      "trigger": {
-        "jumpButtonAnim": "Jumping"
-      },
+      "trigger": {},
       "childGameObjects": {}
     },
     {
@@ -67,31 +47,18 @@
         "hurtBoxType": "NORMAL",
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false,
-        "resetRunningInterval": false
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.0322,
-            "y": 0.2005,
+            "x": -0.0072,
+            "y": 0.3876,
             "z": 0
           },
           "size": {
-            "x": 0.3226501,
-            "y": 0.3839224,
-            "z": 0.22
-          }
-        },
-        {
-          "position": {
-            "x": 0.105,
-            "y": 0.4927,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2607552,
-            "y": 0.1952307,
+            "x": 0.2034252,
+            "y": 0.7152878,
             "z": 0.22
           }
         }
@@ -101,10 +68,6 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": -0.0001,
-        "dvy": -0.0001,
-        "dvz": -0.0001,
-        "resetInertiaMoveHorizontal": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -116,43 +79,28 @@
           "z": 0.22
         }
       },
-      "trigger": {
-        "jumpButtonAnim": "Jumping"
-      },
+      "trigger": {},
       "childGameObjects": {}
     },
     {
       "id": 2,
       "core": {
         "hurtBoxType": "NORMAL",
+        "nextAnim": "Standing",
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
-        "isSideDashEnabled": false,
-        "resetRunningInterval": false,
-        "nextAnim": "Standing"
+        "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.0322,
-            "y": 0.2005,
+            "x": -0.0072,
+            "y": 0.3876,
             "z": 0
           },
           "size": {
-            "x": 0.3226501,
-            "y": 0.3839224,
-            "z": 0.22
-          }
-        },
-        {
-          "position": {
-            "x": 0.105,
-            "y": 0.4927,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2607552,
-            "y": 0.1952307,
+            "x": 0.2034252,
+            "y": 0.7152878,
             "z": 0.22
           }
         }
@@ -162,10 +110,6 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvx": -0.0001,
-        "dvy": -0.0001,
-        "dvz": -0.0001,
-        "resetInertiaMoveHorizontal": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -177,9 +121,7 @@
           "z": 0.22
         }
       },
-      "trigger": {
-        "jumpButtonAnim": "Jumping"
-      },
+      "trigger": {},
       "childGameObjects": {}
     }
   ]

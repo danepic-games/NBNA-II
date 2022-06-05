@@ -7,8 +7,7 @@
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false,
-        "resetRunningInterval": true,
-        "resetCombinations": true
+        "resetRunningInterval": true
       },
       "bodies": [
         {
@@ -39,18 +38,24 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+            "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
-        "hasHorizontalMovement": true,
-        "hasVerticalMovement": true,
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 1,
+        "useVerticalInertia": true,
+        "freeMovementAllSidesInertiaHorizontalValue": true,
+        "inertiaHorizontal": 1,
+        "useHorizontalInertia": true,
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -64,8 +69,7 @@
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false,
-        "resetRunningInterval": false,
-        "resetCombinations": false
+        "resetRunningInterval": false
       },
       "bodies": [
         {
@@ -96,18 +100,24 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+            "combination": {
+        "defenseJumpAttackAnim":"StartCharge"
+      },
       "physic": {
-        "hasHorizontalMovement": true,
-        "hasVerticalMovement": true,
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 1,
+        "useVerticalInertia": true,
+        "freeMovementAllSidesInertiaHorizontalValue": true,
+        "inertiaHorizontal": 1,
+        "useHorizontalInertia": true,
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -155,17 +165,21 @@
       },
       "combination": {},
       "physic": {
-        "dvy": 5,
-        "useHorizontalInertia": true,
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 1.63,
         "useVerticalInertia": true,
+        "freeMovementAllSidesInertiaHorizontalValue": true,
+        "inertiaHorizontal": 1.93,
+        "useHorizontalInertia": true,
+        "dvy": 6.5,
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -179,7 +193,8 @@
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false,
-        "enableJumpingFrontBackDash": true
+        "enableJumpingFrontBackDash": true,
+        "resetCombinationsWhenInGround": true
       },
       "bodies": [
         {
@@ -202,16 +217,14 @@
       },
       "combination": {},
       "physic": {
-        "useHorizontalInertia": true,
-        "useVerticalInertia": true,
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -227,7 +240,8 @@
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false,
-        "enableJumpingFrontBackDash": true
+        "enableJumpingFrontBackDash": true,
+        "resetCombinationsWhenInGround": true
       },
       "bodies": [
         {
@@ -250,18 +264,71 @@
       },
       "combination": {},
       "physic": {
-        "dvy": -0.005,
-        "useHorizontalInertia": true,
-        "useVerticalInertia": true,
+        "dvy": -120,
         "useConstantGravity": true,
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
+          "z": 0.22
+        }
+      },
+      "trigger": {
+        "groundAnim": "Crouch"
+      },
+      "childGameObjects": {}
+    },
+    {
+      "id": 5,
+      "core": {
+        "hurtBoxType": "NORMAL",
+        "isWalkingEnabled": false,
+        "isRunningEnabled": false,
+        "isSideDashEnabled": false,
+        "enableJumpingFrontBackDash": true,
+        "resetCombinationsWhenInGround": true
+      },
+      "bodies": [
+        {
+          "position": {
+            "x": 0.0778,
+            "y": 0.3827,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2978287,
+            "y": 0.7483031,
+            "z": 0.22
+          }
+        }
+      ],
+      "spawns": [],
+      "interactions": [],
+      "flip": {
+        "canFlip": true
+      },
+      "combination": {},
+      "physic": {
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 1,
+        "useVerticalInertia": true,
+        "freeMovementAllSidesInertiaHorizontalValue": true,
+        "inertiaHorizontal": 1,
+        "useHorizontalInertia": true,
+        "dvy": -0.5,
+        "useConstantGravity": true,
+        "customGroundDetectionPosition": {
+          "x": 0.03889,
+          "y": 0.03978,
+          "z": 0
+        },
+        "customGroundDetectionSize": {
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },

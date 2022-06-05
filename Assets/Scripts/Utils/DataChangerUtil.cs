@@ -21,10 +21,15 @@ namespace Utils {
 
         private static void GetFramesByDataFileName(Data data, string dataPath, string[] fileNames) {
             foreach (string fileName in fileNames) {
-                var framesDataChanger = Resources.Load<TextAsset>($"{dataPath}{fileName}");
-                if (framesDataChanger != null) {
-                    JsonUtility.FromJsonOverwrite(framesDataChanger.text, data);
+                try {
+                    var framesDataChanger = Resources.Load<TextAsset>($"{dataPath}{fileName}");
+                    if (framesDataChanger != null) {
+                        JsonUtility.FromJsonOverwrite(framesDataChanger.text, data);
+                    }
+                } catch {
+                    Debug.LogError("Problem to convert text to json in file" + fileName + "!");
                 }
+
             }
         }
 
@@ -39,8 +44,12 @@ namespace Utils {
                         return GetFrameSafety(data.walking, animationIndex, currentAnim);
                     case CharacterAnimEnum.Punch:
                         return GetFrameSafety(data.punch, animationIndex, currentAnim);
+                    case CharacterAnimEnum.RunningPunch:
+                        return GetFrameSafety(data.runningPunch, animationIndex, currentAnim);
                     case CharacterAnimEnum.SimpleDash:
                         return GetFrameSafety(data.simpleDash, animationIndex, currentAnim);
+                    case CharacterAnimEnum.RunningDash:
+                        return GetFrameSafety(data.runningDash, animationIndex, currentAnim);
                     case CharacterAnimEnum.StopRunning:
                         return GetFrameSafety(data.stopRunning, animationIndex, currentAnim);
                     case CharacterAnimEnum.Running:
@@ -51,6 +60,16 @@ namespace Utils {
                         return GetFrameSafety(data.crouch, animationIndex, currentAnim);
                     case CharacterAnimEnum.FallJumping:
                         return GetFrameSafety(data.fallJumping, animationIndex, currentAnim);
+                    case CharacterAnimEnum.Taunt:
+                        return GetFrameSafety(data.taunt, animationIndex, currentAnim);
+                    case CharacterAnimEnum.JumpingDash:
+                        return GetFrameSafety(data.jumpingDash, animationIndex, currentAnim);
+                    case CharacterAnimEnum.StartCharge:
+                        return GetFrameSafety(data.startCharge, animationIndex, currentAnim);
+                    case CharacterAnimEnum.Charge:
+                        return GetFrameSafety(data.charge, animationIndex, currentAnim);
+                    case CharacterAnimEnum.StopCharge:
+                        return GetFrameSafety(data.stopCharge, animationIndex, currentAnim);
                     default:
                         Debug.LogWarning($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
                         return null;

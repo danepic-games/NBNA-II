@@ -419,7 +419,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 366688186}
   manager: {fileID: 1019054336}
-  ownerBoxCollider: {fileID: 0}
   bodyNumber: 0
 --- !u!1 &184044568
 GameObject:
@@ -759,6 +758,13 @@ MonoBehaviour:
     jumping: []
     fallJumping: []
     crouch: []
+    runningPunch: []
+    runningDash: []
+    taunt: []
+    jumpingDash: []
+    stopCharge: []
+    charge: []
+    startCharge: []
   actualFrame:
     name: 
     id: 0
@@ -773,6 +779,7 @@ MonoBehaviour:
       usageMP: 0
       resetRunningInterval: 0
       resetCombinations: 0
+      resetCombinationsWhenInGround: 0
       resetAnimation: 0
       isWalkingEnabled: 0
       isRunningEnabled: 0
@@ -804,6 +811,7 @@ MonoBehaviour:
       hasVerticalMovement: 0
       useVerticalInertia: 0
       useConstantGravity: 0
+      stopForce: 0
       lockDirectionForce: 0
       useEnemyForceInNextFrame: 0
       stopGravity: 0
@@ -820,6 +828,7 @@ MonoBehaviour:
       externalForceX: 0
       externalForceY: 0
       externalForceZ: 0
+      ignoreSpriteFacing: 1
       customGroundDetectionPosition: {x: 0, y: 0, z: 0}
       customGroundDetectionSize: {x: 0, y: 0, z: 0}
     childObjects:
@@ -930,6 +939,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   sameExternalItr: 0
   lastButtonPressed: 18
   buttonsPressed:
@@ -1143,7 +1153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 366688186}
   manager: {fileID: 1019054336}
-  ownerBoxCollider: {fileID: 0}
   bodyNumber: 2
 --- !u!1 &434125491
 GameObject:
@@ -1173,8 +1182,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434125491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0656, y: 0.3807, z: 0}
+  m_LocalScale: {x: 0.2786185, y: 0.712075, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 1
@@ -1193,7 +1202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 803715525}
   manager: {fileID: 1717327482}
-  ownerBoxCollider: {fileID: 0}
   bodyNumber: 1
 --- !u!65 &434125494
 BoxCollider:
@@ -1203,7 +1211,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434125491}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1367,7 +1375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 366688186}
   manager: {fileID: 1019054336}
-  ownerBoxCollider: {fileID: 0}
   bodyNumber: 1
 --- !u!1 &525773989
 GameObject:
@@ -1555,8 +1562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683710886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0778, y: 0.3827, z: 0}
-  m_LocalScale: {x: 0.29782867, y: 0.7483031, z: 0.22}
+  m_LocalPosition: {x: 0.545, y: 0.427, z: 0}
+  m_LocalScale: {x: 0.2447077, y: 0.20277844, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 0
@@ -1637,7 +1644,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 803715525}
   manager: {fileID: 1717327482}
-  ownerBoxCollider: {fileID: 803715526}
   bodyNumber: 0
 --- !u!1 &720688444
 GameObject:
@@ -1705,7 +1711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &746948503
 Transform:
   m_ObjectHideFlags: 0
@@ -1975,6 +1981,13 @@ MonoBehaviour:
     jumping: []
     fallJumping: []
     crouch: []
+    runningPunch: []
+    runningDash: []
+    taunt: []
+    jumpingDash: []
+    stopCharge: []
+    charge: []
+    startCharge: []
   actualFrame:
     name: 
     id: 0
@@ -1989,6 +2002,7 @@ MonoBehaviour:
       usageMP: 0
       resetRunningInterval: 0
       resetCombinations: 0
+      resetCombinationsWhenInGround: 0
       resetAnimation: 0
       isWalkingEnabled: 0
       isRunningEnabled: 0
@@ -2020,6 +2034,7 @@ MonoBehaviour:
       hasVerticalMovement: 0
       useVerticalInertia: 0
       useConstantGravity: 0
+      stopForce: 0
       lockDirectionForce: 0
       useEnemyForceInNextFrame: 0
       stopGravity: 0
@@ -2036,6 +2051,7 @@ MonoBehaviour:
       externalForceX: 0
       externalForceY: 0
       externalForceZ: 0
+      ignoreSpriteFacing: 1
       customGroundDetectionPosition: {x: 0, y: 0, z: 0}
       customGroundDetectionSize: {x: 0, y: 0, z: 0}
     childObjects:
@@ -2146,9 +2162,13 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   sameExternalItr: 0
   lastButtonPressed: 18
   buttonsPressed:
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -2273,6 +2293,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   interactionNumber: 0
 --- !u!65 &858350130
 BoxCollider:
@@ -2282,7 +2303,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858350127}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2386,6 +2407,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   interactionNumber: 0
 --- !u!65 &911723341
 BoxCollider:
@@ -2666,6 +2688,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   interactionNumber: 2
 --- !u!65 &964875463
 BoxCollider:
@@ -2675,7 +2698,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964875460}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3225,6 +3248,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   interactionNumber: 2
 --- !u!65 &1087632860
 BoxCollider:
@@ -3698,6 +3722,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   interactionNumber: 1
 --- !u!65 &1389784519
 BoxCollider:
@@ -3803,8 +3828,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467346539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04553, y: -0.0068, z: 0}
-  m_LocalScale: {x: 0.34254357, y: 0.0161677, z: 0.22}
+  m_LocalPosition: {x: 0.03889, y: 0.03978, z: 0}
+  m_LocalScale: {x: -0.400504, y: 0.1353487, z: 0.22}
   m_Children: []
   m_Father: {fileID: 550721375}
   m_RootOrder: 0
@@ -3822,6 +3847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectHandler: {fileID: 803715525}
+  boxCollider: {fileID: 803715526}
 --- !u!33 &1467346542
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3837,7 +3863,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467346539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4384,7 +4410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 803715525}
   manager: {fileID: 1717327482}
-  ownerBoxCollider: {fileID: 0}
   bodyNumber: 2
 --- !u!65 &1745346243
 BoxCollider:
@@ -4394,7 +4419,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745346240}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4512,6 +4537,7 @@ MonoBehaviour:
     effect: 0
     level: 0
     origin: {fileID: 0}
+    howManyEnemiesWillBeInjured: 0
   interactionNumber: 1
 --- !u!65 &2002333868
 BoxCollider:
@@ -4521,7 +4547,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002333865}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

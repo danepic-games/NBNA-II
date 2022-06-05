@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Back.Model.Type;
 using Components.Managers;
 using Model;
@@ -199,7 +200,7 @@ namespace Components.Handlers {
         [SerializeField]
         private ButtonEnum lastButtonPressed = ButtonEnum.NONE;
         [SerializeField]
-        private string[] buttonsPressed = new string[3];
+        private string[] buttonsPressed = new string[6];
 
         //Frame Eventos
         [SerializeField]
@@ -245,6 +246,9 @@ namespace Components.Handlers {
             buttonsPressed[0] = ButtonEnum.NONE.ToString();
             buttonsPressed[1] = ButtonEnum.NONE.ToString();
             buttonsPressed[2] = ButtonEnum.NONE.ToString();
+            buttonsPressed[3] = ButtonEnum.NONE.ToString();
+            buttonsPressed[4] = ButtonEnum.NONE.ToString();
+            buttonsPressed[5] = ButtonEnum.NONE.ToString();
         }
 
         private void GetComponentInChild<T>(Transform transform, T outObject) {
@@ -261,6 +265,8 @@ namespace Components.Handlers {
 #if UNITY_EDITOR
             ExecutePauseBreak();
 #endif
+
+            Debug.Log($"{actualFrame.core.resetCombinations}");
 
             SetupAnimResets();
 
@@ -304,6 +310,8 @@ namespace Components.Handlers {
         }
 
         void FixedUpdate() {
+            StopForce();
+
             UseRelativePositionFromOwner();
 
             TeleportToEnemy();
@@ -440,9 +448,10 @@ namespace Components.Handlers {
                     }
 
                     if (!defense_jump_attack) {
-                        defense_jump_attack = buttonsPressed[2].Equals(ButtonEnum.Defense.ToString())
-                        && buttonsPressed[1].Equals(ButtonEnum.Jump.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Attack.ToString());
+                        var onlyActionsButtons = buttonsPressed.Where(button => !button.Equals(ButtonEnum.Horizontal.ToString())).ToArray();
+                        defense_jump_attack = onlyActionsButtons[2].Equals(ButtonEnum.Defense.ToString())
+                        && onlyActionsButtons[1].Equals(ButtonEnum.Jump.ToString())
+                        && onlyActionsButtons[0].Equals(ButtonEnum.Attack.ToString());
                     }
 
                     pressForwardAttackDown = pressAttackDown && !moveHorizontal.Equals(0f);
@@ -454,13 +463,16 @@ namespace Components.Handlers {
                     lastButtonPressed = !Input.GetAxisRaw(ButtonEnum.Horizontal.ToString()).Equals(0) ? ButtonEnum.Horizontal : lastButtonPressed;
                     lastButtonPressed = Input.GetAxisRaw(ButtonEnum.Vertical.ToString()) > 0 ? ButtonEnum.Vertical_Up : lastButtonPressed;
                     lastButtonPressed = Input.GetAxisRaw(ButtonEnum.Vertical.ToString()) < 0 ? ButtonEnum.Vertical_Down : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Defense.ToString()) ? ButtonEnum.Defense : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Attack.ToString()) ? ButtonEnum.Attack : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Weapon.ToString()) ? ButtonEnum.Weapon : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Jump.ToString()) ? ButtonEnum.Jump : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Defense.ToString()) ? ButtonEnum.Defense : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Attack.ToString()) ? ButtonEnum.Attack : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Weapon.ToString()) ? ButtonEnum.Weapon : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Jump.ToString()) ? ButtonEnum.Jump : lastButtonPressed;
 
                     if (!lastButtonPressed.Equals(ButtonEnum.NONE) && !buttonsPressed[0].Equals(lastButtonPressed.ToString()))
                     {
+                        buttonsPressed[5] = buttonsPressed[4];
+                        buttonsPressed[4] = buttonsPressed[3];
+                        buttonsPressed[3] = buttonsPressed[2];
                         buttonsPressed[2] = buttonsPressed[1];
                         buttonsPressed[1] = buttonsPressed[0];
                         buttonsPressed[0] = lastButtonPressed.ToString();
@@ -541,13 +553,16 @@ namespace Components.Handlers {
                     lastButtonPressed = !Input.GetAxisRaw(ButtonEnum.Horizontal_P2.ToString()).Equals(0) ? ButtonEnum.Horizontal_P2 : lastButtonPressed;
                     lastButtonPressed = Input.GetAxisRaw(ButtonEnum.Vertical_P2.ToString()) > 0 ? ButtonEnum.Vertical_Up_P2 : lastButtonPressed;
                     lastButtonPressed = Input.GetAxisRaw(ButtonEnum.Vertical_P2.ToString()) < 0 ? ButtonEnum.Vertical_Down_P2 : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Defense_P2.ToString()) ? ButtonEnum.Defense_P2 : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Attack_P2.ToString()) ? ButtonEnum.Attack_P2 : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Weapon_P2.ToString()) ? ButtonEnum.Weapon_P2 : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonUp(ButtonEnum.Jump_P2.ToString()) ? ButtonEnum.Jump_P2 : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Defense_P2.ToString()) ? ButtonEnum.Defense_P2 : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Attack_P2.ToString()) ? ButtonEnum.Attack_P2 : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Weapon_P2.ToString()) ? ButtonEnum.Weapon_P2 : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Jump_P2.ToString()) ? ButtonEnum.Jump_P2 : lastButtonPressed;
 
                     if (!lastButtonPressed.Equals(ButtonEnum.NONE) && !buttonsPressed[0].Equals(lastButtonPressed.ToString()))
                     {
+                        buttonsPressed[5] = buttonsPressed[4];
+                        buttonsPressed[4] = buttonsPressed[3];
+                        buttonsPressed[3] = buttonsPressed[2];
                         buttonsPressed[2] = buttonsPressed[1];
                         buttonsPressed[1] = buttonsPressed[0];
                         buttonsPressed[0] = lastButtonPressed.ToString();
@@ -559,19 +574,23 @@ namespace Components.Handlers {
         private void DisableCombination() {
             //Disable Combination
             if (actualFrame.core.resetCombinations) {
-                defense_up_attack = false;
-                defense_up_jump = false;
-                defense_up_weapon = false;
-                defense_forward_attack = false;
-                defense_forward_jump = false;
-                defense_forward_weapon = false;
-                defense_down_attack = false;
-                defense_down_jump = false;
-                defense_down_weapon = false;
-                defense_jump_attack = false;
-
-                SetupPressedButtons();
+                this.ForceDisableCombination();
             }
+        }
+
+        private void ForceDisableCombination() {
+            defense_up_attack = false;
+            defense_up_jump = false;
+            defense_up_weapon = false;
+            defense_forward_attack = false;
+            defense_forward_jump = false;
+            defense_forward_weapon = false;
+            defense_down_attack = false;
+            defense_down_jump = false;
+            defense_down_weapon = false;
+            defense_jump_attack = false;
+
+            SetupPressedButtons();
         }
 
         bool ExecOpoint(Spawn[] opoints) {
@@ -654,6 +673,8 @@ namespace Components.Handlers {
             buttonsPressed[0] = ButtonEnum.NONE.ToString();
             buttonsPressed[1] = ButtonEnum.NONE.ToString();
             buttonsPressed[2] = ButtonEnum.NONE.ToString();
+            buttonsPressed[3] = ButtonEnum.NONE.ToString();
+            buttonsPressed[4] = ButtonEnum.NONE.ToString();
             lastButtonPressed = ButtonEnum.NONE;
         }
 
@@ -797,6 +818,9 @@ namespace Components.Handlers {
 
             //On Ground
             if (onGround && actualFrame.trigger.groundAnim != null) {
+                if (actualFrame.core.resetCombinationsWhenInGround) {
+                    this.ForceDisableCombination();
+                }
                 eventNextAnim = actualFrame.trigger.groundAnim.ToString();
             }
 
@@ -889,6 +913,10 @@ namespace Components.Handlers {
             }
         }
 
+        public void InvokeCheckEvents() {
+            this.CheckEvents();
+        }
+
         private string SetupInjuredEvent() {
             hurtboxManager.damageRestTimer = externalItr.damageRestTU;
             string affectedAnimation = externalItr.affectedAnimation;
@@ -921,6 +949,7 @@ namespace Components.Handlers {
         }
 
         private void ChangeAnimation(string anim) {
+            Debug.Log(anim);
             if (!actualFrame.core.resetAnimation) {
                 animator.Play($"Base Layer.{anim}", 0);
             } else {
@@ -1265,11 +1294,9 @@ namespace Components.Handlers {
                     return;
                 }
             } else if (actualFrame.physic.useHorizontalInertia || actualFrame.physic.useVerticalInertia) {
-                Debug.Log("usou inertia");
                 InertiaForce(force);
             } else {
-                Debug.Log("usou normal");
-                NormalForce(force);
+                NormalForce(force, false);
             }
         }
 
@@ -1282,6 +1309,14 @@ namespace Components.Handlers {
                 executeExternalForce = false;
                 UpdateVelocity(new Vector3(actualFrame.physic.externalForceX, actualFrame.physic.externalForceY,
                         actualFrame.physic.externalForceZ));
+            }
+        }
+
+        void StopForce() {
+            if (actualFrame.physic.stopForce) {
+                Debug.Log("Stop Force");
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.angularVelocity = Vector3.zero;
             }
         }
 
@@ -1313,14 +1348,32 @@ namespace Components.Handlers {
                 }
             }
 
-            Debug.Log($"{fixedInertiaDvx} | {fixedInertiaDvz}");
-            NormalForce(force + new Vector3(fixedInertiaDvx, 0f, fixedInertiaDvz));
+            var newForce = force + new Vector3(fixedInertiaDvx, 0f, fixedInertiaDvz);
+            NormalForce(newForce, actualFrame.physic.ignoreSpriteFacing);
         }
 
-        private void NormalForce(Vector3 force) {
+        private void NormalForce(Vector3 force, bool ignoreSpriteFacing) {
+            if (actualFrame.physic.stopForce) {
+                StopForce();
+                return;
+            }
+
             bool dvxCondition = force.x != 0;
             bool dvyCondition = force.y != 0;
             bool dvzCondition = force.z != 0;
+
+            //constant gravity
+            if (actualFrame.physic.useConstantGravity) {
+                if (!isFacingRight && !ignoreSpriteFacing) {
+                    //                    rigidbody.AddForce(new Vector3(-force.x, force.y, force.z), ForceMode.Impulse);
+                    rigidbody.AddForce(new Vector3(-force.x, force.y, force.z), ForceMode.Acceleration);
+                    return;
+                } else {
+                    //                    rigidbody.AddForce(new Vector3(force.x, force.y, force.z), ForceMode.Impulse);
+                    rigidbody.AddForce(new Vector3(force.x, force.y, force.z), ForceMode.Acceleration);
+                    return;
+                }
+            }
 
             //execute stop gravity
             if (!dvyCondition && actualFrame.physic.stopGravity) {
@@ -1328,7 +1381,7 @@ namespace Components.Handlers {
                     rigidbody.AddForce(new Vector3(force.x, force.y, force.z), ForceMode.Impulse);
                     return;
                 } else {
-                    if (!isFacingRight) {
+                    if (!isFacingRight && !ignoreSpriteFacing) {
                         rigidbody.AddForce(new Vector3(-force.x, force.y, force.z), ForceMode.Impulse);
                         return;
                     } else {
@@ -1352,7 +1405,7 @@ namespace Components.Handlers {
                     rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
                     return;
                 } else {
-                    if (!isFacingRight) {
+                    if (!isFacingRight && !ignoreSpriteFacing) {
                         rigidbody.AddForce(new Vector3(-force.x, dvy, force.z), ForceMode.Impulse);
                         return;
                     } else {
@@ -1376,7 +1429,7 @@ namespace Components.Handlers {
                     rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
                     return;
                 } else {
-                    if (!lockRightForce) {
+                    if (!lockRightForce && !ignoreSpriteFacing) {
                         rigidbody.AddForce(new Vector3(-force.x, dvy, force.z), ForceMode.Impulse);
                         return;
                     } else {
@@ -1400,13 +1453,7 @@ namespace Components.Handlers {
                     rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
                     return;
                 } else {
-                    if (!isFacingRight) {
-                        rigidbody.AddForce(new Vector3(-force.x, dvy, force.z), ForceMode.Impulse);
-                        return;
-                    } else {
-                        rigidbody.AddForce(new Vector3(force.x, dvy, force.z), ForceMode.Impulse);
-                        return;
-                    }
+
                 }
             }
         }

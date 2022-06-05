@@ -35,13 +35,13 @@
         "useVerticalInertia": true,
         "useConstantGravity": true,
         "customGroundDetectionPosition": {
-          "x": 0.0697,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.08761371,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },

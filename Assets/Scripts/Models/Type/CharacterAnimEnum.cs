@@ -19,6 +19,13 @@ namespace Back.Model.Type {
         Jumping4WithCombo,
         JumpingFrontBackDash,
         Punch,
+        RunningPunch,
+        RunningDash,
+        Taunt,
+        JumpingDash,
+        StopCharge,
+        Charge,
+        StartCharge
     }
 
     static class Extensions {

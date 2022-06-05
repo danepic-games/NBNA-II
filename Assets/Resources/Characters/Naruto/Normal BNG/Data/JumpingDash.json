@@ -1,38 +1,37 @@
 {
-  "standing": [
+  "jumpingDash": [
     {
       "id": 0,
       "core": {
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": true,
+        "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.049,
-            "y": 0.395,
+            "x": 0.0856,
+            "y": 0.2653,
             "z": 0
           },
           "size": {
-            "x": 0.36,
-            "y": 0.79,
+            "x": 0.3190557,
+            "y": 0.4812885,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combination": {
-        "defenseJumpAttackAnim":"StartCharge"
-      },
+      "flip": {},
+      "combination": {},
       "physic": {
-        "resetExternalForce": true,
+        "stopForce": true,
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 1,
+        "useVerticalInertia": true,
+        "ignoreSpriteFacing": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -44,46 +43,41 @@
           "z": 0.22
         }
       },
-      "trigger": {
-        "tauntAnim": "Taunt",
-        "attackButtonAnim": "Punch",
-        "jumpButtonAnim": "Jumping",
-        "flyAnim": "FallJumping"
-      },
+      "trigger": {},
       "childGameObjects": {}
     },
     {
       "id": 1,
       "core": {
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": true,
+        "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.049,
-            "y": 0.395,
+            "x": 0.0776,
+            "y": 0.3594,
             "z": 0
           },
           "size": {
-            "x": 0.36,
-            "y": 0.79,
+            "x": 0.2706627,
+            "y": 0.6695204,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combination": {
-        "defenseJumpAttackAnim":"StartCharge"
-      },
+      "flip": {},
+      "combination": {},
       "physic": {
+        "stopForce": true,
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 1,
+        "useVerticalInertia": true,
+        "ignoreSpriteFacing": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -95,46 +89,42 @@
           "z": 0.22
         }
       },
-      "trigger": {
-        "tauntAnim": "Taunt",
-        "attackButtonAnim": "Punch",
-        "jumpButtonAnim": "Jumping",
-        "flyAnim": "FallJumping"
-      },
+      "trigger": {},
       "childGameObjects": {}
     },
     {
       "id": 2,
       "core": {
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": true,
+        "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.049,
-            "y": 0.395,
+            "x": 0.0776,
+            "y": 0.3594,
             "z": 0
           },
           "size": {
-            "x": 0.36,
-            "y": 0.79,
+            "x": 0.2706627,
+            "y": 0.6695204,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combination": {
-        "defenseJumpAttackAnim":"StartCharge"
-      },
+      "flip": {},
+      "combination": {},
       "physic": {
+        "freeMovementAllSidesInertiaVerticalValue": true,
+        "inertiaVertical": 0.75,
+        "useVerticalInertia": true,
+        "dvx": 4,
+        "dvy": 5,
+        "ignoreSpriteFacing": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -146,46 +136,38 @@
           "z": 0.22
         }
       },
-      "trigger": {
-        "tauntAnim": "Taunt",
-        "attackButtonAnim": "Punch",
-        "jumpButtonAnim": "Jumping",
-        "flyAnim": "FallJumping"
-      },
+      "trigger": {},
       "childGameObjects": {}
     },
     {
       "id": 3,
       "core": {
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": true,
+        "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.049,
-            "y": 0.395,
+            "x": 0.063,
+            "y": 0.4192,
             "z": 0
           },
           "size": {
-            "x": 0.36,
-            "y": 0.79,
+            "x": 0.2414311,
+            "y": 0.7890902,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combination": {
-        "defenseJumpAttackAnim":"StartCharge"
-      },
+      "flip": {},
+      "combination": {},
       "physic": {
+        "dvy": -120,
+        "useConstantGravity": true,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -198,44 +180,36 @@
         }
       },
       "trigger": {
-        "tauntAnim": "Taunt",
-        "attackButtonAnim": "Punch",
-        "jumpButtonAnim": "Jumping",
-        "flyAnim": "FallJumping"
+        "groundAnim": "Crouch"
       },
       "childGameObjects": {}
     },
     {
       "id": 4,
       "core": {
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": true,
+        "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.049,
-            "y": 0.395,
+            "x": 0.0656,
+            "y": 0.3807,
             "z": 0
           },
           "size": {
-            "x": 0.36,
-            "y": 0.79,
+            "x": 0.2786185,
+            "y": 0.712075,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combination": {
-        "defenseJumpAttackAnim":"StartCharge"
-      },
+      "flip": {},
+      "combination": {},
       "physic": {
         "customGroundDetectionPosition": {
           "x": 0.03889,
@@ -249,44 +223,36 @@
         }
       },
       "trigger": {
-        "tauntAnim": "Taunt",
-        "attackButtonAnim": "Punch",
-        "jumpButtonAnim": "Jumping",
-        "flyAnim": "FallJumping"
+        "groundAnim": "Crouch"
       },
       "childGameObjects": {}
     },
     {
       "id": 5,
       "core": {
-        "state": "WALK_RUN_SIDEDASH",
         "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": true,
+        "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
       },
       "bodies": [
         {
           "position": {
-            "x": 0.049,
-            "y": 0.395,
+            "x": 0.0656,
+            "y": 0.3807,
             "z": 0
           },
           "size": {
-            "x": 0.36,
-            "y": 0.79,
+            "x": 0.2786185,
+            "y": 0.712075,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
       "interactions": [],
-      "flip": {
-        "canFlip": true
-      },
-      "combination": {
-        "defenseJumpAttackAnim":"StartCharge"
-      },
+      "flip": {},
+      "combination": {},
       "physic": {
         "customGroundDetectionPosition": {
           "x": 0.03889,
@@ -300,10 +266,7 @@
         }
       },
       "trigger": {
-        "tauntAnim": "Taunt",
-        "attackButtonAnim": "Punch",
-        "jumpButtonAnim": "Jumping",
-        "flyAnim": "FallJumping"
+        "groundAnim": "Crouch"
       },
       "childGameObjects": {}
     }

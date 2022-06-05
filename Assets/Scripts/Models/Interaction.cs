@@ -21,5 +21,6 @@ namespace Model {
         public InteractionEffectEnum effect;
         public LevelDamageEnum level;
         public GameObject origin;
+        public int howManyEnemiesWillBeInjured;
     }
 }

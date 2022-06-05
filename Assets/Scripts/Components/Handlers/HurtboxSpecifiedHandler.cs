@@ -8,8 +8,6 @@ namespace Components.Handlers {
         private ObjectHandler owner;
         [SerializeField]
         private HurtboxsManager manager;
-        [SerializeField]
-        private BoxCollider ownerBoxCollider;
 
         public int bodyNumber;
         private bool isMainBody;
@@ -80,10 +78,6 @@ namespace Components.Handlers {
                     if (body.Equals(owner.actualFrame.bodies[bodyNumber])) {
                         transform.localPosition = new Vector3(-body.position.x, body.position.y, body.position.z);
                         transform.localScale = new Vector3(body.size.x, body.size.y, body.size.z);
-                        if (isMainBody) {
-                            ownerBoxCollider.center = transform.localPosition;
-                            ownerBoxCollider.size = transform.localScale;
-                        }
                     }
 
 
@@ -91,10 +85,6 @@ namespace Components.Handlers {
                     if (body.Equals(owner.actualFrame.bodies[bodyNumber])) {
                         transform.localPosition = new Vector3(body.position.x, body.position.y, body.position.z);
                         transform.localScale = new Vector3(body.size.x, body.size.y, body.size.z);
-                        if (isMainBody) {
-                            ownerBoxCollider.size = transform.localScale;
-                            ownerBoxCollider.center = transform.localPosition;
-                    }
                     }
                 }
             }

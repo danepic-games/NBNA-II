@@ -1,12 +1,111 @@
 fileFormatVersion: 2
 guid: fdd751215cce6224f8cc86cb25eb1a09
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4355333228289829923
+    second: naruto3_6
+  - first:
+      213: 4401123095137339503
+    second: naruto3_7
+  - first:
+      213: 8648917438983881615
+    second: naruto3_8
+  - first:
+      213: -6352951749446367376
+    second: invisible-frame
+  - first:
+      213: -6746172808683877059
+    second: naruto3_10
+  - first:
+      213: 2411794750423859348
+    second: naruto3_11
+  - first:
+      213: -8326462964162793227
+    second: naruto3_12
+  - first:
+      213: 1397453485592993948
+    second: naruto3_13
+  - first:
+      213: 4985400479389114158
+    second: naruto3_14
+  - first:
+      213: 2023884245183628349
+    second: naruto3_15
+  - first:
+      213: 4824051740514211190
+    second: naruto3_16
+  - first:
+      213: -2654863737860041081
+    second: naruto3_17
+  - first:
+      213: -996728486457474270
+    second: naruto3_18
+  - first:
+      213: 7259898739261613825
+    second: naruto3_19
+  - first:
+      213: -5941015495536810594
+    second: naruto3_20
+  - first:
+      213: 7604569353018117362
+    second: naruto3_21
+  - first:
+      213: -3477694856779005513
+    second: naruto3_22
+  - first:
+      213: -6471239615526927682
+    second: naruto3_23
+  - first:
+      213: -8558370407077374402
+    second: naruto3_24
+  - first:
+      213: 8700137810998533015
+    second: naruto3_25
+  - first:
+      213: -6606116596077261786
+    second: naruto3_26
+  - first:
+      213: -1847926175595512367
+    second: naruto3_27
+  - first:
+      213: -901030539884145130
+    second: naruto3_28
+  - first:
+      213: -3391159656530283804
+    second: naruto3_29
+  - first:
+      213: 3880256610808382992
+    second: naruto3_30
+  - first:
+      213: 8546632367761707504
+    second: naruto3_31
+  - first:
+      213: -6189182528050345148
+    second: naruto3_32
+  - first:
+      213: 2478714290413684090
+    second: naruto3_33
+  - first:
+      213: -5543299292980853471
+    second: naruto3_34
+  - first:
+      213: 5412439680620989469
+    second: naruto3_35
+  - first:
+      213: 7125906596960001828
+    second: naruto3_36
+  - first:
+      213: 6883456984173641290
+    second: naruto3_37
+  - first:
+      213: -519694075722224052
+    second: naruto3_38
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -35,13 +134,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +149,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -65,10 +164,46 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,11 +212,788 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: naruto3_0
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 304
+        width: 92
+        height: 72
+      alignment: 9
+      pivot: {x: 0.29925403, y: 0.065909915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5da92ed56c111450800000000000000
+      internalID: 6057654197634575711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_1
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 304
+        width: 74
+        height: 72
+      alignment: 9
+      pivot: {x: 0.3108108, y: 0.06944445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9ada88919d8fbe0800000000000000
+      internalID: -1443164976881751621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_2
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 304
+        width: 60
+        height: 73
+      alignment: 9
+      pivot: {x: 0.26666668, y: 0.10958904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eff3c96fdaa0d6c0800000000000000
+      internalID: -4120605782515122199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_3
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 305
+        width: 67
+        height: 77
+      alignment: 9
+      pivot: {x: 0.46268657, y: 0.09090909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22bfe5052abad4fd0800000000000000
+      internalID: -2356038316423447774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_4
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 305
+        width: 56
+        height: 82
+      alignment: 9
+      pivot: {x: 0.4464286, y: 0.07317073}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d40c5f9ff73c41d0800000000000000
+      internalID: -3365253250522807079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_5
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 305
+        width: 51
+        height: 87
+      alignment: 9
+      pivot: {x: 0.4117647, y: 0.06896552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d945b039c33b454e0800000000000000
+      internalID: -1993771662271884131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_6
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 305
+        width: 53
+        height: 92
+      alignment: 9
+      pivot: {x: 0.3773585, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd35451218fbe83c0800000000000000
+      internalID: -4355333228289829923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_7
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 305
+        width: 53
+        height: 92
+      alignment: 9
+      pivot: {x: 0.3773585, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68cd6a032ee31d30800000000000000
+      internalID: 4401123095137339503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_8
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 305
+        width: 62
+        height: 92
+      alignment: 9
+      pivot: {x: 0.40322578, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83c05a3690270870800000000000000
+      internalID: 8648917438983881615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invisible-frame
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 373
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0778d031b08c5d7a0800000000000000
+      internalID: -6352951749446367376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_10
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 211
+        width: 78
+        height: 88
+      alignment: 9
+      pivot: {x: 0.45897436, y: 0.06818182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d8ff0c297c062a0800000000000000
+      internalID: -6746172808683877059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_11
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 211
+        width: 69
+        height: 83
+      alignment: 9
+      pivot: {x: 0.4869565, y: 0.06024096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4908a2a1c8a687120800000000000000
+      internalID: 2411794750423859348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_12
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 211
+        width: 70
+        height: 84
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.0952381}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f071a1bc06727c80800000000000000
+      internalID: -8326462964162793227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_13
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 211
+        width: 62
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5387097, y: 0.084337346}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90e6e68a80c46310800000000000000
+      internalID: 1397453485592993948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_14
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 211
+        width: 75
+        height: 85
+      alignment: 9
+      pivot: {x: 0.27, y: 0.08235294}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fdc0d7253bf2540800000000000000
+      internalID: 4985400479389114158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_15
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 211
+        width: 83
+        height: 85
+      alignment: 9
+      pivot: {x: 0.24, y: 0.09411765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d340eac7ff7461c10800000000000000
+      internalID: 2023884245183628349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_16
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 211
+        width: 88
+        height: 85
+      alignment: 9
+      pivot: {x: 0.22, y: 0.09411765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6755473cf7972f240800000000000000
+      internalID: 4824051740514211190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_17
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 211
+        width: 86
+        height: 84
+      alignment: 9
+      pivot: {x: 0.23, y: 0.11904762}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78659c91f77082bd0800000000000000
+      internalID: -2654863737860041081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_18
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 211
+        width: 59
+        height: 85
+      alignment: 9
+      pivot: {x: 0.35, y: 0.09411765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2238033f8b8ea22f0800000000000000
+      internalID: -996728486457474270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_19
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 211
+        width: 60
+        height: 84
+      alignment: 9
+      pivot: {x: 0.38, y: 0.083333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107aef2507750c460800000000000000
+      internalID: 7259898739261613825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_20
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 101
+        width: 55
+        height: 85
+      alignment: 9
+      pivot: {x: 0.39999998, y: 0.023529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95ef6732e54d8da0800000000000000
+      internalID: -5941015495536810594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_21
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 100
+        width: 57
+        height: 87
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0.04597701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc877c298bd88960800000000000000
+      internalID: 7604569353018117362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_22
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 101
+        width: 59
+        height: 86
+      alignment: 9
+      pivot: {x: 0.42372882, y: 0.058139533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b10c7014febcbfc0800000000000000
+      internalID: -3477694856779005513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_23
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 100
+        width: 59
+        height: 88
+      alignment: 9
+      pivot: {x: 0.3898305, y: 0.056818184}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb205141bd98136a0800000000000000
+      internalID: -6471239615526927682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_24
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 522
+        width: 54
+        height: 83
+      alignment: 9
+      pivot: {x: 0.3148148, y: 0.036144577}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3610fd757f8a3980800000000000000
+      internalID: -8558370407077374402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_25
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 522
+        width: 61
+        height: 85
+      alignment: 9
+      pivot: {x: 0.40983605, y: 0.03529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b13896e391db870800000000000000
+      internalID: 8700137810998533015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_26
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 519
+        width: 59
+        height: 90
+      alignment: 9
+      pivot: {x: 0.37288135, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c8002e4fb5254a0800000000000000
+      internalID: -6606116596077261786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_27
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 518
+        width: 50
+        height: 91
+      alignment: 9
+      pivot: {x: 0.44, y: 0.06593407}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddbb7c1fe8da56e0800000000000000
+      internalID: -1847926175595512367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_28
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 518
+        width: 52
+        height: 93
+      alignment: 9
+      pivot: {x: 0.4423077, y: 0.07526882}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6165d627f75ee73f0800000000000000
+      internalID: -901030539884145130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_29
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 519
+        width: 47
+        height: 92
+      alignment: 9
+      pivot: {x: 0.4255319, y: 0.06521739}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e270ef624e20f0d0800000000000000
+      internalID: -3391159656530283804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_30
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 520
+        width: 48
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5833334, y: 0.052083336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016489c34d079d530800000000000000
+      internalID: 3880256610808382992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_31
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 520
+        width: 39
+        height: 94
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.053191487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f1da424bdcbb9670800000000000000
+      internalID: 8546632367761707504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_32
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 521
+        width: 40
+        height: 91
+      alignment: 9
+      pivot: {x: 0.52500004, y: 0.054945055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b418d484b9b1aa0800000000000000
+      internalID: -6189182528050345148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_33
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 6
+        width: 53
+        height: 90
+      alignment: 9
+      pivot: {x: 0.3962264, y: 0.044444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75cacba389266220800000000000000
+      internalID: 2478714290413684090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_34
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 6
+        width: 51
+        height: 90
+      alignment: 9
+      pivot: {x: 0.4117647, y: 0.055555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125c336a9ae3213b0800000000000000
+      internalID: -5543299292980853471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_35
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 7
+        width: 50
+        height: 89
+      alignment: 9
+      pivot: {x: 0.38, y: 0.056179777}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c84a39639dc1b40800000000000000
+      internalID: 5412439680620989469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_36
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 7
+        width: 50
+        height: 89
+      alignment: 9
+      pivot: {x: 0.38, y: 0.06741573}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fd9669b4e44e260800000000000000
+      internalID: 7125906596960001828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2dd5d6ac1369a7148983b0e5d9e1ef8f
     internalID: 0
     vertices: []
     indices: 

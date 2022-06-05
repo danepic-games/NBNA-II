@@ -79,7 +79,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
+  - time: 0.016666668
     functionName: ExecMovement
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -93,7 +93,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.2
+  - time: 0.21666667
     functionName: UpdateFrameData
     data: 
     objectReferenceParameter: {fileID: 0}

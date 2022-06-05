@@ -15,6 +15,7 @@ namespace Model {
         public bool hasVerticalMovement; //Get value
         public bool useVerticalInertia; //Lock value used
         public bool useConstantGravity; //Lock gravity value used
+        public bool stopForce;
         public bool lockDirectionForce;
         public bool useEnemyForceInNextFrame;
         public bool stopGravity;
@@ -34,6 +35,8 @@ namespace Model {
         public float externalForceX;
         public float externalForceY;
         public float externalForceZ;
+
+        public bool ignoreSpriteFacing = true; //default value para evitar o comportamento de inercia que é exceção
 
         public Vector3 customGroundDetectionPosition;
         public Vector3 customGroundDetectionSize;

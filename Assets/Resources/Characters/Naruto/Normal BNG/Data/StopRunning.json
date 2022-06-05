@@ -45,13 +45,13 @@
       "physic": {
         "dvx": -1,
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -99,13 +99,13 @@
       "combination": {},
       "physic": {
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -153,13 +153,13 @@
       "combination": {},
       "physic": {
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
@@ -208,13 +208,13 @@
       "combination": {},
       "physic": {
         "customGroundDetectionPosition": {
-          "x": 0.00724,
-          "y": -0.0068,
+          "x": 0.03889,
+          "y": 0.03978,
           "z": 0
         },
         "customGroundDetectionSize": {
-          "x": 0.2659603,
-          "y": 0.0161677,
+          "x": -0.400504,
+          "y": 0.1353487,
           "z": 0.22
         }
       },
