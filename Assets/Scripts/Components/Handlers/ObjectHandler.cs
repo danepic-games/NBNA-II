@@ -123,6 +123,16 @@ namespace Components.Handlers {
         [SerializeField]
         private bool pressDefenseDown;
         [SerializeField]
+        private bool pressSuperPowerDown;
+        [SerializeField]
+        private bool pressPowerDown;
+        [SerializeField]
+        private bool pressDashDown;
+        [SerializeField]
+        private bool pressChargeDown;
+        [SerializeField]
+        private bool pressRunningDown;
+        [SerializeField]
         private bool pressWeaponDown;
         [SerializeField]
         private bool pressAttackDown;
@@ -266,8 +276,6 @@ namespace Components.Handlers {
             ExecutePauseBreak();
 #endif
 
-            Debug.Log($"{actualFrame.core.resetCombinations}");
-
             SetupAnimResets();
 
             isFacingRight = spriteRenderer.flipX ? false : true;
@@ -395,7 +403,7 @@ namespace Components.Handlers {
                     moveVerticalUp = Input.GetButtonUp(ButtonEnum.Vertical.ToString());
                     pressDefenseDown = Input.GetButtonDown(ButtonEnum.Defense.ToString());
                     pressAttackDown = Input.GetButtonDown(ButtonEnum.Attack.ToString());
-                    pressWeaponDown = Input.GetButtonDown(ButtonEnum.Weapon.ToString());
+                    pressPowerDown = Input.GetButtonDown(ButtonEnum.Power.ToString());
                     pressJumpDown = Input.GetButtonDown(ButtonEnum.Jump.ToString());
                     pressTauntDown = Input.GetButtonDown(ButtonEnum.Taunt.ToString());
 
@@ -412,7 +420,7 @@ namespace Components.Handlers {
                     if (!defense_forward_weapon) {
                         defense_forward_weapon = buttonsPressed[2].Equals(ButtonEnum.Defense.ToString())
                         && buttonsPressed[1].Equals(ButtonEnum.Horizontal.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Weapon.ToString());
+                        && buttonsPressed[0].Equals(ButtonEnum.Power.ToString());
                     }
 
                     if (!defense_up_jump) {
@@ -423,7 +431,7 @@ namespace Components.Handlers {
                     if (!defense_up_weapon) {
                         defense_up_weapon = buttonsPressed[2].Equals(ButtonEnum.Defense.ToString())
                         && buttonsPressed[1].Equals(ButtonEnum.Vertical_Up.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Weapon.ToString());
+                        && buttonsPressed[0].Equals(ButtonEnum.Power.ToString());
                     }
                     if (!defense_up_attack) {
                         defense_up_attack = buttonsPressed[2].Equals(ButtonEnum.Defense.ToString())
@@ -439,7 +447,7 @@ namespace Components.Handlers {
                     if (!defense_down_weapon) {
                         defense_down_weapon = buttonsPressed[2].Equals(ButtonEnum.Defense.ToString())
                         && buttonsPressed[1].Equals(ButtonEnum.Vertical_Down.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Weapon.ToString());
+                        && buttonsPressed[0].Equals(ButtonEnum.Power.ToString());
                     }
                     if (!defense_down_attack) {
                         defense_down_attack = buttonsPressed[2].Equals(ButtonEnum.Defense.ToString())
@@ -465,7 +473,7 @@ namespace Components.Handlers {
                     lastButtonPressed = Input.GetAxisRaw(ButtonEnum.Vertical.ToString()) < 0 ? ButtonEnum.Vertical_Down : lastButtonPressed;
                     lastButtonPressed = Input.GetButtonDown(ButtonEnum.Defense.ToString()) ? ButtonEnum.Defense : lastButtonPressed;
                     lastButtonPressed = Input.GetButtonDown(ButtonEnum.Attack.ToString()) ? ButtonEnum.Attack : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Weapon.ToString()) ? ButtonEnum.Weapon : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Power.ToString()) ? ButtonEnum.Power : lastButtonPressed;
                     lastButtonPressed = Input.GetButtonDown(ButtonEnum.Jump.ToString()) ? ButtonEnum.Jump : lastButtonPressed;
 
                     if (!lastButtonPressed.Equals(ButtonEnum.NONE) && !buttonsPressed[0].Equals(lastButtonPressed.ToString()))
@@ -486,7 +494,7 @@ namespace Components.Handlers {
                     moveVerticalUp = Input.GetButtonUp(ButtonEnum.Vertical.ToString());
                     pressDefenseDown = Input.GetButtonDown(ButtonEnum.Defense_P2.ToString());
                     pressAttackDown = Input.GetButtonDown(ButtonEnum.Attack_P2.ToString());
-                    pressWeaponDown = Input.GetButtonDown(ButtonEnum.Weapon_P2.ToString());
+                    pressPowerDown = Input.GetButtonDown(ButtonEnum.Power_P2.ToString());
                     pressJumpDown = Input.GetButtonDown(ButtonEnum.Jump_P2.ToString());
                     pressTauntDown = Input.GetButtonDown(ButtonEnum.Taunt_P2.ToString());
 
@@ -503,7 +511,7 @@ namespace Components.Handlers {
                     if (!defense_forward_weapon) {
                         defense_forward_weapon = buttonsPressed[2].Equals(ButtonEnum.Defense_P2.ToString())
                         && buttonsPressed[1].Equals(ButtonEnum.Horizontal_P2.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Weapon_P2.ToString());
+                        && buttonsPressed[0].Equals(ButtonEnum.Power_P2.ToString());
                     }
 
                     if (!defense_up_jump) {
@@ -514,7 +522,7 @@ namespace Components.Handlers {
                     if (!defense_up_weapon) {
                         defense_up_weapon = buttonsPressed[2].Equals(ButtonEnum.Defense_P2.ToString())
                         && buttonsPressed[1].Equals(ButtonEnum.Vertical_Up_P2.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Weapon_P2.ToString());
+                        && buttonsPressed[0].Equals(ButtonEnum.Power_P2.ToString());
                     }
                     if (!defense_up_attack) {
                         defense_up_attack = buttonsPressed[2].Equals(ButtonEnum.Defense_P2.ToString())
@@ -530,7 +538,7 @@ namespace Components.Handlers {
                     if (!defense_down_weapon) {
                         defense_down_weapon = buttonsPressed[2].Equals(ButtonEnum.Defense_P2.ToString())
                         && buttonsPressed[1].Equals(ButtonEnum.Vertical_Down_P2.ToString())
-                        && buttonsPressed[0].Equals(ButtonEnum.Weapon_P2.ToString());
+                        && buttonsPressed[0].Equals(ButtonEnum.Power_P2.ToString());
                     }
                     if (!defense_down_attack) {
                         defense_down_attack = buttonsPressed[2].Equals(ButtonEnum.Defense_P2.ToString())
@@ -555,7 +563,7 @@ namespace Components.Handlers {
                     lastButtonPressed = Input.GetAxisRaw(ButtonEnum.Vertical_P2.ToString()) < 0 ? ButtonEnum.Vertical_Down_P2 : lastButtonPressed;
                     lastButtonPressed = Input.GetButtonDown(ButtonEnum.Defense_P2.ToString()) ? ButtonEnum.Defense_P2 : lastButtonPressed;
                     lastButtonPressed = Input.GetButtonDown(ButtonEnum.Attack_P2.ToString()) ? ButtonEnum.Attack_P2 : lastButtonPressed;
-                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Weapon_P2.ToString()) ? ButtonEnum.Weapon_P2 : lastButtonPressed;
+                    lastButtonPressed = Input.GetButtonDown(ButtonEnum.Power_P2.ToString()) ? ButtonEnum.Power_P2 : lastButtonPressed;
                     lastButtonPressed = Input.GetButtonDown(ButtonEnum.Jump_P2.ToString()) ? ButtonEnum.Jump_P2 : lastButtonPressed;
 
                     if (!lastButtonPressed.Equals(ButtonEnum.NONE) && !buttonsPressed[0].Equals(lastButtonPressed.ToString()))
@@ -783,39 +791,6 @@ namespace Components.Handlers {
                 eventNextAnim = actualFrame.trigger.tauntAnim.ToString();
             }
 
-            // combination
-            //DuJ
-            if (defense_up_jump && actualFrame.combination.defenseUpJumpAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseUpJumpAnim.ToString();
-                //DuW
-            } else if (defense_up_weapon && actualFrame.combination.defenseUpWeaponAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseUpWeaponAnim.ToString();
-                //DuA
-            } else if (defense_up_attack && actualFrame.combination.defenseUpAttackAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseUpAttackAnim.ToString();
-                //DdJ
-            } else if (defense_down_jump && actualFrame.combination.defenseDownJumpAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseDownJumpAnim.ToString();
-                //DdW
-            } else if (defense_down_weapon && actualFrame.combination.defenseDownWeaponAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseDownWeaponAnim.ToString();
-                //DdA
-            } else if (defense_down_attack && actualFrame.combination.defenseDownAttackAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseDownAttackAnim.ToString();
-                //DfJ
-            } else if (defense_forward_jump && actualFrame.combination.defenseForwardJumpAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseForwardJumpAnim.ToString();
-                //DfW
-            } else if (defense_forward_weapon && actualFrame.combination.defenseForwardWeaponAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseForwardWeaponAnim.ToString();
-                //DfA
-            } else if (defense_forward_attack && actualFrame.combination.defenseForwardAttackAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseForwardAttackAnim.ToString();
-                //DJA
-            } else if (defense_jump_attack && actualFrame.combination.defenseJumpAttackAnim != null) {
-                eventNextAnim = actualFrame.combination.defenseJumpAttackAnim.ToString();
-            }
-
             //On Ground
             if (onGround && actualFrame.trigger.groundAnim != null) {
                 if (actualFrame.core.resetCombinationsWhenInGround) {
@@ -949,7 +924,6 @@ namespace Components.Handlers {
         }
 
         private void ChangeAnimation(string anim) {
-            Debug.Log(anim);
             if (!actualFrame.core.resetAnimation) {
                 animator.Play($"Base Layer.{anim}", 0);
             } else {
@@ -976,6 +950,50 @@ namespace Components.Handlers {
                 if (actualFrame.core.isWalkingEnabled) {
                     Flip(true);
 
+                    //SideDash Trigger
+                    if (sideDashCountTapUp >= 0f) {
+                        sideDashCountTapUp -= Time.fixedDeltaTime;
+                    }
+
+                    if (sideDashCountTapDown >= 0f) {
+                        sideDashCountTapDown -= Time.fixedDeltaTime;
+                    }
+                    if (!moveHorizontalDown && !moveHorizontalUp && moveVerticalUp && lastMoveVerticalUpValue > 0f) {
+                        stepOneSideDashUpEnabled = true;
+                        sideDashCountTapUp = intervalDoubleTapSideDash;
+
+                        stepOneSideDashDownEnabled = false;
+                        sideDashCountTapDown = 0f;
+
+                    } else if (!moveHorizontalDown && !moveHorizontalUp && moveVerticalUp && lastMoveVerticalUpValue < 0f) {
+                        stepOneSideDashDownEnabled = true;
+                        sideDashCountTapDown = intervalDoubleTapSideDash;
+
+                        stepOneSideDashUpEnabled = false;
+                        sideDashCountTapUp = 0f;
+                    }
+
+                    if (!currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) && moveHorizontal == 0f && moveVertical > 0f && stepOneSideDashUpEnabled && sideDashCountTapUp > 0) {
+                        actualFrame.core.isSideDashEnabled = true;
+                        stepOneSideDashDownEnabled = false;
+                        stepOneSideDashUpEnabled = false;
+                        sideDashCountTapDown = 0f;
+                        sideDashCountTapUp = 0f;
+                        flipOneTimeForFrame = true;
+                        ChangeAnimation(CharacterAnimEnum.SideDash.Name());
+                        return;
+
+                    } else if (!currentAnim.Equals(CharacterAnimEnum.SimpleDash.Name()) && moveHorizontal == 0f && moveVertical < 0f && stepOneSideDashDownEnabled && sideDashCountTapDown > 0) {
+                        actualFrame.core.isSideDashEnabled = true;
+                        stepOneSideDashDownEnabled = false;
+                        stepOneSideDashUpEnabled = false;
+                        sideDashCountTapDown = 0f;
+                        sideDashCountTapUp = 0f;
+                        flipOneTimeForFrame = true;
+                        ChangeAnimation(CharacterAnimEnum.SideDash.Name());
+                        return;
+                    }
+
                     //Running Triggger
                     if (runningCountTapRight >= 0f) {
                         runningCountTapRight -= Time.fixedDeltaTime;
@@ -992,12 +1010,22 @@ namespace Components.Handlers {
                         stepOneRunningLeftEnabled = false;
                         runningCountTapLeft = 0f;
 
+                        stepOneSideDashDownEnabled = false;
+                        stepOneSideDashUpEnabled = false;
+                        sideDashCountTapDown = 0f;
+                        sideDashCountTapUp = 0f;
+
                     } else if (moveHorizontalUp && !isFacingRight) {
                         stepOneRunningLeftEnabled = true;
                         runningCountTapLeft = intervalDoubleTapRunning;
 
                         stepOneRunningRightEnabled = false;
                         runningCountTapRight = 0f;
+
+                        stepOneSideDashDownEnabled = false;
+                        stepOneSideDashUpEnabled = false;
+                        sideDashCountTapDown = 0f;
+                        sideDashCountTapUp = 0f;
                     }
                     if (moveHorizontal > 0f && stepOneRunningRightEnabled && runningCountTapRight > 0) {
                         stepOneRunningRightEnabled = false;
@@ -1006,6 +1034,12 @@ namespace Components.Handlers {
                         runningCountTapLeft = 0f;
                         flipOneTimeForFrame = true;
                         ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
+
+                        stepOneSideDashDownEnabled = false;
+                        stepOneSideDashUpEnabled = false;
+                        sideDashCountTapDown = 0f;
+                        sideDashCountTapUp = 0f;
+
                         return;
 
                     } else if (moveHorizontal < 0f && stepOneRunningLeftEnabled && runningCountTapLeft > 0) {
@@ -1015,51 +1049,12 @@ namespace Components.Handlers {
                         runningCountTapLeft = 0f;
                         flipOneTimeForFrame = true;
                         ChangeAnimation(CharacterAnimEnum.SimpleDash.Name());
-                        return;
-                    }
 
-
-                    //SideDash Trigger
-                    if (sideDashCountTapUp >= 0f) {
-                        sideDashCountTapUp -= Time.fixedDeltaTime;
-                    }
-
-                    if (sideDashCountTapDown >= 0f) {
-                        sideDashCountTapDown -= Time.fixedDeltaTime;
-                    }
-                    if (moveVerticalUp && lastMoveVerticalUpValue > 0f) {
-                        stepOneSideDashUpEnabled = true;
-                        sideDashCountTapUp = intervalDoubleTapSideDash;
-
-                        stepOneSideDashDownEnabled = false;
-                        sideDashCountTapDown = 0f;
-
-                    } else if (moveVerticalUp && lastMoveVerticalUpValue < 0f) {
-                        stepOneSideDashDownEnabled = true;
-                        sideDashCountTapDown = intervalDoubleTapSideDash;
-
-                        stepOneSideDashUpEnabled = false;
-                        sideDashCountTapUp = 0f;
-                    }
-
-                    if (moveVertical > 0f && stepOneSideDashUpEnabled && sideDashCountTapUp > 0) {
-                        actualFrame.core.isSideDashEnabled = true;
                         stepOneSideDashDownEnabled = false;
                         stepOneSideDashUpEnabled = false;
                         sideDashCountTapDown = 0f;
                         sideDashCountTapUp = 0f;
-                        flipOneTimeForFrame = true;
-                        ChangeAnimation(CharacterAnimEnum.SideDash.Name());
-                        return;
 
-                    } else if (moveVertical < 0f && stepOneSideDashDownEnabled && sideDashCountTapDown > 0) {
-                        actualFrame.core.isSideDashEnabled = true;
-                        stepOneSideDashDownEnabled = false;
-                        stepOneSideDashUpEnabled = false;
-                        sideDashCountTapDown = 0f;
-                        sideDashCountTapUp = 0f;
-                        flipOneTimeForFrame = true;
-                        ChangeAnimation(CharacterAnimEnum.SideDash.Name());
                         return;
                     }
 
@@ -1314,7 +1309,6 @@ namespace Components.Handlers {
 
         void StopForce() {
             if (actualFrame.physic.stopForce) {
-                Debug.Log("Stop Force");
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
             }
@@ -1348,7 +1342,9 @@ namespace Components.Handlers {
                 }
             }
 
+            Debug.Log("1>"+force);
             var newForce = force + new Vector3(fixedInertiaDvx, 0f, fixedInertiaDvz);
+            Debug.Log("2>"+newForce);
             NormalForce(newForce, actualFrame.physic.ignoreSpriteFacing);
         }
 

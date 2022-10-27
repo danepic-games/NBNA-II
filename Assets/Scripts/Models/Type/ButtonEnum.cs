@@ -9,7 +9,8 @@ namespace Model.Type {
 		Attack,
 		Defense,
 		Jump,
-		Weapon,
+		Power,
+		Super_Power,
 		Taunt,
 		Horizontal_P2,
 		Vertical_P2,
@@ -18,7 +19,8 @@ namespace Model.Type {
 		Attack_P2,
 		Defense_P2,
 		Jump_P2,
-		Weapon_P2,
+		Power_P2,
+		Super_Power_P2,
 		Taunt_P2,
 		NONE
 	}

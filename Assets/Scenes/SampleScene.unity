@@ -765,6 +765,7 @@ MonoBehaviour:
     stopCharge: []
     charge: []
     startCharge: []
+    sideDash: []
   actualFrame:
     name: 
     id: 0
@@ -839,6 +840,11 @@ MonoBehaviour:
       defenseButtonAnim: 
       attackButtonAnim: 
       jumpButtonAnim: 
+      powerButtonAnim: 
+      superPowerButtonAnim: 
+      dashButtonAnim: 
+      runningButtonAnim: 
+      chargeButtonAnim: 
       weaponButtonAnim: 
       groundAnim: 
       flyAnim: 
@@ -859,17 +865,6 @@ MonoBehaviour:
       holdDownRightAnim: 
       disableOpoints: 0
       tauntAnim: 
-    combination:
-      defenseJumpAttackAnim: 
-      defenseForwardAttackAnim: 
-      defenseUpAttackAnim: 
-      defenseDownAttackAnim: 
-      defenseForwardJumpAnim: 
-      defenseUpJumpAnim: 
-      defenseDownJumpAnim: 
-      defenseForwardWeaponAnim: 
-      defenseUpWeaponAnim: 
-      defenseDownWeaponAnim: 
     interactions: []
   dataPath: Characters/Naruto/Normal BNG/Data/
   intervalDoubleTapRunning: 0.5
@@ -892,6 +887,11 @@ MonoBehaviour:
   pressUpAttackDown: 0
   pressDownAttackDown: 0
   pressDefenseDown: 0
+  pressSuperPowerDown: 0
+  pressPowerDown: 0
+  pressDashDown: 0
+  pressChargeDown: 0
+  pressRunningDown: 0
   pressWeaponDown: 0
   pressAttackDown: 0
   pressTauntDown: 0
@@ -1182,8 +1182,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434125491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0656, y: 0.3807, z: 0}
-  m_LocalScale: {x: 0.2786185, y: 0.712075, z: 0.22}
+  m_LocalPosition: {x: 0.1271, y: 0.358, z: 0}
+  m_LocalScale: {x: 0.3164565, y: 0.4683152, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 1
@@ -1562,8 +1562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683710886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.545, y: 0.427, z: 0}
-  m_LocalScale: {x: 0.2447077, y: 0.20277844, z: 0.22}
+  m_LocalPosition: {x: 0.849, y: 0.199, z: 0}
+  m_LocalScale: {x: 0.17114857, y: 0.30576962, z: 0.22}
   m_Children: []
   m_Father: {fileID: 1717327481}
   m_RootOrder: 0
@@ -1988,6 +1988,7 @@ MonoBehaviour:
     stopCharge: []
     charge: []
     startCharge: []
+    sideDash: []
   actualFrame:
     name: 
     id: 0
@@ -2062,6 +2063,11 @@ MonoBehaviour:
       defenseButtonAnim: 
       attackButtonAnim: 
       jumpButtonAnim: 
+      powerButtonAnim: 
+      superPowerButtonAnim: 
+      dashButtonAnim: 
+      runningButtonAnim: 
+      chargeButtonAnim: 
       weaponButtonAnim: 
       groundAnim: 
       flyAnim: 
@@ -2082,17 +2088,6 @@ MonoBehaviour:
       holdDownRightAnim: 
       disableOpoints: 0
       tauntAnim: 
-    combination:
-      defenseJumpAttackAnim: 
-      defenseForwardAttackAnim: 
-      defenseUpAttackAnim: 
-      defenseDownAttackAnim: 
-      defenseForwardJumpAnim: 
-      defenseUpJumpAnim: 
-      defenseDownJumpAnim: 
-      defenseForwardWeaponAnim: 
-      defenseUpWeaponAnim: 
-      defenseDownWeaponAnim: 
     interactions: []
   dataPath: Characters/Naruto/Normal BNG/Data/
   intervalDoubleTapRunning: 0.5
@@ -2100,7 +2095,7 @@ MonoBehaviour:
   stepOneRunningLeftEnabled: 0
   runningCountTapRight: 0
   runningCountTapLeft: 0
-  intervalDoubleTapSideDash: 0.5
+  intervalDoubleTapSideDash: 0.15
   stepOneSideDashUpEnabled: 0
   stepOneSideDashDownEnabled: 0
   sideDashCountTapUp: 0
@@ -2115,6 +2110,11 @@ MonoBehaviour:
   pressUpAttackDown: 0
   pressDownAttackDown: 0
   pressDefenseDown: 0
+  pressSuperPowerDown: 0
+  pressPowerDown: 0
+  pressDashDown: 0
+  pressChargeDown: 0
+  pressRunningDown: 0
   pressWeaponDown: 0
   pressAttackDown: 0
   pressTauntDown: 0

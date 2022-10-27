@@ -70,6 +70,8 @@ namespace Utils {
                         return GetFrameSafety(data.charge, animationIndex, currentAnim);
                     case CharacterAnimEnum.StopCharge:
                         return GetFrameSafety(data.stopCharge, animationIndex, currentAnim);
+                    case CharacterAnimEnum.SideDash:
+                        return GetFrameSafety(data.sideDash, animationIndex, currentAnim);
                     default:
                         Debug.LogWarning($"Frame of current animation {currentAnim} not mapped yet to extract actual frame!");
                         return null;

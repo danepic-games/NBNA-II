@@ -18,5 +18,6 @@ namespace Models {
         public Frame[] stopCharge;
         public Frame[] charge;
         public Frame[] startCharge;
+        public Frame[] sideDash;
     }
 }

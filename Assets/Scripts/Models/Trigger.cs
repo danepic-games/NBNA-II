@@ -5,6 +5,11 @@ namespace Model {
         public string defenseButtonAnim;
         public string attackButtonAnim;
         public string jumpButtonAnim;
+        public string powerButtonAnim;
+        public string superPowerButtonAnim;
+        public string dashButtonAnim;
+        public string runningButtonAnim;
+        public string chargeButtonAnim;
         public string weaponButtonAnim;
         public string groundAnim;
         public string flyAnim;

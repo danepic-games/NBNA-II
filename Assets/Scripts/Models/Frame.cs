@@ -13,7 +13,6 @@ namespace Models {
         public Physic physic;
         public ChildObjects childObjects;
         public Trigger trigger;
-        public Combination combination;
         public Interaction[] interactions;
     }
 }
