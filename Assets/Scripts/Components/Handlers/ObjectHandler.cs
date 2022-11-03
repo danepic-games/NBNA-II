@@ -726,6 +726,14 @@ namespace Components.Handlers {
                 eventNextAnim = startAnimation;
             }
 
+            //On Ground
+            if (onGround && actualFrame.trigger.groundAnim != null) {
+                if (actualFrame.core.resetCombinationsWhenInGround) {
+                    this.ForceDisableCombination();
+                }
+                eventNextAnim = actualFrame.trigger.groundAnim.ToString();
+            }
+
             if (moveHorizontal != 0 && actualFrame.trigger.holdHorizontalAnim != null) {
                 if (moveVertical > 0 && moveHorizontal > 0 && actualFrame.trigger.holdUpRightAnim != null) {
                     eventNextAnim = actualFrame.trigger.holdUpRightAnim;
@@ -789,14 +797,6 @@ namespace Components.Handlers {
             } else if (pressTauntDown && actualFrame.trigger.tauntAnim != null) {
                 //Taunt Button
                 eventNextAnim = actualFrame.trigger.tauntAnim.ToString();
-            }
-
-            //On Ground
-            if (onGround && actualFrame.trigger.groundAnim != null) {
-                if (actualFrame.core.resetCombinationsWhenInGround) {
-                    this.ForceDisableCombination();
-                }
-                eventNextAnim = actualFrame.trigger.groundAnim.ToString();
             }
 
             //On Fly

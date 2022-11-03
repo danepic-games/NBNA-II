@@ -25,7 +25,8 @@ namespace Back.Model.Type {
         JumpingDash,
         StopCharge,
         Charge,
-        StartCharge
+        StartCharge,
+        JumpingPunch
     }
 
     static class Extensions {

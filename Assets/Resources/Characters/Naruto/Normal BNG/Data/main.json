@@ -36,7 +36,8 @@
         "StartCharge",
         "Charge",
         "StopCharge",
-        "SideDash"
+        "SideDash",
+        "JumpingPunch"
     ]
   }
 }

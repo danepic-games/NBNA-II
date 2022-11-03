@@ -195,7 +195,7 @@ TextureImporter:
       213: -8671320483917777948
     second: naruto_63
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -216,6 +216,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -254,6 +255,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -293,6 +295,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1259,8 +1273,8 @@ TextureImporter:
         y: 512
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.45703125, y: 0.09375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1301,8 +1315,8 @@ TextureImporter:
         y: 512
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48828125, y: 0.09375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1322,8 +1336,8 @@ TextureImporter:
         y: 256
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.12109375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1660,6 +1674,71 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      naruto_5: 1986089093834513329
+      naruto_9: 1116079619059470431
+      naruto_31: -4298409878393967544
+      naruto_2: -7556100304714471317
+      naruto_19: -6869945193191157571
+      naruto_23: 1919240264733693553
+      naruto_36: 3996199165197389811
+      naruto_10: -8225223351366776752
+      naruto_12: -283042503546126789
+      naruto_32: 3827624236616040847
+      naruto_41: 6272150172488544707
+      naruto_44: 6653187515480646341
+      naruto_16: 2468139506834930805
+      naruto_13: 53707702092677854
+      naruto_18: 7747557516628345089
+      naruto_3: 6078667174611806996
+      naruto_21: -7983602325753077842
+      naruto_45: -8843995309962943032
+      naruto_48: -4803858180644820897
+      naruto_8: 6460258646561060450
+      naruto_15: -154443293243055849
+      naruto_49: -3292062679395451739
+      naruto_11: -8167750997501242973
+      naruto_57: 852380448681162341
+      naruto_25: 6244335963330726885
+      naruto_40: -1944755666487502545
+      naruto_17: 7926232417459333104
+      naruto_52: -5971998161792629570
+      naruto_27: 6785607461945497314
+      naruto_60: -8890545666282675554
+      naruto_62: -4122496474749022518
+      naruto_24: -1736620581496082233
+      naruto_55: 342769029648389957
+      naruto_30: -6006047269604408579
+      naruto_7: 6401054100398285506
+      naruto_34: -8934826994127073737
+      naruto_42: 9095872707444416141
+      naruto_37: -4932268158776997141
+      naruto_4: -5583319615097388434
+      naruto_20: 4150449322319092705
+      naruto_1: -4685487900697097250
+      naruto_6: -5954086151396678871
+      naruto_46: -6101203609311858179
+      naruto_14: -1726389255703240166
+      naruto_28: -4367659987987840547
+      naruto_63: -8671320483917777948
+      naruto_43: 7437859630308106101
+      naruto_47: 8053708287652706581
+      naruto_51: -4544204383284123378
+      naruto_26: 58923468340687439
+      naruto_56: 8677198917137972302
+      naruto_54: 6678388366933624381
+      naruto_39: 4571217791210064496
+      naruto_29: 1396644151474488187
+      naruto_59: -5248267796717628396
+      naruto_22: 5142289099404400728
+      naruto_53: -7862311624414253664
+      naruto_35: -7155320122646215084
+      naruto_33: -2134212613873048861
+      naruto_0: -8080359570283609562
+      naruto_38: 4152931203764621514
+      naruto_50: -3941007756835135191
+      naruto_58: 7367676471452323151
+      naruto_61: -4536736845544887931
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

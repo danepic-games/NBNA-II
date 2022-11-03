@@ -19,5 +19,6 @@ namespace Models {
         public Frame[] charge;
         public Frame[] startCharge;
         public Frame[] sideDash;
+        public Frame[] jumpingPunch;
     }
 }

@@ -278,7 +278,8 @@
         }
       },
       "trigger": {
-        "groundAnim": "Crouch"
+        "groundAnim": "Crouch",
+        "attackButtonAnim": "JumpingPunch"
       },
       "childGameObjects": {}
     },
@@ -333,7 +334,8 @@
         }
       },
       "trigger": {
-        "groundAnim": "Crouch"
+        "groundAnim": "Crouch",
+        "attackButtonAnim": "JumpingPunch"
       },
       "childGameObjects": {}
     }

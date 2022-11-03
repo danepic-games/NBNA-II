@@ -1,9 +1,10 @@
 {
-  "jumpingDash": [
+  "jumpingPunch": [
     {
       "id": 0,
       "core": {
         "hurtBoxType": "NORMAL",
+        "resetRunningInterval": true,
         "isWalkingEnabled": false,
         "isRunningEnabled": false,
         "isSideDashEnabled": false
@@ -11,13 +12,25 @@
       "bodies": [
         {
           "position": {
-            "x": 0.0856,
-            "y": 0.2653,
+            "x": 0.031,
+            "y": 0.275,
             "z": 0
           },
           "size": {
-            "x": 0.3190557,
-            "y": 0.4812885,
+            "x": 0.4008826,
+            "y": 0.5467095,
+            "z": 0.22
+          }
+        },
+        {
+          "position": {
+            "x": 0.251,
+            "y": 0.54,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2176258,
+            "y": 0.2938451,
             "z": 0.22
           }
         }
@@ -25,13 +38,10 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim": "StartCharge"
+      },
       "physic": {
-        "stopForce": true,
-        "freeMovementAllSidesInertiaVerticalValue": true,
-        "inertiaVertical": 1,
-        "useVerticalInertia": true,
-        "ignoreSpriteFacing": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -43,7 +53,9 @@
           "z": 0.22
         }
       },
-      "trigger": {},
+      "trigger": {
+        "groundAnim": "Crouch"
+      },
       "childGameObjects": {}
     },
     {
@@ -57,13 +69,25 @@
       "bodies": [
         {
           "position": {
-            "x": 0.0776,
-            "y": 0.3594,
+            "x": 0.0988,
+            "y": 0.516,
             "z": 0
           },
           "size": {
-            "x": 0.2706627,
-            "y": 0.6695204,
+            "x": 0.3434361,
+            "y": 0.5467095,
+            "z": 0.22
+          }
+        },
+        {
+          "position": {
+            "x": 0.206,
+            "y": 0.8057,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2176258,
+            "y": 0.2938451,
             "z": 0.22
           }
         }
@@ -71,13 +95,10 @@
       "spawns": [],
       "interactions": [],
       "flip": {},
-      "combination": {},
+      "combination": {
+        "defenseJumpAttackAnim": "StartCharge"
+      },
       "physic": {
-        "stopForce": true,
-        "freeMovementAllSidesInertiaVerticalValue": true,
-        "inertiaVertical": 1,
-        "useVerticalInertia": true,
-        "ignoreSpriteFacing": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -90,6 +111,7 @@
         }
       },
       "trigger": {
+        "groundAnim": "Crouch"
       },
       "childGameObjects": {}
     },
@@ -104,28 +126,40 @@
       "bodies": [
         {
           "position": {
-            "x": 0.0776,
-            "y": 0.3594,
+            "x": 0.0277,
+            "y": 0.434,
             "z": 0
           },
           "size": {
-            "x": 0.2706627,
-            "y": 0.6695204,
+            "x": 0.2923672,
+            "y": 0.8467436,
             "z": 0.22
           }
         }
       ],
       "spawns": [],
-      "interactions": [],
+      "interactions": [
+        {
+          "position": {
+            "x": 0.211,
+            "y": 0.708,
+            "z": 0
+          },
+          "size": {
+            "x": 0.2223287,
+            "y": 0.5674226,
+            "z": 0.22
+          },
+          "damageRestTU": 0.15,
+          "affectedAnimation": "Injured",
+          "nextIfPressedAttackAnimation": "Punch2",
+          "injury": 20,
+          "level": 0
+        }
+      ],
       "flip": {},
       "combination": {},
       "physic": {
-        "freeMovementAllSidesInertiaVerticalValue": true,
-        "inertiaVertical": 0.75,
-        "useVerticalInertia": true,
-        "dvx": 4,
-        "dvy": 5,
-        "ignoreSpriteFacing": false,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -138,6 +172,7 @@
         }
       },
       "trigger": {
+        "groundAnim": "Crouch"
       },
       "childGameObjects": {}
     },
@@ -152,13 +187,13 @@
       "bodies": [
         {
           "position": {
-            "x": 0.063,
-            "y": 0.4192,
+            "x": 0.0277,
+            "y": 0.434,
             "z": 0
           },
           "size": {
-            "x": 0.2414311,
-            "y": 0.7890902,
+            "x": 0.2923672,
+            "y": 0.8467436,
             "z": 0.22
           }
         }
@@ -168,8 +203,6 @@
       "flip": {},
       "combination": {},
       "physic": {
-        "dvy": -120,
-        "useConstantGravity": true,
         "customGroundDetectionPosition": {
           "x": 0.03889,
           "y": 0.03978,
@@ -182,96 +215,7 @@
         }
       },
       "trigger": {
-        "attackButtonAnim": "JumpingPunch",
         "groundAnim": "Crouch"
-      },
-      "childGameObjects": {}
-    },
-    {
-      "id": 4,
-      "core": {
-        "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": false,
-        "isRunningEnabled": false,
-        "isSideDashEnabled": false
-      },
-      "bodies": [
-        {
-          "position": {
-            "x": 0.0656,
-            "y": 0.3807,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2786185,
-            "y": 0.712075,
-            "z": 0.22
-          }
-        }
-      ],
-      "spawns": [],
-      "interactions": [],
-      "flip": {},
-      "combination": {},
-      "physic": {
-        "customGroundDetectionPosition": {
-          "x": 0.03889,
-          "y": 0.03978,
-          "z": 0
-        },
-        "customGroundDetectionSize": {
-          "x": -0.400504,
-          "y": 0.1353487,
-          "z": 0.22
-        }
-      },
-      "trigger": {
-        "attackButtonAnim": "JumpingPunch",
-        "groundAnim": "Crouch"
-      },
-      "childGameObjects": {}
-    },
-    {
-      "id": 5,
-      "core": {
-        "hurtBoxType": "NORMAL",
-        "isWalkingEnabled": false,
-        "isRunningEnabled": false,
-        "isSideDashEnabled": false
-      },
-      "bodies": [
-        {
-          "position": {
-            "x": 0.0656,
-            "y": 0.3807,
-            "z": 0
-          },
-          "size": {
-            "x": 0.2786185,
-            "y": 0.712075,
-            "z": 0.22
-          }
-        }
-      ],
-      "spawns": [],
-      "interactions": [],
-      "flip": {},
-      "combination": {},
-      "physic": {
-        "customGroundDetectionPosition": {
-          "x": 0.03889,
-          "y": 0.03978,
-          "z": 0
-        },
-        "customGroundDetectionSize": {
-          "x": -0.400504,
-          "y": 0.1353487,
-          "z": 0.22
-        }
-      },
-      "trigger": {
-        "groundAnim": "Crouch",
-        "attackButtonAnim": "JumpingPunch"
       },
       "childGameObjects": {}
     }

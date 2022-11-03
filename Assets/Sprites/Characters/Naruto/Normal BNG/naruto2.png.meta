@@ -195,7 +195,7 @@ TextureImporter:
       213: -4110462922740401187
     second: naruto2_63
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -216,6 +216,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -254,6 +255,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -293,6 +295,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1660,6 +1674,71 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      naruto2_0: 38776068600876255
+      naruto2_4: 7846634149597475365
+      naruto2_8: 4136984511278696059
+      naruto2_18: -4598735927268834234
+      naruto2_48: 6388481311693168908
+      naruto2_55: -5998953679362120877
+      naruto2_57: -8399496385392385722
+      naruto2_50: 8142389316141012774
+      naruto2_26: 3592708760690604987
+      naruto2_37: -1708168146048424357
+      naruto2_38: 263699508477654251
+      naruto2_30: -1594746273796887354
+      naruto2_34: -8639582253949577661
+      naruto2_17: 4854820837773306963
+      naruto2_24: -8126382798281205961
+      naruto2_22: -8183954120296649647
+      naruto2_2: -4810139060477468705
+      naruto2_3: -7531449771167973466
+      naruto2_12: 2746203232310379241
+      naruto2_47: 9122326920336652728
+      naruto2_21: -9061448508903944062
+      naruto2_1: -6192470050356533196
+      naruto2_27: 5656951023652294014
+      naruto2_36: -7160876123525424779
+      naruto2_45: -563735941441466468
+      naruto2_23: -8033193376757271885
+      naruto2_62: 2535956815622176797
+      naruto2_35: 8658711903456897034
+      naruto2_20: 3740565951080700944
+      naruto2_43: 2819187765148203430
+      naruto2_44: -4706365249289970017
+      naruto2_60: 3321326045412341769
+      naruto2_53: 6099638536545297139
+      naruto2_13: 1359030544093318282
+      naruto2_11: -4270616036871837112
+      naruto2_32: 3296547372954458669
+      naruto2_61: -8735014393578067443
+      naruto2_15: -8495097971373514202
+      naruto2_25: -8787803021191028456
+      naruto2_59: -6329787442751589088
+      naruto2_10: -1437066499442482668
+      naruto2_33: 4116408426031306752
+      naruto2_63: -4110462922740401187
+      naruto2_42: 7319134642679970560
+      naruto2_39: 9041798938870136228
+      naruto2_46: -4176853191867147227
+      naruto2_49: -3198676253053512753
+      naruto2_51: -8033974899714403598
+      naruto2_40: 1036844973819361080
+      naruto2_14: -8889080138634365258
+      naruto2_54: -8594866157366846852
+      naruto2_52: 7303297924094666765
+      naruto2_9: 6967335093302893746
+      naruto2_28: 612010392355831129
+      naruto2_31: 7802447724296162796
+      naruto2_7: -7295174124842125427
+      naruto2_19: -8072078629550998629
+      naruto2_41: -4571073704548112332
+      naruto2_16: -4699529537993862778
+      naruto2_58: -8620864407736710193
+      naruto2_56: 8465045843159390232
+      naruto2_5: -4519251835239982173
+      naruto2_6: -9210648621852735361
+      naruto2_29: 7831934816708160167
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
