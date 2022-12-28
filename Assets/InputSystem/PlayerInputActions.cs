@@ -134,6 +134,34 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Debug"",
+            ""id"": ""24f72231-d5f3-4cb8-b113-808b06b7c19c"",
+            ""actions"": [
+                {
+                    ""name"": ""Reload Current Scene"",
+                    ""type"": ""Button"",
+                    ""id"": ""a13aa5ae-1c3c-48fb-b73c-87226d092583"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6e7cc0ab-ce36-4995-af9e-230281f65013"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload Current Scene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -143,6 +171,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_MoveX = m_Player.FindAction("MoveX", throwIfNotFound: true);
         m_Player_MoveZ = m_Player.FindAction("MoveZ", throwIfNotFound: true);
+        // Debug
+        m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
+        m_Debug_ReloadCurrentScene = m_Debug.FindAction("Reload Current Scene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -247,10 +278,47 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Debug
+    private readonly InputActionMap m_Debug;
+    private IDebugActions m_DebugActionsCallbackInterface;
+    private readonly InputAction m_Debug_ReloadCurrentScene;
+    public struct DebugActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public DebugActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ReloadCurrentScene => m_Wrapper.m_Debug_ReloadCurrentScene;
+        public InputActionMap Get() { return m_Wrapper.m_Debug; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DebugActions set) { return set.Get(); }
+        public void SetCallbacks(IDebugActions instance)
+        {
+            if (m_Wrapper.m_DebugActionsCallbackInterface != null)
+            {
+                @ReloadCurrentScene.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnReloadCurrentScene;
+                @ReloadCurrentScene.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnReloadCurrentScene;
+                @ReloadCurrentScene.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnReloadCurrentScene;
+            }
+            m_Wrapper.m_DebugActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ReloadCurrentScene.started += instance.OnReloadCurrentScene;
+                @ReloadCurrentScene.performed += instance.OnReloadCurrentScene;
+                @ReloadCurrentScene.canceled += instance.OnReloadCurrentScene;
+            }
+        }
+    }
+    public DebugActions @Debug => new DebugActions(this);
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMoveX(InputAction.CallbackContext context);
         void OnMoveZ(InputAction.CallbackContext context);
+    }
+    public interface IDebugActions
+    {
+        void OnReloadCurrentScene(InputAction.CallbackContext context);
     }
 }

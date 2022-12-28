@@ -52,7 +52,7 @@ public class DataMapperUtil : MonoBehaviour {
                             continue;
                         }
                         if (key.Equals(FrameKeyEnum.state.ToString())) {
-                            frameData.state = (CharacterStateFrameEnum)int.Parse(value);
+                            frameData.state = (StateFrameEnum)int.Parse(value);
                             continue;
                         }
                         if (key.Equals(FrameKeyEnum.wait.ToString())) {
@@ -244,8 +244,97 @@ public class DataMapperUtil : MonoBehaviour {
                     }
 
                     frameData.bodys.Add(bdy);
-#endregion
                 }
+#endregion
+
+#region opoint
+                if (currentFrameLine.StartsWith(FrameKeyEnum.opoint.ToString() + ":")) {
+                    isOpoint = true;
+                    continue;
+                }
+
+                if (isOpoint) {
+                    isOpoint = false;
+
+                    var opointProps = currentFrameLine.Split("  ");
+
+                    var opoint = new ObjectPointData();
+
+                    foreach (string opointProp in opointProps) {
+
+                        if (string.IsNullOrEmpty(opointProp)) {
+                            continue;
+                        }
+                        var keyValue = opointProp.Split(':');
+                        var key = keyValue[0].Trim();
+                        var value = keyValue[1].Trim();
+
+                        if (key.Equals(FrameKeyEnum.kind.ToString())) {
+                            opoint.kind = (ObjectPointKindEnum)int.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.x.ToString())) {
+                            opoint.x = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.y.ToString())) {
+                            opoint.y = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.z.ToString())) {
+                            opoint.z = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.action.ToString())) {
+                            opoint.action = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.dvx.ToString())) {
+                            opoint.dvx = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.dvy.ToString())) {
+                            opoint.dvy = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.dvz.ToString())) {
+                            opoint.dvz = float.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.oid.ToString())) {
+                            opoint.object_id = value;
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.facing.ToString())) {
+                            opoint.facing_right = ((int)value) >= 0;
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.quantity.ToString())) {
+                            opoint.quantity = int.Parse(value);
+                            continue;
+                        }
+
+                        if (key.Equals(FrameKeyEnum.z_div_per_opoint.ToString())) {
+                            opoint.z_division_per_objects = float.Parse(value);
+                            continue;
+                        }
+
+                        continue;
+                    }
+
+                    frameData.opoints.Add(opoint);
+                }
+#endregion
 
                 if (frames.ContainsKey(frameData.id)) {
                     continue;

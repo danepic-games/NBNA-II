@@ -1,4 +1,4 @@
-public enum CharacterStateFrameEnum {
+public enum StateFrameEnum {
    STANDING = 0,
    WALKING = 1,
    RUNNING = 2,
@@ -29,4 +29,6 @@ public enum CharacterStateFrameEnum {
    TELEPORT_NEAR_ALLY = 402,
    TELEPORT_MOST_DISTANT_ALLY = 401,
    TELEPORT_MOST_DISTANT_ENEMY = 403,
+
+   EFFECT_IDLE = 1000,
 }

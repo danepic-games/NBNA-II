@@ -7,7 +7,7 @@ public class FrameData {
     public int id;
     public string name;
     public Sprite pic;
-    public CharacterStateFrameEnum state;
+    public StateFrameEnum state;
     public float wait;
     public int next;
     public float dvx;

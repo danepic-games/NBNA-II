@@ -5,16 +5,17 @@ using UnityEngine;
 public class CharacterDataController : AbstractDataController {
 
     [SerializeField]
-    public CharacterHeaderData header;
+    public HeaderData header;
 
     void Awake() {
+        base.type = ObjectTypeEnum.CHARACTER;
 
         var text_without_bmp_begin = base.dataFile.text.Replace("<bmp_begin>", "");
 
         string[] firstSplit = Regex.Split(text_without_bmp_begin, "<bmp_end>");
 
         var headerValue = firstSplit[0];
-        this.header = new CharacterHeaderData();
+        this.header = new HeaderData();
         var headerRegex = new Regex("\n");
 
         var headerParams = headerRegex.Split(headerValue);

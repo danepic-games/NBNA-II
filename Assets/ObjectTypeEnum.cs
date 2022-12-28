@@ -1,4 +1,4 @@
 public enum ObjectTypeEnum {
-   CHARACTER = 1,
-   EFFECT = 2
+   CHARACTER = 0,
+   EFFECT = 1
 }

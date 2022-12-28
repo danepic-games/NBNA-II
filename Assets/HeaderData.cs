@@ -1,5 +1,5 @@
 [System.Serializable]
-public class CharacterHeaderData {
+public class HeaderData {
     public string name;
     public string sprite_file_name;
     public string sprite_folder;

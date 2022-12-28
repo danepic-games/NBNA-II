@@ -69,7 +69,6 @@ public class FrameController : MonoBehaviour {
             }
         }
 #endif
-
         if (hitJump) {
             this.ChangeFrame(currentFrame.hit_jump, false);
             hitJump = false;
@@ -105,9 +104,13 @@ public class FrameController : MonoBehaviour {
     }
 
     public void ChangeFrame(int frameToGo, bool usingNextPattern = true) {
+        if (currentFrame.next == (int)FrameSpecialValuesEnum.DELETE) {
+            Object.Destroy(this.gameObject);
+            return;
+        }
         wait = 0;
         if (usingNextPattern) {
-            currentFrame = currentFrame.next == 999 ? this.data.frames[0] : this.data.frames[frameToGo];
+            currentFrame = currentFrame.next == (int)FrameSpecialValuesEnum.BACK_TO_STANDING ? this.data.frames[0] : this.data.frames[frameToGo];
         } else {
             currentFrame = this.data.frames[frameToGo];
         }

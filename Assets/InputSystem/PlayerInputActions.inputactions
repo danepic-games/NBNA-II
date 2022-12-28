@@ -112,6 +112,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "24f72231-d5f3-4cb8-b113-808b06b7c19c",
+            "actions": [
+                {
+                    "name": "Reload Current Scene",
+                    "type": "Button",
+                    "id": "a13aa5ae-1c3c-48fb-b73c-87226d092583",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6e7cc0ab-ce36-4995-af9e-230281f65013",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload Current Scene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

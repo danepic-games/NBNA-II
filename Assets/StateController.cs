@@ -12,18 +12,18 @@ public class StateController : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        CharacterStateFrameEnum currentState = this.frame.currentFrame.state;
+        StateFrameEnum currentState = this.frame.currentFrame.state;
 
-        if (!this.physic.isGrounded && currentState != CharacterStateFrameEnum.JUMPING) {
+        if (!this.physic.isGrounded && currentState != StateFrameEnum.JUMPING) {
             this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMPING_FALLING);
         }
 
-        if (this.frame.currentFrame.state == CharacterStateFrameEnum.STANDING || this.frame.currentFrame.state == CharacterStateFrameEnum.WALKING) {
-            if ((this.frame.inputDirection.x != 0f || this.frame.inputDirection.y != 0f) && this.frame.currentFrame.state != CharacterStateFrameEnum.WALKING) {
+        if (this.frame.currentFrame.state == StateFrameEnum.STANDING || this.frame.currentFrame.state == StateFrameEnum.WALKING) {
+            if ((this.frame.inputDirection.x != 0f || this.frame.inputDirection.y != 0f) && this.frame.currentFrame.state != StateFrameEnum.WALKING) {
                 this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.WALKING, false);
             }
 
-            if ((this.frame.inputDirection.x == 0f && this.frame.inputDirection.y == 0f) && this.frame.currentFrame.state == CharacterStateFrameEnum.WALKING) {
+            if ((this.frame.inputDirection.x == 0f && this.frame.inputDirection.y == 0f) && this.frame.currentFrame.state == StateFrameEnum.WALKING) {
                 this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.STANDING, false);
             }
 
@@ -43,11 +43,11 @@ public class StateController : MonoBehaviour {
         }
 
         switch (currentState) {
-            case CharacterStateFrameEnum.WALKING:
+            case StateFrameEnum.WALKING:
                 frame.Flip(this.frame.inputDirection);
                 break;
 
-            case CharacterStateFrameEnum.RUNNING:
+            case StateFrameEnum.RUNNING:
                 if (this.frame.facingRight && this.frame.inputDirection.x < 0) {
                     this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.STOP_RUNNING, false);
                     return;
@@ -58,7 +58,7 @@ public class StateController : MonoBehaviour {
                 }
                 break;
 
-            case CharacterStateFrameEnum.STOP_RUNNING:
+            case StateFrameEnum.STOP_RUNNING:
                 frame.runningLeftCount = 0;
                 frame.runningLeftEnable = false;
                 frame.countLeftEnable = false;
@@ -68,7 +68,7 @@ public class StateController : MonoBehaviour {
                 frame.countRightEnable = false;
                 break;
 
-            case CharacterStateFrameEnum.JUMPING_FALLING:
+            case StateFrameEnum.JUMPING_FALLING:
                 if (this.physic.isGrounded && this.frame.currentFrame.hit_ground == null) {
                     this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.CROUCH);
                 }

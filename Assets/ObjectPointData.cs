@@ -1,11 +1,15 @@
 [System.Serializable]
 public class ObjectPointData {
-    public string kind;
+    public ObjectPointKindEnum kind;
     public float x;
     public float y;
+    public float z;
     public int action;
     public float dvx;
     public float dvy;
+    public float dvz;
     public string object_id;
-    public int facing;
+    public bool facing_right;
+    public int quantity;
+    public float z_division_per_objects;
 }

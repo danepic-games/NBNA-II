@@ -18,7 +18,15 @@ public class AbstractDataController : MonoBehaviour {
     protected Dictionary<string, Sprite> sprites;
 
     protected string GetHeaderParam(string[] headerParams, CharacterHeaderKeyEnum paramKey, char separator = ' ') {
-        var headerParam = headerParams[(int)paramKey];
+        return this.GetHeaderParam(headerParams, (int)paramKey, separator);
+    }
+
+    protected string GetHeaderParam(string[] headerParams, EffectHeaderKeyEnum paramKey, char separator = ' ') {
+        return this.GetHeaderParam(headerParams, (int)paramKey, separator);
+    }
+
+    private string GetHeaderParam(string[] headerParams, int paramKey, char separator = ' ') {
+        var headerParam = headerParams[paramKey];
         var valueParam = headerParam.Split(separator)[1];
         return valueParam.Trim();
     }

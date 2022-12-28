@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputController : MonoBehaviour {
+public class PlayerOneInputController : MonoBehaviour {
 
     public FrameController frame;
 
