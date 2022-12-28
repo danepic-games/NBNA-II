@@ -1310,6 +1310,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: naruto3_9
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 366
+        width: 77
+        height: 92
+      alignment: 9
+      pivot: {x: 0.44, y: 0.1747002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd7c0a46ae859c45a804cd5b8cb14b4
+      internalID: -638029475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruto3_50
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 355
+        width: 67
+        height: 112
+      alignment: 9
+      pivot: {x: 0.32, y: 0.18645178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a83ae437d5acd47b43bebc62922aab
+      internalID: 1937784610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1321,6 +1363,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      naruto3_9: -638029475
       naruto3_32: -6189182528050345148
       naruto3_36: 7125906596960001828
       naruto3_3: -2356038316423447774
@@ -1329,6 +1372,7 @@ TextureImporter:
       naruto3_21: 7604569353018117362
       naruto3_10: -6746172808683877059
       naruto3_34: -5543299292980853471
+      naruto3_50: 1937784610
       naruto3_19: 7259898739261613825
       naruto3_43: 8820129945025323421
       naruto3_48: -887060586049418792

@@ -1,0 +1,151 @@
+<object>
+id:  1  type: 0  file: Hero_Data.dat
+id: 90  type: 0  file: chars\naruto_sage\n_kyuubi6.dat
+id:  9  type: 0  file: chars\sasuke_aka\sasuke_aka.dat
+id: 26  type: 0  file: chars\kakashi\kakashi.dat
+id: 47  type: 0  file: chars\lee\lee.dat
+id: 43  type: 0  file: chars\ino\ino.dat
+id: 28  type: 0  file: chars\asuma\asuma.dat
+id: 45  type: 0  file: chars\hinata\hinata.dat
+id: 24  type: 0  file: chars\anko\anko.dat
+id: 16  type: 0  file: chars\shiro\shiro.dat
+id: 23  type: 0  file: chars\torune\torune.dat
+id: 44  type: 0  file: chars\jiraya\jiraya.dat
+id: 22  type: 0  file: chars\orochimaru\orochimaru.dat
+id: 17  type: 0  file: chars\hashirama\hashirama.dat
+id: 27  type: 0  file: chars\hashirama\hashirama_sn.dat
+id: 92  type: 0  file: chars\hashirama\h_1000hand.dat
+id: 18  type: 0  file: chars\tobirama\tobirama.dat
+id: 48  type: 0  file: chars\hiruzen\hiruzen.dat
+id: 42  type: 0  file: chars\minato\minato.dat
+id: 29  type: 0  file: chars\zabuza\zabuza.dat
+id: 40  type: 0  file: chars\haku\haku.dat
+id:  2  type: 0  file: chars\bee\bee.dat
+id: 91  type: 0  file: chars\bee\b_hachibi.dat
+id: 49  type: 0  file: chars\kinkaku\kinkaku.dat
+id: 60  type: 0  file: chars\ginkaku\ginkaku.dat
+id: 14  type: 0  file: chars\pain\deva.dat
+id: 46  type: 0  file: chars\konan\konan.dat
+id: 25  type: 0  file: chars\itachi\itachi.dat
+id: 41  type: 0  file: chars\deidara\deidara.dat
+id: 15  type: 0  file: chars\tobi_ultimate\tobi_ultimate.dat
+id: 19  type: 0  file: chars\madara\madara.dat
+id: 21  type: 0  file: chars\madara\madaraems.dat
+id: 93  type: 0  file: chars\madara\m_susano.dat
+id: 20  type: 0  file: chars\izuna\izuna.dat
+id: 89  type: 0  file: chars\hiruzen\emma.dat
+
+id:  32  type: 0  file: chars\shiro\shiro_clone.dat
+id:  30  type: 0  file: chars\naruto_sage\naruto_sclone.dat
+id:  94  type: 0  file: chars\hashirama\hashirama_snclone.dat
+id:  95  type: 0  file: chars\deidara\monster_clay.dat
+id:  96  type: 0  file: chars\zabuza\zabuza_clone.dat
+id:  97  type: 0  file: chars\hiruzen\hiruzen_clone.dat
+
+id:  99  type: 0  file: chars\select.dat
+
+id:  33  type: 0  file: bots\senju.dat
+id:  34  type: 0  file: bots\uchiha.dat
+id:  98  type: 0  file: bots\kyuubi.dat
+
+id: 100  type: 1  file: data\weapon0.dat   #stick
+id: 101  type: 1  file: data\weapon2.dat   #hoe
+id: 120  type: 1  file: data\weapon4.dat   #knife
+id: 121  type: 4  file: data\weapon5.dat   #baseball
+id: 122  type: 6  file: data\effect\charge.dat   #chakra
+id: 150  type: 2  file: data\weapon1.dat   #stone
+id: 151  type: 2  file: data\weapon3.dat   #wooden_box
+id: 123  type: 6  file: data\effect\chakra.dat   #chakra
+
+id: 250  type: 3  file: chars\naruto_sage\naruto_sage_jutsu.dat
+id: 251  type: 3  file: chars\bee\bee_jutsu.dat
+id: 252  type: 3  file: chars\sasuke_aka\sasuke_aka_jutsu.dat
+id: 253  type: 3  file: chars\pain\pains_jutsu.dat
+id: 254  type: 3  file: chars\tobi_ultimate\tobi_ujutsu.dat
+id: 255  type: 3  file: chars\shiro\shiro_jutsu.dat
+id: 256  type: 3  file: chars\tobirama\tobirama_jutsu.dat
+id: 257  type: 3  file: chars\madara\madara_jutsu.dat
+id: 258  type: 3  file: chars\izuna\izuna_jutsu.dat
+id: 259  type: 3  file: chars\hashirama\hashirama_jutsu.dat
+id: 260  type: 3  file: chars\orochimaru\orochimaru_jutsu.dat
+id: 261  type: 3  file: chars\torune\torune_jutsu.dat
+id: 262  type: 3  file: chars\itachi\itachi_jutsu.dat
+id: 263  type: 3  file: chars\kakashi\kakashi_jutsu.dat
+id: 264  type: 3  file: chars\asuma\asuma_jutsu.dat
+id: 265  type: 3  file: chars\zabuza\zabuza_jutsu.dat
+id: 266  type: 3  file: chars\haku\haku_jutsu.dat
+id: 267  type: 3  file: chars\deidara\deidara_jutsu.dat
+id: 268  type: 3  file: chars\minato\minato_jutsu.dat
+id: 269  type: 3  file: chars\ino\ino_jutsu.dat
+id: 270  type: 3  file: chars\jiraya\jiraya_jutsu.dat
+id: 271  type: 3  file: chars\hinata\hinata_jutsu.dat
+id: 272  type: 3  file: chars\konan\konan_jutsu.dat
+id: 273  type: 3  file: chars\lee\lee_jutsu.dat
+id: 274  type: 3  file: chars\hiruzen\hiruzen_jutsu.dat
+id: 275  type: 3  file: chars\kinkaku\kinkaku_jutsu.dat
+
+id: 597  type: 3  file: data\flextech\summon_tier1.dat
+id: 598  type: 3  file: data\flextech\summon_tier2.dat
+id: 599  type: 3  file: data\flextech\summon_tier3.dat
+
+id: 600  type: 3  file: data\flextech\earth_tier1.dat
+id: 601  type: 3  file: data\flextech\earth_tier2.dat
+id: 602  type: 3  file: data\flextech\earth_tier3.dat
+id: 603  type: 3  file: data\flextech\fire_tier1.dat
+id: 604  type: 3  file: data\flextech\fire_tier2.dat
+id: 605  type: 3  file: data\flextech\fire_tier3.dat
+id: 606  type: 3  file: data\flextech\light_tier1.dat
+id: 607  type: 3  file: data\flextech\light_tier2.dat
+id: 608  type: 3  file: data\flextech\light_tier3.dat
+id: 609  type: 3  file: data\flextech\water_tier1.dat
+id: 610  type: 3  file: data\flextech\water_tier2.dat
+id: 611  type: 3  file: data\flextech\water_tier3.dat
+id: 612  type: 3  file: data\flextech\wind_tier1.dat
+id: 613  type: 3  file: data\flextech\wind_tier2.dat
+id: 614  type: 3  file: data\flextech\wind_tier3.dat
+id: 615  type: 3  file: data\flextech\weapons.dat
+
+id: 616  type: 1  file: data\elements\acid.dat
+id: 617  type: 1  file: data\elements\fire.dat
+id: 618  type: 1  file: data\elements\gold_sand.dat
+id: 619  type: 1  file: data\elements\lava.dat
+id: 620  type: 1  file: data\elements\oil.dat
+id: 621  type: 1  file: data\elements\sand.dat
+id: 622  type: 1  file: data\elements\water.dat
+
+id: 750  type: 3  file: data\effect\effect.dat
+id: 751  type: 3  file: data\effect\bars.dat
+
+id: 753  type: 3  file: data\effect\bandw.dat
+
+id: 755  type: 3  file: data\effect\itens.dat  #ordem oppoint do mapas
+
+id: 799  type: 3  file: data\stage\background.dat
+id: 800  type: 3  file: data\stage\ad.dat
+id: 801  type: 3  file: data\stage\platform.dat
+id: 802  type: 3  file: data\stage\feature.dat
+id: 803  type: 3  file: data\stage\history1.dat
+
+id: 998  type: 5  file: data\etc.dat
+id: 999  type: 5  file: data\broken_weapon.dat
+<object_end>
+
+
+<background>
+id: 0    file: bg\sys\0stage\bg.dat
+id: 1    file: bg\sys\shiken1\bg.dat
+id: 2    file: bg\sys\shiken2\bg.dat
+id: 3    file: bg\sys\konoha1\bg.dat
+id: 4    file: bg\sys\konoha2\bg.dat
+id: 5    file: bg\sys\konoha3\bg.dat
+id: 6    file: bg\sys\konoha4\bg.dat
+id: 7    file: bg\sys\konoha5\bg.dat
+id: 8    file: bg\sys\academy1\bg.dat
+id: 9    file: bg\sys\rooftop2\bg.dat
+id: 10    file: bg\sys\rooftop1\bg.dat
+id: 70   file: bg\template\3500\bg.dat
+id: 71   file: bg\template\800\bg.dat
+
+<background_end>
+
+id: 100~199 drop weapon

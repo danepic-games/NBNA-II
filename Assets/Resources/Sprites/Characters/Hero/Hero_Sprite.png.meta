@@ -1,0 +1,4547 @@
+fileFormatVersion: 2
+guid: 4e557576ed27b2440a6dd1bb59f77ff3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be605cb09b5acb4980b3083547d9aac
+      internalID: -1095517350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bde1f10ba1a88542ae79442457aaa66
+      internalID: -1255624765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9d770136bfc334ca817c505d7e9f53
+      internalID: 1337235654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baacbc0bafc068e4e8cb862cdad9ca54
+      internalID: -1689304194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff7f2f6f9ea5404c98b907edfa1e797
+      internalID: 1628435987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90cd47afb43699746a7ed073dfc9c1f1
+      internalID: 1113378813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c92a465d1ff7914d89e86cac20caee1
+      internalID: 1804947614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af7dfff0fb2ad546958a63da5d18cef
+      internalID: 100380643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc80ddc1a72103408eb73a14b6ac9d0
+      internalID: -761316142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 2109
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1b6e5da7663d04fb54b0e3326a4d2b
+      internalID: 1304422689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e487eb23aec3c4cb90689361f249d4
+      internalID: -75490960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53feb67936dc63e46885dbf0db6d33b3
+      internalID: -323446015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a90f9e62df7bf4880559ff88a4cc09
+      internalID: -1616184145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_13
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8ac8803e724d54896df633a7020f97
+      internalID: 2068863970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_14
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9777d3939992d1d4ca9622bae607a587
+      internalID: 1288256846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_15
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dcc997174a7694e884ab28c174ea64
+      internalID: 1501499923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88694b1bc129fa84383189132e5728f8
+      internalID: 964089049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_17
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8efd9339ef5b3cf4d88a8bdcd6728b38
+      internalID: 856150650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_18
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02564e70edcf3914aae132b940bc66ba
+      internalID: 1160698968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_19
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1998
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7385f6f4bd36758498289ab7f3c6efae
+      internalID: -44828742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c76c536d27e7ff4fa6fb550bcf1534c
+      internalID: -2052400362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_21
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5044f6f5261031d4894ebf90e2c69c5d
+      internalID: -1525499523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_22
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f2b3798ae8ee543b0b1c7d4ae32260
+      internalID: -1606677386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_23
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ea61b7dba4fc944b901c501c853acb
+      internalID: 572417930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_24
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fa009f5946032449951ac601617c65
+      internalID: -61646199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_25
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e213ff081e54a4abe3d8eba2a3d296
+      internalID: -247428546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_26
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fe9de87315ab44d9c9ffe26052828d
+      internalID: 975728702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_27
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e415b26a98d0323488806a2168246baf
+      internalID: -689807303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_28
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291db266d20db194cbd29b5630828c50
+      internalID: 1669424888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_29
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1887
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2236404a05bb64c81eeaa0647550fa
+      internalID: -979324703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41ad2203f2d88b498ba44fb0a84049d
+      internalID: 1324092996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_31
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa93a06a7a1a08446b6b2f08947da616
+      internalID: 577172243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_32
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540045d89ee21be4dbca60029feeeffa
+      internalID: -2001647736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_33
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6883ff58229838a4f9a7e05972cb2546
+      internalID: 824492704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_34
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acdcae33e8976f47a49d1ece8c61193
+      internalID: -1911591651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_35
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b61c415d3376a24ca367eefd6d9a968
+      internalID: 2071367864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_36
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190626a87168fec4bbf8da2a22a2fb23
+      internalID: 1248722951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_37
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5bbe9c5c742a44eae471d13c9ef007
+      internalID: 1484531026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_38
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a3d824728d9124bb1d9d0a6b89fb9a
+      internalID: -1592153682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_39
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1776
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682e0f844fc3fb9419a307f1a2c2f55c
+      internalID: 270198189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7cb62511c6223469e27f2dc0fa9ac9
+      internalID: -444138187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_41
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8247c74b9ac9c0d4d8bcbd4659d997b7
+      internalID: -473700299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_42
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1d13b3a4d04884dbb1ae13707b534f
+      internalID: 41408209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_43
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d682476544538174ea6e267b93f628a4
+      internalID: 159019682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_44
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99f55ae2d9b2ad347924fec42630530e
+      internalID: 215194689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_45
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb971299fddb3241bfb40b50a2f9911
+      internalID: 1431530124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_46
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f70fc38221b2f429b11cb4a9f71b51
+      internalID: 1295292162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_47
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1dba52b04d11094b884cb2b21fa36dc
+      internalID: -562798716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_48
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a016e84b64cc4f45bc9e49455fc6d5b
+      internalID: -769316687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_49
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1665
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a684637406de86c48becd3a5bd0d00b5
+      internalID: 1815523809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a478b71e4d4b546a0cd7219a732bfc
+      internalID: -64191878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_51
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d85308e54d657941a4e1966e1196184
+      internalID: 998129011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_52
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4feb157651bb70442bc245cc11a3651e
+      internalID: -643912238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_53
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a763a9b8b6b92484787f16a5ec048dad
+      internalID: -818183596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_54
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f439f969eaffef34fad23df66e857a64
+      internalID: -1330076472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_55
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc984ec12db0b34419b37201e0e1f28b
+      internalID: 977976902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_56
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1661663cd5148bc409073aa4a6248f28
+      internalID: -1471617014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_57
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2176b6ddd0f0fc14eab83de25ddb1810
+      internalID: 436173508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_58
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b3c4747d309c44fb2d9550a31010d0
+      internalID: 1397668781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_59
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1554
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bf65f4650d0ac4e888eb467fef59b6
+      internalID: 889413392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f32e4a613c13d6449d72b8ced827fe7
+      internalID: 1211253914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_61
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22bad811f652be45af7087755417a18
+      internalID: 529982345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_62
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02391e486414cb746b8e234a37b3556c
+      internalID: 2021816651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_63
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5e7a97cc43d4c488cf7711b7cdcedc
+      internalID: -1947163473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_64
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6b8f16b0fdae144a52c8254dfec665
+      internalID: 1710089578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_65
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3300d6af6d9d646b3971fd3e8e5ea7
+      internalID: -534243410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_66
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e3f4fc5a005b744a2309aa0fd440e5
+      internalID: -702465751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_67
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77db2fed12d0b3d43b82baf7840cb46c
+      internalID: 1802320149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_68
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e9c2d976e48fd448a3eedadb3bdbdf
+      internalID: 1488574519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_69
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1443
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3acd5f61d794db04fa7b9c565961be4c
+      internalID: -1875878356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169ed9ab4f456f04881d090cdcac2a8f
+      internalID: 1680683044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_71
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ec5b9bd4439f9499f36ffd13adafa2
+      internalID: 106732184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_72
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74c465c35033d9479d6386b37b9d21b
+      internalID: -879140936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_73
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37d90fe2b09a034a8515487f109be0f
+      internalID: 2061628286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_74
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c5247a915b6244791e6543b93c592a
+      internalID: -1853584185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_75
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c833b6e2028c7094bbbe7b09b6cdef94
+      internalID: 513195424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_76
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa4036cef001ce45897724475cc08ec
+      internalID: 425840841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_77
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10d7717a54b05e40928a4a2054f2b24
+      internalID: -648478500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_78
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a054e6eda2ce0e34a924472a448a030d
+      internalID: -1831719506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_79
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1332
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b327bdfa8dd94284cacc0875db35b1fc
+      internalID: 1922594646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03dbd973dcf32140bef753d31bf59ae
+      internalID: -682620919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_81
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1197240ba9b192b4f9bc2331cdd81701
+      internalID: -843226904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_82
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edbeea6e2771633458e49862707b15a1
+      internalID: -682508758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_83
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a1b27cb264bc84a91a3d0c55b6aeb3
+      internalID: -504261761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_84
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba0363a44e367cd478f8668a1197ca61
+      internalID: 377909177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_85
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2395c289c668a0a428c694b8026a294f
+      internalID: 1469980188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_86
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267b28fcc6da9d34f8fd552398793df4
+      internalID: 647899604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_87
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f00395060499a488cbe83b94175080
+      internalID: 641796537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_88
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b0a6a88f574ac46ae25d8f34c85480
+      internalID: 1894460398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_89
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1221
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b5ba235f9fe864bbb5cd1139214ab0
+      internalID: -1648766758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b0b43cae6c1ba41aca01111cf8dc2e
+      internalID: 2012023991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_91
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2e8bea9b5b1754d99e9af150989e36
+      internalID: 201200252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_92
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c685f5b50176d41a96d9e7adfec3b4
+      internalID: -53031920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_93
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 174a78acab9ac24478f0db2b0fc6f793
+      internalID: 1841286620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_94
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3d5b4e81704864cacbc32f0029dc0a
+      internalID: 622685689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_95
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a20239f76debf4c9c8db7c2465cd72
+      internalID: -1730118497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_96
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a584c73ab964a4aad49d33334bf216
+      internalID: 524532951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_97
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ca66666a7902747a38b240fd27e5ac
+      internalID: 155073642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_98
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0396c7af87e890a45aec29a473b1f3e9
+      internalID: 680960990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_99
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1110
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca5f3ad86d1cf94f996161a9be0d006
+      internalID: 1434253151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dbb6b4b2a494994fae7cf1fcfd9e7ee
+      internalID: -953259675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_101
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073878af35dc6954591c2b32200abcdc
+      internalID: 802149992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_102
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3377b8f65a4367948ac9c23bbfe79ada
+      internalID: 1353402305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_103
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b320dfdb39ef34a9bc044cadf285c8
+      internalID: 446799877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_104
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c9bf716060d6f4f9336d03f262f49c
+      internalID: 1204324195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_105
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdd0b0acb0845349a7bc66bb715a00c
+      internalID: -430413613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_106
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93aa995208621304b9678e56782c3967
+      internalID: -879917067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_107
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492a59d4f663f854e8beeeae036c6515
+      internalID: -1614022435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_108
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2b4ac6beec36c4e90f5b689af206f3
+      internalID: -1958378872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_109
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 999
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03f43dd022aab84588a913a1baa8dc0
+      internalID: -730392917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d836adad5ab544193e5be1f4f1fd3e
+      internalID: -1231540040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_111
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37cfc4e9733928429e8228e210f0bfb
+      internalID: -1689797502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_112
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe0be4f497bf75438e43ad4f0862396
+      internalID: -1566285643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_113
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60d44dec0b1c13d41a5271b752b9bba6
+      internalID: 1669706814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_114
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce774659ed87be47a311a65ead648f6
+      internalID: 1048063131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_115
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 192f4e21a74d2cf4285a43d46296dd61
+      internalID: 2042711427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_116
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c35f3e88ed50c24696dd0ff948965fc
+      internalID: 1808327569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_117
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce727ef00f07f4419501f7b825d0596
+      internalID: 1725326809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_118
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81e4a28e6faaf44ea9ec25eaa273113
+      internalID: -1308793410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_119
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 888
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9b10508ae4f7b45a2848b6e4dac46b
+      internalID: 1866676001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc6a51c28c69485498bd076debbb9469
+      internalID: 1415730580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_121
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3b45bdd0468394dab7a0e012b57192
+      internalID: -188598659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_122
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca55069ceab99b489d942c90fe4fc3f
+      internalID: -2013792884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_123
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4ecf1e334d9b54f97b37863e5c9328
+      internalID: 2065951562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_124
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 455d19e98d204ec4ba474ee2318fefb6
+      internalID: -761571320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_125
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c7545776367be4ea807d10a68dfde8
+      internalID: 57314044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_126
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e71badc75019234480b8ed1f2ee1d6a
+      internalID: -830418351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_127
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597c2f414e7beb447856fef78a84543c
+      internalID: 83764054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_128
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54fb572cd06ce04f9af362dd52a08f2
+      internalID: -1808108610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_129
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 777
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1925acb3047f845b57e481862afc57
+      internalID: 363729072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fc131ed31de4043b05cf6656eee60f
+      internalID: 451517975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_131
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5daa7e70deb1e6c4ea70096c948483d2
+      internalID: -486768141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_132
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eac3af2254b0d642ab40ef945eb44d3
+      internalID: 2044128604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_133
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86639cdd35089654c99cfec6c3639f8a
+      internalID: -2100711717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_134
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2248e57032b91dc40bc0f4f2cc60d352
+      internalID: -1711332035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_135
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f592dc30aa2df14fa1a30e805cda8cf
+      internalID: -94337210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_136
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83de76ed146b7f4c8ae231d74763b7c
+      internalID: -1202007035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_137
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71bed3476ab1a04fbd2186da1c5630f
+      internalID: -1007612016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_138
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b2fbf1c0c2e974aa011187ad122ad5
+      internalID: 523086642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_139
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 666
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fabaf643efa75440827810b6f3abe9c
+      internalID: 1969952888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed339bd142b78748bf46158c6ba155e
+      internalID: -344653577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_141
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a971a09f5899e14382a7eba870bd4f9
+      internalID: 935763888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_142
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff23fb9dc4187014fadd3f7e53ec5a53
+      internalID: -1290941095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_143
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6d731511393b046806e33495bb8340
+      internalID: 378778564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_144
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7bffe68bfe6d4a4f9d5be49907cc242
+      internalID: -1545944474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_145
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca94f619dfd6584c8904c57523846c6
+      internalID: 1010901976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_146
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c93fd850f6f5f449b8b5526a3d6f3f
+      internalID: -1677348245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_147
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c9b4be5566f384e9cd36da2a6246be
+      internalID: 1178530370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_148
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a043b0b4a46cb45959ece7c604e757
+      internalID: -354078137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_149
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 555
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88915cbe078eabe4c8b1c3b4880f13ce
+      internalID: 1712922924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_150
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73404f9f32c29d4cb605d360bc179bb
+      internalID: -981458465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_151
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d34cd2b89d0f14db9fa2aba664682e
+      internalID: 254601340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_152
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a718c8ebc34bbdf4a9ec597ef7486780
+      internalID: -1704365757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_153
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e8878d949f1b94e96d766e6f065911
+      internalID: 945518142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_154
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db4bf624c882fc41a3fbaebe22e1b4a
+      internalID: 1819382885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_155
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b037f83ccc10a3946945b19c6d425204
+      internalID: -474921877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_156
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2166c4367ad6eca4fbadb9a6b4a9e206
+      internalID: 2102637205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_157
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a91b07422ff6d649888d2dc4a70574b
+      internalID: 746337592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_158
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ae6e5e05d9aa04a924245b3f136eed
+      internalID: -288635026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_159
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 444
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cfb54d76be561a4ba50e7ce96ba7a3c
+      internalID: -909573186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8459fda949cc1043a62d9546d63a121
+      internalID: -364896214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_161
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96c8b9e95fb9d947acd7ec75c8b8812
+      internalID: -1097770591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_162
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a258508d491b641a0a360dc3454a37
+      internalID: -869874295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_163
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd6a76d451bace4191251890419e8cc
+      internalID: -397751578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_164
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b73bc32a888e884badc4d76c34b363d
+      internalID: -959361002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_165
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fee989d3813f1c409b7b4ffd035391d
+      internalID: -223306098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_166
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b1139af80370b41ba5eb5c4278b644
+      internalID: 1792647051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_167
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50333aec0f271c24eb0a124b75f5d988
+      internalID: 1244298672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_168
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77dad138f95a26c40934601ed01494cb
+      internalID: 587601033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_169
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 333
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be33c889531cff349a2e2994c8c2b210
+      internalID: -584770829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_170
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ee7112b9af01f46a58ce6b5851e097
+      internalID: 1278813869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_171
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d16e3d67076a146a9589577c34bd1e
+      internalID: 979495075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_172
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6088f383ff88cf54894097ad90fd15fd
+      internalID: 1210000680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_173
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcc0f82f5f6079c49a1611f9a8550732
+      internalID: -1154313973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_174
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e50ca19bef329449730c3a0836b594
+      internalID: 435514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_175
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d02656ffc375d54c8d219c61dd670f2
+      internalID: -74584877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_176
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aca9593ad2a5be449fa7338db25a742
+      internalID: -513314154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_177
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e23d759c312a845893b39917d0a482
+      internalID: -1910148774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_178
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25bd6c84d69e85040b9322e6f17fa40c
+      internalID: -699285968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_179
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 222
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c95a0045f8d354b99b490ede0b8200
+      internalID: -483225384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b6d870c7cad094eb4427d40b32047e
+      internalID: 1421002629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_181
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3fa2a6062e39c4ba7d86e7256a8d1d
+      internalID: -211893078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_182
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2172a980bc73dfc429de87ea8ad5ad11
+      internalID: -1824060261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_183
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eab7ad27c278ec4e84c760e7231ed6d
+      internalID: -1225948281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_184
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164953d928fba56419c0c1147eb1c906
+      internalID: 1443740525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_185
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2148d158e7bf8f4697717a7976a33ce
+      internalID: 1006549513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_186
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffd6c1ea9b351d42a61f2d2980521c5
+      internalID: -33636084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_187
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89307ed89a35db549a7135e19ebf8a7c
+      internalID: -659369587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_188
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd988d9c6a8b76469b9d4fe3b2f6a6a
+      internalID: 1266932003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_189
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 111
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cced25264044bc043a4be3fda44542b1
+      internalID: 1735612885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_190
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f053b64aac909438b44038faad2f65
+      internalID: -1636256940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_191
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0cbec980931014fb0ad3a4933427fc
+      internalID: 1129429483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_192
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8338df46140b14cbfd97224d9a944d
+      internalID: -280177483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_193
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf299814b1220e458add2957cb40202
+      internalID: 19133771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_194
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c12a3200058dc0444aea83e6f9bae8a7
+      internalID: 270030615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_195
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45274c18d11f7d8418c24970b9b0fdb9
+      internalID: -1153268689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_196
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c33c252b8ad0d46ac6af92615087c8
+      internalID: 1349700049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_197
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f6f35691b034a42834a0758c063d13
+      internalID: -753590325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_198
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0babb06fe26a1c348a7e457a17ca7bed
+      internalID: -708711321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Sprite_199
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 0
+        width: 111
+        height: 111
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2101560c8578284eb01ee0bc6f50500
+      internalID: 1514895711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 10180bdb77fc03b429fa836a997d91ec
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hero_Sprite_198: -708711321
+      Hero_Sprite_147: 1178530370
+      Hero_Sprite_86: 647899604
+      Hero_Sprite_13: 2068863970
+      Hero_Sprite_146: -1677348245
+      Hero_Sprite_169: -584770829
+      Hero_Sprite_42: 41408209
+      Hero_Sprite_183: -1225948281
+      Hero_Sprite_180: 1421002629
+      Hero_Sprite_36: 1248722951
+      Hero_Sprite_152: -1704365757
+      Hero_Sprite_174: 435514
+      Hero_Sprite_181: -211893078
+      Hero_Sprite_197: -753590325
+      Hero_Sprite_190: -1636256940
+      Hero_Sprite_89: -1648766758
+      Hero_Sprite_102: 1353402305
+      Hero_Sprite_148: -354078137
+      Hero_Sprite_195: -1153268689
+      Hero_Sprite_127: 83764054
+      Hero_Sprite_29: -979324703
+      Hero_Sprite_154: 1819382885
+      Hero_Sprite_168: 587601033
+      Hero_Sprite_143: 378778564
+      Hero_Sprite_158: -288635026
+      Hero_Sprite_124: -761571320
+      Hero_Sprite_125: 57314044
+      Hero_Sprite_5: 1113378813
+      Hero_Sprite_35: 2071367864
+      Hero_Sprite_37: 1484531026
+      Hero_Sprite_61: 529982345
+      Hero_Sprite_104: 1204324195
+      Hero_Sprite_113: 1669706814
+      Hero_Sprite_189: 1735612885
+      Hero_Sprite_44: 215194689
+      Hero_Sprite_79: 1922594646
+      Hero_Sprite_107: -1614022435
+      Hero_Sprite_126: -830418351
+      Hero_Sprite_115: 2042711427
+      Hero_Sprite_45: 1431530124
+      Hero_Sprite_156: 2102637205
+      Hero_Sprite_20: -2052400362
+      Hero_Sprite_119: 1866676001
+      Hero_Sprite_71: 106732184
+      Hero_Sprite_76: 425840841
+      Hero_Sprite_116: 1808327569
+      Hero_Sprite_75: 513195424
+      Hero_Sprite_101: 802149992
+      Hero_Sprite_103: 446799877
+      Hero_Sprite_80: -682620919
+      Hero_Sprite_134: -1711332035
+      Hero_Sprite_140: -344653577
+      Hero_Sprite_196: 1349700049
+      Hero_Sprite_25: -247428546
+      Hero_Sprite_85: 1469980188
+      Hero_Sprite_62: 2021816651
+      Hero_Sprite_32: -2001647736
+      Hero_Sprite_166: 1792647051
+      Hero_Sprite_72: -879140936
+      Hero_Sprite_12: -1616184145
+      Hero_Sprite_81: -843226904
+      Hero_Sprite_67: 1802320149
+      Hero_Sprite_106: -879917067
+      Hero_Sprite_173: -1154313973
+      Hero_Sprite_130: 451517975
+      Hero_Sprite_92: -53031920
+      Hero_Sprite_82: -682508758
+      Hero_Sprite_16: 964089049
+      Hero_Sprite_60: 1211253914
+      Hero_Sprite_97: 155073642
+      Hero_Sprite_87: 641796537
+      Hero_Sprite_90: 2012023991
+      Hero_Sprite_163: -397751578
+      Hero_Sprite_133: -2100711717
+      Hero_Sprite_0: -1095517350
+      Hero_Sprite_136: -1202007035
+      Hero_Sprite_40: -444138187
+      Hero_Sprite_53: -818183596
+      Hero_Sprite_176: -513314154
+      Hero_Sprite_121: -188598659
+      Hero_Sprite_122: -2013792884
+      Hero_Sprite_161: -1097770591
+      Hero_Sprite_83: -504261761
+      Hero_Sprite_3: -1689304194
+      Hero_Sprite_100: -953259675
+      Hero_Sprite_157: 746337592
+      Hero_Sprite_57: 436173508
+      Hero_Sprite_188: 1266932003
+      Hero_Sprite_8: -761316142
+      Hero_Sprite_39: 270198189
+      Hero_Sprite_78: -1831719506
+      Hero_Sprite_46: 1295292162
+      Hero_Sprite_7: 100380643
+      Hero_Sprite_110: -1231540040
+      Hero_Sprite_191: 1129429483
+      Hero_Sprite_186: -33636084
+      Hero_Sprite_43: 159019682
+      Hero_Sprite_59: 889413392
+      Hero_Sprite_18: 1160698968
+      Hero_Sprite_77: -648478500
+      Hero_Sprite_114: 1048063131
+      Hero_Sprite_128: -1808108610
+      Hero_Sprite_132: 2044128604
+      Hero_Sprite_38: -1592153682
+      Hero_Sprite_1: -1255624765
+      Hero_Sprite_50: -64191878
+      Hero_Sprite_178: -699285968
+      Hero_Sprite_9: 1304422689
+      Hero_Sprite_153: 945518142
+      Hero_Sprite_108: -1958378872
+      Hero_Sprite_123: 2065951562
+      Hero_Sprite_70: 1680683044
+      Hero_Sprite_192: -280177483
+      Hero_Sprite_120: 1415730580
+      Hero_Sprite_74: -1853584185
+      Hero_Sprite_10: -75490960
+      Hero_Sprite_184: 1443740525
+      Hero_Sprite_159: -909573186
+      Hero_Sprite_99: 1434253151
+      Hero_Sprite_187: -659369587
+      Hero_Sprite_182: -1824060261
+      Hero_Sprite_199: 1514895711
+      Hero_Sprite_150: -981458465
+      Hero_Sprite_162: -869874295
+      Hero_Sprite_131: -486768141
+      Hero_Sprite_27: -689807303
+      Hero_Sprite_47: -562798716
+      Hero_Sprite_54: -1330076472
+      Hero_Sprite_109: -730392917
+      Hero_Sprite_28: 1669424888
+      Hero_Sprite_135: -94337210
+      Hero_Sprite_68: 1488574519
+      Hero_Sprite_24: -61646199
+      Hero_Sprite_165: -223306098
+      Hero_Sprite_88: 1894460398
+      Hero_Sprite_117: 1725326809
+      Hero_Sprite_63: -1947163473
+      Hero_Sprite_58: 1397668781
+      Hero_Sprite_11: -323446015
+      Hero_Sprite_4: 1628435987
+      Hero_Sprite_112: -1566285643
+      Hero_Sprite_17: 856150650
+      Hero_Sprite_151: 254601340
+      Hero_Sprite_33: 824492704
+      Hero_Sprite_94: 622685689
+      Hero_Sprite_98: 680960990
+      Hero_Sprite_95: -1730118497
+      Hero_Sprite_65: -534243410
+      Hero_Sprite_41: -473700299
+      Hero_Sprite_139: 1969952888
+      Hero_Sprite_66: -702465751
+      Hero_Sprite_145: 1010901976
+      Hero_Sprite_144: -1545944474
+      Hero_Sprite_105: -430413613
+      Hero_Sprite_19: -44828742
+      Hero_Sprite_34: -1911591651
+      Hero_Sprite_51: 998129011
+      Hero_Sprite_69: -1875878356
+      Hero_Sprite_179: -483225384
+      Hero_Sprite_21: -1525499523
+      Hero_Sprite_30: 1324092996
+      Hero_Sprite_31: 577172243
+      Hero_Sprite_141: 935763888
+      Hero_Sprite_172: 1210000680
+      Hero_Sprite_64: 1710089578
+      Hero_Sprite_56: -1471617014
+      Hero_Sprite_170: 1278813869
+      Hero_Sprite_138: 523086642
+      Hero_Sprite_73: 2061628286
+      Hero_Sprite_15: 1501499923
+      Hero_Sprite_111: -1689797502
+      Hero_Sprite_137: -1007612016
+      Hero_Sprite_129: 363729072
+      Hero_Sprite_177: -1910148774
+      Hero_Sprite_194: 270030615
+      Hero_Sprite_96: 524532951
+      Hero_Sprite_171: 979495075
+      Hero_Sprite_2: 1337235654
+      Hero_Sprite_175: -74584877
+      Hero_Sprite_48: -769316687
+      Hero_Sprite_155: -474921877
+      Hero_Sprite_55: 977976902
+      Hero_Sprite_93: 1841286620
+      Hero_Sprite_118: -1308793410
+      Hero_Sprite_26: 975728702
+      Hero_Sprite_185: 1006549513
+      Hero_Sprite_52: -643912238
+      Hero_Sprite_142: -1290941095
+      Hero_Sprite_149: 1712922924
+      Hero_Sprite_167: 1244298672
+      Hero_Sprite_193: 19133771
+      Hero_Sprite_91: 201200252
+      Hero_Sprite_160: -364896214
+      Hero_Sprite_23: 572417930
+      Hero_Sprite_14: 1288256846
+      Hero_Sprite_22: -1606677386
+      Hero_Sprite_84: 377909177
+      Hero_Sprite_164: -959361002
+      Hero_Sprite_49: 1815523809
+      Hero_Sprite_6: 1804947614
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
