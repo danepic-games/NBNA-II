@@ -8,7 +8,7 @@ namespace Model {
     public class Interaction {
         public Vector3 position;
         public Vector3 size;
-        public InteractionKindEnum kind;
+        public ItrKindEnum kind;
         public Vector3 force;
         public bool inverseForceDvx;
         public float damageRestTU;
