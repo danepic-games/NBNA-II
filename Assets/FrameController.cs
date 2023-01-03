@@ -74,6 +74,7 @@ public class FrameController : MonoBehaviour {
             }
         }
 #endif
+        Debug.Log("2");
         if (externAction >= 0) {
             this.ChangeFrame(externAction, false);
             return;
@@ -123,7 +124,7 @@ public class FrameController : MonoBehaviour {
             return;
         }
         var nonNullFrameToGo = frameToGo ?? default(int);
-        this.ChangeFrame(nonNullFrameToGo);
+        this.ChangeFrame(nonNullFrameToGo, usingNextPattern);
     }
 
     public void ChangeFrame(int frameToGo, bool usingNextPattern = true) {

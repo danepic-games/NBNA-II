@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056755314183172986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3670301, y: 0.060000014, z: -7.85}
+  m_LocalPosition: {x: -0.6460375, y: -0.08999999, z: -7.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,6 +187,7 @@ MonoBehaviour:
   sideDashDownCount: 0
   inputDirection: {x: 0, y: 0}
   hitJump: 0
+  hitAttack: 0
   frameToStopForDebug: 
   timeText: {fileID: 0}
 --- !u!114 &2056755314183172987
@@ -206,8 +207,8 @@ MonoBehaviour:
   effectDataController: {fileID: 2056755314183172989}
   frame: {fileID: 2056755314183172988}
   physicsOneTimePerFrame: 0
-  isExternForce: 1
   externForce: {x: 0, y: 0, z: 0}
+  isExternForce: 1
   currentFrameId: 0
   type: 0
   whatIsGround:

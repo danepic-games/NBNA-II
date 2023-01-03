@@ -13,6 +13,9 @@ public class PhysicController : MonoBehaviour {
 
     public bool physicsOneTimePerFrame;
 
+    public Vector3 externForce;
+    public bool isExternForce;
+
     public int currentFrameId;
 
     public ObjectTypeEnum type;
@@ -44,6 +47,16 @@ public class PhysicController : MonoBehaviour {
         if (this.currentFrameId != this.frame.currentFrame.id) {
             this.physicsOneTimePerFrame = true;
             this.currentFrameId = this.frame.currentFrame.id;
+
+            switch (this.frame.currentFrame.state) {
+                case StateFrameEnum.JUMPING:
+                case StateFrameEnum.JUMPING_FALLING:
+                case StateFrameEnum.STOP_RUNNING:
+                    break;
+                default:
+                    this.rigidbody.velocity = Vector3.zero;
+                    break;
+            }
         }
 
         switch (this.type) {
@@ -147,15 +160,22 @@ public class PhysicController : MonoBehaviour {
             float y = 0;
             float z = 0;
 
+            if (this.frame.currentFrame.dvx == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y, rigidbody.velocity.z);
+            } else {
+                x = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvx);
+            }
+
             if (this.frame.currentFrame.state == StateFrameEnum.JUMPING) {
-                if (this.frame.currentFrame.dvy != 0 && this.frame.currentFrame.dvy != STOP_MOVEMENT) {
+                if (this.frame.currentFrame.dvy == STOP_MOVEMENT_FRAME_VALUE) {
+                    rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
+                } else {
                     y = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvy * -1);
                 }
-
-                y = CheckStopMovement(this.frame.currentFrame.dvy);
-
-                ApplyImpulseForce(new Vector3(x, y, z));
             }
+
+            ApplyImpulseForce(x, y, z);
+
             return;
         }
     }
@@ -166,16 +186,25 @@ public class PhysicController : MonoBehaviour {
             float y = 0;
             float z = 0;
 
-            x = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvx * -1);
-            x = CheckStopMovement(this.frame.currentFrame.dvx);
+            if (this.frame.currentFrame.dvx == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y, rigidbody.velocity.z);
+            } else {
+                x = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvx);
+            }
 
-            y = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvy * -1);
-            y = CheckStopMovement(this.frame.currentFrame.dvy);
+            if (this.frame.currentFrame.dvy == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
+            } else {
+                x = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvy * -1);
+            }
 
-            z = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz * -1);
-            z = CheckStopMovement(this.frame.currentFrame.dvz);
+            if (this.frame.currentFrame.dvz == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0f);
+            } else {
+                x = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz);
+            }
 
-            ApplyImpulseForce(new Vector3(x, y, z));
+            ApplyImpulseForce(x, y, z);
             return;
         }
     }
@@ -192,14 +221,8 @@ public class PhysicController : MonoBehaviour {
         throw new MissingFieldException("Objeto Data não encontrado no script de fisíca!");
     }
 
-    private float CheckStopMovement(float dvy) {
-        if (dvy == STOP_MOVEMENT_FRAME_VALUE) {
-            return STOP_MOVEMENT;
-        }
-        return dvy;
-    }
-
-    private void ApplyImpulseForce(Vector3 velocity) {
+    private void ApplyImpulseForce(float x, float y, float z) {
+        var velocity = new Vector3(PositionUtil.FacingByX(x, frame.facingRight), y, z);
         if (velocity != Vector3.zero) {
             rigidbody.AddForce(velocity, ForceMode.Impulse);
             this.physicsOneTimePerFrame = false;

@@ -19,6 +19,7 @@ public class PlayerOneInputController : MonoBehaviour {
     }
 
     private void HitJump(InputAction.CallbackContext context) {
+        Debug.Log("1");
         this.frame.hitJump = true;
     }
 
