@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class DataMapperUtil : MonoBehaviour {
+public class DataMapperUtil {
 
     public static void MapDataToObject(string framesValue, out Dictionary<int, FrameData> frames, Dictionary<string, Sprite> sprites, string sprite_file_name, out List<FrameData> listOfFramesContent) {
         var listFrames = Regex.Split(framesValue, "<frame_end>");
@@ -290,7 +290,7 @@ public class DataMapperUtil : MonoBehaviour {
                         }
 
                         if (key.Equals(FrameKeyEnum.action.ToString())) {
-                            opoint.action = float.Parse(value);
+                            opoint.action = int.Parse(value);
                             continue;
                         }
 
@@ -309,13 +309,13 @@ public class DataMapperUtil : MonoBehaviour {
                             continue;
                         }
 
-                        if (key.Equals(FrameKeyEnum.oid.ToString())) {
+                        if (key.Equals(FrameKeyEnum.object_id.ToString())) {
                             opoint.object_id = value;
                             continue;
                         }
 
                         if (key.Equals(FrameKeyEnum.facing.ToString())) {
-                            opoint.facing_right = ((int)value) >= 0;
+                            opoint.facing = (int.Parse(value)) >= 0;
                             continue;
                         }
 
@@ -324,8 +324,8 @@ public class DataMapperUtil : MonoBehaviour {
                             continue;
                         }
 
-                        if (key.Equals(FrameKeyEnum.z_div_per_opoint.ToString())) {
-                            opoint.z_division_per_objects = float.Parse(value);
+                        if (key.Equals(FrameKeyEnum.z_div_per_quantity.ToString())) {
+                            opoint.z_division_per_quantity = float.Parse(value);
                             continue;
                         }
 

@@ -9,7 +9,7 @@ public class ObjectPointData {
     public float dvy;
     public float dvz;
     public string object_id;
-    public bool facing_right;
+    public bool facing;
     public int quantity;
-    public float z_division_per_objects;
+    public float z_division_per_quantity;
 }

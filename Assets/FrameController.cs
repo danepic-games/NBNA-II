@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class FrameController : MonoBehaviour {
 
     public float wait;
     public bool facingRight;
+    public int externAction = -1;
 
     // Running
     private float RUNNING_COUNT = 4f;
@@ -31,6 +33,7 @@ public class FrameController : MonoBehaviour {
 
     //Hit
     public bool hitJump;
+    public bool hitAttack;
 
     //Debug
     public string frameToStopForDebug = null;
@@ -39,7 +42,9 @@ public class FrameController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        this.currentFrame = this.data.frames[0];
+        if (this.currentFrame == null) {
+            this.currentFrame = this.data.frames[0];
+        }
         this.wait = 0;
         if (this.facingRight) {
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
@@ -69,9 +74,19 @@ public class FrameController : MonoBehaviour {
             }
         }
 #endif
+        if (externAction >= 0) {
+            this.ChangeFrame(externAction, false);
+            return;
+        }
+
         if (hitJump) {
             this.ChangeFrame(currentFrame.hit_jump, false);
             hitJump = false;
+        }
+
+        if (hitAttack) {
+            this.ChangeFrame(currentFrame.hit_attack, false);
+            hitAttack = false;
         }
 
         if (wait == 0) {
@@ -103,12 +118,21 @@ public class FrameController : MonoBehaviour {
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    public void ChangeFrame(Nullable<int> frameToGo, bool usingNextPattern = true) {
+        if (frameToGo == null) {
+            return;
+        }
+        var nonNullFrameToGo = frameToGo ?? default(int);
+        this.ChangeFrame(nonNullFrameToGo);
+    }
+
     public void ChangeFrame(int frameToGo, bool usingNextPattern = true) {
         if (currentFrame.next == (int)FrameSpecialValuesEnum.DELETE) {
-            Object.Destroy(this.gameObject);
+            UnityEngine.Object.Destroy(this.gameObject);
             return;
         }
         wait = 0;
+        externAction = -1;
         if (usingNextPattern) {
             currentFrame = currentFrame.next == (int)FrameSpecialValuesEnum.BACK_TO_STANDING ? this.data.frames[0] : this.data.frames[frameToGo];
         } else {

@@ -44,8 +44,8 @@ public enum FrameKeyEnum {
     itr,
     opoint,
     action,
-    oid,
+    object_id,
     facing,
     quantity,
-    z_div_per_opoint
+    z_div_per_quantity
 }

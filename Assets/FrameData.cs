@@ -19,22 +19,22 @@ public class FrameData {
     public int centerx;
     public int centery;
 
-    public int hit_attack;
-    public int hit_defense;
-    public int hit_jump;
-    public int hit_power;
+    public Nullable<int> hit_attack;
+    public Nullable<int> hit_defense;
+    public Nullable<int> hit_jump;
+    public Nullable<int> hit_power;
 
-    public int hit_power_attack_up;
-    public int hit_power_attack_forward;
-    public int hit_power_attack_down;
+    public Nullable<int> hit_power_attack_up;
+    public Nullable<int> hit_power_attack_forward;
+    public Nullable<int> hit_power_attack_down;
 
-    public int hit_power_defense_up;
-    public int hit_power_defense_forward;
-    public int hit_power_defense_down;
+    public Nullable<int> hit_power_defense_up;
+    public Nullable<int> hit_power_defense_forward;
+    public Nullable<int> hit_power_defense_down;
 
-    public int hit_power_jump_up;
-    public int hit_power_jump_forward;
-    public int hit_power_jump_down;
+    public Nullable<int> hit_power_jump_up;
+    public Nullable<int> hit_power_jump_forward;
+    public Nullable<int> hit_power_jump_down;
 
     public int mp;
     public int hp;
@@ -42,7 +42,7 @@ public class FrameData {
 
     public Nullable<int> hit_ground = null;
     public bool hidden;
-    public int hit_off_ground;
+    public Nullable<int> hit_off_ground;
 
     public List<BodyData> bodys = new List<BodyData>();
 
