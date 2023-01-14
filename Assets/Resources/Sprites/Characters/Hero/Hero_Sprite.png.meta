@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -4465,12 +4465,12 @@ TextureImporter:
       Hero_Sprite_162: -869874295
       Hero_Sprite_131: -486768141
       Hero_Sprite_27: -689807303
-      Hero_Sprite_47: -562798716
       Hero_Sprite_54: -1330076472
-      Hero_Sprite_109: -730392917
+      Hero_Sprite_47: -562798716
       Hero_Sprite_28: 1669424888
-      Hero_Sprite_135: -94337210
+      Hero_Sprite_109: -730392917
       Hero_Sprite_68: 1488574519
+      Hero_Sprite_135: -94337210
       Hero_Sprite_24: -61646199
       Hero_Sprite_165: -223306098
       Hero_Sprite_88: 1894460398

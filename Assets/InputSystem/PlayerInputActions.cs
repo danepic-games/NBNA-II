@@ -24,7 +24,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Player1"",
             ""id"": ""2a7ab401-1b0a-4cc1-b3da-cebf5b3df78e"",
             ""actions"": [
                 {
@@ -156,6 +156,138 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""Player2"",
+            ""id"": ""a4534447-7b9c-4a19-ba98-83890414ed89"",
+            ""actions"": [
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""60fdd6f3-bb1d-40d0-9fe7-bca9d0793849"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveX"",
+                    ""type"": ""Value"",
+                    ""id"": ""882ad1d5-af26-43f9-a1b7-980b5eb87b42"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveZ"",
+                    ""type"": ""Value"",
+                    ""id"": ""b86a6214-30c8-48a3-a469-1f37ebde226c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""17acb3bd-c67c-4ed2-bc16-c75baaa83451"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4841a2be-a24a-45f1-ba71-5bfcfd2ce15b"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""650770c8-f189-44f9-84c5-42837cae294b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveX"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a2287768-4cd5-4d96-9f60-abac10605fae"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6afc866c-5c31-414b-8595-2139d1a21c66"",
+                    ""path"": ""<Keyboard>/numpad6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""54ad7e17-033c-4009-8c44-46ba70229dcb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveZ"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""813fdc3c-72da-4a7a-8c1f-e33e839f0e02"",
+                    ""path"": ""<Keyboard>/numpad8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveZ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""bf9701ec-ccad-42e0-a4f4-1662fd39f5be"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveZ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60269b6c-aecd-45fb-a681-ba2541aeab85"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Debug"",
             ""id"": ""24f72231-d5f3-4cb8-b113-808b06b7c19c"",
             ""actions"": [
@@ -186,12 +318,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_MoveX = m_Player.FindAction("MoveX", throwIfNotFound: true);
-        m_Player_MoveZ = m_Player.FindAction("MoveZ", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        // Player1
+        m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
+        m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
+        m_Player1_MoveX = m_Player1.FindAction("MoveX", throwIfNotFound: true);
+        m_Player1_MoveZ = m_Player1.FindAction("MoveZ", throwIfNotFound: true);
+        m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
+        m_Player2_MoveX = m_Player2.FindAction("MoveX", throwIfNotFound: true);
+        m_Player2_MoveZ = m_Player2.FindAction("MoveZ", throwIfNotFound: true);
+        m_Player2_Attack = m_Player2.FindAction("Attack", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_ReloadCurrentScene = m_Debug.FindAction("Reload Current Scene", throwIfNotFound: true);
@@ -251,44 +389,44 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_MoveX;
-    private readonly InputAction m_Player_MoveZ;
-    private readonly InputAction m_Player_Attack;
-    public struct PlayerActions
+    // Player1
+    private readonly InputActionMap m_Player1;
+    private IPlayer1Actions m_Player1ActionsCallbackInterface;
+    private readonly InputAction m_Player1_Jump;
+    private readonly InputAction m_Player1_MoveX;
+    private readonly InputAction m_Player1_MoveZ;
+    private readonly InputAction m_Player1_Attack;
+    public struct Player1Actions
     {
         private @PlayerInputActions m_Wrapper;
-        public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @MoveX => m_Wrapper.m_Player_MoveX;
-        public InputAction @MoveZ => m_Wrapper.m_Player_MoveZ;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public Player1Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_Player1_Jump;
+        public InputAction @MoveX => m_Wrapper.m_Player1_MoveX;
+        public InputAction @MoveZ => m_Wrapper.m_Player1_MoveZ;
+        public InputAction @Attack => m_Wrapper.m_Player1_Attack;
+        public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(Player1Actions set) { return set.Get(); }
+        public void SetCallbacks(IPlayer1Actions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_Player1ActionsCallbackInterface != null)
             {
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @MoveX.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveX;
-                @MoveX.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveX;
-                @MoveX.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveX;
-                @MoveZ.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveZ;
-                @MoveZ.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveZ;
-                @MoveZ.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveZ;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Jump.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
+                @MoveX.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveX;
+                @MoveX.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveX;
+                @MoveX.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveX;
+                @MoveZ.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveZ;
+                @MoveZ.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveZ;
+                @MoveZ.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveZ;
+                @Attack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Jump.started += instance.OnJump;
@@ -306,7 +444,64 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public Player1Actions @Player1 => new Player1Actions(this);
+
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private IPlayer2Actions m_Player2ActionsCallbackInterface;
+    private readonly InputAction m_Player2_Jump;
+    private readonly InputAction m_Player2_MoveX;
+    private readonly InputAction m_Player2_MoveZ;
+    private readonly InputAction m_Player2_Attack;
+    public struct Player2Actions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public Player2Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_Player2_Jump;
+        public InputAction @MoveX => m_Wrapper.m_Player2_MoveX;
+        public InputAction @MoveZ => m_Wrapper.m_Player2_MoveZ;
+        public InputAction @Attack => m_Wrapper.m_Player2_Attack;
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void SetCallbacks(IPlayer2Actions instance)
+        {
+            if (m_Wrapper.m_Player2ActionsCallbackInterface != null)
+            {
+                @Jump.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
+                @MoveX.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMoveX;
+                @MoveX.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMoveX;
+                @MoveX.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMoveX;
+                @MoveZ.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMoveZ;
+                @MoveZ.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMoveZ;
+                @MoveZ.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMoveZ;
+                @Attack.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnAttack;
+            }
+            m_Wrapper.m_Player2ActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @MoveX.started += instance.OnMoveX;
+                @MoveX.performed += instance.OnMoveX;
+                @MoveX.canceled += instance.OnMoveX;
+                @MoveZ.started += instance.OnMoveZ;
+                @MoveZ.performed += instance.OnMoveZ;
+                @MoveZ.canceled += instance.OnMoveZ;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+            }
+        }
+    }
+    public Player2Actions @Player2 => new Player2Actions(this);
 
     // Debug
     private readonly InputActionMap m_Debug;
@@ -340,7 +535,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public DebugActions @Debug => new DebugActions(this);
-    public interface IPlayerActions
+    public interface IPlayer1Actions
+    {
+        void OnJump(InputAction.CallbackContext context);
+        void OnMoveX(InputAction.CallbackContext context);
+        void OnMoveZ(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2Actions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMoveX(InputAction.CallbackContext context);
