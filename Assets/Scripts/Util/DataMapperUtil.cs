@@ -117,6 +117,14 @@ public class DataMapperUtil {
                                 frameData.hit_power = int.Parse(value);
                                 continue;
                             }
+                            if (key.Equals(FrameKeyEnum.hit_super.ToString())) {
+                                frameData.hit_super = int.Parse(value);
+                                continue;
+                            }
+                            if (key.Equals(FrameKeyEnum.hit_taunt.ToString())) {
+                                frameData.hit_taunt = int.Parse(value);
+                                continue;
+                            }
                             if (key.Equals(FrameKeyEnum.hit_power_attack_up.ToString())) {
                                 frameData.hit_power_attack_up = int.Parse(value);
                                 continue;

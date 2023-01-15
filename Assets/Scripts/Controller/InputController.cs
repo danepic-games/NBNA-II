@@ -16,6 +16,7 @@ public class InputController : MonoBehaviour {
                 playerInputActions.@Player1.Enable();
                 playerInputActions.@Player1.@Jump.started += HitJump;
                 playerInputActions.@Player1.@Attack.started += HitAttack;
+                playerInputActions.@Player1.@Taunt.started += HitTaunt;
                 playerInputActions.@Player1.@MoveX.started += HitMovementX;
                 playerInputActions.@Player1.@MoveX.canceled += CancelMovementX;
                 playerInputActions.@Player1.@MoveZ.started += HitMovementZ;
@@ -42,6 +43,10 @@ public class InputController : MonoBehaviour {
 
     private void HitAttack(InputAction.CallbackContext context) {
         this.frame.hitAttack = true;
+    }
+
+    private void HitTaunt(InputAction.CallbackContext context) {
+        this.frame.hitTaunt = true;
     }
 
     private void HitMovementX(InputAction.CallbackContext context) {

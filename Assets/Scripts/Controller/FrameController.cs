@@ -34,6 +34,7 @@ public class FrameController : MonoBehaviour {
     //Hit
     public bool hitJump;
     public bool hitAttack;
+    public bool hitTaunt;
 
     //Team
     public TeamEnum team;
@@ -91,6 +92,11 @@ public class FrameController : MonoBehaviour {
         if (hitAttack) {
             this.ChangeFrame(currentFrame.hit_attack, false);
             hitAttack = false;
+        }
+
+        if (hitTaunt) {
+            this.ChangeFrame(currentFrame.hit_taunt, false);
+            hitTaunt = false;
         }
 
         if (wait == 0) {

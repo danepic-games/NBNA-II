@@ -18,6 +18,8 @@ public enum FrameKeyEnum {
     hit_defense,
     hit_jump,
     hit_power,
+    hit_super,
+    hit_taunt,
     hit_power_attack_up,
     hit_power_attack_forward,
     hit_power_attack_down,

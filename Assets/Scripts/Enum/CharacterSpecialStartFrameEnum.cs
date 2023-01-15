@@ -1,8 +1,10 @@
 public enum CharacterSpecialStartFrameEnum {
    STANDING = 0,
-   WALKING = 5,
-   RUNNING = 9,
-   CROUCH = 215,
-   STOP_RUNNING = 218,
-   JUMPING_FALLING = 255,
+   POSE = 20,
+   WALKING = 40,
+   RUNNING = 60,
+   JUMPING = 80,
+   JUMPING_FALLING = 90,
+   CROUCH = 100,
+   STOP_RUNNING = 110,
 }

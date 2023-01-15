@@ -14,7 +14,7 @@ public class StateController : MonoBehaviour {
     void FixedUpdate() {
         StateFrameEnum currentState = this.frame.currentFrame.state;
 
-        if (!this.physic.isGrounded && currentState != StateFrameEnum.JUMPING) {
+        if (!this.physic.isGrounded && (currentState != StateFrameEnum.JUMPING && currentState != StateFrameEnum.JUMPING_FALLING)) {
             this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMPING_FALLING);
         }
 
