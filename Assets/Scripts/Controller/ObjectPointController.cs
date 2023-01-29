@@ -36,8 +36,8 @@ public class ObjectPointController : MonoBehaviour {
                     spawnFrame.ownerId = this.gameObject.GetInstanceID();
                     spawnFrame.team = this.frame.team;
 
-                    float x = transform.position.x + (PositionUtil.FacingByX(opoint.x, frame.facingRight) / 100);
-                    float y = transform.position.y + (frame.spriteRenderer.sprite.bounds.size.y - (opoint.y / 100));
+                    float x = transform.position.x + PositionUtil.FacingByX(opoint.x, frame.facingRight);
+                    float y = transform.position.y + opoint.y;
                     float z = transform.position.z + opoint.z;
 
                     opointSpawn.transform.position = new Vector3(x, y, z);

@@ -1,0 +1,8 @@
+public enum CharacterHeaderValuesEnum {
+   WALKING_SPEED, //5,500000
+   WALKING_SPEEDZ, //3,000000
+   RUNNING_SPEED, //12,000000
+   RUNNING_SPEEDZ, //6,250000
+   TOTAL_HP, //1025
+   TOTAL_MP, //500
+}

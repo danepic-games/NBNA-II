@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using SerializableHelper;
 using UnityEngine;
 
 public class EffectDataController : AbstractDataController {
@@ -27,14 +27,15 @@ public class EffectDataController : AbstractDataController {
 
         this.header.sprite_folder = GetHeaderParam(headerParams, EffectHeaderKeyEnum.SPRITE_FOLDER);
 
-        this.sprites = new Dictionary<string, Sprite>();
+        this.sprites = new Map<int, Sprite>();
         var allSprites = Resources.LoadAll<Sprite>($"{header.sprite_folder}");
         foreach (Sprite sprite in allSprites) {
-            this.sprites.Add(sprite.name, sprite);
+            var spriteKeyValue = sprite.name.Replace(this.header.sprite_file_name, "").Substring(1).Split("_");
+            this.sprites.Add(int.Parse(spriteKeyValue[0]), sprite);
         }
 
         var framesValue = firstSplit[1];
 
-        DataMapperUtil.MapDataToObject(framesValue, out this.frames, this.sprites, header.sprite_file_name, out listOfFramesContent);
+        DataMapperUtil.MapDataToObject(framesValue, out this.frames, this.sprites, header.sprite_file_name);
     }
 }

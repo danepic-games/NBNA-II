@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using SerializableHelper;
 using UnityEngine;
 
 public class DataMapperUtil {
 
-    public static void MapDataToObject(string framesValue, out Dictionary<int, FrameData> frames, Dictionary<string, Sprite> sprites, string sprite_file_name, out List<FrameData> listOfFramesContent) {
+    public static void MapDataToObject(string framesValue, out Map<int, FrameData> frames, Map<int, Sprite> sprites, string sprite_file_name) {
         var listFrames = Regex.Split(framesValue, "<frame_end>");
 
-        listOfFramesContent = new List<FrameData>();
-        frames = new Dictionary<int, FrameData>();
+        frames = new Map<int, FrameData>();
 
         for (int i = 0; i < listFrames.Length; i++) {
             var frameData = new FrameData();
@@ -46,8 +46,8 @@ public class DataMapperUtil {
                             var key = keyValue[0].Trim();
                             var value = keyValue[1].Trim();
                             if (key.Equals(FrameKeyEnum.pic.ToString())) {
-                                if (sprites.ContainsKey($"{sprite_file_name}_{value}")) {
-                                    frameData.pic = sprites[$"{sprite_file_name}_{value}"];
+                                if (sprites.ContainsKey(int.Parse(value))) {
+                                    frameData.pic = sprites[int.Parse(value)];
                                 } else {
                                     frameData.pic = null;
                                 }
@@ -161,27 +161,8 @@ public class DataMapperUtil {
                                 frameData.hit_power_jump_down = int.Parse(value);
                                 continue;
                             }
-                        }
-                    }
-#endregion
-
-#region sound
-                    if (currentFrameLine.StartsWith(FrameKeyEnum.sound.ToString())) {
-                        var configProps = currentFrameLine.Split("  ");
-                        foreach (string configProp in configProps) {
-                            if (string.IsNullOrEmpty(configProp)) {
-                                continue;
-                            }
-                            var keyValue = configProp.Split(':');
-                            var key = keyValue[0].Trim();
-                            var value = keyValue[1].Trim();
-
                             if (key.Equals(FrameKeyEnum.mp.ToString())) {
                                 frameData.mp = int.Parse(value);
-                                continue;
-                            }
-                            if (key.Equals(FrameKeyEnum.hp.ToString())) {
-                                frameData.hp = int.Parse(value);
                                 continue;
                             }
                             if (key.Equals(FrameKeyEnum.hp.ToString())) {
@@ -202,6 +183,10 @@ public class DataMapperUtil {
                             }
                             if (key.Equals(FrameKeyEnum.hidden.ToString())) {
                                 frameData.hidden = bool.Parse(value);
+                                continue;
+                            }
+                            if (key.Equals(FrameKeyEnum.hold_forward_after.ToString())) {
+                                frameData.hold_forward_after = int.Parse(value);
                                 continue;
                             }
                         }
@@ -234,37 +219,6 @@ public class DataMapperUtil {
                                 bdy.kind = (BodyKindEnum)int.Parse(value);
                                 continue;
                             }
-
-                            if (key.Equals(FrameKeyEnum.x.ToString())) {
-                                bdy.x = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.y.ToString())) {
-                                bdy.y = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.z.ToString())) {
-                                bdy.z = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.w.ToString())) {
-                                bdy.w = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.h.ToString())) {
-                                bdy.h = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.zwidth.ToString())) {
-                                bdy.zwidth = float.Parse(value);
-                                continue;
-                            }
-
                             continue;
                         }
 
@@ -296,21 +250,6 @@ public class DataMapperUtil {
 
                             if (key.Equals(FrameKeyEnum.kind.ToString())) {
                                 opoint.kind = (ObjectPointKindEnum)int.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.x.ToString())) {
-                                opoint.x = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.y.ToString())) {
-                                opoint.y = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.z.ToString())) {
-                                opoint.z = float.Parse(value);
                                 continue;
                             }
 
@@ -357,6 +296,8 @@ public class DataMapperUtil {
                             continue;
                         }
 
+                        opoint.opointNumber = frameData.opoints.Count + 1;
+
                         frameData.opoints.Add(opoint);
                     }
 #endregion
@@ -385,36 +326,6 @@ public class DataMapperUtil {
 
                             if (key.Equals(FrameKeyEnum.kind.ToString())) {
                                 itr.kind = (ItrKindEnum)int.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.x.ToString())) {
-                                itr.x = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.y.ToString())) {
-                                itr.y = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.z.ToString())) {
-                                itr.z = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.w.ToString())) {
-                                itr.w = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.h.ToString())) {
-                                itr.h = float.Parse(value);
-                                continue;
-                            }
-
-                            if (key.Equals(FrameKeyEnum.zwidthz.ToString())) {
-                                itr.zwidthz = float.Parse(value);
                                 continue;
                             }
 
@@ -525,9 +436,6 @@ public class DataMapperUtil {
                     }
                     frames.Add(frameData.id, frameData);
 
-#if (UNITY_EDITOR)
-                    listOfFramesContent.Add(frameData);
-#endif
                 } catch (Exception ex) {
                     Debug.LogError($"Error in line {lineNumber} with frame id {frameData.id}");
                     throw ex;

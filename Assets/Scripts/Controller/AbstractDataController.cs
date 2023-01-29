@@ -1,21 +1,41 @@
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using SerializableHelper;
 using UnityEngine;
 
+[System.Serializable]
 public class AbstractDataController : MonoBehaviour {
-
     [SerializeField]
     protected TextAsset dataFile;
 
+    [SerializeField]
     public ObjectTypeEnum type;
 
     [SerializeField]
-    protected List<FrameData> listOfFramesContent;
-
-    public Dictionary<int, FrameData> frames;
+    public Map<int, FrameData> frames;
 
     [SerializeField]
-    protected Dictionary<string, Sprite> sprites;
+    public Map<int, BodyData> bodysComposer;
+
+    [SerializeField]
+    public Map<int, BodyData> bodysComposer2;
+
+    [SerializeField]
+    public Map<int, BodyData> bodysComposer3;
+
+    [SerializeField]
+    public Map<int, ObjectPointData> opointsComposer;
+
+    [SerializeField]
+    public Map<int, InteractionData> interactionsComposer;
+
+    [SerializeField]
+    public Map<int, InteractionData> interactionsComposer2;
+
+    [SerializeField]
+    public Map<int, InteractionData> interactionsComposer3;
+
+    [SerializeField]
+    protected Map<int, Sprite> sprites;
 
     protected string GetHeaderParam(string[] headerParams, CharacterHeaderKeyEnum paramKey, char separator = ' ') {
         return this.GetHeaderParam(headerParams, (int)paramKey, separator);

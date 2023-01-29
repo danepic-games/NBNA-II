@@ -11,6 +11,7 @@ public class HeaderData {
     public int start_mp;
     public int total_hp;
     public int total_mp;
+    public int first_attack;
 
     public int agressive;
     public int technique;

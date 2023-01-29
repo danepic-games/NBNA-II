@@ -31,14 +31,14 @@ public class StateController : MonoBehaviour {
             if (this.frame.runningRightEnable && this.frame.inputDirection.x > 0) {
                 this.frame.runningRightEnable = false;
                 this.frame.runningLeftEnable = false;
-                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.RUNNING, false);
+                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.SIMPLE_DASH, false);
             }
 
             // Run Left
             if (this.frame.runningLeftEnable && this.frame.inputDirection.x < 0) {
                 this.frame.runningRightEnable = false;
                 this.frame.runningLeftEnable = false;
-                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.RUNNING, false);
+                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.SIMPLE_DASH, false);
             }
         }
 

@@ -179,14 +179,13 @@ public class PhysicController : MonoBehaviour {
             if (this.frame.currentFrame.dvz == STOP_MOVEMENT_FRAME_VALUE) {
                 rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0f);
             } else {
-                z = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz);
+                z = frame.inputDirection.y * ((this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz));
             }
 
             if (frame.currentFrame.state == StateFrameEnum.JUMPING) {
                 if (lockInputDirection != Vector2.zero) {
-                    x *= lockInputDirection.x;
-                    z *= lockInputDirection.y;
-
+                    x = MathF.Abs(x) * lockInputDirection.x;
+                    z = MathF.Abs(z) * lockInputDirection.y;
                     affectedByFacing = false;
                     lockInputDirection = Vector2.zero;
                 } else {
@@ -248,7 +247,6 @@ public class PhysicController : MonoBehaviour {
         }
         var velocity = new Vector3(x, y, z);
         if (velocity != Vector3.zero) {
-            Debug.Log("TOP: " + velocity);
             rigidbody.AddForce(velocity, ForceMode.Impulse);
             this.physicsOneTimePerFrame = false;
         }

@@ -1,4 +1,4 @@
 public enum FrameSpecialValuesEnum {
-    BACK_TO_STANDING = 999,
-    DELETE = 1000,
+    BACK_TO_STANDING = 9999,
+    DELETE = 10000,
 }

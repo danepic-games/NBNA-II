@@ -24,6 +24,7 @@ public class InteractionData {
     public float slow;
     public float stun;
     public float ignite;
+    public float poison;
     public float root;
     public float charm;
     public float fear;
@@ -31,4 +32,7 @@ public class InteractionData {
     public float blind;
     public float paralysis;
     public float freeze;
+
+    public int itrNumber;
+    public int frameId;
 }

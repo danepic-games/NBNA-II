@@ -23,16 +23,8 @@ public class HurtboxController : MonoBehaviour {
 
             bdy = frame.currentFrame.bodys[bodyNumber - 1];
 
-            var centerx = spriteRenderer.sprite.pivot.x / 100;
-
-            float x = bdy.x / 100;
-
-            float y = (((spriteRenderer.sprite.bounds.size.y * 100) - bdy.y) / 2) / 100;
-            float w = (spriteRenderer.sprite.bounds.size.x * bdy.w) / (spriteRenderer.sprite.bounds.size.x * 100);
-            float h = (spriteRenderer.sprite.bounds.size.x * bdy.h) / (spriteRenderer.sprite.bounds.size.y * 100);
-
-            transform.localPosition = new Vector3((transform.localScale.x / 2) - centerx + x, y, bdy.z);
-            transform.localScale = new Vector3(w, h, bdy.zwidth);
+            transform.localPosition = new Vector3(bdy.x, bdy.y, bdy.z);
+            transform.localScale = new Vector3(bdy.w, bdy.h, bdy.zwidth);
         } else {
             boxCollider.enabled = false;
             meshRenderer.enabled = false;

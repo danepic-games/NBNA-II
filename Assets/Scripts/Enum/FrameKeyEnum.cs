@@ -29,6 +29,7 @@ public enum FrameKeyEnum {
     hit_power_jump_up,
     hit_power_jump_forward,
     hit_power_jump_down,
+    hold_forward_after,
     mp,
     hp,
     sound,

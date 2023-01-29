@@ -38,6 +38,8 @@ public class FrameData {
     public Nullable<int> hit_power_jump_forward;
     public Nullable<int> hit_power_jump_down;
 
+    public Nullable<int> hold_forward_after;
+
     public int mp;
     public int hp;
     public AudioClip sound;

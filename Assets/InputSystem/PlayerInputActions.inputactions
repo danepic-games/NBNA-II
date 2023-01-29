@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Defense",
+                    "type": "Button",
+                    "id": "b25874eb-ce43-4570-b45b-7d5c6f41af9f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Taunt",
                     "type": "Button",
                     "id": "d776cdef-c4db-400b-b327-ed17d8422485",
@@ -150,6 +159,17 @@
                     "action": "Taunt",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "779e8d85-9946-482f-bd95-439dd5969007",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Defense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -197,6 +217,15 @@
                     "name": "Taunt",
                     "type": "Button",
                     "id": "e91d6364-4811-4155-b93a-d8fcc6b9231c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Defense",
+                    "type": "Button",
+                    "id": "b3b2928d-e13b-4f35-910d-6c07310ce6ce",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -300,6 +329,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Taunt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0e8e5ff-016e-4706-9c44-91fd4ee1fef8",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

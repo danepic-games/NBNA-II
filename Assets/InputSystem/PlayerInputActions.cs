@@ -64,6 +64,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Defense"",
+                    ""type"": ""Button"",
+                    ""id"": ""b25874eb-ce43-4570-b45b-7d5c6f41af9f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Taunt"",
                     ""type"": ""Button"",
                     ""id"": ""d776cdef-c4db-400b-b327-ed17d8422485"",
@@ -172,6 +181,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Taunt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""779e8d85-9946-482f-bd95-439dd5969007"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Defense"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -219,6 +239,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Taunt"",
                     ""type"": ""Button"",
                     ""id"": ""e91d6364-4811-4155-b93a-d8fcc6b9231c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Defense"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3b2928d-e13b-4f35-910d-6c07310ce6ce"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -324,6 +353,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Taunt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0e8e5ff-016e-4706-9c44-91fd4ee1fef8"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Defense"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -364,6 +404,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player1_MoveX = m_Player1.FindAction("MoveX", throwIfNotFound: true);
         m_Player1_MoveZ = m_Player1.FindAction("MoveZ", throwIfNotFound: true);
         m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
+        m_Player1_Defense = m_Player1.FindAction("Defense", throwIfNotFound: true);
         m_Player1_Taunt = m_Player1.FindAction("Taunt", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
@@ -372,6 +413,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player2_MoveZ = m_Player2.FindAction("MoveZ", throwIfNotFound: true);
         m_Player2_Attack = m_Player2.FindAction("Attack", throwIfNotFound: true);
         m_Player2_Taunt = m_Player2.FindAction("Taunt", throwIfNotFound: true);
+        m_Player2_Defense = m_Player2.FindAction("Defense", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_ReloadCurrentScene = m_Debug.FindAction("Reload Current Scene", throwIfNotFound: true);
@@ -438,6 +480,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_MoveX;
     private readonly InputAction m_Player1_MoveZ;
     private readonly InputAction m_Player1_Attack;
+    private readonly InputAction m_Player1_Defense;
     private readonly InputAction m_Player1_Taunt;
     public struct Player1Actions
     {
@@ -447,6 +490,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @MoveX => m_Wrapper.m_Player1_MoveX;
         public InputAction @MoveZ => m_Wrapper.m_Player1_MoveZ;
         public InputAction @Attack => m_Wrapper.m_Player1_Attack;
+        public InputAction @Defense => m_Wrapper.m_Player1_Defense;
         public InputAction @Taunt => m_Wrapper.m_Player1_Taunt;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
@@ -469,6 +513,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @Defense.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDefense;
+                @Defense.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDefense;
+                @Defense.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnDefense;
                 @Taunt.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTaunt;
                 @Taunt.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTaunt;
                 @Taunt.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTaunt;
@@ -488,6 +535,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Defense.started += instance.OnDefense;
+                @Defense.performed += instance.OnDefense;
+                @Defense.canceled += instance.OnDefense;
                 @Taunt.started += instance.OnTaunt;
                 @Taunt.performed += instance.OnTaunt;
                 @Taunt.canceled += instance.OnTaunt;
@@ -504,6 +554,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_MoveZ;
     private readonly InputAction m_Player2_Attack;
     private readonly InputAction m_Player2_Taunt;
+    private readonly InputAction m_Player2_Defense;
     public struct Player2Actions
     {
         private @PlayerInputActions m_Wrapper;
@@ -513,6 +564,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @MoveZ => m_Wrapper.m_Player2_MoveZ;
         public InputAction @Attack => m_Wrapper.m_Player2_Attack;
         public InputAction @Taunt => m_Wrapper.m_Player2_Taunt;
+        public InputAction @Defense => m_Wrapper.m_Player2_Defense;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -537,6 +589,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Taunt.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnTaunt;
                 @Taunt.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnTaunt;
                 @Taunt.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnTaunt;
+                @Defense.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDefense;
+                @Defense.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDefense;
+                @Defense.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDefense;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -556,6 +611,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Taunt.started += instance.OnTaunt;
                 @Taunt.performed += instance.OnTaunt;
                 @Taunt.canceled += instance.OnTaunt;
+                @Defense.started += instance.OnDefense;
+                @Defense.performed += instance.OnDefense;
+                @Defense.canceled += instance.OnDefense;
             }
         }
     }
@@ -599,6 +657,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMoveX(InputAction.CallbackContext context);
         void OnMoveZ(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnDefense(InputAction.CallbackContext context);
         void OnTaunt(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
@@ -608,6 +667,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMoveZ(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnTaunt(InputAction.CallbackContext context);
+        void OnDefense(InputAction.CallbackContext context);
     }
     public interface IDebugActions
     {

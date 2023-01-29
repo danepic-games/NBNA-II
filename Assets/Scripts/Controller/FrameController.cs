@@ -33,8 +33,12 @@ public class FrameController : MonoBehaviour {
 
     //Hit
     public bool hitJump;
+    public bool hitDefense;
     public bool hitAttack;
     public bool hitTaunt;
+
+    //Hold
+    public bool holdForwardAfter;
 
     //Team
     public TeamEnum team;
@@ -65,6 +69,7 @@ public class FrameController : MonoBehaviour {
         this.runningLeftEnable = false;
         this.countRightEnable = false;
         this.countLeftEnable = false;
+        this.holdForwardAfter = false;
     }
 
     // Update is called once per frame
@@ -87,16 +92,25 @@ public class FrameController : MonoBehaviour {
         if (hitJump) {
             this.ChangeFrame(currentFrame.hit_jump, false);
             hitJump = false;
+            return;
         }
 
         if (hitAttack) {
             this.ChangeFrame(currentFrame.hit_attack, false);
             hitAttack = false;
+            return;
+        }
+
+        if (hitDefense) {
+            this.ChangeFrame(currentFrame.hit_defense, false);
+            hitDefense = false;
+            return;
         }
 
         if (hitTaunt) {
             this.ChangeFrame(currentFrame.hit_taunt, false);
             hitTaunt = false;
+            return;
         }
 
         if (wait == 0) {
@@ -112,7 +126,11 @@ public class FrameController : MonoBehaviour {
         if (wait > 0) {
             wait -= Time.deltaTime;
         } else {
-            this.ChangeFrame(currentFrame.next);
+            if (currentFrame.hold_forward_after != null && holdForwardAfter) {
+                this.ChangeFrame(currentFrame.hold_forward_after, false);
+            } else {
+                this.ChangeFrame(currentFrame.next);
+            }
         }
 
         switch (this.data.type) {

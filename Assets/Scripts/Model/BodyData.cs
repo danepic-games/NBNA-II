@@ -9,4 +9,8 @@ public class BodyData {
     public float w;
     public float h;
     public float zwidth;
+    public int bodyNumber;
+    public int frameId;
+    public int beginFrameId;
+    public int endFrameId;
 }

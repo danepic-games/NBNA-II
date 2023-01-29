@@ -16,6 +16,7 @@ public class InputController : MonoBehaviour {
                 playerInputActions.@Player1.Enable();
                 playerInputActions.@Player1.@Jump.started += HitJump;
                 playerInputActions.@Player1.@Attack.started += HitAttack;
+                playerInputActions.@Player1.@Defense.started += HitDefense;
                 playerInputActions.@Player1.@Taunt.started += HitTaunt;
                 playerInputActions.@Player1.@MoveX.started += HitMovementX;
                 playerInputActions.@Player1.@MoveX.canceled += CancelMovementX;
@@ -27,6 +28,7 @@ public class InputController : MonoBehaviour {
                 playerInputActions.@Player2.Enable();
                 playerInputActions.@Player2.@Jump.started += HitJump;
                 playerInputActions.@Player2.@Attack.started += HitAttack;
+                playerInputActions.@Player2.@Defense.started += HitDefense;
                 playerInputActions.@Player2.@MoveX.started += HitMovementX;
                 playerInputActions.@Player2.@MoveX.canceled += CancelMovementX;
                 playerInputActions.@Player2.@MoveZ.started += HitMovementZ;
@@ -35,6 +37,10 @@ public class InputController : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    private void HitDefense(InputAction.CallbackContext context) {
+        this.frame.hitDefense = true;
     }
 
     private void HitJump(InputAction.CallbackContext context) {
@@ -51,10 +57,12 @@ public class InputController : MonoBehaviour {
 
     private void HitMovementX(InputAction.CallbackContext context) {
         this.frame.inputDirection.x = context.ReadValue<Vector2>().x;
+        this.frame.holdForwardAfter = true;
     }
 
     private void CancelMovementX(InputAction.CallbackContext context) {
         this.frame.inputDirection.x = context.ReadValue<Vector2>().x;
+        this.frame.holdForwardAfter = false;
         if (!this.frame.countRightEnable && this.frame.facingRight) {
             this.frame.countRightEnable = true;
             this.frame.countLeftEnable = false;
