@@ -182,16 +182,28 @@ public class PhysicController : MonoBehaviour {
                 z = frame.inputDirection.y * ((this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz));
             }
 
-            if (frame.currentFrame.state == StateFrameEnum.JUMPING) {
-                if (lockInputDirection != Vector2.zero) {
-                    x = MathF.Abs(x) * lockInputDirection.x;
-                    z = MathF.Abs(z) * lockInputDirection.y;
-                    affectedByFacing = false;
-                    lockInputDirection = Vector2.zero;
-                } else {
-                    x = 0f;
-                    z = 0f;
-                }
+            switch (frame.currentFrame.state) {
+                case StateFrameEnum.JUMPING:
+                    if (lockInputDirection != Vector2.zero) {
+                        x = MathF.Abs(x) * lockInputDirection.x;
+                        z = MathF.Abs(z) * lockInputDirection.y;
+                        affectedByFacing = false;
+                        lockInputDirection = Vector2.zero;
+                    } else {
+                        x = 0f;
+                        z = 0f;
+                    }
+                    break;
+                case StateFrameEnum.SIDE_DASH:
+                    if (this.frame.facingUp) {
+                        z = MathF.Abs(this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz) * 1;
+                        affectedByFacing = false;
+                    } else {
+                        z = MathF.Abs(this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz) * -1;
+                        affectedByFacing = false;
+                    }
+                    Debug.Log(z);
+                    break;
             }
 
             ApplyImpulseForce(x, y, z, affectedByFacing);

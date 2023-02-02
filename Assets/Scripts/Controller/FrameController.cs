@@ -12,10 +12,12 @@ public class FrameController : MonoBehaviour {
 
     public float wait;
     public bool facingRight;
+    public bool facingUp;
     public int externAction = -1;
 
     // Running
     private float RUNNING_COUNT = 4f;
+    private float SIDE_DASH_COUNT = 4f;
 
     public float runningRightCount;
     public bool runningRightEnable;
@@ -25,8 +27,14 @@ public class FrameController : MonoBehaviour {
     public bool runningLeftEnable;
     public bool countLeftEnable;
 
+    // Side Dash
     public float sideDashUpCount;
+    public bool sideDashUpEnable;
+    public bool countSideDashUpEnable;
+
     public float sideDashDownCount;
+    public bool sideDashDownEnable;
+    public bool countSideDashDownEnable;
 
     //Movement
     public Vector2 inputDirection;
@@ -69,6 +77,10 @@ public class FrameController : MonoBehaviour {
         this.runningLeftEnable = false;
         this.countRightEnable = false;
         this.countLeftEnable = false;
+        this.sideDashDownEnable = false;
+        this.sideDashUpEnable = false;
+        this.countSideDashUpEnable = false;
+        this.countSideDashDownEnable = false;
         this.holdForwardAfter = false;
     }
 
@@ -136,6 +148,7 @@ public class FrameController : MonoBehaviour {
         switch (this.data.type) {
             case ObjectTypeEnum.CHARACTER:
                 RunningCounter();
+                SideDashCounter();
                 break;
         }
     }
@@ -221,6 +234,35 @@ public class FrameController : MonoBehaviour {
             runningLeftCount = 0;
             runningLeftEnable = false;
             countLeftEnable = false;
+        }
+    }
+
+    private void SideDashCounter() {
+        if (countSideDashUpEnable && !sideDashUpEnable) {
+            sideDashUpEnable = true;
+            sideDashUpCount = SIDE_DASH_COUNT / 30;
+            sideDashDownCount = 0;
+        }
+        if (sideDashUpCount > 0) {
+            sideDashUpCount -= Time.deltaTime;
+        } else {
+            sideDashUpCount = 0;
+            sideDashUpEnable = false;
+            countSideDashUpEnable = false;
+        }
+
+
+        if (countSideDashDownEnable && !sideDashDownEnable) {
+            sideDashDownEnable = true;
+            sideDashDownCount = SIDE_DASH_COUNT / 30;
+            sideDashUpCount = 0;
+        }
+        if (sideDashDownCount > 0) {
+            sideDashDownCount -= Time.deltaTime;
+        } else {
+            sideDashDownCount = 0;
+            sideDashDownEnable = false;
+            countSideDashDownEnable = false;
         }
     }
 }

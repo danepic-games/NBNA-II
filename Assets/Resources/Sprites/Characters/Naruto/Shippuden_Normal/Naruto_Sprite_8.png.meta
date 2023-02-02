@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abef7be251955c64d965df4003ab6018
+guid: b42314fa8ec1c0b40b892881a521b837
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Naruto_Sprite_7_0
+      name: Naruto_Sprite_8_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3579dfa425adfd54eb0ef854464e7846
-      internalID: -1034104073
+      spriteID: fd5fc38a3477c5f4f9f25c688d57fd35
+      internalID: 1764121051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_1
+      name: Naruto_Sprite_8_1
       rect:
         serializedVersion: 2
         x: 256
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e80ee85c68536b4ea26793ba253ee77
-      internalID: -2013475797
+      spriteID: d0ba601221a80984da40b7bacde1b2f8
+      internalID: -1534896266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_2
+      name: Naruto_Sprite_8_2
       rect:
         serializedVersion: 2
         x: 512
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b6867d2c765924e8e0b8ce51950c8c
-      internalID: -438218502
+      spriteID: a66eb17e578449243b6ac6e800d9d339
+      internalID: -1858682568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_3
+      name: Naruto_Sprite_8_3
       rect:
         serializedVersion: 2
         x: 768
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f874664f9244d94ebda90c84df10c22
-      internalID: -1082114087
+      spriteID: 0ca52a37aa2b8a94aabeceb6fb8dcef4
+      internalID: -1514743657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_4
+      name: Naruto_Sprite_8_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe32773bac405ac478972b1330ef0847
-      internalID: 181905193
+      spriteID: 8c89ff778f9de0d43987e0764bef93c1
+      internalID: -840103149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_5
+      name: Naruto_Sprite_8_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97336d4382162b7429b9a78a10a54d1b
-      internalID: 460744574
+      spriteID: 3f48ac2eb5987f744b638fbc6ea2bd29
+      internalID: -1298527634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_6
+      name: Naruto_Sprite_8_6
       rect:
         serializedVersion: 2
         x: 1536
@@ -269,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e35fdee2e56ccc4b9086822711bdbae
-      internalID: -1510483867
+      spriteID: 8df49633fdbe22c419ccdf6639dc7e32
+      internalID: -1526519439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_7
+      name: Naruto_Sprite_8_7
       rect:
         serializedVersion: 2
         x: 1792
@@ -290,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b83586af38aacb74ea44877884c45589
-      internalID: -237057086
+      spriteID: 495670fc45d51c34d81b0423cc665bd0
+      internalID: -1231791563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_8
+      name: Naruto_Sprite_8_8
       rect:
         serializedVersion: 2
         x: 0
@@ -311,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43669a3f70ffb6f43a698468e39486c6
-      internalID: -469473494
+      spriteID: e2e16b39615ae91478ccec24a13c8cf1
+      internalID: -1530319743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_9
+      name: Naruto_Sprite_8_9
       rect:
         serializedVersion: 2
         x: 256
@@ -332,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e7d796cdca8cf24284eff6a7ab940d7
-      internalID: 551158045
+      spriteID: 2b65dee6eafd87e409a2a73e636b9c62
+      internalID: -538079550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_10
+      name: Naruto_Sprite_8_10
       rect:
         serializedVersion: 2
         x: 512
@@ -353,14 +353,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e12b0b53522d38408517e00d6126ec1
-      internalID: -697501250
+      spriteID: e90ef5e098c823c46a9443d9fdab0a97
+      internalID: 613020030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_11
+      name: Naruto_Sprite_8_11
       rect:
         serializedVersion: 2
         x: 768
@@ -374,14 +374,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 865409775f35f8a4c8a8d0c39b155d5c
-      internalID: 1603829416
+      spriteID: fd96ebf2c90ef984cb968e39fd312526
+      internalID: 458732908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_12
+      name: Naruto_Sprite_8_12
       rect:
         serializedVersion: 2
         x: 1024
@@ -395,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34447ed0b4dd129428177a5d6cf3c0e8
-      internalID: -315110688
+      spriteID: 87c59d2598ecc484892e20f7165288b5
+      internalID: -1019131808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_13
+      name: Naruto_Sprite_8_13
       rect:
         serializedVersion: 2
         x: 1280
@@ -416,14 +416,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ae48e8001c09a1408de45515cf15908
-      internalID: 1031313919
+      spriteID: 172cbcb082fd6c6449c37a04a3aac9c6
+      internalID: -328545285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_14
+      name: Naruto_Sprite_8_14
       rect:
         serializedVersion: 2
         x: 1536
@@ -437,14 +437,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30429467dad6df5499171b28ff17bfb2
-      internalID: 1551750944
+      spriteID: b1435a2631a25ae43814fe9492d9d04a
+      internalID: 1233423098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_15
+      name: Naruto_Sprite_8_15
       rect:
         serializedVersion: 2
         x: 1792
@@ -458,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daaf459ec34692f4ca7dc6b48f1b3346
-      internalID: 1055037249
+      spriteID: 8f9609450f0751d479a732396c5258f6
+      internalID: -1989520363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_16
+      name: Naruto_Sprite_8_16
       rect:
         serializedVersion: 2
         x: 0
@@ -479,14 +479,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abc9442c49e39e34d94ee32ddcbc5f9b
-      internalID: 2020874970
+      spriteID: d63717b4556e6b74890b4f93519851ef
+      internalID: 77718961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_17
+      name: Naruto_Sprite_8_17
       rect:
         serializedVersion: 2
         x: 256
@@ -500,14 +500,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 796908c469369bf47a8c19362490fbea
-      internalID: -88810524
+      spriteID: cac801b6f37346f408fc9cc889fd0aab
+      internalID: -578821533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_18
+      name: Naruto_Sprite_8_18
       rect:
         serializedVersion: 2
         x: 512
@@ -521,14 +521,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b075b7a7b028fd241b8b60e071aa38e5
-      internalID: -1815922602
+      spriteID: 8f57459717f7ced499bdb402a28f4089
+      internalID: -44152714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_19
+      name: Naruto_Sprite_8_19
       rect:
         serializedVersion: 2
         x: 768
@@ -542,14 +542,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55e4db09eaf4c1441a67e313f32efdd8
-      internalID: 1832976661
+      spriteID: 7abbae6572657644eae7f010e88e9a51
+      internalID: -878704876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_20
+      name: Naruto_Sprite_8_20
       rect:
         serializedVersion: 2
         x: 1024
@@ -563,14 +563,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfded46443f58a241b110f567c794b96
-      internalID: 1069597855
+      spriteID: b55c9036d212caf44a9661f0cea33003
+      internalID: -956074310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_21
+      name: Naruto_Sprite_8_21
       rect:
         serializedVersion: 2
         x: 1280
@@ -584,14 +584,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd114af6a88363f41bfa0522fe05b1c1
-      internalID: -235897777
+      spriteID: eeb3d1aa981f859458056e06875abfc8
+      internalID: 1439431782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_22
+      name: Naruto_Sprite_8_22
       rect:
         serializedVersion: 2
         x: 1536
@@ -605,14 +605,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d608415d93cf85c44b6b682a25386e18
-      internalID: 1778875302
+      spriteID: 0adf846776580a14a96206228fbf8566
+      internalID: -655017995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_23
+      name: Naruto_Sprite_8_23
       rect:
         serializedVersion: 2
         x: 1792
@@ -626,14 +626,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1d915fc21e0e92499c8aa9c414f29e6
-      internalID: -1539839324
+      spriteID: e4f4b2ed26e3d1545909daf02a4b87fd
+      internalID: 625224959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_24
+      name: Naruto_Sprite_8_24
       rect:
         serializedVersion: 2
         x: 0
@@ -647,14 +647,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a15949d5d7d9244889da4486e24b455
-      internalID: 1299804494
+      spriteID: c73edfd86e9b6354b85ec3ab94c56003
+      internalID: 1775533020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_25
+      name: Naruto_Sprite_8_25
       rect:
         serializedVersion: 2
         x: 256
@@ -668,14 +668,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 250f2ae8b42a100478f7f75990a567c7
-      internalID: -1780125461
+      spriteID: fc77f3b63ba14df479e71be11464e94b
+      internalID: 669952506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_26
+      name: Naruto_Sprite_8_26
       rect:
         serializedVersion: 2
         x: 512
@@ -689,14 +689,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57c7ee504fa4fc74fb18e2a505e1a9a5
-      internalID: 1921018806
+      spriteID: d3e6f34625436884993fa7de7bd163cb
+      internalID: -57448471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_27
+      name: Naruto_Sprite_8_27
       rect:
         serializedVersion: 2
         x: 768
@@ -710,14 +710,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c1144a9e6ef4f44298bfcb3a8d470e1
-      internalID: -1896668748
+      spriteID: 718ca7c960476234596bcef8aa107285
+      internalID: -1139520634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_28
+      name: Naruto_Sprite_8_28
       rect:
         serializedVersion: 2
         x: 1024
@@ -731,14 +731,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9706b421ee6934f4b9bf7f3d4d887e89
-      internalID: -2133787120
+      spriteID: b4006c9bd5a7b3e4bb16e313deffb329
+      internalID: 1511166576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_29
+      name: Naruto_Sprite_8_29
       rect:
         serializedVersion: 2
         x: 1280
@@ -752,14 +752,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b28ad6fd76f931d43bdfc081ed039ab6
-      internalID: 217485953
+      spriteID: 39765dbd2d2b13347bc3eb7154438c73
+      internalID: -2010336101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_30
+      name: Naruto_Sprite_8_30
       rect:
         serializedVersion: 2
         x: 1536
@@ -773,14 +773,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e4af83e1c6a6594cb7a6cba9cdb11ca
-      internalID: -1787035521
+      spriteID: c95124f476b0f9e49a3ab99aa139a802
+      internalID: -63549708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_31
+      name: Naruto_Sprite_8_31
       rect:
         serializedVersion: 2
         x: 1792
@@ -794,14 +794,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28b2a8a2d6c7d86449634520f324bb35
-      internalID: 1446344108
+      spriteID: 6a16ee2bd075a6a4aa5e3a1b5037b026
+      internalID: -1640933428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_32
+      name: Naruto_Sprite_8_32
       rect:
         serializedVersion: 2
         x: 0
@@ -815,14 +815,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf32d8a03a31e5440bf86ac29bcd05ea
-      internalID: 1941045525
+      spriteID: 8eca5748d23ac2248b6f40e260866cfa
+      internalID: -1295575485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_33
+      name: Naruto_Sprite_8_33
       rect:
         serializedVersion: 2
         x: 256
@@ -836,14 +836,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26572de183bfea54e8e34d02c1911873
-      internalID: 2125595224
+      spriteID: 7cc6f01ab51753f439156920e6d866fa
+      internalID: -323586343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_34
+      name: Naruto_Sprite_8_34
       rect:
         serializedVersion: 2
         x: 512
@@ -857,14 +857,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a741ed9494f707499ec21eef62d29ae
-      internalID: 160585379
+      spriteID: 978cbf37ca4215c45af8d76c5648f134
+      internalID: 112358261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_35
+      name: Naruto_Sprite_8_35
       rect:
         serializedVersion: 2
         x: 768
@@ -878,14 +878,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7276657b1e93454880786778613a2e5
-      internalID: 1498013764
+      spriteID: 5f5ee7dc39922d049b7469ac059f2c53
+      internalID: -529509449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_36
+      name: Naruto_Sprite_8_36
       rect:
         serializedVersion: 2
         x: 1024
@@ -899,14 +899,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9540b44d7e5b8774096360d2322f6fa1
-      internalID: -223249471
+      spriteID: a47df3cfcbcf0ed45add1ec9957c2d18
+      internalID: -406704066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_37
+      name: Naruto_Sprite_8_37
       rect:
         serializedVersion: 2
         x: 1280
@@ -920,14 +920,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c2f685965a22a549b7f3eb782897005
-      internalID: 958194232
+      spriteID: 8adb8843499142f45a4cc88ca56834c6
+      internalID: 520491247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_38
+      name: Naruto_Sprite_8_38
       rect:
         serializedVersion: 2
         x: 1536
@@ -941,14 +941,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c69c3c124c2ec614f84fec12ae7787f2
-      internalID: 784265089
+      spriteID: 30efd97ff5c6b3243a07777e92af13ba
+      internalID: 35421014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_39
+      name: Naruto_Sprite_8_39
       rect:
         serializedVersion: 2
         x: 1792
@@ -962,14 +962,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 678e31b9bb3346347afa60a0e7b20210
-      internalID: 156232464
+      spriteID: 60e21e3eaa533a840b32e28e05de14b3
+      internalID: 973109892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_40
+      name: Naruto_Sprite_8_40
       rect:
         serializedVersion: 2
         x: 0
@@ -983,14 +983,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e779166c79fd14db92a4fe8e80fe35
-      internalID: 2017685140
+      spriteID: 6c6e52cc7c737524387945a316c71792
+      internalID: -1721855521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_41
+      name: Naruto_Sprite_8_41
       rect:
         serializedVersion: 2
         x: 256
@@ -1004,14 +1004,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afde51a0f9d4a254daf27c0446d1a580
-      internalID: -10802832
+      spriteID: 0a44e820eb0f1124ba8d7b2abbcec8f7
+      internalID: 534617586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_42
+      name: Naruto_Sprite_8_42
       rect:
         serializedVersion: 2
         x: 512
@@ -1025,14 +1025,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97648fc054985044abea1f1abcb514ea
-      internalID: -529704743
+      spriteID: 56eb65b1041cf704ca85b0c1f526fd71
+      internalID: -870686318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_43
+      name: Naruto_Sprite_8_43
       rect:
         serializedVersion: 2
         x: 768
@@ -1046,14 +1046,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac2cafa3d96b94d40bff5bea7d23c616
-      internalID: 1687496784
+      spriteID: 0c14815d763e0d247ae621ae6c184e2c
+      internalID: 1755604586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_44
+      name: Naruto_Sprite_8_44
       rect:
         serializedVersion: 2
         x: 1024
@@ -1067,14 +1067,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 333ac3833b40ce345a8259fde11e14fe
-      internalID: -67971933
+      spriteID: c20a3231146a8014fb9ee13ee03f868f
+      internalID: 146250528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_45
+      name: Naruto_Sprite_8_45
       rect:
         serializedVersion: 2
         x: 1280
@@ -1088,14 +1088,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fb29b15dba0e8741b27a717a2bbc8fc
-      internalID: -1583588009
+      spriteID: 66f5cfde98f49a6409354a70ea0e5b9d
+      internalID: 2074543169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_46
+      name: Naruto_Sprite_8_46
       rect:
         serializedVersion: 2
         x: 1536
@@ -1109,14 +1109,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06cfed15b0c748e4aba97cc2d2981312
-      internalID: 65285500
+      spriteID: a91678b6a44753d419fbbb541178567b
+      internalID: -77071484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_47
+      name: Naruto_Sprite_8_47
       rect:
         serializedVersion: 2
         x: 1792
@@ -1130,14 +1130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae4c1bfa9fdbf949bba5e19b263c570
-      internalID: 565486406
+      spriteID: 2903dfbae52360742be179772fc22ec5
+      internalID: 1750947052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_48
+      name: Naruto_Sprite_8_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1151,14 +1151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da56c14fddc47dc49bbf3948016e4e8b
-      internalID: 1867191689
+      spriteID: 430f93da1cb4f1146aa8a37deb262ff3
+      internalID: -1874750107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_49
+      name: Naruto_Sprite_8_49
       rect:
         serializedVersion: 2
         x: 256
@@ -1172,14 +1172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a1787288fdcff4cad789521ec35e79
-      internalID: -1087697199
+      spriteID: f534075f81fab664e8168cf26071d82f
+      internalID: -1134991285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_50
+      name: Naruto_Sprite_8_50
       rect:
         serializedVersion: 2
         x: 512
@@ -1193,14 +1193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aae48e138ebe464ba1540f1d1cfb7c8
-      internalID: 1386180046
+      spriteID: a7277be276188a845a78a773836e295f
+      internalID: -1329334308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_51
+      name: Naruto_Sprite_8_51
       rect:
         serializedVersion: 2
         x: 768
@@ -1214,14 +1214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 974670b4cae54dc4aaf2a50a37b628bc
-      internalID: 502300448
+      spriteID: 2e2ab557af722ac42820bbf7f2689955
+      internalID: 375047221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_52
+      name: Naruto_Sprite_8_52
       rect:
         serializedVersion: 2
         x: 1024
@@ -1235,14 +1235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d0a714356f1ee040a874710d9a9c802
-      internalID: -1084759137
+      spriteID: a4f28d2b918b8d443846bf2622a1449b
+      internalID: 39295310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_53
+      name: Naruto_Sprite_8_53
       rect:
         serializedVersion: 2
         x: 1280
@@ -1256,14 +1256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f8799b7e32a11e4b821ef5c5b9a64ab
-      internalID: -1320784006
+      spriteID: 8791628694e1b9947bbf790fc2cfc7e3
+      internalID: -1656397298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_54
+      name: Naruto_Sprite_8_54
       rect:
         serializedVersion: 2
         x: 1536
@@ -1277,14 +1277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88ac1ec8bbd2fef4d8c5aeec622f80b6
-      internalID: -779498284
+      spriteID: 5a6a1089f94d5ee47b80fda06104519a
+      internalID: -1867897845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_55
+      name: Naruto_Sprite_8_55
       rect:
         serializedVersion: 2
         x: 1792
@@ -1298,14 +1298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a408e68be3899fc44bfbdf817f2c9d55
-      internalID: 1268738031
+      spriteID: f53bec1ea7861784a923933f95c0759c
+      internalID: 729827866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_56
+      name: Naruto_Sprite_8_56
       rect:
         serializedVersion: 2
         x: 0
@@ -1319,14 +1319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb9ea33bca935504fa0e473832723f35
-      internalID: -150685088
+      spriteID: e3344cc296cb7044fbd5c00d46397d14
+      internalID: -767663512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_57
+      name: Naruto_Sprite_8_57
       rect:
         serializedVersion: 2
         x: 256
@@ -1340,14 +1340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759d23f3dd6ab3c4fb2b2d3cda8e923f
-      internalID: -2017149152
+      spriteID: 5a1dde567bf9d9a48963c6611d31f978
+      internalID: 932779743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_58
+      name: Naruto_Sprite_8_58
       rect:
         serializedVersion: 2
         x: 512
@@ -1361,14 +1361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86d1b83e6381cb44899d1541272761bb
-      internalID: 1144737684
+      spriteID: f8eb3583c03bec94a882603b1bb0f3f8
+      internalID: 819466948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_59
+      name: Naruto_Sprite_8_59
       rect:
         serializedVersion: 2
         x: 768
@@ -1382,14 +1382,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f14c82e0155302840be75bad34aaa709
-      internalID: 1796942241
+      spriteID: 39dd3831ca7f73c44bffb0e9073f0d66
+      internalID: 59556703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_60
+      name: Naruto_Sprite_8_60
       rect:
         serializedVersion: 2
         x: 1024
@@ -1403,14 +1403,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b68c444dfab61084ba670ec262f598c0
-      internalID: 1260206153
+      spriteID: 101ea7e8649c8e34fa7e5c8c119113b4
+      internalID: -261838863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_61
+      name: Naruto_Sprite_8_61
       rect:
         serializedVersion: 2
         x: 1280
@@ -1424,14 +1424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa00c0acb6d9fcb41a058d22160fc534
-      internalID: -382151579
+      spriteID: 0708d47c00d68bf418ee52dda8787d56
+      internalID: -1205087561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_62
+      name: Naruto_Sprite_8_62
       rect:
         serializedVersion: 2
         x: 1536
@@ -1445,14 +1445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75b85f94c914d484b96a701da71bc879
-      internalID: 67378090
+      spriteID: 2c22d6493f0ec2649801b3a3f01b16ed
+      internalID: 2038044003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Naruto_Sprite_7_63
+      name: Naruto_Sprite_8_63
       rect:
         serializedVersion: 2
         x: 1792
@@ -1466,8 +1466,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17d62ad334c41bf4b8b2d199062fff76
-      internalID: -1936459287
+      spriteID: 190dd885283d6794790ed388ca7e4f23
+      internalID: 530531928
       vertices: []
       indices: 
       edges: []
@@ -1475,7 +1475,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c8f15090f72d7684985a295321d12c10
+    spriteID: fa8c262b15d2a724c8ab741b711f493e
     internalID: 0
     vertices: []
     indices: 
@@ -1483,70 +1483,70 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Naruto_Sprite_7_32: 1941045525
-      Naruto_Sprite_7_14: 1551750944
-      Naruto_Sprite_7_8: -469473494
-      Naruto_Sprite_7_4: 181905193
-      Naruto_Sprite_7_17: -88810524
-      Naruto_Sprite_7_28: -2133787120
-      Naruto_Sprite_7_49: -1087697199
-      Naruto_Sprite_7_58: 1144737684
-      Naruto_Sprite_7_12: -315110688
-      Naruto_Sprite_7_30: -1787035521
-      Naruto_Sprite_7_7: -237057086
-      Naruto_Sprite_7_40: 2017685140
-      Naruto_Sprite_7_2: -438218502
-      Naruto_Sprite_7_35: 1498013764
-      Naruto_Sprite_7_62: 67378090
-      Naruto_Sprite_7_15: 1055037249
-      Naruto_Sprite_7_39: 156232464
-      Naruto_Sprite_7_23: -1539839324
-      Naruto_Sprite_7_48: 1867191689
-      Naruto_Sprite_7_27: -1896668748
-      Naruto_Sprite_7_54: -779498284
-      Naruto_Sprite_7_36: -223249471
-      Naruto_Sprite_7_37: 958194232
-      Naruto_Sprite_7_25: -1780125461
-      Naruto_Sprite_7_41: -10802832
-      Naruto_Sprite_7_59: 1796942241
-      Naruto_Sprite_7_56: -150685088
-      Naruto_Sprite_7_31: 1446344108
-      Naruto_Sprite_7_11: 1603829416
-      Naruto_Sprite_7_44: -67971933
-      Naruto_Sprite_7_53: -1320784006
-      Naruto_Sprite_7_10: -697501250
-      Naruto_Sprite_7_57: -2017149152
-      Naruto_Sprite_7_38: 784265089
-      Naruto_Sprite_7_43: 1687496784
-      Naruto_Sprite_7_16: 2020874970
-      Naruto_Sprite_7_1: -2013475797
-      Naruto_Sprite_7_3: -1082114087
-      Naruto_Sprite_7_60: 1260206153
-      Naruto_Sprite_7_19: 1832976661
-      Naruto_Sprite_7_18: -1815922602
-      Naruto_Sprite_7_29: 217485953
-      Naruto_Sprite_7_45: -1583588009
-      Naruto_Sprite_7_50: 1386180046
-      Naruto_Sprite_7_24: 1299804494
-      Naruto_Sprite_7_46: 65285500
-      Naruto_Sprite_7_47: 565486406
-      Naruto_Sprite_7_6: -1510483867
-      Naruto_Sprite_7_55: 1268738031
-      Naruto_Sprite_7_0: -1034104073
-      Naruto_Sprite_7_21: -235897777
-      Naruto_Sprite_7_20: 1069597855
-      Naruto_Sprite_7_9: 551158045
-      Naruto_Sprite_7_61: -382151579
-      Naruto_Sprite_7_51: 502300448
-      Naruto_Sprite_7_13: 1031313919
-      Naruto_Sprite_7_5: 460744574
-      Naruto_Sprite_7_52: -1084759137
-      Naruto_Sprite_7_22: 1778875302
-      Naruto_Sprite_7_33: 2125595224
-      Naruto_Sprite_7_34: 160585379
-      Naruto_Sprite_7_42: -529704743
-      Naruto_Sprite_7_26: 1921018806
-      Naruto_Sprite_7_63: -1936459287
+      Naruto_Sprite_8_28: 1511166576
+      Naruto_Sprite_8_13: -328545285
+      Naruto_Sprite_8_60: -261838863
+      Naruto_Sprite_8_23: 625224959
+      Naruto_Sprite_8_3: -1514743657
+      Naruto_Sprite_8_14: 1233423098
+      Naruto_Sprite_8_24: 1775533020
+      Naruto_Sprite_8_51: 375047221
+      Naruto_Sprite_8_4: -840103149
+      Naruto_Sprite_8_27: -1139520634
+      Naruto_Sprite_8_10: 613020030
+      Naruto_Sprite_8_18: -44152714
+      Naruto_Sprite_8_47: 1750947052
+      Naruto_Sprite_8_32: -1295575485
+      Naruto_Sprite_8_44: 146250528
+      Naruto_Sprite_8_2: -1858682568
+      Naruto_Sprite_8_22: -655017995
+      Naruto_Sprite_8_6: -1526519439
+      Naruto_Sprite_8_36: -406704066
+      Naruto_Sprite_8_53: -1656397298
+      Naruto_Sprite_8_5: -1298527634
+      Naruto_Sprite_8_55: 729827866
+      Naruto_Sprite_8_26: -57448471
+      Naruto_Sprite_8_58: 819466948
+      Naruto_Sprite_8_20: -956074310
+      Naruto_Sprite_8_61: -1205087561
+      Naruto_Sprite_8_17: -578821533
+      Naruto_Sprite_8_29: -2010336101
+      Naruto_Sprite_8_42: -870686318
+      Naruto_Sprite_8_25: 669952506
+      Naruto_Sprite_8_16: 77718961
+      Naruto_Sprite_8_1: -1534896266
+      Naruto_Sprite_8_59: 59556703
+      Naruto_Sprite_8_15: -1989520363
+      Naruto_Sprite_8_8: -1530319743
+      Naruto_Sprite_8_34: 112358261
+      Naruto_Sprite_8_11: 458732908
+      Naruto_Sprite_8_46: -77071484
+      Naruto_Sprite_8_41: 534617586
+      Naruto_Sprite_8_54: -1867897845
+      Naruto_Sprite_8_62: 2038044003
+      Naruto_Sprite_8_49: -1134991285
+      Naruto_Sprite_8_40: -1721855521
+      Naruto_Sprite_8_7: -1231791563
+      Naruto_Sprite_8_21: 1439431782
+      Naruto_Sprite_8_0: 1764121051
+      Naruto_Sprite_8_9: -538079550
+      Naruto_Sprite_8_35: -529509449
+      Naruto_Sprite_8_19: -878704876
+      Naruto_Sprite_8_52: 39295310
+      Naruto_Sprite_8_39: 973109892
+      Naruto_Sprite_8_63: 530531928
+      Naruto_Sprite_8_56: -767663512
+      Naruto_Sprite_8_48: -1874750107
+      Naruto_Sprite_8_30: -63549708
+      Naruto_Sprite_8_33: -323586343
+      Naruto_Sprite_8_57: 932779743
+      Naruto_Sprite_8_50: -1329334308
+      Naruto_Sprite_8_45: 2074543169
+      Naruto_Sprite_8_38: 35421014
+      Naruto_Sprite_8_31: -1640933428
+      Naruto_Sprite_8_37: 520491247
+      Naruto_Sprite_8_43: 1755604586
+      Naruto_Sprite_8_12: -1019131808
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

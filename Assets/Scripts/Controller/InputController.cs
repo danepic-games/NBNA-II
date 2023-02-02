@@ -80,6 +80,20 @@ public class InputController : MonoBehaviour {
     }
 
     private void CancelMovementZ(InputAction.CallbackContext context) {
+        if (!this.frame.countSideDashUpEnable && this.frame.inputDirection.y > 0) {
+            this.frame.countSideDashUpEnable = true;
+            this.frame.countSideDashDownEnable = false;
+            this.frame.facingUp = true;
+            this.frame.inputDirection.y = context.ReadValue<Vector2>().y;
+            return;
+        }
+        if (!this.frame.countSideDashDownEnable && this.frame.inputDirection.y < 0) {
+            this.frame.countSideDashDownEnable = true;
+            this.frame.countSideDashUpEnable = false;
+            this.frame.facingUp = false;
+            this.frame.inputDirection.y = context.ReadValue<Vector2>().y;
+            return;
+        }
         this.frame.inputDirection.y = context.ReadValue<Vector2>().y;
     }
 }

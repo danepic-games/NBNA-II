@@ -1882,6 +1882,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.207
       objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2105657563, guid: 5087162f347d51b4ba0d9883ad656532, type: 3}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168529, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4824018809523168534, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
       propertyPath: opointsComposer.keys.Array.size
       value: 2
@@ -1940,6 +1968,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824018809523168539, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168539, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824018809523168539, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4824018809523168539, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}

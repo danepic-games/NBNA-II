@@ -40,6 +40,20 @@ public class StateController : MonoBehaviour {
                 this.frame.runningLeftEnable = false;
                 this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.SIMPLE_DASH, false);
             }
+
+            // Side Dash Up
+            if (this.frame.sideDashUpEnable && this.frame.inputDirection.y > 0) {
+                this.frame.sideDashUpEnable = false;
+                this.frame.sideDashDownEnable = false;
+                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.SIDE_DASH, false);
+            }
+
+            // Side Dash Down
+            if (this.frame.sideDashDownEnable && this.frame.inputDirection.y < 0) {
+                this.frame.sideDashUpEnable = false;
+                this.frame.sideDashDownEnable = false;
+                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.SIDE_DASH, false);
+            }
         }
 
         switch (currentState) {
