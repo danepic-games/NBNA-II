@@ -37,6 +37,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Power"",
+                    ""type"": ""Button"",
+                    ""id"": ""d76f95dd-aa49-4bb1-a3f1-a2b18f6f0e84"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""MoveX"",
                     ""type"": ""Value"",
                     ""id"": ""f31a9f40-67fe-4956-815a-6a4379ba9b89"",
@@ -192,6 +201,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Defense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3444e778-9d89-4dca-a53f-7ce253c036ae"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Power"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -248,6 +268,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Defense"",
                     ""type"": ""Button"",
                     ""id"": ""b3b2928d-e13b-4f35-910d-6c07310ce6ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Power"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5f35dde-7792-4259-985c-3da614c66e51"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -364,6 +393,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Defense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae703be4-8c2d-4819-bb6b-5e2ba6241115"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Power"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -401,6 +441,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
+        m_Player1_Power = m_Player1.FindAction("Power", throwIfNotFound: true);
         m_Player1_MoveX = m_Player1.FindAction("MoveX", throwIfNotFound: true);
         m_Player1_MoveZ = m_Player1.FindAction("MoveZ", throwIfNotFound: true);
         m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
@@ -414,6 +455,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player2_Attack = m_Player2.FindAction("Attack", throwIfNotFound: true);
         m_Player2_Taunt = m_Player2.FindAction("Taunt", throwIfNotFound: true);
         m_Player2_Defense = m_Player2.FindAction("Defense", throwIfNotFound: true);
+        m_Player2_Power = m_Player2.FindAction("Power", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_ReloadCurrentScene = m_Debug.FindAction("Reload Current Scene", throwIfNotFound: true);
@@ -477,6 +519,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player1;
     private IPlayer1Actions m_Player1ActionsCallbackInterface;
     private readonly InputAction m_Player1_Jump;
+    private readonly InputAction m_Player1_Power;
     private readonly InputAction m_Player1_MoveX;
     private readonly InputAction m_Player1_MoveZ;
     private readonly InputAction m_Player1_Attack;
@@ -487,6 +530,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         private @PlayerInputActions m_Wrapper;
         public Player1Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
+        public InputAction @Power => m_Wrapper.m_Player1_Power;
         public InputAction @MoveX => m_Wrapper.m_Player1_MoveX;
         public InputAction @MoveZ => m_Wrapper.m_Player1_MoveZ;
         public InputAction @Attack => m_Wrapper.m_Player1_Attack;
@@ -504,6 +548,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
+                @Power.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPower;
+                @Power.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPower;
+                @Power.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPower;
                 @MoveX.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveX;
                 @MoveX.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveX;
                 @MoveX.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMoveX;
@@ -526,6 +573,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Power.started += instance.OnPower;
+                @Power.performed += instance.OnPower;
+                @Power.canceled += instance.OnPower;
                 @MoveX.started += instance.OnMoveX;
                 @MoveX.performed += instance.OnMoveX;
                 @MoveX.canceled += instance.OnMoveX;
@@ -555,6 +605,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Attack;
     private readonly InputAction m_Player2_Taunt;
     private readonly InputAction m_Player2_Defense;
+    private readonly InputAction m_Player2_Power;
     public struct Player2Actions
     {
         private @PlayerInputActions m_Wrapper;
@@ -565,6 +616,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player2_Attack;
         public InputAction @Taunt => m_Wrapper.m_Player2_Taunt;
         public InputAction @Defense => m_Wrapper.m_Player2_Defense;
+        public InputAction @Power => m_Wrapper.m_Player2_Power;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -592,6 +644,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Defense.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDefense;
                 @Defense.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDefense;
                 @Defense.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnDefense;
+                @Power.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPower;
+                @Power.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPower;
+                @Power.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPower;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -614,6 +669,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Defense.started += instance.OnDefense;
                 @Defense.performed += instance.OnDefense;
                 @Defense.canceled += instance.OnDefense;
+                @Power.started += instance.OnPower;
+                @Power.performed += instance.OnPower;
+                @Power.canceled += instance.OnPower;
             }
         }
     }
@@ -654,6 +712,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IPlayer1Actions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnPower(InputAction.CallbackContext context);
         void OnMoveX(InputAction.CallbackContext context);
         void OnMoveZ(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
@@ -668,6 +727,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnTaunt(InputAction.CallbackContext context);
         void OnDefense(InputAction.CallbackContext context);
+        void OnPower(InputAction.CallbackContext context);
     }
     public interface IDebugActions
     {

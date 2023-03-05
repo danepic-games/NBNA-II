@@ -23,16 +23,8 @@ public class HitboxController : MonoBehaviour {
 
             itr = frame.currentFrame.itrs[itrNumber - 1];
 
-            var centerx = spriteRenderer.sprite.pivot.x / 100;
-
-            float x = itr.x / 100;
-
-            float y = (((spriteRenderer.sprite.bounds.size.y * 100) - itr.y) / 2) / 100;
-            float w = (spriteRenderer.sprite.bounds.size.x * itr.w) / (spriteRenderer.sprite.bounds.size.x * 100);
-            float h = (spriteRenderer.sprite.bounds.size.x * itr.h) / (spriteRenderer.sprite.bounds.size.y * 100);
-
-            transform.localPosition = new Vector3((transform.localScale.x / 2) - centerx + x, y, itr.z);
-            transform.localScale = new Vector3(w, h, itr.zwidthz);
+            transform.localPosition = new Vector3(itr.x, itr.y, itr.z);
+            transform.localScale = new Vector3(itr.w, itr.h, itr.zwidthz);
         } else {
             boxCollider.enabled = false;
             meshRenderer.enabled = false;
@@ -40,5 +32,16 @@ public class HitboxController : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collider) {
+    }
+
+    public void DefendingImpact(InteractionData itr) {
+        Debug.Log("DefendingImpact");
+        frame.externAction = true;
+        var newItr = new InteractionData();
+        newItr.action = -1;
+        newItr.dvx = itr.dvx;
+        newItr.kind = ItrKindEnum.CHAR_NORMAL_HIT;
+        newItr.defensable = false;
+        frame.externItr = newItr;
     }
 }

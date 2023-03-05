@@ -5,6 +5,7 @@ public enum ItrKindEnum {
     CHAR_OWNER = 3,
     CHAR_EMPLOYEES = 4,
     CHAR_SELF = 5,
+    CHAR_SWORD_HIT = 6,
 
     EFFECT_NORMAL_HIT = 10,
     EFFECT_CATCH = 11,

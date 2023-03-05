@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StateController : MonoBehaviour {
@@ -5,17 +6,46 @@ public class StateController : MonoBehaviour {
     public PhysicController physic;
     public FrameController frame;
 
+    private List<StateFrameEnum> airFramesEnabled = new List<StateFrameEnum>();
+
     // Start is called before the first frame update
     void Start() {
-
+        airFramesEnabled.Add(StateFrameEnum.JUMPING);
+        airFramesEnabled.Add(StateFrameEnum.JUMPING_FALLING);
+        airFramesEnabled.Add(StateFrameEnum.DOUBLE_JUMPING_FALLING);
+        airFramesEnabled.Add(StateFrameEnum.JUMP_DASH);
+        airFramesEnabled.Add(StateFrameEnum.JUMP_DEFEND);
+        airFramesEnabled.Add(StateFrameEnum.HIT_JUMP_DEFEND);
+        airFramesEnabled.Add(StateFrameEnum.JUMP_OTHER);
+        airFramesEnabled.Add(StateFrameEnum.DASH_JUMPING);
     }
 
     // Update is called once per frame
     void FixedUpdate() {
         StateFrameEnum currentState = this.frame.currentFrame.state;
 
-        if (!this.physic.isGrounded && (currentState != StateFrameEnum.JUMPING && currentState != StateFrameEnum.JUMPING_FALLING)) {
+        if (!this.physic.isGrounded && !airFramesEnabled.Contains(currentState)) {
             this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMPING_FALLING);
+        }
+
+        if (this.physic.isGrounded) {
+            this.frame.ChangeFrame(this.frame.currentFrame.hit_ground);
+        }
+
+        if (!this.physic.isGrounded && this.frame.currentFrame.state == StateFrameEnum.JUMPING || this.frame.currentFrame.state == StateFrameEnum.JUMPING_FALLING) {
+            // Run Right
+            if (this.frame.runningRightEnable && this.frame.inputDirection.x > 0) {
+                this.frame.runningRightEnable = false;
+                this.frame.runningLeftEnable = false;
+                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMP_DASH, false);
+            }
+
+            // Run Left
+            if (this.frame.runningLeftEnable && this.frame.inputDirection.x < 0) {
+                this.frame.runningRightEnable = false;
+                this.frame.runningLeftEnable = false;
+                this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMP_DASH, false);
+            }
         }
 
         if (this.frame.currentFrame.state == StateFrameEnum.STANDING || this.frame.currentFrame.state == StateFrameEnum.WALKING) {
@@ -82,13 +112,16 @@ public class StateController : MonoBehaviour {
                 frame.countRightEnable = false;
                 break;
 
+            case StateFrameEnum.DOUBLE_JUMPING_FALLING:
             case StateFrameEnum.JUMPING_FALLING:
                 frame.Flip(this.frame.inputDirection);
                 if (this.physic.isGrounded && this.frame.currentFrame.hit_ground == null) {
+                    Debug.Log("OIS");
                     this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.CROUCH);
                 }
                 break;
 
+            case StateFrameEnum.DASH_JUMPING:
             case StateFrameEnum.JUMPING:
                 frame.Flip(this.frame.inputDirection);
                 break;
@@ -96,6 +129,11 @@ public class StateController : MonoBehaviour {
             case StateFrameEnum.JUMPING_CHARGE:
                 frame.Flip(this.frame.inputDirection);
                 this.physic.lockInputDirection = this.frame.inputDirection;
+                break;
+
+            case StateFrameEnum.HIT_JUMP_DEFEND:
+            case StateFrameEnum.HIT_DEFEND:
+                this.physic.externForce = new Vector3(this.frame.externItr.dvx, this.frame.externItr.dvy, this.frame.externItr.dvz);
                 break;
         }
     }

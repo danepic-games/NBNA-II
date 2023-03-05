@@ -10,10 +10,24 @@ public class FrameController : MonoBehaviour {
     [SerializeField]
     public FrameData currentFrame;
 
+    //Debug
+    public string frameToStopForDebug = null;
+    public int previousId;
+
     public float wait;
+    public int currentHp;
     public bool facingRight;
     public bool facingUp;
-    public int externAction = -1;
+
+    // Extern Interaction
+    public int summonAction;
+
+    // Extern Interaction
+    public bool externAction;
+    public InteractionData externItr;
+
+    public bool attacked;
+    public bool wasAttacked;
 
     // Running
     private float RUNNING_COUNT = 4f;
@@ -42,18 +56,19 @@ public class FrameController : MonoBehaviour {
     //Hit
     public bool hitJump;
     public bool hitDefense;
+    public bool holdDefense;
     public bool hitAttack;
     public bool hitTaunt;
+    public bool hitPower;
 
     //Hold
     public bool holdForwardAfter;
+    public bool holdDefenseAfter;
+    public bool holdPowerAfter;
 
     //Team
     public TeamEnum team;
     public int ownerId;
-
-    //Debug
-    public string frameToStopForDebug = null;
 
     public TextMeshPro timeText;
 
@@ -82,6 +97,18 @@ public class FrameController : MonoBehaviour {
         this.countSideDashUpEnable = false;
         this.countSideDashDownEnable = false;
         this.holdForwardAfter = false;
+        this.holdDefenseAfter = false;
+        this.holdPowerAfter = false;
+        this.externAction = false;
+
+        switch (this.data.type) {
+            case ObjectTypeEnum.CHARACTER:
+                this.currentHp = ((CharacterDataController)this.data).header.start_hp;
+                break;
+            case ObjectTypeEnum.POWER:
+                this.currentHp = ((PowerDataController)this.data).header.start_hp;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -96,8 +123,43 @@ public class FrameController : MonoBehaviour {
             }
         }
 #endif
-        if (externAction >= 0) {
-            this.ChangeFrame(externAction, false);
+
+        if (this.data.type == ObjectTypeEnum.CHARACTER) {
+            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
+        }
+
+        if (externAction) {
+            if (externItr.action >= 0) {
+                if (externItr.defensable && currentFrame.state == StateFrameEnum.DEFEND) {
+                    this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_DEFENSE, false);
+
+                } else if (externItr.defensable && currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
+                    this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_JUMP_DEFENSE, false);
+
+                } else {
+                    this.ChangeFrame(externItr.action, false);
+                }
+                externAction = false;
+            }
+            return;
+        }
+
+        if (summonAction >= 0) {
+            this.ChangeFrame(summonAction, false);
+            return;
+        }
+
+        if (hitJump && hitDefense) {
+            this.ChangeFrame(currentFrame.hit_jump_defense, false);
+            hitJump = false;
+            hitDefense = false;
+            return;
+        }
+
+        if (hitPower && hitDefense) {
+            this.ChangeFrame(currentFrame.hit_defense_power, false);
+            hitPower = false;
+            hitDefense = false;
             return;
         }
 
@@ -110,6 +172,12 @@ public class FrameController : MonoBehaviour {
         if (hitAttack) {
             this.ChangeFrame(currentFrame.hit_attack, false);
             hitAttack = false;
+            return;
+        }
+
+        if (hitPower) {
+            this.ChangeFrame(currentFrame.hit_power, false);
+            hitPower = false;
             return;
         }
 
@@ -140,6 +208,16 @@ public class FrameController : MonoBehaviour {
         } else {
             if (currentFrame.hold_forward_after != null && holdForwardAfter) {
                 this.ChangeFrame(currentFrame.hold_forward_after, false);
+
+            } else if (currentFrame.hold_defense_after != null && holdDefenseAfter) {
+                this.ChangeFrame(currentFrame.hold_defense_after, false);
+
+            } else if (currentFrame.hold_power_after != null && holdPowerAfter) {
+                this.ChangeFrame(currentFrame.hold_power_after, false);
+
+            } else if (currentFrame.hit_defense != null && holdDefense) {
+                this.ChangeFrame(currentFrame.hit_defense, false);
+
             } else {
                 this.ChangeFrame(currentFrame.next);
             }
@@ -168,12 +246,13 @@ public class FrameController : MonoBehaviour {
     }
 
     public void ChangeFrame(int frameToGo, bool usingNextPattern = true) {
+        previousId = currentFrame.id;
         if (currentFrame.next == (int)FrameSpecialValuesEnum.DELETE) {
             UnityEngine.Object.Destroy(this.gameObject);
             return;
         }
+        summonAction = -1;
         wait = 0;
-        externAction = -1;
         if (usingNextPattern) {
             currentFrame = currentFrame.next == (int)FrameSpecialValuesEnum.BACK_TO_STANDING ? this.data.frames[0] : this.data.frames[frameToGo];
         } else {

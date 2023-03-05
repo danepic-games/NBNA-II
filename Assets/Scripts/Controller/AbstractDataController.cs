@@ -45,6 +45,10 @@ public class AbstractDataController : MonoBehaviour {
         return this.GetHeaderParam(headerParams, (int)paramKey, separator);
     }
 
+    protected string GetHeaderParam(string[] headerParams, PowerHeaderKeyEnum paramKey, char separator = ' ') {
+        return this.GetHeaderParam(headerParams, (int)paramKey, separator);
+    }
+
     private string GetHeaderParam(string[] headerParams, int paramKey, char separator = ' ') {
         var headerParam = headerParams[paramKey];
         var valueParam = headerParam.Split(separator)[1];

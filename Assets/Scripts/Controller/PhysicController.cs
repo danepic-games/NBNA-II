@@ -9,6 +9,8 @@ public class PhysicController : MonoBehaviour {
 
     public EffectDataController effectDataController;
 
+    public PowerDataController powerDataController;
+
     public FrameController frame;
 
     //Lock by input direction
@@ -29,7 +31,7 @@ public class PhysicController : MonoBehaviour {
 
     [Header("Character properties")]
 
-    //Ground Check
+        //Ground Check
     public LayerMask whatIsGround;
     public bool isGrounded;
     public float distanceToCheckGround;
@@ -42,6 +44,7 @@ public class PhysicController : MonoBehaviour {
         this.physicsOneTimePerFrame = true;
         this.isGrounded = false;
         this.currentFrameId = -1;
+        this.externForce = Vector3.zero;
 
         type = GetObjectType();
     }
@@ -54,7 +57,11 @@ public class PhysicController : MonoBehaviour {
             switch (this.frame.currentFrame.state) {
                 case StateFrameEnum.JUMPING:
                 case StateFrameEnum.JUMPING_FALLING:
+                case StateFrameEnum.DOUBLE_JUMPING_FALLING:
                 case StateFrameEnum.STOP_RUNNING:
+                case StateFrameEnum.JUMP_DEFEND:
+                case StateFrameEnum.JUMP_OTHER:
+                case StateFrameEnum.DASH_JUMPING:
                     break;
                 default:
                     this.rigidbody.velocity = Vector3.zero;
@@ -68,6 +75,9 @@ public class PhysicController : MonoBehaviour {
                 break;
             case ObjectTypeEnum.EFFECT:
                 ApplyEffectPhysics();
+                break;
+            case ObjectTypeEnum.POWER:
+                ApplyPowerPhysics();
                 break;
         }
     }
@@ -184,6 +194,8 @@ public class PhysicController : MonoBehaviour {
 
             switch (frame.currentFrame.state) {
                 case StateFrameEnum.JUMPING:
+                case StateFrameEnum.JUMP_DEFEND:
+                case StateFrameEnum.JUMP_OTHER:
                     if (lockInputDirection != Vector2.zero) {
                         x = MathF.Abs(x) * lockInputDirection.x;
                         z = MathF.Abs(z) * lockInputDirection.y;
@@ -194,6 +206,9 @@ public class PhysicController : MonoBehaviour {
                         z = 0f;
                     }
                     break;
+                case StateFrameEnum.DASH_JUMPING:
+                    affectedByFacing = true;
+                    break;
                 case StateFrameEnum.SIDE_DASH:
                     if (this.frame.facingUp) {
                         z = MathF.Abs(this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz) * 1;
@@ -202,8 +217,27 @@ public class PhysicController : MonoBehaviour {
                         z = MathF.Abs(this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz) * -1;
                         affectedByFacing = false;
                     }
-                    Debug.Log(z);
                     break;
+                case StateFrameEnum.HIT_JUMP_DEFEND:
+                case StateFrameEnum.HIT_DEFEND:
+                    if (this.externForce != Vector3.zero) {
+                        x = -this.externForce.x / 2;
+                        y = 0f;
+                        z = 0f;
+                        affectedByFacing = false;
+                    }
+                    break;
+            }
+
+            if (this.frame.externAction) {
+                if (this.frame.externItr.action == -1) {
+                    Debug.Log("DefendingImpact2 " + this.frame.externItr.x);
+                    x = this.frame.externItr.dvx / 2;
+                    y = 0f;
+                    z = 0f;
+                    affectedByFacing = false;
+                }
+                this.frame.externAction = false;
             }
 
             ApplyImpulseForce(x, y, z, affectedByFacing);
@@ -241,6 +275,35 @@ public class PhysicController : MonoBehaviour {
         }
     }
 
+    private void ApplyPowerPhysics() {
+        if (this.physicsOneTimePerFrame) {
+            float x = 0;
+            float y = 0;
+            float z = 0;
+
+            if (this.frame.currentFrame.dvx == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y, rigidbody.velocity.z);
+            } else {
+                x = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvx);
+            }
+
+            if (this.frame.currentFrame.dvy == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
+            } else {
+                y = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvy * -1);
+            }
+
+            if (this.frame.currentFrame.dvz == STOP_MOVEMENT_FRAME_VALUE) {
+                rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0f);
+            } else {
+                z = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz);
+            }
+
+            ApplyImpulseForce(x, y, z);
+            return;
+        }
+    }
+
     private ObjectTypeEnum GetObjectType() {
         if (characterDataController != null) {
             return characterDataController.type;
@@ -248,6 +311,10 @@ public class PhysicController : MonoBehaviour {
 
         if (effectDataController != null) {
             return effectDataController.type;
+        }
+
+        if (powerDataController != null) {
+            return powerDataController.type;
         }
 
         throw new MissingFieldException("Objeto Data não encontrado no script de fisíca!");
@@ -259,6 +326,7 @@ public class PhysicController : MonoBehaviour {
         }
         var velocity = new Vector3(x, y, z);
         if (velocity != Vector3.zero) {
+            Debug.Log(name + ":" + frame.currentFrame.id + ":" + velocity);
             rigidbody.AddForce(velocity, ForceMode.Impulse);
             this.physicsOneTimePerFrame = false;
         }

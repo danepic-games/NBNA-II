@@ -41,7 +41,7 @@ public class ObjectPointController : MonoBehaviour {
                     float z = transform.position.z + opoint.z;
 
                     opointSpawn.transform.position = new Vector3(x, y, z);
-                    spawnFrame.externAction = opoint.action;
+                    spawnFrame.summonAction = opoint.action;
 
                     spawnPhysics.externForce = new Vector3(opoint.dvx, opoint.dvy, opoint.dvz);
                     spawnPhysics.isExternForce = true;

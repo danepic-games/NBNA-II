@@ -125,6 +125,14 @@ public class DataMapperUtil {
                                 frameData.hit_taunt = int.Parse(value);
                                 continue;
                             }
+                            if (key.Equals(FrameKeyEnum.hit_jump_defense.ToString())) {
+                                frameData.hit_jump_defense = int.Parse(value);
+                                continue;
+                            }
+                            if (key.Equals(FrameKeyEnum.hit_defense_power.ToString())) {
+                                frameData.hit_defense_power = int.Parse(value);
+                                continue;
+                            }
                             if (key.Equals(FrameKeyEnum.hit_power_attack_up.ToString())) {
                                 frameData.hit_power_attack_up = int.Parse(value);
                                 continue;
@@ -187,6 +195,14 @@ public class DataMapperUtil {
                             }
                             if (key.Equals(FrameKeyEnum.hold_forward_after.ToString())) {
                                 frameData.hold_forward_after = int.Parse(value);
+                                continue;
+                            }
+                            if (key.Equals(FrameKeyEnum.hold_defense_after.ToString())) {
+                                frameData.hold_defense_after = int.Parse(value);
+                                continue;
+                            }
+                            if (key.Equals(FrameKeyEnum.hold_power_after.ToString())) {
+                                frameData.hold_power_after = int.Parse(value);
                                 continue;
                             }
                         }
@@ -326,6 +342,21 @@ public class DataMapperUtil {
 
                             if (key.Equals(FrameKeyEnum.kind.ToString())) {
                                 itr.kind = (ItrKindEnum)int.Parse(value);
+                                continue;
+                            }
+
+                            if (key.Equals(FrameKeyEnum.action.ToString())) {
+                                itr.action = int.Parse(value);
+                                continue;
+                            }
+
+                            if (key.Equals(FrameKeyEnum.power.ToString())) {
+                                itr.power = int.Parse(value);
+                                continue;
+                            }
+
+                            if (key.Equals(FrameKeyEnum.defensable.ToString())) {
+                                itr.defensable = bool.Parse(value);
                                 continue;
                             }
 

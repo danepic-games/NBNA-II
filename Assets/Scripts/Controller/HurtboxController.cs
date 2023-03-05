@@ -42,11 +42,9 @@ public class HurtboxController : MonoBehaviour {
             var selfObjTeam = frame.team;
             var selfObjectId = frame.gameObject.GetInstanceID();
 
-            var itrKind = hitbox.itr.kind;
-
             switch (selfType) {
                 case ObjectTypeEnum.CHARACTER:
-                    this.ProcessItrForCharacter(itrKind, otherObjTeam, otherObjectId, selfObjTeam, selfObjectId);
+                    this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, selfObjTeam, selfObjectId);
                     break;
                 case ObjectTypeEnum.EFFECT:
                     break;
@@ -56,11 +54,16 @@ public class HurtboxController : MonoBehaviour {
         }
     }
 
-    private void ProcessItrForCharacter(ItrKindEnum kind, TeamEnum otherObjTeam, int otherObjId, TeamEnum selfObjTeam, int selfObjId) {
-        switch (kind) {
+    private void ProcessItrForCharacter(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam, int otherObjId, TeamEnum selfObjTeam, int selfObjId) {
+        switch (itr.kind) {
             case ItrKindEnum.CHAR_NORMAL_HIT:
                 if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
                     Debug.Log("Enemy Hit");
+                    frame.externAction = true;
+                    frame.externItr = itr;
+                    if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
+                        hitbox.DefendingImpact(itr);
+                    }
                 }
                 break;
             case ItrKindEnum.CHAR_SELF:

@@ -15,6 +15,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Power",
+                    "type": "Button",
+                    "id": "d76f95dd-aa49-4bb1-a3f1-a2b18f6f0e84",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MoveX",
                     "type": "Value",
                     "id": "f31a9f40-67fe-4956-815a-6a4379ba9b89",
@@ -170,6 +179,17 @@
                     "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3444e778-9d89-4dca-a53f-7ce253c036ae",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Power",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -226,6 +246,15 @@
                     "name": "Defense",
                     "type": "Button",
                     "id": "b3b2928d-e13b-4f35-910d-6c07310ce6ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Power",
+                    "type": "Button",
+                    "id": "e5f35dde-7792-4259-985c-3da614c66e51",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -340,6 +369,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Defense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae703be4-8c2d-4819-bb6b-5e2ba6241115",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Power",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

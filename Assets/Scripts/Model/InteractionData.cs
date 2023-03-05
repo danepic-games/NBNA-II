@@ -16,6 +16,9 @@ public class InteractionData {
     public float arest;
     public float vrest;
 
+    public int action;
+    public int power;
+    public bool defensable;
     public int injury;
 
     public AudioClip sound;

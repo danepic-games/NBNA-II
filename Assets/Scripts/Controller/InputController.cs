@@ -16,7 +16,10 @@ public class InputController : MonoBehaviour {
                 playerInputActions.@Player1.Enable();
                 playerInputActions.@Player1.@Jump.started += HitJump;
                 playerInputActions.@Player1.@Attack.started += HitAttack;
+                playerInputActions.@Player1.@Power.started += HitPower;
+                playerInputActions.@Player1.@Power.canceled += CancelPower;
                 playerInputActions.@Player1.@Defense.started += HitDefense;
+                playerInputActions.@Player1.@Defense.canceled += CancelDefense;
                 playerInputActions.@Player1.@Taunt.started += HitTaunt;
                 playerInputActions.@Player1.@MoveX.started += HitMovementX;
                 playerInputActions.@Player1.@MoveX.canceled += CancelMovementX;
@@ -28,7 +31,11 @@ public class InputController : MonoBehaviour {
                 playerInputActions.@Player2.Enable();
                 playerInputActions.@Player2.@Jump.started += HitJump;
                 playerInputActions.@Player2.@Attack.started += HitAttack;
+                playerInputActions.@Player2.@Power.started += HitPower;
+                playerInputActions.@Player2.@Power.canceled += CancelPower;
                 playerInputActions.@Player2.@Defense.started += HitDefense;
+                playerInputActions.@Player2.@Defense.canceled += CancelDefense;
+                playerInputActions.@Player2.@Taunt.started += HitTaunt;
                 playerInputActions.@Player2.@MoveX.started += HitMovementX;
                 playerInputActions.@Player2.@MoveX.canceled += CancelMovementX;
                 playerInputActions.@Player2.@MoveZ.started += HitMovementZ;
@@ -41,6 +48,14 @@ public class InputController : MonoBehaviour {
 
     private void HitDefense(InputAction.CallbackContext context) {
         this.frame.hitDefense = true;
+        this.frame.holdDefenseAfter = true;
+        this.frame.holdDefense = true;
+    }
+
+    private void CancelDefense(InputAction.CallbackContext context) {
+        this.frame.hitDefense = false;
+        this.frame.holdDefenseAfter = false;
+        this.frame.holdDefense = false;
     }
 
     private void HitJump(InputAction.CallbackContext context) {
@@ -49,6 +64,16 @@ public class InputController : MonoBehaviour {
 
     private void HitAttack(InputAction.CallbackContext context) {
         this.frame.hitAttack = true;
+    }
+
+    private void HitPower(InputAction.CallbackContext context) {
+        this.frame.hitPower = true;
+        this.frame.holdPowerAfter = true;
+    }
+
+    private void CancelPower(InputAction.CallbackContext context) {
+        this.frame.hitPower = false;
+        this.frame.holdPowerAfter = false;
     }
 
     private void HitTaunt(InputAction.CallbackContext context) {

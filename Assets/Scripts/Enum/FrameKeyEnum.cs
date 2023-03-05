@@ -30,6 +30,8 @@ public enum FrameKeyEnum {
     hit_power_jump_forward,
     hit_power_jump_down,
     hold_forward_after,
+    hold_defense_after,
+    hold_power_after,
     mp,
     hp,
     sound,
@@ -67,4 +69,8 @@ public enum FrameKeyEnum {
     blind,
     paralysis,
     freeze,
+    hit_jump_defense,
+    hit_defense_power,
+    power,
+    defensable
 }
