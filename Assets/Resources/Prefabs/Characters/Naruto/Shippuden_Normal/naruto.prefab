@@ -336,7 +336,7 @@ MonoBehaviour:
     keys: 
     values: []
   bodysComposer:
-    keys: 00000000010000000200000003000000040000000500000006000000070000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000960000009700000098000000
+    keys: 00000000010000000200000003000000040000000500000006000000070000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000009600000097000000980000004f010000
     values:
     - kind: 0
       x: 0.0089
@@ -591,6 +591,17 @@ MonoBehaviour:
       frameId: 152
       beginFrameId: 150
       endFrameId: 152
+    - kind: 0
+      x: 0.151
+      y: 0.266
+      z: 0
+      w: 0.34286457
+      h: 0.55969745
+      zwidth: 1
+      bodyNumber: 1
+      frameId: 335
+      beginFrameId: 0
+      endFrameId: 0
   bodysComposer2:
     keys: 00000000010000000200000003000000040000000500000006000000070000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000960000009700000098000000
     values:
@@ -882,8 +893,40 @@ MonoBehaviour:
       opointNumber: 1
       frameId: 60
   interactionsComposer:
-    keys: 
-    values: []
+    keys: 4f010000
+    values:
+    - kind: 0
+      x: 0.4688
+      y: 0.2351
+      z: 0
+      w: 0.3347935
+      h: 0.3013324
+      zwidthz: 0.23129867
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      arest: 0
+      vrest: 0
+      action: 0
+      power: 0
+      defensable: 0
+      injury: 0
+      sound: {fileID: 0}
+      confuse: 0
+      silence: 0
+      slow: 0
+      stun: 0
+      ignite: 0
+      poison: 0
+      root: 0
+      charm: 0
+      fear: 0
+      taunt: 0
+      blind: 0
+      paralysis: 0
+      freeze: 0
+      itrNumber: 1
+      frameId: 335
   interactionsComposer2:
     keys: 
     values: []
@@ -952,6 +995,7 @@ MonoBehaviour:
     bodys: []
     opoints: []
     itrs: []
+  debugFrameToGo: 0
   frameToStopForDebug: 
   previousId: 0
   wait: 0
@@ -1049,6 +1093,7 @@ MonoBehaviour:
   rigidbody: {fileID: 4824018809523168532}
   characterDataController: {fileID: 4824018809523168534}
   effectDataController: {fileID: 0}
+  powerDataController: {fileID: 0}
   frame: {fileID: 4824018809523168535}
   lockInputDirection: {x: 0, y: 0}
   physicsOneTimePerFrame: 0

@@ -231,7 +231,7 @@ public class PhysicController : MonoBehaviour {
 
             if (this.frame.externAction) {
                 if (this.frame.externItr.action == -1) {
-                    Debug.Log("DefendingImpact2 " + this.frame.externItr.x);
+//                    Debug.Log("DefendingImpact2 " + this.frame.externItr.x);
                     x = this.frame.externItr.dvx / 2;
                     y = 0f;
                     z = 0f;
@@ -326,7 +326,7 @@ public class PhysicController : MonoBehaviour {
         }
         var velocity = new Vector3(x, y, z);
         if (velocity != Vector3.zero) {
-            Debug.Log(name + ":" + frame.currentFrame.id + ":" + velocity);
+//            Debug.Log(name + ":" + frame.currentFrame.id + ":" + velocity);
             rigidbody.AddForce(velocity, ForceMode.Impulse);
             this.physicsOneTimePerFrame = false;
         }

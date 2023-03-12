@@ -269,8 +269,8 @@ public class FrameComposerEditor : EditorWindow {
             itr.y = itrCurrent.localPosition.y;
             itr.z = itrCurrent.localPosition.z;
             itr.w = itrCurrent.localScale.x;
-            itr.h = itrCurrent.localScale.x;
-            itr.zwidthz = itrCurrent.localScale.x;
+            itr.h = itrCurrent.localScale.y;
+            itr.zwidthz = itrCurrent.localScale.z;
             itr.itrNumber = itrNumber;
         }
 

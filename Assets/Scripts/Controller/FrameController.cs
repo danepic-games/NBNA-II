@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class FrameController : MonoBehaviour {
     public AbstractDataController data;
@@ -11,6 +12,7 @@ public class FrameController : MonoBehaviour {
     public FrameData currentFrame;
 
     //Debug
+    public bool debugFrameToGo;
     public string frameToStopForDebug = null;
     public int previousId;
 
@@ -124,7 +126,7 @@ public class FrameController : MonoBehaviour {
         }
 #endif
 
-        if (this.data.type == ObjectTypeEnum.CHARACTER) {
+        if (debugFrameToGo) {
             Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
         }
 
@@ -137,7 +139,11 @@ public class FrameController : MonoBehaviour {
                     this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_JUMP_DEFENSE, false);
 
                 } else {
-                    this.ChangeFrame(externItr.action, false);
+                    int externActionUpdate = externItr.action;
+                    if (externItr.action == (int)FrameSpecialValuesEnum.INJURED_RANDOM) {
+                        externActionUpdate = Random.value > 0.5f ? (int)CharacterSpecialStartFrameEnum.INJURED_1 : (int)CharacterSpecialStartFrameEnum.INJURED_2;
+                    }
+                    this.ChangeFrame(externActionUpdate, false);
                 }
                 externAction = false;
             }
