@@ -35,7 +35,6 @@ public class HitboxController : MonoBehaviour {
     }
 
     public void DefendingImpact(InteractionData itr) {
-        Debug.Log("DefendingImpact");
         frame.externAction = true;
         var newItr = new InteractionData();
         newItr.action = -1;

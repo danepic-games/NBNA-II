@@ -26,6 +26,18 @@ public class StateController : MonoBehaviour {
 
         if (!this.physic.isGrounded && !airFramesEnabled.Contains(currentState)) {
             this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMPING_FALLING);
+            frame.externAction = true;
+            var newItr = new InteractionData();
+            newItr.action = -1;
+            newItr.dvx = itr.dvx;
+            newItr.dvy = itr.dvy;
+            newItr.kind = ItrKindEnum.CHAR_NORMAL_HIT;
+            newItr.defensable = false;
+            frame.externItr = newItr;
+        }
+
+        if (currentState != StateFrameEnum.INJURED && currentState != StateFrameEnum.INJURED_2) {
+            this.frame.injuredCount = 0;
         }
 
         if (this.physic.isGrounded) {
@@ -134,6 +146,11 @@ public class StateController : MonoBehaviour {
             case StateFrameEnum.HIT_JUMP_DEFEND:
             case StateFrameEnum.HIT_DEFEND:
                 this.physic.externForce = new Vector3(this.frame.externItr.dvx, this.frame.externItr.dvy, this.frame.externItr.dvz);
+                break;
+
+            case StateFrameEnum.INJURED:
+            case StateFrameEnum.INJURED_2:
+                this.frame.injuredCount += 1;
                 break;
         }
     }

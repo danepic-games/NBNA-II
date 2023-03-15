@@ -72,6 +72,10 @@ public class FrameController : MonoBehaviour {
     public TeamEnum team;
     public int ownerId;
 
+    //Injured
+    public int injuredCount;
+    public static int INJURED_COUNT_LIMIT = 5;
+
     public TextMeshPro timeText;
 
     // Start is called before the first frame update
@@ -102,6 +106,7 @@ public class FrameController : MonoBehaviour {
         this.holdDefenseAfter = false;
         this.holdPowerAfter = false;
         this.externAction = false;
+        this.injuredCount = 0;
 
         switch (this.data.type) {
             case ObjectTypeEnum.CHARACTER:
@@ -152,6 +157,12 @@ public class FrameController : MonoBehaviour {
 
         if (summonAction >= 0) {
             this.ChangeFrame(summonAction, false);
+            return;
+        }
+
+        if (injuredCount >= INJURED_COUNT_LIMIT) {
+            this.ChangeFrame(CharacterSpecialStartFrameEnum.FALLING, false);
+
             return;
         }
 
