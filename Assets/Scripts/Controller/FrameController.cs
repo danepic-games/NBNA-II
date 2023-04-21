@@ -161,6 +161,7 @@ public class FrameController : MonoBehaviour {
         }
 
         if (injuredCount >= INJURED_COUNT_LIMIT) {
+            Debug.Log("INJURED_COUNT_LIMIT: " + injuredCount);
             this.ChangeFrame(CharacterSpecialStartFrameEnum.FALLING, false);
             return;
         }

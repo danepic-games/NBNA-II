@@ -8,6 +8,9 @@ public class StateController : MonoBehaviour {
 
     private List<StateFrameEnum> airFramesEnabled = new List<StateFrameEnum>();
 
+    public bool stateOneTimePerFrame;
+    public int currentFrameId;
+
     // Start is called before the first frame update
     void Start() {
         airFramesEnabled.Add(StateFrameEnum.JUMPING);
@@ -18,10 +21,17 @@ public class StateController : MonoBehaviour {
         airFramesEnabled.Add(StateFrameEnum.HIT_JUMP_DEFEND);
         airFramesEnabled.Add(StateFrameEnum.JUMP_OTHER);
         airFramesEnabled.Add(StateFrameEnum.DASH_JUMPING);
+        stateOneTimePerFrame = true;
+        this.currentFrameId = -1;
     }
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (this.currentFrameId != this.frame.currentFrame.id) {
+            this.stateOneTimePerFrame = true;
+            this.currentFrameId = this.frame.currentFrame.id;
+        }
+
         StateFrameEnum currentState = this.frame.currentFrame.state;
 
         if (!this.physic.isGrounded && !airFramesEnabled.Contains(currentState)) {
@@ -33,14 +43,14 @@ public class StateController : MonoBehaviour {
         }
 
         //count limit
-//        frame.externAction = true;
-//        var newItr = new InteractionData();
-//        newItr.action = -1;
-//        newItr.dvx = itr.dvx;
-//        newItr.dvy = itr.dvy;
-//        newItr.kind = ItrKindEnum.CHAR_NORMAL_HIT;
-//        newItr.defensable = false;
-//        frame.externItr = newItr;
+        //        frame.externAction = true;
+        //        var newItr = new InteractionData();
+        //        newItr.action = -1;
+        //        newItr.dvx = itr.dvx;
+        //        newItr.dvy = itr.dvy;
+        //        newItr.kind = ItrKindEnum.CHAR_NORMAL_HIT;
+        //        newItr.defensable = false;
+        //        frame.externItr = newItr;
 
         if (this.physic.isGrounded) {
             this.frame.ChangeFrame(this.frame.currentFrame.hit_ground);
@@ -130,7 +140,6 @@ public class StateController : MonoBehaviour {
             case StateFrameEnum.JUMPING_FALLING:
                 frame.Flip(this.frame.inputDirection);
                 if (this.physic.isGrounded && this.frame.currentFrame.hit_ground == null) {
-                    Debug.Log("OIS");
                     this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.CROUCH);
                 }
                 break;
@@ -152,8 +161,12 @@ public class StateController : MonoBehaviour {
 
             case StateFrameEnum.INJURED:
             case StateFrameEnum.INJURED_2:
-                this.frame.injuredCount += 1;
+                if (this.stateOneTimePerFrame) {
+                    this.frame.injuredCount += 1;
+                }
                 break;
         }
+
+        this.stateOneTimePerFrame = false;
     }
 }
