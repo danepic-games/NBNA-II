@@ -47,103 +47,14 @@ public class FrameComposerEditor : EditorWindow {
 
         EditorGUILayout.Separator();
 
-        if (!this.selectedGameObject) {
-            return;
-        }
-
-        if (bdy == null) {
-            bdy = new BodyData();
-        }
-
-        if (opoint == null) {
-            opoint = new ObjectPointData();
-        }
-
-        if (itr == null) {
-            itr = new InteractionData();
-        }
-
-        var dataController = this.selectedGameObject.GetComponent<AbstractDataController>();
-
-        EditorGUILayout.BeginHorizontal();
-        showBdy = EditorGUILayout.Toggle("Show bdy1: ", showBdy);
-        EditorGUILayout.EndHorizontal();
-
-        if (showBdy) {
-            CreateBdyForm(bdy, dataController, dataController.bodysComposer, 1);
-        }
-
-        EditorGUILayout.Separator();
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginHorizontal();
-        showBdy2 = EditorGUILayout.Toggle("Show bdy2: ", showBdy2);
-        EditorGUILayout.EndHorizontal();
-
-        if (showBdy2) {
-            CreateBdyForm(bdy2, dataController, dataController.bodysComposer2, 2);
-        }
-
-        EditorGUILayout.Separator();
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginHorizontal();
-        showBdy3 = EditorGUILayout.Toggle("Show bdy3: ", showBdy3);
-        EditorGUILayout.EndHorizontal();
-
-        if (showBdy3) {
-            CreateBdyForm(bdy3, dataController, dataController.bodysComposer3, 3);
-        }
-
-        EditorGUILayout.Separator();
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginHorizontal();
-        showItr = EditorGUILayout.Toggle("Show itr: ", showItr);
-        EditorGUILayout.EndHorizontal();
-
-        if (showItr) {
-            CreateItrForm(itr, dataController, dataController.interactionsComposer, 1);
-        }
-
-        EditorGUILayout.Separator();
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginHorizontal();
-        showItr2 = EditorGUILayout.Toggle("Show itr2: ", showItr2);
-        EditorGUILayout.EndHorizontal();
-
-        if (showItr2) {
-            CreateItrForm(itr2, dataController, dataController.interactionsComposer2, 2);
-        }
-
-        EditorGUILayout.Separator();
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginHorizontal();
-        showItr3 = EditorGUILayout.Toggle("Show itr3: ", showItr3);
-        EditorGUILayout.EndHorizontal();
-
-        if (showItr3) {
-            CreateItrForm(itr3, dataController, dataController.interactionsComposer3, 3);
-        }
-
-        EditorGUILayout.Separator();
-        EditorGUILayout.Separator();
-
-        EditorGUILayout.BeginHorizontal();
-        showOpoint = EditorGUILayout.Toggle("Show opoint: ", showOpoint);
-        EditorGUILayout.EndHorizontal();
-
-        if (showOpoint) {
-            CreateOpointForm(opoint, dataController, dataController.opointsComposer);
+        if (this.selectedGameObject) {
+            this.BuildView();
         }
 
         EditorGUILayout.Separator();
         EditorGUILayout.Separator();
 
         EditorGUILayout.EndScrollView();
-
     }
 
     private void CreateBdyForm(BodyData bdy, AbstractDataController dataController, Map<int, BodyData> composer, int bodyNumber) {
@@ -380,6 +291,96 @@ public class FrameComposerEditor : EditorWindow {
             }
 
             EditorUtility.SetDirty(dataController);
+        }
+    }
+
+    private void BuildView() {
+        if (bdy == null) {
+            bdy = new BodyData();
+        }
+
+        if (opoint == null) {
+            opoint = new ObjectPointData();
+        }
+
+        if (itr == null) {
+            itr = new InteractionData();
+        }
+
+        var dataController = this.selectedGameObject.GetComponent<AbstractDataController>();
+
+        EditorGUILayout.BeginHorizontal();
+        showBdy = EditorGUILayout.Toggle("Show bdy1: ", showBdy);
+        EditorGUILayout.EndHorizontal();
+
+        if (showBdy) {
+            CreateBdyForm(bdy, dataController, dataController.bodysComposer, 1);
+        }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        showBdy2 = EditorGUILayout.Toggle("Show bdy2: ", showBdy2);
+        EditorGUILayout.EndHorizontal();
+
+        if (showBdy2) {
+            CreateBdyForm(bdy2, dataController, dataController.bodysComposer2, 2);
+        }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        showBdy3 = EditorGUILayout.Toggle("Show bdy3: ", showBdy3);
+        EditorGUILayout.EndHorizontal();
+
+        if (showBdy3) {
+            CreateBdyForm(bdy3, dataController, dataController.bodysComposer3, 3);
+        }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        showItr = EditorGUILayout.Toggle("Show itr: ", showItr);
+        EditorGUILayout.EndHorizontal();
+
+        if (showItr) {
+            CreateItrForm(itr, dataController, dataController.interactionsComposer, 1);
+        }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        showItr2 = EditorGUILayout.Toggle("Show itr2: ", showItr2);
+        EditorGUILayout.EndHorizontal();
+
+        if (showItr2) {
+            CreateItrForm(itr2, dataController, dataController.interactionsComposer2, 2);
+        }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        showItr3 = EditorGUILayout.Toggle("Show itr3: ", showItr3);
+        EditorGUILayout.EndHorizontal();
+
+        if (showItr3) {
+            CreateItrForm(itr3, dataController, dataController.interactionsComposer3, 3);
+        }
+
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        showOpoint = EditorGUILayout.Toggle("Show opoint: ", showOpoint);
+        EditorGUILayout.EndHorizontal();
+
+        if (showOpoint) {
+            CreateOpointForm(opoint, dataController, dataController.opointsComposer);
         }
     }
 }
