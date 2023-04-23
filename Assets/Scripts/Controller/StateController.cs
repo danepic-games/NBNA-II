@@ -8,9 +8,6 @@ public class StateController : MonoBehaviour {
 
     private List<StateFrameEnum> airFramesEnabled = new List<StateFrameEnum>();
 
-    public bool stateOneTimePerFrame;
-    public int currentFrameId;
-
     // Start is called before the first frame update
     void Start() {
         airFramesEnabled.Add(StateFrameEnum.JUMPING);
@@ -21,21 +18,18 @@ public class StateController : MonoBehaviour {
         airFramesEnabled.Add(StateFrameEnum.HIT_JUMP_DEFEND);
         airFramesEnabled.Add(StateFrameEnum.JUMP_OTHER);
         airFramesEnabled.Add(StateFrameEnum.DASH_JUMPING);
-        stateOneTimePerFrame = true;
-        this.currentFrameId = -1;
     }
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (this.currentFrameId != this.frame.currentFrame.id) {
-            this.stateOneTimePerFrame = true;
-            this.currentFrameId = this.frame.currentFrame.id;
-        }
-
         StateFrameEnum currentState = this.frame.currentFrame.state;
 
         if (!this.physic.isGrounded && !airFramesEnabled.Contains(currentState)) {
             this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMPING_FALLING);
+        }
+
+        if (frame.debugFrameToGo) {
+            Debug.Log("currentState: " + currentState + " frame id: " + frame.currentFrame.id);
         }
 
         if (currentState != StateFrameEnum.INJURED && currentState != StateFrameEnum.INJURED_2) {
@@ -161,12 +155,7 @@ public class StateController : MonoBehaviour {
 
             case StateFrameEnum.INJURED:
             case StateFrameEnum.INJURED_2:
-                if (this.stateOneTimePerFrame) {
-                    this.frame.injuredCount += 1;
-                }
                 break;
         }
-
-        this.stateOneTimePerFrame = false;
     }
 }

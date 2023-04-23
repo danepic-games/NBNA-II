@@ -336,7 +336,7 @@ MonoBehaviour:
     keys: 
     values: []
   bodysComposer:
-    keys: 00000000010000000200000003000000040000000500000006000000070000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000009600000097000000980000004f010000
+    keys: 00000000010000000200000003000000040000000500000006000000070000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000009600000097000000980000004f010000bc020000bd020000c6020000c7020000
     values:
     - kind: 0
       x: 0.0089
@@ -602,6 +602,50 @@ MonoBehaviour:
       frameId: 335
       beginFrameId: 0
       endFrameId: 0
+    - kind: 0
+      x: -0.0543
+      y: 0.3204
+      z: 0
+      w: 0.33288592
+      h: 0.638614
+      zwidth: 0.22
+      bodyNumber: 1
+      frameId: 711
+      beginFrameId: 710
+      endFrameId: 711
+    - kind: 0
+      x: -0.0543
+      y: 0.3204
+      z: 0
+      w: 0.33288592
+      h: 0.638614
+      zwidth: 0.22
+      bodyNumber: 1
+      frameId: 711
+      beginFrameId: 710
+      endFrameId: 711
+    - kind: 0
+      x: -0.0543
+      y: 0.3204
+      z: 0
+      w: 0.33288592
+      h: 0.638614
+      zwidth: 0.22
+      bodyNumber: 1
+      frameId: 711
+      beginFrameId: 710
+      endFrameId: 711
+    - kind: 0
+      x: -0.0543
+      y: 0.3204
+      z: 0
+      w: 0.33288592
+      h: 0.638614
+      zwidth: 0.22
+      bodyNumber: 1
+      frameId: 711
+      beginFrameId: 710
+      endFrameId: 711
   bodysComposer2:
     keys: 00000000010000000200000003000000040000000500000006000000070000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000960000009700000098000000
     values:
@@ -1061,8 +1105,9 @@ MonoBehaviour:
   holdForwardAfter: 0
   holdDefenseAfter: 0
   holdPowerAfter: 0
-  team: 1
+  team: 0
   ownerId: 0
+  injuredCount: 0
   timeText: {fileID: 0}
 --- !u!114 &4824018809523168528
 MonoBehaviour:
@@ -1077,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frame: {fileID: 4824018809523168535}
-  input: 0
+  input: 1
 --- !u!114 &4824018809523168530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,7 +1154,7 @@ MonoBehaviour:
   yGroundOrigin: -0.02
   xGroundOrigin: 0.175
   zGroundOrigin: 0.1
-  groundOrigin: {x: -0.832, y: 2.725, z: -7.75}
+  groundOrigin: {x: 1.708, y: 2.65, z: -7.75}
 --- !u!114 &4824018809523168621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,6 +1169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physic: {fileID: 4824018809523168530}
   frame: {fileID: 4824018809523168535}
+  injuredCountOneTimePerState: 0
 --- !u!114 &4824018809523168622
 MonoBehaviour:
   m_ObjectHideFlags: 0

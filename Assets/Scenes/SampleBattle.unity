@@ -1163,14 +1163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4824018809523168528, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
-      propertyPath: input
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4824018809523168535, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
-      propertyPath: team
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4824018809523168538, guid: e476c9735e926b543ad5fdfc80b3b29e, type: 3}
       propertyPath: m_Name
       value: naruto (1)

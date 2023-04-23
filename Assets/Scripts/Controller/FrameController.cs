@@ -75,6 +75,7 @@ public class FrameController : MonoBehaviour {
     //Injured
     public int injuredCount;
     public static int INJURED_COUNT_LIMIT = 5;
+    public bool injuredCountOneTimePerState;
 
     public TextMeshPro timeText;
 
@@ -107,6 +108,7 @@ public class FrameController : MonoBehaviour {
         this.holdPowerAfter = false;
         this.externAction = false;
         this.injuredCount = 0;
+        this.injuredCountOneTimePerState = true;
 
         switch (this.data.type) {
             case ObjectTypeEnum.CHARACTER:
@@ -132,7 +134,7 @@ public class FrameController : MonoBehaviour {
 #endif
 
         if (debugFrameToGo) {
-            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
+//            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
         }
 
         if (externAction) {
@@ -160,11 +162,7 @@ public class FrameController : MonoBehaviour {
             return;
         }
 
-        if (injuredCount >= INJURED_COUNT_LIMIT) {
-            Debug.Log("INJURED_COUNT_LIMIT: " + injuredCount);
-            this.ChangeFrame(CharacterSpecialStartFrameEnum.FALLING, false);
-            return;
-        }
+        this.ApplyInjuredCount();
 
         if (hitJump && hitDefense) {
             this.ChangeFrame(currentFrame.hit_jump_defense, false);
@@ -359,6 +357,24 @@ public class FrameController : MonoBehaviour {
             sideDashDownCount = 0;
             sideDashDownEnable = false;
             countSideDashDownEnable = false;
+        }
+    }
+
+    private void ApplyInjuredCount() {
+        if (this.currentFrame.id != (int)CharacterSpecialStartFrameEnum.INJURED_1 && this.currentFrame.id != (int)CharacterSpecialStartFrameEnum.INJURED_2) {
+            this.injuredCountOneTimePerState = true;
+        }
+
+        if (this.injuredCountOneTimePerState) {
+            if (this.currentFrame.id == (int)CharacterSpecialStartFrameEnum.INJURED_1 || this.currentFrame.id == (int)CharacterSpecialStartFrameEnum.INJURED_2) {
+                this.injuredCount += 1;
+                this.injuredCountOneTimePerState = false;
+            }
+        }
+
+        if (injuredCount >= INJURED_COUNT_LIMIT) {
+            this.ChangeFrame(CharacterSpecialStartFrameEnum.FALLING, false);
+            return;
         }
     }
 }
