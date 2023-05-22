@@ -49,7 +49,7 @@ public class DataMapperUtil {
                                 if (sprites.ContainsKey(int.Parse(value))) {
                                     frameData.pic = sprites[int.Parse(value)];
                                 } else {
-                                    frameData.pic = null;
+                                    throw new NullReferenceException($"");
                                 }
                                 continue;
                             }
@@ -129,8 +129,8 @@ public class DataMapperUtil {
                                 frameData.hit_jump_defense = int.Parse(value);
                                 continue;
                             }
-                            if (key.Equals(FrameKeyEnum.hit_defense_power.ToString())) {
-                                frameData.hit_defense_power = int.Parse(value);
+                            if (key.Equals(FrameKeyEnum.hit_defense_attack.ToString())) {
+                                frameData.hit_defense_attack = int.Parse(value);
                                 continue;
                             }
                             if (key.Equals(FrameKeyEnum.hit_power_attack_up.ToString())) {

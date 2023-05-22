@@ -71,6 +71,7 @@ public enum FrameKeyEnum {
     freeze,
     hit_jump_defense,
     hit_defense_power,
+    hit_defense_attack,
     power,
     defensable
 }

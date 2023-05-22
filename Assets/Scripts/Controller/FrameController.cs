@@ -71,6 +71,7 @@ public class FrameController : MonoBehaviour {
     //Team
     public TeamEnum team;
     public int ownerId;
+    public int selfId;
 
     //Injured
     public int injuredCount;
@@ -118,6 +119,8 @@ public class FrameController : MonoBehaviour {
                 this.currentHp = ((PowerDataController)this.data).header.start_hp;
                 break;
         }
+
+        this.selfId = GetInstanceID();
     }
 
     // Update is called once per frame
@@ -168,6 +171,13 @@ public class FrameController : MonoBehaviour {
             this.ChangeFrame(currentFrame.hit_jump_defense, false);
             hitJump = false;
             hitDefense = false;
+            return;
+        }
+
+        if (hitDefense && hitAttack) {
+            this.ChangeFrame(currentFrame.hit_defense_attack, false);
+            hitDefense = false;
+            hitAttack = false;
             return;
         }
 

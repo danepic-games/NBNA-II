@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EffectDataController : AbstractDataController {
 
-    [SerializeField]
-    public HeaderData header;
-
     void Awake() {
         base.type = ObjectTypeEnum.EFFECT;
 
@@ -27,12 +24,7 @@ public class EffectDataController : AbstractDataController {
 
         this.header.sprite_folder = GetHeaderParam(headerParams, EffectHeaderKeyEnum.SPRITE_FOLDER);
 
-        this.sprites = new Map<int, Sprite>();
-        var allSprites = Resources.LoadAll<Sprite>($"{header.sprite_folder}");
-        foreach (Sprite sprite in allSprites) {
-            var spriteKeyValue = sprite.name.Replace(this.header.sprite_file_name, "").Substring(1).Split("_");
-            this.sprites.Add(int.Parse(spriteKeyValue[0]), sprite);
-        }
+        this.sprites = SpriteMapperUtil.SpriteToMapOfSprite(this.header.sprite_folder, this.header.sprite_file_name);
 
         var framesValue = firstSplit[1];
 

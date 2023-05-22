@@ -27,6 +27,7 @@ public class FrameData {
     public Nullable<int> hit_taunt;
 
     public Nullable<int> hit_jump_defense;
+    public Nullable<int> hit_defense_attack;
     public Nullable<int> hit_defense_power;
 
     public Nullable<int> hit_power_attack_up;

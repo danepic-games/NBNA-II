@@ -1,26 +1,12 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using SerializableHelper;
-using UnityEngine;
 
 [System.Serializable]
 public class CharacterDataController : AbstractDataController {
 
-    [SerializeField]
-    public HeaderData header;
-
     public float walking_speedz;
     public float running_speedz;
     public float walking_speed;
-
-    private static int SPRITE_FILE_1 = 0;
-    private static int SPRITE_FILE_2 = 64;
-    private static int SPRITE_FILE_3 = 128;
-    private static int SPRITE_FILE_4 = 192;
-    private static int SPRITE_FILE_5 = 256;
-    private static int SPRITE_FILE_6 = 320;
-    private static int SPRITE_FILE_7 = 384;
-    private static int SPRITE_FILE_8 = 448;
 
     void Awake() {
         base.type = ObjectTypeEnum.CHARACTER;
@@ -38,48 +24,11 @@ public class CharacterDataController : AbstractDataController {
         var spriteFileNameHeaderParam = headerParams[(int)CharacterHeaderKeyEnum.SPRITE_FILE_NAME];
         var spriteFileNameValueParam = spriteFileNameHeaderParam.Split(':')[1];
         var spriteFileNameRegex = new Regex("Resources\\\\(.*\\\\)");
-        this.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
 
+        this.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
         this.header.sprite_folder = GetHeaderParam(headerParams, CharacterHeaderKeyEnum.SPRITE_FOLDER);
 
-        this.sprites = new Map<int, Sprite>();
-        var allSprites = Resources.LoadAll<Sprite>($"{header.sprite_folder}");
-
-        foreach (Sprite sprite in allSprites) {
-            var spriteKeyValue = sprite.name.Replace(this.header.sprite_file_name, "").Substring(1).Split("_");
-            if (spriteKeyValue.Length == 1) {
-                base.sprites.Add(SPRITE_FILE_1 + int.Parse(spriteKeyValue[0]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "2") {
-                base.sprites.Add(SPRITE_FILE_2 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "3") {
-                base.sprites.Add(SPRITE_FILE_3 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "4") {
-                base.sprites.Add(SPRITE_FILE_4 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "5") {
-                base.sprites.Add(SPRITE_FILE_5 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "6") {
-                base.sprites.Add(SPRITE_FILE_6 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "7") {
-                base.sprites.Add(SPRITE_FILE_7 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-            if (spriteKeyValue[0] == "8") {
-                base.sprites.Add(SPRITE_FILE_8 + int.Parse(spriteKeyValue[1]), sprite);
-                continue;
-            }
-        }
+        this.sprites = SpriteMapperUtil.CharacterSpriteToMapOfSprite(this.header.sprite_folder, this.header.sprite_file_name);
 
         this.header.name = base.GetHeaderParam(headerParams, CharacterHeaderKeyEnum.NAME, ':');
 
@@ -112,75 +61,44 @@ public class CharacterDataController : AbstractDataController {
         foreach (KeyValuePair<int, FrameData> frame in this.frames) {
             BodyData bodyNew;
             if (bodysComposer.TryGetValue(frame.Key, out bodyNew)) {
-                var frameToUpdate = frame.Value.bodys[bodyNew.bodyNumber - 1];
-                frameToUpdate.x = bodyNew.x;
-                frameToUpdate.y = bodyNew.y;
-                frameToUpdate.z = bodyNew.z;
-                frameToUpdate.w = bodyNew.w;
-                frameToUpdate.h = bodyNew.h;
-                frameToUpdate.zwidth = bodyNew.zwidth;
-                frameToUpdate.bodyNumber = bodyNew.bodyNumber;
+                bodyNew.bodyNumber = 1;
+                frame.Value.bodys.Add(bodyNew);
             }
             if (bodysComposer2.TryGetValue(frame.Key, out bodyNew)) {
-                var frameToUpdate = frame.Value.bodys[bodyNew.bodyNumber - 1];
-                frameToUpdate.x = bodyNew.x;
-                frameToUpdate.y = bodyNew.y;
-                frameToUpdate.z = bodyNew.z;
-                frameToUpdate.w = bodyNew.w;
-                frameToUpdate.h = bodyNew.h;
-                frameToUpdate.zwidth = bodyNew.zwidth;
-                frameToUpdate.bodyNumber = bodyNew.bodyNumber;
+                bodyNew.bodyNumber = 2;
+                frame.Value.bodys.Add(bodyNew);
             }
             if (bodysComposer3.TryGetValue(frame.Key, out bodyNew)) {
-                var frameToUpdate = frame.Value.bodys[bodyNew.bodyNumber - 1];
-                frameToUpdate.x = bodyNew.x;
-                frameToUpdate.y = bodyNew.y;
-                frameToUpdate.z = bodyNew.z;
-                frameToUpdate.w = bodyNew.w;
-                frameToUpdate.h = bodyNew.h;
-                frameToUpdate.zwidth = bodyNew.zwidth;
-                frameToUpdate.bodyNumber = bodyNew.bodyNumber;
+                bodyNew.bodyNumber = 3;
+                frame.Value.bodys.Add(bodyNew);
             }
 
             InteractionData itrNew;
             if (interactionsComposer.TryGetValue(frame.Key, out itrNew)) {
-                var frameToUpdate = frame.Value.itrs[itrNew.itrNumber - 1];
-                frameToUpdate.x = itrNew.x;
-                frameToUpdate.y = itrNew.y;
-                frameToUpdate.z = itrNew.z;
-                frameToUpdate.w = itrNew.w;
-                frameToUpdate.h = itrNew.h;
-                frameToUpdate.zwidthz = itrNew.zwidthz;
-                frameToUpdate.itrNumber = itrNew.itrNumber;
+                itrNew.itrNumber = 1;
+                frame.Value.itrs.Add(itrNew);
             }
             if (interactionsComposer2.TryGetValue(frame.Key, out itrNew)) {
-                var frameToUpdate = frame.Value.itrs[itrNew.itrNumber - 1];
-                frameToUpdate.x = itrNew.x;
-                frameToUpdate.y = itrNew.y;
-                frameToUpdate.z = itrNew.z;
-                frameToUpdate.w = itrNew.w;
-                frameToUpdate.h = itrNew.h;
-                frameToUpdate.zwidthz = itrNew.zwidthz;
-                frameToUpdate.itrNumber = itrNew.itrNumber;
+                itrNew.itrNumber = 2;
+                frame.Value.itrs.Add(itrNew);
             }
             if (interactionsComposer3.TryGetValue(frame.Key, out itrNew)) {
-                var frameToUpdate = frame.Value.itrs[itrNew.itrNumber - 1];
-                frameToUpdate.x = itrNew.x;
-                frameToUpdate.y = itrNew.y;
-                frameToUpdate.z = itrNew.z;
-                frameToUpdate.w = itrNew.w;
-                frameToUpdate.h = itrNew.h;
-                frameToUpdate.zwidthz = itrNew.zwidthz;
-                frameToUpdate.itrNumber = itrNew.itrNumber;
+                itrNew.itrNumber = 3;
+                frame.Value.itrs.Add(itrNew);
             }
 
             ObjectPointData opointNew;
             if (opointsComposer.TryGetValue(frame.Key, out opointNew)) {
-                var frameToUpdate = frame.Value.opoints[opointNew.opointNumber - 1];
-                frameToUpdate.x = opointNew.x;
-                frameToUpdate.y = opointNew.y;
-                frameToUpdate.z = opointNew.z;
-                frameToUpdate.opointNumber = opointNew.opointNumber;
+                opointNew.opointNumber = opointNew.opointNumber;
+                frame.Value.opoints.Add(opointNew);
+            }
+            if (opointsComposer2.TryGetValue(frame.Key, out opointNew)) {
+                opointNew.opointNumber = opointNew.opointNumber;
+                frame.Value.opoints.Add(opointNew);
+            }
+            if (opointsComposer3.TryGetValue(frame.Key, out opointNew)) {
+                opointNew.opointNumber = opointNew.opointNumber;
+                frame.Value.opoints.Add(opointNew);
             }
         }
     }

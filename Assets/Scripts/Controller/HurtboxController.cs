@@ -37,10 +37,10 @@ public class HurtboxController : MonoBehaviour {
             var selfType = frame.data.type;
 
             var otherObjTeam = hitbox.frame.team;
-            var otherObjectId = hitbox.frame.gameObject.GetInstanceID();
+            var otherObjectId = hitbox.frame.selfId;
 
             var selfObjTeam = frame.team;
-            var selfObjectId = frame.gameObject.GetInstanceID();
+            var selfObjectId = frame.selfId;
 
             switch (selfType) {
                 case ObjectTypeEnum.CHARACTER:
@@ -73,7 +73,7 @@ public class HurtboxController : MonoBehaviour {
                 }
                 break;
             case ItrKindEnum.CHAR_ALLY:
-                if (selfObjTeam == otherObjTeam) {
+                if (selfObjTeam == otherObjTeam || selfObjId == hitbox.frame.ownerId) {
                     Debug.Log("Ally Hit");
                     return;
                 }

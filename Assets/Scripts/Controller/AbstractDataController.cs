@@ -5,7 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class AbstractDataController : MonoBehaviour {
     [SerializeField]
-    protected TextAsset dataFile;
+    public TextAsset dataFile;
+
+    [SerializeField]
+    public HeaderData header;
 
     [SerializeField]
     public ObjectTypeEnum type;
@@ -26,6 +29,12 @@ public class AbstractDataController : MonoBehaviour {
     public Map<int, ObjectPointData> opointsComposer;
 
     [SerializeField]
+    public Map<int, ObjectPointData> opointsComposer2;
+
+    [SerializeField]
+    public Map<int, ObjectPointData> opointsComposer3;
+
+    [SerializeField]
     public Map<int, InteractionData> interactionsComposer;
 
     [SerializeField]
@@ -37,19 +46,19 @@ public class AbstractDataController : MonoBehaviour {
     [SerializeField]
     protected Map<int, Sprite> sprites;
 
-    protected string GetHeaderParam(string[] headerParams, CharacterHeaderKeyEnum paramKey, char separator = ' ') {
+    public string GetHeaderParam(string[] headerParams, CharacterHeaderKeyEnum paramKey, char separator = ' ') {
         return this.GetHeaderParam(headerParams, (int)paramKey, separator);
     }
 
-    protected string GetHeaderParam(string[] headerParams, EffectHeaderKeyEnum paramKey, char separator = ' ') {
+    public string GetHeaderParam(string[] headerParams, EffectHeaderKeyEnum paramKey, char separator = ' ') {
         return this.GetHeaderParam(headerParams, (int)paramKey, separator);
     }
 
-    protected string GetHeaderParam(string[] headerParams, PowerHeaderKeyEnum paramKey, char separator = ' ') {
+    public string GetHeaderParam(string[] headerParams, PowerHeaderKeyEnum paramKey, char separator = ' ') {
         return this.GetHeaderParam(headerParams, (int)paramKey, separator);
     }
 
-    private string GetHeaderParam(string[] headerParams, int paramKey, char separator = ' ') {
+    public string GetHeaderParam(string[] headerParams, int paramKey, char separator = ' ') {
         var headerParam = headerParams[paramKey];
         var valueParam = headerParam.Split(separator)[1];
         return valueParam.Trim();
