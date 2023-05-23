@@ -24,6 +24,9 @@ public class FrameComposer2Editor : EditorWindow {
     private bool openBdy;
     private bool openBdy2;
     private bool openBdy3;
+    private bool loadBdy1ByComposer;
+    private bool loadBdy2ByComposer;
+    private bool loadBdy3ByComposer;
 
     private InteractionData interactionData = new InteractionData();
     private InteractionData interactionData2 = new InteractionData();
@@ -90,7 +93,7 @@ public class FrameComposer2Editor : EditorWindow {
 
             if (!string.IsNullOrEmpty(idSelectionSearch) && idSelectionSearch.All(char.IsDigit)) {
                 var frameIds = this.frames.Where(frame => frame.Key.ToString()
-                    .Equals(idSelectionSearch)).Select(frame => frame.Key.ToString()).ToArray();
+                .Equals(idSelectionSearch)).Select(frame => frame.Key.ToString()).ToArray();
 
                 if (frameIds.Length == 1) {
                     frameIdSelected = int.Parse(frameIds[0]);
@@ -155,21 +158,36 @@ public class FrameComposer2Editor : EditorWindow {
         this.openBdy = EditorGUILayout.Toggle("Show BDY 1", this.openBdy);
         EditorGUILayout.EndHorizontal();
         if (this.openBdy) {
-            this.BuildSpecificBdy(this.bodyData, this.abstractDataController.bodysComposer, 1);
+            this.loadBdy1ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
+            "(True = Composer; False = Hurtbox + bodyNumber)", this.loadBdy1ByComposer);
+            if (loadBdy1ByComposer) {
+                this.loadBdy1ByComposer = this.abstractDataController.bodysComposer.ContainsKey(selectedFrame.id);
+            }
+            this.BuildSpecificBdy(this.bodyData, this.abstractDataController.bodysComposer, 1, this.loadBdy1ByComposer);
         }
 
         EditorGUILayout.BeginHorizontal();
         this.openBdy2 = EditorGUILayout.Toggle("Show BDY 2", this.openBdy2);
         EditorGUILayout.EndHorizontal();
         if (this.openBdy2) {
-            this.BuildSpecificBdy(this.bodyData2, this.abstractDataController.bodysComposer2, 2);
+            this.loadBdy2ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
+            "(True = Composer; False = Hurtbox + bodyNumber)", this.loadBdy2ByComposer);
+            if (loadBdy2ByComposer) {
+                this.loadBdy2ByComposer = this.abstractDataController.bodysComposer2.ContainsKey(selectedFrame.id);
+            }
+            this.BuildSpecificBdy(this.bodyData2, this.abstractDataController.bodysComposer2, 2, this.loadBdy2ByComposer);
         }
 
         EditorGUILayout.BeginHorizontal();
         this.openBdy3 = EditorGUILayout.Toggle("Show BDY 3", this.openBdy3);
         EditorGUILayout.EndHorizontal();
         if (this.openBdy3) {
-            this.BuildSpecificBdy(this.bodyData3, this.abstractDataController.bodysComposer3, 3);
+            this.loadBdy3ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
+            "(True = Composer; False = Hurtbox + bodyNumber)", this.loadBdy3ByComposer);
+            if (loadBdy3ByComposer) {
+                this.loadBdy3ByComposer = this.abstractDataController.bodysComposer3.ContainsKey(selectedFrame.id);
+            }
+            this.BuildSpecificBdy(this.bodyData3, this.abstractDataController.bodysComposer3, 3, this.loadBdy3ByComposer);
         }
 
         EditorGUILayout.Separator();
@@ -331,29 +349,42 @@ public class FrameComposer2Editor : EditorWindow {
 
     }
 
-    private void BuildSpecificBdy(BodyData specificBodyData, Map<int, BodyData> bodysComposer, int bodyNumber) {
-        specificBodyData.kind = (BodyKindEnum)EditorGUILayout.EnumPopup("kind: ", specificBodyData.kind);
+    private void BuildSpecificBdy(BodyData specificBodyData, Map<int, BodyData> bodysComposer, int bodyNumber, bool loadBdyByComposer) {
+        Transform dimensionsToUse = null;
 
-        specificBodyData.x = EditorGUILayout.FloatField("x: ", specificBodyData.x);
-        specificBodyData.y = EditorGUILayout.FloatField("y: ", specificBodyData.y);
-        specificBodyData.z = EditorGUILayout.FloatField("z: ", specificBodyData.z);
-
-        specificBodyData.w = EditorGUILayout.FloatField("w: ", specificBodyData.w);
-        specificBodyData.h = EditorGUILayout.FloatField("h: ", specificBodyData.h);
-        specificBodyData.zwidth = EditorGUILayout.FloatField("zwidth: ", specificBodyData.zwidth);
-
-        EditorGUILayout.Separator();
-
-        if (GUILayout.Button("Save BDY " + bodyNumber)) {
-            if (bodysComposer.ContainsKey(selectedFrame.id)) {
-                bodysComposer.Remove(selectedFrame.id);
-            }
-            specificBodyData.bodyNumber = bodyNumber;
-            bodysComposer.Add(selectedFrame.id, specificBodyData);
+        if (loadBdyByComposer) {
+            dimensionsToUse.localPosition = new Vector3(bodysComposer[selectedFrame.id].x, bodysComposer[selectedFrame.id].y, bodysComposer[selectedFrame.id].z);
+            dimensionsToUse.localScale = new Vector3(bodysComposer[selectedFrame.id].w, bodysComposer[selectedFrame.id].h, bodysComposer[selectedFrame.id].zwidth);
+        } else {
+            dimensionsToUse = selectedGameObject.transform.Find("Hurtboxes").Find("Hurtbox" + bodyNumber);
         }
 
-        if (GUILayout.Button("Remove BDY " + bodyNumber)) {
-            bodysComposer.Remove(selectedFrame.id);
+        if (dimensionsToUse) {
+            specificBodyData.kind = (BodyKindEnum)EditorGUILayout.EnumPopup("kind: ", specificBodyData.kind);
+
+            specificBodyData.x = EditorGUILayout.FloatField("x: ", dimensionsToUse.localPosition.x);
+            specificBodyData.y = EditorGUILayout.FloatField("y: ", dimensionsToUse.localPosition.y);
+            specificBodyData.z = EditorGUILayout.FloatField("z: ", dimensionsToUse.localPosition.z);
+
+            specificBodyData.w = EditorGUILayout.FloatField("w: ", dimensionsToUse.localScale.x);
+            specificBodyData.h = EditorGUILayout.FloatField("h: ", dimensionsToUse.localScale.y);
+            specificBodyData.zwidth = EditorGUILayout.FloatField("zwidth: ", dimensionsToUse.localScale.z);
+
+            EditorGUILayout.Separator();
+
+            if (GUILayout.Button("Save BDY " + bodyNumber)) {
+                if (bodysComposer.ContainsKey(selectedFrame.id)) {
+                    bodysComposer.Remove(selectedFrame.id);
+                }
+                specificBodyData.bodyNumber = bodyNumber;
+                bodysComposer.Add(selectedFrame.id, specificBodyData);
+            }
+
+            if (GUILayout.Button("Remove BDY " + bodyNumber)) {
+                bodysComposer.Remove(selectedFrame.id);
+            }
+        } else {
+            throw new NullReferenceException("Selected Game Object must have hurtboxes with body number. (Hurtbox1, Hurtbox2, Hurtbox3)");
         }
     }
 
