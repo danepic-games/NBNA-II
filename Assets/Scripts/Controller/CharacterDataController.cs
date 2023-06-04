@@ -89,15 +89,15 @@ public class CharacterDataController : AbstractDataController {
 
             ObjectPointData opointNew;
             if (opointsComposer.TryGetValue(frame.Key, out opointNew)) {
-                opointNew.opointNumber = opointNew.opointNumber;
+                opointNew.opointNumber = 1;
                 frame.Value.opoints.Add(opointNew);
             }
             if (opointsComposer2.TryGetValue(frame.Key, out opointNew)) {
-                opointNew.opointNumber = opointNew.opointNumber;
+                opointNew.opointNumber = 2;
                 frame.Value.opoints.Add(opointNew);
             }
             if (opointsComposer3.TryGetValue(frame.Key, out opointNew)) {
-                opointNew.opointNumber = opointNew.opointNumber;
+                opointNew.opointNumber = 3;
                 frame.Value.opoints.Add(opointNew);
             }
         }

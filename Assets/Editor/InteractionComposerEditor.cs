@@ -237,10 +237,12 @@ public class InteractionComposerEditor : EditorWindow {
                 }
                 specificInteractionData.itrNumber = itrNumber;
                 itrsComposer.Add(selectedFrame.id, specificInteractionData);
+                Debug.Log("Save Done!");
             }
 
             if (GUILayout.Button("Remove ITR " + itrNumber)) {
                 itrsComposer.Remove(selectedFrame.id);
+                Debug.Log("Remove Done!");
             }
         } else {
             throw new NullReferenceException("Selected Game Object must have hurtboxes with itr number. (Hitbox1, Hitbox2, Hitbox3)");
