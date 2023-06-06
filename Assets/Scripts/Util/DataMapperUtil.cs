@@ -45,7 +45,7 @@ public class DataMapperUtil {
                                 if (sprites.ContainsKey(int.Parse(value))) {
                                     frameData.pic = sprites[int.Parse(value)];
                                 } else {
-                                    throw new NullReferenceException($"");
+                                    throw new NullReferenceException($"Sprite key with value {value} not found in map!");
                                 }
                                 continue;
                             }
@@ -219,6 +219,7 @@ public class DataMapperUtil {
                     frames.Add(frameData.id, frameData);
 
                 } catch (Exception ex) {
+                    Debug.LogException(ex);
                     Debug.LogError($"Error in line {lineNumber} with frame id {frameData.id}");
                     throw ex;
                 }

@@ -149,7 +149,21 @@ public class InteractionComposerEditor : EditorWindow {
         var spriteFileNameValueParam = spriteFileNameHeaderParam.Split(':')[1];
         var spriteFileNameRegex = new Regex("Resources\\\\(.*\\\\)");
         this.abstractDataController.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
-        this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, CharacterHeaderKeyEnum.SPRITE_FOLDER);
+
+        Debug.Log(this.abstractDataController.type);
+
+        switch (this.abstractDataController.type) {
+            case ObjectTypeEnum.CHARACTER:
+                Debug.Log("C");
+                this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, CharacterHeaderKeyEnum.SPRITE_FOLDER);
+                break;
+            case ObjectTypeEnum.POWER:
+                Debug.Log("P");
+                this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, PowerHeaderKeyEnum.SPRITE_FOLDER);
+                break;
+            default:
+                throw new MissingFieldException("Object type not found or not implemented!");
+        }
 
         this.sprites = ComposerUtil.GetSpriteMapper(this.abstractDataController);
 
@@ -239,7 +253,7 @@ public class InteractionComposerEditor : EditorWindow {
         if (loadItrByComposer) {
             dimensionsToUse.localPosition = new Vector3(itrsComposer[selectedFrame.id].x, itrsComposer[selectedFrame.id].y, itrsComposer[selectedFrame.id].z);
 
-            var specificHurtbox = selectedGameObject.transform.Find("Opoints").Find("Opoint" + itrNumber);
+            var specificHurtbox = selectedGameObject.transform.Find("Hitboxes").Find("Hitbox" + itrNumber);
             specificHurtbox.localPosition = dimensionsToUse.localPosition;
             this.kind = itrsComposer[selectedFrame.id].kind;
             this.action = itrsComposer[selectedFrame.id].action;
@@ -247,7 +261,7 @@ public class InteractionComposerEditor : EditorWindow {
             this.dvy = itrsComposer[selectedFrame.id].dvy;
             this.dvz = itrsComposer[selectedFrame.id].dvz;
         } else {
-            dimensionsToUse = selectedGameObject.transform.Find("Opoints").Find("Opoint" + itrNumber);
+            dimensionsToUse = selectedGameObject.transform.Find("Hitboxes").Find("Hitbox" + itrNumber);
         }
 
         if (dimensionsToUse) {
@@ -290,6 +304,7 @@ public class InteractionComposerEditor : EditorWindow {
                 Debug.Log("Remove Done!");
             }
         } else {
+            DestroyImmediate(tempGO);
             throw new NullReferenceException("Selected Game Object must have hitboxes with itr number. (Hitbox1, Hitbox2, Hitbox3)");
         }
     }

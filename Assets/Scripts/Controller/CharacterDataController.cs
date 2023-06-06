@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 [System.Serializable]
 public class CharacterDataController : AbstractDataController {
