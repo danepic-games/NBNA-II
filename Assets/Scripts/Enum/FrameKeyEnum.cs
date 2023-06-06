@@ -73,5 +73,7 @@ public enum FrameKeyEnum {
     hit_defense_power,
     hit_defense_attack,
     power,
-    defensable
+    defensable,
+    repeat_at,
+    repeat_next
 }

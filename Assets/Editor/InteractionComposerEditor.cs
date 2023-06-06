@@ -13,17 +13,47 @@ public class InteractionComposerEditor : EditorWindow {
     private AbstractDataController abstractDataController;
     private AbstractDataController activeAbstractDataController;
 
-    private Vector2 scrollPos;
-    private int idSelection;
-    private string idSelectionSearch;
+    public ItrKindEnum kind;
+    public float x;
+    public float y;
+    public float z;
+    public float w;
+    public float h;
+    public float zwidth;
+    public float dvx;
+    public float dvy;
+    public float dvz;
+
+    public float arest;
+    public float vrest;
+
+    public int action;
+    public int power;
+    public bool defensable;
+    public int injury;
+
+    public AudioClip sound;
+    public float confuse;
+    public float silence;
+    public float slow;
+    public float stun;
+    public float ignite;
+    public float poison;
+    public float root;
+    public float charm;
+    public float fear;
+    public float taunt;
+    public float blind;
+    public float paralysis;
+    public float freeze;
+
+    private int idSelectionSearch;
     private int frameIdSelected;
 
     private InteractionData itrData;
     private InteractionData itrData2;
     private InteractionData itrData3;
-    private bool openItr;
-    private bool openItr2;
-    private bool openItr3;
+    private ComposerElementsNumberEnum itrNumber;
     private bool loadItr1ByComposer;
     private bool loadItr2ByComposer;
     private bool loadItr3ByComposer;
@@ -35,7 +65,7 @@ public class InteractionComposerEditor : EditorWindow {
 
     [MenuItem("Frame/Itr Composer")]
     public static void Init() {
-        var window = GetWindow<InteractionComposerEditor>("Itr Composer");
+        var window = GetWindow<OpointComposerEditor>("Itr Composer");
     }
 
     void OnGUI() {
@@ -74,22 +104,28 @@ public class InteractionComposerEditor : EditorWindow {
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
-            idSelectionSearch = EditorGUILayout.TextField("Search Frame", idSelectionSearch);
+            idSelectionSearch = EditorGUILayout.IntField("Search Frame", idSelectionSearch);
             EditorGUILayout.EndHorizontal();
 
-            if (!string.IsNullOrEmpty(idSelectionSearch) && idSelectionSearch.All(char.IsDigit)) {
-                var frameIds = this.frames.Where(frame => frame.Key.ToString()
-                .Equals(idSelectionSearch)).Select(frame => frame.Key.ToString()).ToArray();
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("<")) {
+                idSelectionSearch--;
+            }
+            if (GUILayout.Button(">")) {
+                idSelectionSearch++;
+            }
 
-                if (frameIds.Length == 1) {
-                    frameIdSelected = int.Parse(frameIds[0]);
-                    selectedFrame = this.frames[frameIdSelected];
-                    this.SetFrameSprite();
-                    this.DrawComposerItrs();
-                    this.BuildItr();
-                }
-            } else {
-                idSelectionSearch = "";
+            var frameIds = this.frames.Where(frame => frame.Key == idSelectionSearch)
+            .Select(frame => frame.Key).ToArray();
+
+            EditorGUILayout.EndHorizontal();
+
+            if (frameIds.Length == 1) {
+                frameIdSelected = frameIds[0];
+                selectedFrame = this.frames[frameIdSelected];
+                this.SetFrameSprite();
+                this.DrawComposerItrs();
+                this.BuildItr();
             }
 
             EditorGUILayout.Separator();
@@ -131,35 +167,29 @@ public class InteractionComposerEditor : EditorWindow {
 
     private void BuildItr() {
         EditorGUILayout.BeginHorizontal();
-        this.openItr = EditorGUILayout.Toggle("Show ITR 1", this.openItr);
+        this.itrNumber = (ComposerElementsNumberEnum)EditorGUILayout.EnumPopup("itrNumber: ", itrNumber);
         EditorGUILayout.EndHorizontal();
-        if (this.openItr) {
+        if (this.itrNumber == ComposerElementsNumberEnum.MAIN) {
             this.loadItr1ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
-            "(True = Composer; False = Hitbox1)", this.loadItr1ByComposer);
+            "(True = Composer; False = Hitbox + itrNumber)", this.loadItr1ByComposer);
             if (loadItr1ByComposer) {
                 this.loadItr1ByComposer = this.abstractDataController.interactionsComposer.ContainsKey(selectedFrame.id);
             }
             this.BuildSpecificItr(this.itrData, this.abstractDataController.interactionsComposer, 1, this.loadItr1ByComposer);
         }
 
-        EditorGUILayout.BeginHorizontal();
-        this.openItr2 = EditorGUILayout.Toggle("Show ITR 2", this.openItr2);
-        EditorGUILayout.EndHorizontal();
-        if (this.openItr2) {
+        if (this.itrNumber == ComposerElementsNumberEnum.SECOND) {
             this.loadItr2ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
-            "(True = Composer; False = Hitbox2)", this.loadItr2ByComposer);
+            "(True = Composer; False = Hitbox + itrNumber)", this.loadItr2ByComposer);
             if (loadItr2ByComposer) {
                 this.loadItr2ByComposer = this.abstractDataController.interactionsComposer2.ContainsKey(selectedFrame.id);
             }
             this.BuildSpecificItr(this.itrData2, this.abstractDataController.interactionsComposer2, 2, this.loadItr2ByComposer);
         }
 
-        EditorGUILayout.BeginHorizontal();
-        this.openItr3 = EditorGUILayout.Toggle("Show ITR 3", this.openItr3);
-        EditorGUILayout.EndHorizontal();
-        if (this.openItr3) {
+        if (this.itrNumber == ComposerElementsNumberEnum.THIRD) {
             this.loadItr3ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
-            "(True = Composer; False = Hitbox3)", this.loadItr3ByComposer);
+            "(True = Composer; False = Hitbox + itrNumber)", this.loadItr3ByComposer);
             if (loadItr3ByComposer) {
                 this.loadItr3ByComposer = this.abstractDataController.interactionsComposer3.ContainsKey(selectedFrame.id);
             }
@@ -173,7 +203,7 @@ public class InteractionComposerEditor : EditorWindow {
         var transformMain = selectedGameObject.transform.Find("Hitboxes");
 
         if (transformMain) {
-            if (!openItr && abstractDataController.interactionsComposer.TryGetValue(selectedFrame.id, out itrData)) {
+            if (itrNumber != ComposerElementsNumberEnum.MAIN && abstractDataController.interactionsComposer.TryGetValue(selectedFrame.id, out itrData)) {
                 var transform1 = transformMain.Find("Hitbox1");
 
                 transform1.localPosition = new Vector3(itrData.x, itrData.y, itrData.z);
@@ -182,7 +212,7 @@ public class InteractionComposerEditor : EditorWindow {
                 itrData = new InteractionData();
             }
 
-            if (!openItr2 && abstractDataController.interactionsComposer2.TryGetValue(selectedFrame.id, out itrData2)) {
+            if (itrNumber != ComposerElementsNumberEnum.SECOND && abstractDataController.interactionsComposer2.TryGetValue(selectedFrame.id, out itrData2)) {
                 var transform2 = transformMain.Find("Hitbox2");
 
                 transform2.localPosition = new Vector3(itrData2.x, itrData2.y, itrData2.z);
@@ -191,7 +221,7 @@ public class InteractionComposerEditor : EditorWindow {
                 itrData2 = new InteractionData();
             }
 
-            if (!openItr3 && abstractDataController.interactionsComposer3.TryGetValue(selectedFrame.id, out itrData3)) {
+            if (itrNumber != ComposerElementsNumberEnum.THIRD && abstractDataController.interactionsComposer3.TryGetValue(selectedFrame.id, out itrData3)) {
                 var transform3 = transformMain.Find("Hitbox3");
 
                 transform3.localPosition = new Vector3(itrData3.x, itrData3.y, itrData3.z);
@@ -202,50 +232,65 @@ public class InteractionComposerEditor : EditorWindow {
         }
     }
 
-    private void BuildSpecificItr(InteractionData specificInteractionData, Map<int, InteractionData> itrsComposer, int itrNumber, bool loadItrByComposer) {
+    private void BuildSpecificItr(InteractionData specificItrData, Map<int, InteractionData> itrsComposer, int itrNumber, bool loadItrByComposer) {
         var tempGO = new GameObject();
         Transform dimensionsToUse = tempGO.transform;
 
         if (loadItrByComposer) {
             dimensionsToUse.localPosition = new Vector3(itrsComposer[selectedFrame.id].x, itrsComposer[selectedFrame.id].y, itrsComposer[selectedFrame.id].z);
-            dimensionsToUse.localScale = new Vector3(itrsComposer[selectedFrame.id].w, itrsComposer[selectedFrame.id].h, itrsComposer[selectedFrame.id].zwidthz);
 
-            var specificHurtbox = selectedGameObject.transform.Find("Hitboxes").Find("Hitbox" + itrNumber);
+            var specificHurtbox = selectedGameObject.transform.Find("Opoints").Find("Opoint" + itrNumber);
             specificHurtbox.localPosition = dimensionsToUse.localPosition;
-            specificHurtbox.localScale = dimensionsToUse.localScale;
+            this.kind = itrsComposer[selectedFrame.id].kind;
+            this.action = itrsComposer[selectedFrame.id].action;
+            this.dvx = itrsComposer[selectedFrame.id].dvx;
+            this.dvy = itrsComposer[selectedFrame.id].dvy;
+            this.dvz = itrsComposer[selectedFrame.id].dvz;
         } else {
-            dimensionsToUse = selectedGameObject.transform.Find("Hitboxes").Find("Hitbox" + itrNumber);
+            dimensionsToUse = selectedGameObject.transform.Find("Opoints").Find("Opoint" + itrNumber);
         }
 
         if (dimensionsToUse) {
-            specificInteractionData.kind = (ItrKindEnum)EditorGUILayout.EnumPopup("kind: ", specificInteractionData.kind);
+            kind = (ItrKindEnum)EditorGUILayout.EnumPopup("kind: ", kind);
+            specificItrData.kind = kind;
 
-            specificInteractionData.x = EditorGUILayout.FloatField("x: ", dimensionsToUse.localPosition.x);
-            specificInteractionData.y = EditorGUILayout.FloatField("y: ", dimensionsToUse.localPosition.y);
-            specificInteractionData.z = EditorGUILayout.FloatField("z: ", dimensionsToUse.localPosition.z);
+            action = EditorGUILayout.IntField("action: ", action);
+            specificItrData.action = action;
 
-            specificInteractionData.w = EditorGUILayout.FloatField("w: ", dimensionsToUse.localScale.x);
-            specificInteractionData.h = EditorGUILayout.FloatField("h: ", dimensionsToUse.localScale.y);
-            specificInteractionData.zwidthz = EditorGUILayout.FloatField("zwidth: ", dimensionsToUse.localScale.z);
+
+            EditorGUILayout.BeginHorizontal();
+            dvx = EditorGUILayout.FloatField("dvx: ", dvx);
+            specificItrData.dvx = dvx;
+
+            dvy = EditorGUILayout.FloatField("dvy: ", dvy);
+            specificItrData.dvy = dvy;
+            EditorGUILayout.EndHorizontal();
+
+            dvz = EditorGUILayout.FloatField("dvz: ", dvz);
+            specificItrData.dvz = dvz;
+
+            specificItrData.x = EditorGUILayout.FloatField("x: ", dimensionsToUse.localPosition.x);
+            specificItrData.y = EditorGUILayout.FloatField("y: ", dimensionsToUse.localPosition.y);
+            specificItrData.z = EditorGUILayout.FloatField("z: ", dimensionsToUse.localPosition.z);
             DestroyImmediate(tempGO);
 
             EditorGUILayout.Separator();
 
-            if (GUILayout.Button("Save ITR " + itrNumber)) {
+            if (GUILayout.Button("Save OPOINT " + itrNumber)) {
                 if (itrsComposer.ContainsKey(selectedFrame.id)) {
                     itrsComposer.Remove(selectedFrame.id);
                 }
-                specificInteractionData.itrNumber = itrNumber;
-                itrsComposer.Add(selectedFrame.id, specificInteractionData);
+                specificItrData.itrNumber = itrNumber;
+                itrsComposer.Add(selectedFrame.id, specificItrData);
                 Debug.Log("Save Done!");
             }
 
-            if (GUILayout.Button("Remove ITR " + itrNumber)) {
+            if (GUILayout.Button("Remove OPOINT " + itrNumber)) {
                 itrsComposer.Remove(selectedFrame.id);
                 Debug.Log("Remove Done!");
             }
         } else {
-            throw new NullReferenceException("Selected Game Object must have hurtboxes with itr number. (Hitbox1, Hitbox2, Hitbox3)");
+            throw new NullReferenceException("Selected Game Object must have hitboxes with itr number. (Hitbox1, Hitbox2, Hitbox3)");
         }
     }
 }

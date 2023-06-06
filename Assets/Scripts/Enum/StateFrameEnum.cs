@@ -42,4 +42,6 @@ public enum StateFrameEnum {
    EFFECT_IDLE = 1000,
 
    POWER_IDLE = 2000,
+
+   REPEAT_ANIMATION_AT = 10000
 }

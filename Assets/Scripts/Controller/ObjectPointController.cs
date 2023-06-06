@@ -33,7 +33,7 @@ public class ObjectPointController : MonoBehaviour {
                     var spawnFrame = opointSpawn.GetComponent<FrameController>();
                     var spawnPhysics = opointSpawn.GetComponent<PhysicController>();
 
-                    spawnFrame.ownerId = this.gameObject.GetInstanceID();
+                    spawnFrame.ownerId = this.frame.selfId;
                     spawnFrame.team = this.frame.team;
 
                     float x = transform.position.x + PositionUtil.FacingByX(opoint.x, frame.facingRight);

@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 4912590121642325010}
   - component: {fileID: 8355746906840110497}
   - component: {fileID: 8355746906840110502}
+  - component: {fileID: 3501090891070983119}
   m_Layer: 0
   m_Name: fuma_shuriken
   m_TagString: Untagged
@@ -229,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8355746906840110503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.67200005, y: 0.28800005, z: -5.7657447}
+  m_LocalPosition: {x: -0.48235515, y: 0.28800005, z: -7.8499994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -450,12 +451,17 @@ MonoBehaviour:
     hp: 0
     sound: {fileID: 0}
     hidden: 0
+    repeat_at: 0
+    repeat_next: 0
     bodys: []
     opoints: []
     itrs: []
   debugFrameToGo: 0
   frameToStopForDebug: 
   previousId: 0
+  repeatAnimationAt: 0
+  repeatAnimationStart: 0
+  repeatAnimationReady: 0
   wait: 0
   currentHp: 0
   facingRight: 1
@@ -520,7 +526,7 @@ MonoBehaviour:
   holdDefenseAfter: 0
   holdPowerAfter: 0
   team: 0
-  ownerId: -1240
+  ownerId: 37880
   selfId: 0
   injuredCount: 0
   injuredCountOneTimePerState: 0
@@ -556,7 +562,21 @@ MonoBehaviour:
   yGroundOrigin: 0
   xGroundOrigin: 0
   zGroundOrigin: 0
-  groundOrigin: {x: 0.117, y: 2.139, z: -7.85}
+  groundOrigin: {x: -0.67200005, y: 0.28800005, z: -7.85}
+--- !u!114 &3501090891070983119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355746906840110503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9451b922f8957419a4a3561e90d5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physic: {fileID: 8355746906840110502}
+  frame: {fileID: 8355746906840110497}
 --- !u!1001 &3505129056419536697
 PrefabInstance:
   m_ObjectHideFlags: 0

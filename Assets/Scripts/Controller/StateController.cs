@@ -24,6 +24,22 @@ public class StateController : MonoBehaviour {
     void FixedUpdate() {
         StateFrameEnum currentState = this.frame.currentFrame.state;
 
+        switch (this.frame.data.type) {
+            case ObjectTypeEnum.CHARACTER:
+                ApplyStateForCharacter(currentState);
+                break;
+            case ObjectTypeEnum.POWER:
+                break;
+        }
+
+        switch (currentState) {
+            case StateFrameEnum.REPEAT_ANIMATION_AT:
+                this.frame.repeatAnimationAt = this.frame.currentFrame.repeat_at > 0 ? this.frame.currentFrame.repeat_at / 30 : 0;
+                break;
+        }
+    }
+
+    private void ApplyStateForCharacter(StateFrameEnum currentState) {
         if (!this.physic.isGrounded && !airFramesEnabled.Contains(currentState)) {
             this.frame.ChangeFrame(CharacterSpecialStartFrameEnum.JUMPING_FALLING);
         }
@@ -35,16 +51,6 @@ public class StateController : MonoBehaviour {
         if (currentState != StateFrameEnum.INJURED && currentState != StateFrameEnum.INJURED_2) {
             this.frame.injuredCount = 0;
         }
-
-        //count limit
-        //        frame.externAction = true;
-        //        var newItr = new InteractionData();
-        //        newItr.action = -1;
-        //        newItr.dvx = itr.dvx;
-        //        newItr.dvy = itr.dvy;
-        //        newItr.kind = ItrKindEnum.CHAR_NORMAL_HIT;
-        //        newItr.defensable = false;
-        //        frame.externItr = newItr;
 
         if (this.physic.isGrounded) {
             this.frame.ChangeFrame(this.frame.currentFrame.hit_ground);

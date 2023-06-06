@@ -16,6 +16,10 @@ public class FrameController : MonoBehaviour {
     public string frameToStopForDebug = null;
     public int previousId;
 
+    public float repeatAnimationAt;
+    public bool repeatAnimationStart;
+    public bool repeatAnimationReady;
+
     public float wait;
     public int currentHp;
     public bool facingRight;
@@ -216,6 +220,24 @@ public class FrameController : MonoBehaviour {
             this.ChangeFrame(currentFrame.hit_taunt, false);
             hitTaunt = false;
             return;
+        }
+
+        if (repeatAnimationReady) {
+            this.ChangeFrame(currentFrame.repeat_next, false);
+            repeatAnimationReady = false;
+            return;
+        }
+
+        if (repeatAnimationAt > 0) {
+            repeatAnimationAt -= Time.deltaTime;
+            repeatAnimationStart = true;
+        } else {
+            repeatAnimationAt = 0;
+
+            if (repeatAnimationStart) {
+                repeatAnimationReady = true;
+                repeatAnimationStart = false;
+            }
         }
 
         if (wait == 0) {

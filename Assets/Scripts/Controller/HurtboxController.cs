@@ -38,13 +38,16 @@ public class HurtboxController : MonoBehaviour {
 
             var otherObjTeam = hitbox.frame.team;
             var otherObjectId = hitbox.frame.selfId;
+            var otherOwnerObjectId = hitbox.frame.ownerId;
 
             var selfObjTeam = frame.team;
             var selfObjectId = frame.selfId;
+            var selfOwnerObjectId = frame.ownerId;
 
             switch (selfType) {
                 case ObjectTypeEnum.CHARACTER:
-                    this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, selfObjTeam, selfObjectId);
+                    this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
+                            selfObjTeam, selfObjectId, selfOwnerObjectId);
                     break;
                 case ObjectTypeEnum.EFFECT:
                     break;
@@ -54,15 +57,18 @@ public class HurtboxController : MonoBehaviour {
         }
     }
 
-    private void ProcessItrForCharacter(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam, int otherObjId, TeamEnum selfObjTeam, int selfObjId) {
+    private void ProcessItrForCharacter(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam,
+            int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
         switch (itr.kind) {
             case ItrKindEnum.CHAR_NORMAL_HIT:
                 if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
-                    Debug.Log("Enemy Hit");
-                    frame.externAction = true;
-                    frame.externItr = itr;
-                    if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
-                        hitbox.DefendingImpact(itr);
+                    if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId) {
+                        Debug.Log("Enemy Hit");
+                        frame.externAction = true;
+                        frame.externItr = itr;
+                        if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
+                            hitbox.DefendingImpact(itr);
+                        }
                     }
                 }
                 break;
@@ -73,7 +79,7 @@ public class HurtboxController : MonoBehaviour {
                 }
                 break;
             case ItrKindEnum.CHAR_ALLY:
-                if (selfObjTeam == otherObjTeam || selfObjId == hitbox.frame.ownerId) {
+                if (selfObjTeam == otherObjTeam || selfObjId == otherOwnerObjectId || otherObjId == selfOwnerObjectId) {
                     Debug.Log("Ally Hit");
                     return;
                 }

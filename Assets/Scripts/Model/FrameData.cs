@@ -54,6 +54,9 @@ public class FrameData {
     public bool hidden;
     public Nullable<int> hit_off_ground;
 
+    public float repeat_at;
+    public int repeat_next;
+
     public List<BodyData> bodys = new List<BodyData>();
 
     public List<ObjectPointData> opoints = new List<ObjectPointData>();
