@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class HurtboxesController : MonoBehaviour {
 
-    // Start is called before the first frame update
-    void Start() {
-    }
+    public BoxCollider boxCollider;
 
-    // Update is called once per frame
+    public Transform mainHurtbox;
+
     void Update() {
-
+        if (boxCollider && mainHurtbox) {
+            boxCollider.center = mainHurtbox.localPosition;
+            boxCollider.size = mainHurtbox.localScale;
+        }
     }
 }

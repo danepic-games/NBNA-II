@@ -61,16 +61,10 @@ public class HurtboxController : MonoBehaviour {
             int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
         switch (itr.kind) {
             case ItrKindEnum.CHAR_NORMAL_HIT:
-                if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
-                    if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId) {
-                        Debug.Log("Enemy Hit");
-                        frame.externAction = true;
-                        frame.externItr = itr;
-                        if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
-                            hitbox.DefendingImpact(itr);
-                        }
-                    }
-                }
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId);
+                break;
+            case ItrKindEnum.CHAR_SWORD_HIT:
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId);
                 break;
             case ItrKindEnum.CHAR_SELF:
                 if (selfObjId == otherObjId) {
@@ -84,6 +78,20 @@ public class HurtboxController : MonoBehaviour {
                     return;
                 }
                 break;
+        }
+    }
+
+    private void ApplyEnemyDamage(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam,
+            int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
+        if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
+            if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId) {
+                Debug.Log("Enemy Hit");
+                frame.externAction = true;
+                frame.externItr = itr;
+                if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
+                    hitbox.DefendingImpact(itr);
+                }
+            }
         }
     }
 }
