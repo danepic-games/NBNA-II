@@ -122,7 +122,17 @@ public class BodyComposerEditor : EditorWindow {
         var spriteFileNameValueParam = spriteFileNameHeaderParam.Split(':')[1];
         var spriteFileNameRegex = new Regex("Resources\\\\(.*\\\\)");
         this.abstractDataController.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
-        this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, CharacterHeaderKeyEnum.SPRITE_FOLDER);
+
+        switch (this.abstractDataController.type) {
+            case ObjectTypeEnum.CHARACTER:
+                this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, CharacterHeaderKeyEnum.SPRITE_FOLDER);
+                break;
+            case ObjectTypeEnum.POWER:
+                this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, PowerHeaderKeyEnum.SPRITE_FOLDER);
+                break;
+            default:
+                throw new MissingFieldException("Object type not found or not implemented!");
+        }
 
         this.sprites = ComposerUtil.GetSpriteMapper(this.abstractDataController);
 
