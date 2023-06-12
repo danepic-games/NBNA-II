@@ -209,6 +209,10 @@ public class DataMapperUtil {
                                 frameData.repeat_next = int.Parse(value);
                                 continue;
                             }
+                            if (key.Equals(FrameKeyEnum.scale.ToString())) {
+                                frameData.scale = float.Parse(value);
+                                continue;
+                            }
                         }
                     }
 #endregion

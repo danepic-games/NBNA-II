@@ -52,7 +52,9 @@ public class ObjectPointController : MonoBehaviour {
                     opoint.quantity = opoint.quantity > 5 ? 5 : opoint.quantity;
 
                     for (int i = 0; i < opoint.quantity; i++) {
+
                         var actualPos = opointSpawn.transform.position;
+                        Debug.Log(actualPos);
                         switch (i + 1) {
                             case 1:
                                 Instantiate(opointSpawn);

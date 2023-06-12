@@ -1,7 +1,8 @@
 using System;
 using TMPro;
 using UnityEngine;
-using Random=UnityEngine.Random;
+
+using Random = UnityEngine.Random;
 
 public class FrameController : MonoBehaviour {
     public AbstractDataController data;
@@ -141,7 +142,11 @@ public class FrameController : MonoBehaviour {
 #endif
 
         if (debugFrameToGo) {
-//            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
+            //            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
+        }
+
+        if (this.currentFrame.state == StateFrameEnum.NONE) {
+            return;
         }
 
         if (externAction) {
@@ -240,6 +245,10 @@ public class FrameController : MonoBehaviour {
             }
         }
 
+        if (this.currentFrame.scale.HasValue) {
+            transform.localScale = new Vector3(this.currentFrame.scale.Value, this.currentFrame.scale.Value, this.currentFrame.scale.Value);
+        }
+
         if (wait == 0) {
             wait = this.currentFrame.wait / 30;
 
@@ -314,10 +323,10 @@ public class FrameController : MonoBehaviour {
     public void Flip() {
         float xScaleFacing = 0;
         if (transform.localScale.x > 0) {
-            xScaleFacing = -1;
+            xScaleFacing = -transform.localScale.x;
             this.facingRight = false;
         } else {
-            xScaleFacing = 1;
+            xScaleFacing = Mathf.Abs(transform.localScale.x);
             this.facingRight = true;
         }
         transform.localScale = new Vector3(xScaleFacing, transform.localScale.y, transform.localScale.z);

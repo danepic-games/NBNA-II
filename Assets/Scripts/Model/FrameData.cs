@@ -57,6 +57,8 @@ public class FrameData {
     public float repeat_at;
     public int repeat_next;
 
+    public Nullable<float> scale;
+
     public List<BodyData> bodys = new List<BodyData>();
 
     public List<ObjectPointData> opoints = new List<ObjectPointData>();

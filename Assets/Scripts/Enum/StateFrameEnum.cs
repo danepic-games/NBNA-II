@@ -1,4 +1,5 @@
 public enum StateFrameEnum {
+   NONE = -1,
    STANDING = 0,
    WALKING = 1,
    RUNNING = 2,

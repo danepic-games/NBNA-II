@@ -10,9 +10,11 @@ public class HurtboxController : MonoBehaviour {
     public FrameController frame;
     public MeshRenderer meshRenderer;
 
+    public GameObject normalHit;
+    public GameObject swordHit;
+
     // Start is called before the first frame update
     void Start() {
-
     }
 
     // Update is called once per frame
@@ -61,10 +63,10 @@ public class HurtboxController : MonoBehaviour {
             int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
         switch (itr.kind) {
             case ItrKindEnum.CHAR_NORMAL_HIT:
-                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId);
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, normalHit);
                 break;
             case ItrKindEnum.CHAR_SWORD_HIT:
-                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId);
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, swordHit);
                 break;
             case ItrKindEnum.CHAR_SELF:
                 if (selfObjId == otherObjId) {
@@ -82,9 +84,12 @@ public class HurtboxController : MonoBehaviour {
     }
 
     private void ApplyEnemyDamage(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam,
-            int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
+            int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId,
+            GameObject hitEffect
+    ) {
         if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
             if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId) {
+                Instantiate(hitEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 Debug.Log("Enemy Hit");
                 frame.externAction = true;
                 frame.externItr = itr;

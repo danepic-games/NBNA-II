@@ -26,6 +26,8 @@ public class EffectDataController : AbstractDataController {
 
         this.sprites = SpriteMapperUtil.SpriteToMapOfSprite(this.header.sprite_folder, this.header.sprite_file_name);
 
+        Debug.Log(sprites.Count);
+
         var framesValue = firstSplit[1];
 
         DataMapperUtil.MapDataToObject(framesValue, out this.frames, this.sprites, header.sprite_file_name);

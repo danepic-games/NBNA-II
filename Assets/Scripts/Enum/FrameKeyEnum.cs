@@ -75,5 +75,6 @@ public enum FrameKeyEnum {
     power,
     defensable,
     repeat_at,
-    repeat_next
+    repeat_next,
+    scale
 }
