@@ -53,6 +53,7 @@ public class FrameData {
     public Nullable<int> hit_ground = null;
     public bool hidden;
     public Nullable<int> hit_off_ground;
+    public Nullable<int> hit_wall = null;
 
     public float repeat_at;
     public int repeat_next;

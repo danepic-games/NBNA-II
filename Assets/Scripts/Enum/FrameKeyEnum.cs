@@ -76,5 +76,6 @@ public enum FrameKeyEnum {
     defensable,
     repeat_at,
     repeat_next,
-    scale
+    scale,
+    hit_wall,
 }

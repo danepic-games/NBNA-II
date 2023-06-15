@@ -181,6 +181,10 @@ public class DataMapperUtil {
                                 frameData.hit_ground = int.Parse(value);
                                 continue;
                             }
+                            if (key.Equals(FrameKeyEnum.hit_wall.ToString())) {
+                                frameData.hit_wall = int.Parse(value);
+                                continue;
+                            }
                             if (key.Equals(FrameKeyEnum.hit_off_ground.ToString())) {
                                 frameData.hit_off_ground = int.Parse(value);
                                 continue;

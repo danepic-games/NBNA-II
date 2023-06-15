@@ -10,7 +10,10 @@ public class HurtboxController : MonoBehaviour {
     public FrameController frame;
     public MeshRenderer meshRenderer;
 
+    public int normalHitId;
     public GameObject normalHit;
+
+    public int swordHitId;
     public GameObject swordHit;
 
     // Start is called before the first frame update
@@ -63,10 +66,10 @@ public class HurtboxController : MonoBehaviour {
             int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
         switch (itr.kind) {
             case ItrKindEnum.CHAR_NORMAL_HIT:
-                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, normalHit);
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, normalHit, normalHitId);
                 break;
             case ItrKindEnum.CHAR_SWORD_HIT:
-                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, swordHit);
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, swordHit, swordHitId);
                 break;
             case ItrKindEnum.CHAR_SELF:
                 if (selfObjId == otherObjId) {
@@ -85,11 +88,14 @@ public class HurtboxController : MonoBehaviour {
 
     private void ApplyEnemyDamage(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam,
             int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId,
-            GameObject hitEffect
+            GameObject hitEffect, int hitEffectId
     ) {
         if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
             if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId) {
-                Instantiate(hitEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                var opointSpawn = Instantiate(hitEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                var spawnFrame = opointSpawn.GetComponent<FrameController>();
+                spawnFrame.summonAction = hitEffectId;
+
                 Debug.Log("Enemy Hit");
                 frame.externAction = true;
                 frame.externItr = itr;

@@ -14,6 +14,7 @@ public class BodyComposerEditor : EditorWindow {
     private AbstractDataController activeAbstractDataController;
 
     public BodyKindEnum kind;
+    public bool wallCheck;
 
     private int copyIdRangeBegin;
     private int copyIdRangeEnd;
@@ -227,13 +228,14 @@ public class BodyComposerEditor : EditorWindow {
             var specificHurtbox = selectedGameObject.transform.Find("Hurtboxes").Find("Hurtbox" + bodyNumber);
             specificHurtbox.localPosition = dimensionsToUse.localPosition;
             specificHurtbox.localScale = dimensionsToUse.localScale;
-            kind = bodysComposer[selectedFrame.id].kind;
+            this.kind = bodysComposer[selectedFrame.id].kind;
+            this.wallCheck = bodysComposer[selectedFrame.id].wallCheck;
         } else {
             dimensionsToUse = selectedGameObject.transform.Find("Hurtboxes").Find("Hurtbox" + bodyNumber);
         }
 
         if (dimensionsToUse) {
-            kind = (BodyKindEnum)EditorGUILayout.EnumPopup("kind: ", kind);
+            this.kind = (BodyKindEnum)EditorGUILayout.EnumPopup("kind: ", kind);
             specificBodyData.kind = kind;
 
             specificBodyData.x = EditorGUILayout.FloatField("x: ", dimensionsToUse.localPosition.x);
@@ -242,7 +244,11 @@ public class BodyComposerEditor : EditorWindow {
 
             specificBodyData.w = EditorGUILayout.FloatField("w: ", dimensionsToUse.localScale.x);
             specificBodyData.h = EditorGUILayout.FloatField("h: ", dimensionsToUse.localScale.y);
+
             specificBodyData.zwidth = EditorGUILayout.FloatField("zwidth: ", dimensionsToUse.localScale.z);
+            this.wallCheck = EditorGUILayout.Toggle("wallCheck: ", wallCheck);
+            specificBodyData.wallCheck = wallCheck;
+
             DestroyImmediate(tempGO);
 
             EditorGUILayout.Separator();

@@ -29,6 +29,7 @@ public class StateController : MonoBehaviour {
                 ApplyStateForCharacter(currentState);
                 break;
             case ObjectTypeEnum.POWER:
+                ApplyStateForPower(currentState);
                 break;
         }
 
@@ -54,6 +55,10 @@ public class StateController : MonoBehaviour {
 
         if (this.physic.isGrounded) {
             this.frame.ChangeFrame(this.frame.currentFrame.hit_ground);
+        }
+
+        if (this.physic.isWalled) {
+            this.frame.ChangeFrame(this.frame.currentFrame.hit_wall);
         }
 
         if (!this.physic.isGrounded && this.frame.currentFrame.state == StateFrameEnum.JUMPING || this.frame.currentFrame.state == StateFrameEnum.JUMPING_FALLING) {
@@ -162,6 +167,16 @@ public class StateController : MonoBehaviour {
             case StateFrameEnum.INJURED:
             case StateFrameEnum.INJURED_2:
                 break;
+        }
+    }
+
+    private void ApplyStateForPower(StateFrameEnum currentState) {
+        if (this.physic.isGrounded) {
+            this.frame.ChangeFrame(this.frame.currentFrame.hit_ground);
+        }
+
+        if (this.physic.isWalled) {
+            this.frame.ChangeFrame(this.frame.currentFrame.hit_wall);
         }
     }
 }
