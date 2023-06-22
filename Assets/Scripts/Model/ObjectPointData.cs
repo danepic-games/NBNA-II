@@ -12,6 +12,7 @@ public class ObjectPointData {
     public bool facing;
     public int quantity;
     public float z_division_per_quantity;
+    public bool enable_dvz_invocation;
 
     public int opointNumber;
     public int frameId;

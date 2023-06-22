@@ -39,25 +39,27 @@ public class HurtboxController : MonoBehaviour {
     void OnTriggerEnter(Collider collider) {
         HitboxController hitbox;
         if (collider.gameObject.TryGetComponent(out hitbox)) {
-            var selfType = frame.data.type;
+            if(frame.currentFrame.itrs.Count > 0) {
+                var selfType = frame.data.type;
 
-            var otherObjTeam = hitbox.frame.team;
-            var otherObjectId = hitbox.frame.selfId;
-            var otherOwnerObjectId = hitbox.frame.ownerId;
+                var otherObjTeam = hitbox.frame.team;
+                var otherObjectId = hitbox.frame.selfId;
+                var otherOwnerObjectId = hitbox.frame.ownerId;
 
-            var selfObjTeam = frame.team;
-            var selfObjectId = frame.selfId;
-            var selfOwnerObjectId = frame.ownerId;
+                var selfObjTeam = frame.team;
+                var selfObjectId = frame.selfId;
+                var selfOwnerObjectId = frame.ownerId;
 
-            switch (selfType) {
-                case ObjectTypeEnum.CHARACTER:
-                    this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
-                            selfObjTeam, selfObjectId, selfOwnerObjectId);
-                    break;
-                case ObjectTypeEnum.EFFECT:
-                    break;
-                case ObjectTypeEnum.POWER:
-                    break;
+                switch (selfType) {
+                    case ObjectTypeEnum.CHARACTER:
+                        this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
+                                selfObjTeam, selfObjectId, selfOwnerObjectId);
+                        break;
+                    case ObjectTypeEnum.EFFECT:
+                        break;
+                    case ObjectTypeEnum.POWER:
+                        break;
+                }
             }
         }
     }

@@ -19,6 +19,7 @@ public class PhysicController : MonoBehaviour {
 
     //Lock by input direction
     public Vector2 lockInputDirection;
+    public bool enable_dvz_invocation;
 
     public bool physicsOneTimePerFrame;
 
@@ -45,7 +46,8 @@ public class PhysicController : MonoBehaviour {
     public Transform hurtboxForWall;
     public LayerMask whatIsWall;
     public bool isWalled;
-    public float distanceToCheckWall;
+    public float distanceToCheckWallLeftRight;
+    public float distanceToCheckWallBackFront;
     public float xWallOrigin;
     public Vector3 wallLeftOrigin = Vector3.zero;
     public Vector3 wallRightOrigin = Vector3.zero;
@@ -224,6 +226,8 @@ public class PhysicController : MonoBehaviour {
         this.isGrounded = this.IsGroundedRaycast();
         this.isWalled = this.IsWalledRaycast();
 
+        Debug.Log(enable_dvz_invocation + " - " + lockInputDirection);
+
         if (this.physicsOneTimePerFrame) {
             float x = 0;
             float y = 0;
@@ -245,6 +249,10 @@ public class PhysicController : MonoBehaviour {
                 rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 0f);
             } else {
                 z = (this.frame.currentFrame.wait * 0.375f) * (this.frame.currentFrame.dvz);
+            }
+
+            if (enable_dvz_invocation) {
+                z = z * lockInputDirection.y;
             }
 
             ApplyImpulseForce(x, y, z);
@@ -329,7 +337,6 @@ public class PhysicController : MonoBehaviour {
         if (mainHurtbox) {
             if (mainHurtbox.bdy != null && mainHurtbox.bdy.wallCheck) {
                 this.hurtboxForWall = mainHurtbox.transform;
-                Debug.Log("Opa");
                 return IsLeftWalledRaycast() || IsRightWalledRaycast() || IsFrontWalledRaycast()|| IsBackWalledRaycast();
             }
         }
@@ -407,7 +414,7 @@ public class PhysicController : MonoBehaviour {
                 break;
         }
 
-        return Physics.Raycast(wallLeftOrigin, Vector3.left, out hit, distanceToCheckWall, whatIsWall);
+        return Physics.Raycast(wallLeftOrigin, Vector3.left, out hit, distanceToCheckWallLeftRight, whatIsWall);
     }
 
     private bool RightRaycastIsHit(CastOrientationEnum orientation) {
@@ -443,7 +450,7 @@ public class PhysicController : MonoBehaviour {
                 break;
         }
 
-        return Physics.Raycast(wallRightOrigin, Vector3.right, out hit, distanceToCheckWall, whatIsWall);
+        return Physics.Raycast(wallRightOrigin, Vector3.right, out hit, distanceToCheckWallLeftRight, whatIsWall);
     }
 
     private bool FrontRaycastIsHit(CastOrientationEnum orientation) {
@@ -479,7 +486,7 @@ public class PhysicController : MonoBehaviour {
                 break;
         }
 
-        return Physics.Raycast(wallFrontOrigin, Vector3.forward, out hit, distanceToCheckWall, whatIsWall);
+        return Physics.Raycast(wallFrontOrigin, Vector3.forward, out hit, distanceToCheckWallBackFront, whatIsWall);
     }
 
     private bool BackRaycastIsHit(CastOrientationEnum orientation) {
@@ -515,7 +522,7 @@ public class PhysicController : MonoBehaviour {
                 break;
         }
 
-        return Physics.Raycast(wallBackOrigin, Vector3.back, out hit, distanceToCheckWall, whatIsWall);
+        return Physics.Raycast(wallBackOrigin, Vector3.back, out hit, distanceToCheckWallBackFront, whatIsWall);
     }
 
 #if UNITY_EDITOR
@@ -536,10 +543,10 @@ public class PhysicController : MonoBehaviour {
                 bool isFrontWallHit = this.FrontRaycastIsHit(orientation);
                 bool isBackWallHit = this.BackRaycastIsHit(orientation);
 
-                Gizmos.DrawRay(wallLeftOrigin, Vector3.left * distanceToCheckWall);
-                Gizmos.DrawRay(wallRightOrigin, Vector3.right * distanceToCheckWall);
-                Gizmos.DrawRay(wallFrontOrigin, Vector3.forward * distanceToCheckWall);
-                Gizmos.DrawRay(wallBackOrigin, Vector3.back * distanceToCheckWall);
+                Gizmos.DrawRay(wallLeftOrigin, Vector3.left * distanceToCheckWallLeftRight);
+                Gizmos.DrawRay(wallRightOrigin, Vector3.right * distanceToCheckWallLeftRight);
+                Gizmos.DrawRay(wallFrontOrigin, Vector3.forward * distanceToCheckWallBackFront);
+                Gizmos.DrawRay(wallBackOrigin, Vector3.back * distanceToCheckWallBackFront);
             }
         }
     }

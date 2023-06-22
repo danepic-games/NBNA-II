@@ -45,6 +45,10 @@ public class ObjectPointController : MonoBehaviour {
 
                     spawnPhysics.externForce = new Vector3(opoint.dvx, opoint.dvy, opoint.dvz);
                     spawnPhysics.isExternForce = true;
+                    spawnPhysics.enable_dvz_invocation = opoint.enable_dvz_invocation;
+                    if (spawnPhysics.enable_dvz_invocation) {
+                        spawnPhysics.lockInputDirection = this.frame.inputDirection;
+                    }
 
                     spawnFrame.facingRight = frame.facingRight ? opoint.facing : !opoint.facing;
 
@@ -54,7 +58,6 @@ public class ObjectPointController : MonoBehaviour {
                     for (int i = 0; i < opoint.quantity; i++) {
 
                         var actualPos = opointSpawn.transform.position;
-                        Debug.Log(actualPos);
                         switch (i + 1) {
                             case 1:
                                 Instantiate(opointSpawn);

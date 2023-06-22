@@ -1,71 +1,58 @@
-using System;
-using System.IO;
 using System.Text;
-using System.Collections.Generic;
-using UnityEngine;
 using Unity.Profiling;
-using Unity.Profiling.LowLevel.Unsafe;
+using UnityEngine;
 
-public class ProfilerController : MonoBehaviour
-{
-    /************************************************************************************************************
-    * Source: https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Unity.Profiling.ProfilerRecorder.html
-    *************************************************************************************************************/
-
-    //public static ProfilerMarker UpdatePlayerProfilerMarker = new ProfilerMarker("Player.Update");
-
+public class ProfilerController : MonoBehaviour {
     string statsText;
-    ProfilerRecorder systemMemoryRecorder;
-    ProfilerRecorder gcMemoryRecorder;
-    ProfilerRecorder mainThreadTimeRecorder;
-    ProfilerRecorder drawCallsCountRecorder;
+    ProfilerRecorder totalReservedMemoryRecorder;
+    ProfilerRecorder gcReservedMemoryRecorder;
+    ProfilerRecorder systemUsedMemoryRecorder;
+    ProfilerRecorder setpassTimeRecorder;
+    ProfilerRecorder renderThread;
+    ProfilerRecorder mainthread;
+    ProfilerRecorder vertsRecorder;
 
-    static double GetRecorderFrameAverage(ProfilerRecorder recorder)
-    {
-        var samplesCount = recorder.Capacity;
-        if (samplesCount == 0)
-            return 0;
-
-        double r = 0;
-        var samples = new List<ProfilerRecorderSample>(samplesCount);
-        recorder.CopyTo(samples);
-        for (var i = 0; i < samples.Count; ++i)
-            r += samples[i].Value;
-        r /= samplesCount;
-
-        return r;
+    void OnEnable() {
+        totalReservedMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "Total Reserved Memory");
+        systemUsedMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "System Used Memory");
+        gcReservedMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "GC Reserved Memory");
+        setpassTimeRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Render, "SetPass Calls Count", 15);
+        renderThread = ProfilerRecorder.StartNew(ProfilerCategory.Internal, "Render Thread", 32);
+        mainthread = ProfilerRecorder.StartNew(ProfilerCategory.Internal, "Main Thread", 32);
+        vertsRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Vertices Count", 16);
     }
 
-    void OnEnable()
-    {
-        systemMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "System Used Memory");
-        gcMemoryRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Memory, "GC Reserved Memory");
-        mainThreadTimeRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Internal, "Main Thread", 15);
-        drawCallsCountRecorder = ProfilerRecorder.StartNew(ProfilerCategory.Render, "Draw Calls Count");
-
-        GetAvailableProfilerStats.EnumerateProfilerStats();
+    void OnDisable() {
+        totalReservedMemoryRecorder.Dispose();
+        gcReservedMemoryRecorder.Dispose();
+        systemUsedMemoryRecorder.Dispose();
+        setpassTimeRecorder.Dispose();
+        renderThread.Dispose();
+        vertsRecorder.Dispose();
+        mainthread.Dispose();
     }
 
-    void OnDisable()
-    {
-        systemMemoryRecorder.Dispose();
-        gcMemoryRecorder.Dispose();
-        mainThreadTimeRecorder.Dispose();
-        drawCallsCountRecorder.Dispose();
-    }
-
-    void Update()
-    {
+    void Update() {
         var sb = new StringBuilder(500);
-        sb.AppendLine($"Frame Time: {GetRecorderFrameAverage(mainThreadTimeRecorder) * (1e-6f):F1} ms");
-        sb.AppendLine($"GC Memory: {gcMemoryRecorder.LastValue / (1024 * 1024)} MB");
-        sb.AppendLine($"System Memory: {systemMemoryRecorder.LastValue / (1024 * 1024)} MB");
-        sb.AppendLine($"Draw Calls: {drawCallsCountRecorder.LastValue}");
+        if (totalReservedMemoryRecorder.Valid)
+            sb.AppendLine($"Total Reserved Memory: {totalReservedMemoryRecorder.LastValue / (1024 * 1024)} MB");
+        if (gcReservedMemoryRecorder.Valid)
+            sb.AppendLine($"GC Reserved Memory: {gcReservedMemoryRecorder.LastValue / (1024 * 1024)} MB");
+        if (systemUsedMemoryRecorder.Valid)
+            sb.AppendLine($"System Used Memory: {systemUsedMemoryRecorder.LastValue / (1024 * 1024)} MB");
+        if (setpassTimeRecorder.Valid)
+            sb.AppendLine($"SetPass Calls Count: {setpassTimeRecorder.LastValue}");
+        if (renderThread.Valid)
+            sb.AppendLine($"Render Thread: {renderThread.LastValue * (1e-6d):F2} ms");
+        if (mainthread.Valid)
+            sb.AppendLine($"Main Thread: {mainthread.LastValue * (1e-6d):F2} ms");
+        if (vertsRecorder.Valid)
+            sb.AppendLine($"Vertices count: {vertsRecorder.LastValue}");
+
         statsText = sb.ToString();
     }
 
-    void OnGUI()
-    {
-        GUI.TextArea(new Rect(10, 30, 250, 65), statsText);
+    void OnGUI() {
+        GUI.TextArea(new Rect(10, 30, 250, 125), statsText);
     }
 }

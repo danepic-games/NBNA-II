@@ -22,7 +22,7 @@ public enum CharacterSpecialStartFrameEnum {
     JUMP_DEFENSE = 300, //
     HIT_JUMP_DEFENSE = 305, //
     JUMP_FALLING_NO_ACTION = 308, //
-    THROWING_WEAPON = 310,
+    THROWING_WEAPON = 310, //
     RUNNING_ATTACK = 330, //
     ATTACK_1 = 350,
     ATTACK_2 = 370,

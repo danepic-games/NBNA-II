@@ -22,6 +22,7 @@ public class OpointComposerEditor : EditorWindow {
     public bool facing;
     public int quantity;
     public float z_division_per_quantity;
+    public bool enable_dvz_invocation;
 
     private int idSelectionSearch;
     private int frameIdSelected;
@@ -233,6 +234,7 @@ public class OpointComposerEditor : EditorWindow {
             this.facing = opointsComposer[selectedFrame.id].facing;
             this.quantity = opointsComposer[selectedFrame.id].quantity;
             this.z_division_per_quantity = opointsComposer[selectedFrame.id].z_division_per_quantity;
+            this.enable_dvz_invocation = opointsComposer[selectedFrame.id].enable_dvz_invocation;
         } else {
             dimensionsToUse = selectedGameObject.transform.Find("Opoints").Find("Opoint" + opointNumber);
         }
@@ -269,6 +271,11 @@ public class OpointComposerEditor : EditorWindow {
 
             z_division_per_quantity = EditorGUILayout.FloatField("z_division_per_quantity: ", z_division_per_quantity);
             specificObjectPointData.z_division_per_quantity = z_division_per_quantity;
+
+            EditorGUILayout.BeginHorizontal();
+            enable_dvz_invocation = EditorGUILayout.Toggle("enable_dvz_invocation: ", enable_dvz_invocation);
+            specificObjectPointData.enable_dvz_invocation = enable_dvz_invocation;
+            EditorGUILayout.EndHorizontal();
 
             specificObjectPointData.x = EditorGUILayout.FloatField("x: ", dimensionsToUse.localPosition.x);
             specificObjectPointData.y = EditorGUILayout.FloatField("y: ", dimensionsToUse.localPosition.y);
