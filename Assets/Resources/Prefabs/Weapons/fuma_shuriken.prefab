@@ -449,7 +449,7 @@ MonoBehaviour:
   characterDataController: {fileID: 0}
   effectDataController: {fileID: 0}
   powerDataController: {fileID: 7873136224467697418}
-  hurtbox: {fileID: 0}
+  mainHurtbox: {fileID: 0}
   frame: {fileID: 1375636060925926907}
   lockInputDirection: {x: 0, y: 0}
   enable_dvz_invocation: 0
