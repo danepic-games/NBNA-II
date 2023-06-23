@@ -58,48 +58,23 @@ public class CharacterDataController : AbstractDataController {
         DataMapperUtil.MapDataToObject(framesValue, out this.frames, this.sprites, header.sprite_file_name);
 
         //Add composer properties to frame
-
         foreach (KeyValuePair<int, FrameData> frame in this.frames) {
             BodyData bodyNew;
             if (bodysComposer.TryGetValue(frame.Key, out bodyNew)) {
-                bodyNew.bodyNumber = 1;
-                frame.Value.bodys.Add(bodyNew);
-            }
-            if (bodysComposer2.TryGetValue(frame.Key, out bodyNew)) {
-                bodyNew.bodyNumber = 2;
-                frame.Value.bodys.Add(bodyNew);
-            }
-            if (bodysComposer3.TryGetValue(frame.Key, out bodyNew)) {
-                bodyNew.bodyNumber = 3;
-                frame.Value.bodys.Add(bodyNew);
+                bodyNew.hasValue = true;
+                frame.Value.body = bodyNew;
             }
 
             InteractionData itrNew;
             if (interactionsComposer.TryGetValue(frame.Key, out itrNew)) {
-                itrNew.itrNumber = 1;
-                frame.Value.itrs.Add(itrNew);
-            }
-            if (interactionsComposer2.TryGetValue(frame.Key, out itrNew)) {
-                itrNew.itrNumber = 2;
-                frame.Value.itrs.Add(itrNew);
-            }
-            if (interactionsComposer3.TryGetValue(frame.Key, out itrNew)) {
-                itrNew.itrNumber = 3;
-                frame.Value.itrs.Add(itrNew);
+                itrNew.hasValue = true;
+                frame.Value.itr = itrNew;
             }
 
             ObjectPointData opointNew;
             if (opointsComposer.TryGetValue(frame.Key, out opointNew)) {
-                opointNew.opointNumber = 1;
-                frame.Value.opoints.Add(opointNew);
-            }
-            if (opointsComposer2.TryGetValue(frame.Key, out opointNew)) {
-                opointNew.opointNumber = 2;
-                frame.Value.opoints.Add(opointNew);
-            }
-            if (opointsComposer3.TryGetValue(frame.Key, out opointNew)) {
-                opointNew.opointNumber = 3;
-                frame.Value.opoints.Add(opointNew);
+                opointNew.hasValue = true;
+                frame.Value.opoint = opointNew;
             }
         }
     }

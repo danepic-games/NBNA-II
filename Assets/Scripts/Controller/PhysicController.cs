@@ -11,9 +11,7 @@ public class PhysicController : MonoBehaviour {
 
     public PowerDataController powerDataController;
 
-    public HurtboxController mainHurtbox;
-    public HurtboxController secondHurtbox;
-    public HurtboxController thirdHurtbox;
+    public HurtboxController hurtbox;
 
     public FrameController frame;
 
@@ -226,8 +224,6 @@ public class PhysicController : MonoBehaviour {
         this.isGrounded = this.IsGroundedRaycast();
         this.isWalled = this.IsWalledRaycast();
 
-        Debug.Log(enable_dvz_invocation + " - " + lockInputDirection);
-
         if (this.physicsOneTimePerFrame) {
             float x = 0;
             float y = 0;
@@ -292,31 +288,31 @@ public class PhysicController : MonoBehaviour {
         RaycastHit hit;
         switch (orientation) {
             case CastOrientationEnum.CENTER:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x, mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z);
+                groundOrigin = new Vector3(hurtbox.transform.position.x, hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z);
                 break;
             case CastOrientationEnum.LEFT:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x - (mainHurtbox.transform.localScale.x / 2), mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z);
+                groundOrigin = new Vector3(hurtbox.transform.position.x - (hurtbox.transform.localScale.x / 2), hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z);
                 break;
             case CastOrientationEnum.RIGHT:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x + (mainHurtbox.transform.localScale.x / 2), mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z);
+                groundOrigin = new Vector3(hurtbox.transform.position.x + (hurtbox.transform.localScale.x / 2), hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z);
                 break;
             case CastOrientationEnum.FRONT:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x, mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z - (mainHurtbox.transform.localScale.z / 2));
+                groundOrigin = new Vector3(hurtbox.transform.position.x, hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z - (hurtbox.transform.localScale.z / 2));
                 break;
             case CastOrientationEnum.BACK:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x, mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z + (mainHurtbox.transform.localScale.z / 2));
+                groundOrigin = new Vector3(hurtbox.transform.position.x, hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z + (hurtbox.transform.localScale.z / 2));
                 break;
             case CastOrientationEnum.LEFT_DOWN:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x - (mainHurtbox.transform.localScale.x / 2), mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z - (mainHurtbox.transform.localScale.z / 2));
+                groundOrigin = new Vector3(hurtbox.transform.position.x - (hurtbox.transform.localScale.x / 2), hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z - (hurtbox.transform.localScale.z / 2));
                 break;
             case CastOrientationEnum.LEFT_UP:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x - (mainHurtbox.transform.localScale.x / 2), mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z + (mainHurtbox.transform.localScale.z / 2));
+                groundOrigin = new Vector3(hurtbox.transform.position.x - (hurtbox.transform.localScale.x / 2), hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z + (hurtbox.transform.localScale.z / 2));
                 break;
             case CastOrientationEnum.RIGHT_DOWN:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x + (mainHurtbox.transform.localScale.x / 2), mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z - (mainHurtbox.transform.localScale.z / 2));
+                groundOrigin = new Vector3(hurtbox.transform.position.x + (hurtbox.transform.localScale.x / 2), hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z - (hurtbox.transform.localScale.z / 2));
                 break;
             case CastOrientationEnum.RIGHT_UP:
-                groundOrigin = new Vector3(mainHurtbox.transform.position.x + (mainHurtbox.transform.localScale.x / 2), mainHurtbox.transform.position.y - (mainHurtbox.transform.localScale.y / 2) - yGroundOrigin, mainHurtbox.transform.position.z + (mainHurtbox.transform.localScale.z / 2));
+                groundOrigin = new Vector3(hurtbox.transform.position.x + (hurtbox.transform.localScale.x / 2), hurtbox.transform.position.y - (hurtbox.transform.localScale.y / 2) - yGroundOrigin, hurtbox.transform.position.z + (hurtbox.transform.localScale.z / 2));
                 break;
         }
 
@@ -324,33 +320,21 @@ public class PhysicController : MonoBehaviour {
     }
 
     private bool IsGroundedRaycast() {
-        if (mainHurtbox) {
+        if (hurtbox) {
             return DownRaycastIsHit(CastOrientationEnum.CENTER) || DownRaycastIsHit(CastOrientationEnum.LEFT) ||
             DownRaycastIsHit(CastOrientationEnum.RIGHT) || DownRaycastIsHit(CastOrientationEnum.FRONT) ||
-            DownRaycastIsHit(CastOrientationEnum.BACK);
+            DownRaycastIsHit(CastOrientationEnum.BACK) || DownRaycastIsHit(CastOrientationEnum.RIGHT_DOWN) ||
+            DownRaycastIsHit(CastOrientationEnum.RIGHT_UP) || DownRaycastIsHit(CastOrientationEnum.LEFT_DOWN) ||
+            DownRaycastIsHit(CastOrientationEnum.LEFT_UP);
         }
 
         return false;
     }
 
     private bool IsWalledRaycast() {
-        if (mainHurtbox) {
-            if (mainHurtbox.bdy != null && mainHurtbox.bdy.wallCheck) {
-                this.hurtboxForWall = mainHurtbox.transform;
-                return IsLeftWalledRaycast() || IsRightWalledRaycast() || IsFrontWalledRaycast()|| IsBackWalledRaycast();
-            }
-        }
-
-        if (secondHurtbox) {
-            if (secondHurtbox.bdy != null && secondHurtbox.bdy.wallCheck) {
-                this.hurtboxForWall = secondHurtbox.transform;
-                return IsLeftWalledRaycast() || IsRightWalledRaycast() || IsFrontWalledRaycast()|| IsBackWalledRaycast();
-            }
-        }
-
-        if (thirdHurtbox) {
-            if (thirdHurtbox.bdy != null && thirdHurtbox.bdy.wallCheck) {
-                this.hurtboxForWall = thirdHurtbox.transform;
+        if (hurtbox) {
+            if (hurtbox.bdy != null && hurtbox.bdy.wallCheck) {
+                this.hurtboxForWall = hurtbox.transform;
                 return IsLeftWalledRaycast() || IsRightWalledRaycast() || IsFrontWalledRaycast()|| IsBackWalledRaycast();
             }
         }
@@ -532,7 +516,7 @@ public class PhysicController : MonoBehaviour {
 
         foreach (CastOrientationEnum orientation in values) {
 
-            if (mainHurtbox) {
+            if (hurtbox) {
                 bool isGroundHit = this.DownRaycastIsHit(orientation);
                 Gizmos.DrawRay(groundOrigin, Vector3.down * distanceToCheckGround);
             }

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class HitboxController : MonoBehaviour {
 
-    public int itrNumber;
-    public HitboxesController hitboxes;
     public InteractionData itr;
     public BoxCollider boxCollider;
     public SpriteRenderer spriteRenderer;
@@ -17,11 +15,11 @@ public class HitboxController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (frame.currentFrame.itrs != null && frame.currentFrame.itrs.Count >= itrNumber) {
+        if (frame.currentFrame.itr != null && frame.currentFrame.itr.HasValue()) {
             boxCollider.enabled = true;
             meshRenderer.enabled = true;
 
-            itr = frame.currentFrame.itrs[itrNumber - 1];
+            itr = frame.currentFrame.itr;
 
             transform.localPosition = new Vector3(itr.x, itr.y, itr.z);
             transform.localScale = new Vector3(itr.w, itr.h, itr.zwidthz);
@@ -29,9 +27,6 @@ public class HitboxController : MonoBehaviour {
             boxCollider.enabled = false;
             meshRenderer.enabled = false;
         }
-    }
-
-    void OnTriggerEnter(Collider collider) {
     }
 
     public void DefendingImpact(InteractionData itr) {

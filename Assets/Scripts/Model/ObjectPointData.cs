@@ -1,5 +1,7 @@
+using Model;
+
 [System.Serializable]
-public class ObjectPointData {
+public class ObjectPointData : Data {
     public ObjectPointKindEnum kind;
     public float x;
     public float y;
@@ -14,6 +16,10 @@ public class ObjectPointData {
     public float z_division_per_quantity;
     public bool enable_dvz_invocation;
 
-    public int opointNumber;
     public int frameId;
+    public bool hasValue = false;
+
+    public bool HasValue() {
+        return hasValue;
+    }
 }

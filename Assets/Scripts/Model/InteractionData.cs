@@ -1,7 +1,8 @@
+using Model;
 using UnityEngine;
 
 [System.Serializable]
-public class InteractionData {
+public class InteractionData : Data {
     public ItrKindEnum kind;
     public float x;
     public float y;
@@ -36,6 +37,10 @@ public class InteractionData {
     public float paralysis;
     public float freeze;
 
-    public int itrNumber;
     public int frameId;
+    public bool hasValue = false;
+
+    public bool HasValue() {
+        return hasValue;
+    }
 }

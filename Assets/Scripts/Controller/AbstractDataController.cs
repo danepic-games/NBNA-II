@@ -20,28 +20,10 @@ public class AbstractDataController : MonoBehaviour {
     public Map<int, BodyData> bodysComposer;
 
     [SerializeField]
-    public Map<int, BodyData> bodysComposer2;
-
-    [SerializeField]
-    public Map<int, BodyData> bodysComposer3;
-
-    [SerializeField]
     public Map<int, ObjectPointData> opointsComposer;
 
     [SerializeField]
-    public Map<int, ObjectPointData> opointsComposer2;
-
-    [SerializeField]
-    public Map<int, ObjectPointData> opointsComposer3;
-
-    [SerializeField]
     public Map<int, InteractionData> interactionsComposer;
-
-    [SerializeField]
-    public Map<int, InteractionData> interactionsComposer2;
-
-    [SerializeField]
-    public Map<int, InteractionData> interactionsComposer3;
 
     [SerializeField]
     protected Map<int, Sprite> sprites;

@@ -60,9 +60,7 @@ public class FrameData {
 
     public Nullable<float> scale;
 
-    public List<BodyData> bodys = new List<BodyData>();
-
-    public List<ObjectPointData> opoints = new List<ObjectPointData>();
-
-    public List<InteractionData> itrs = new List<InteractionData>();
+    public BodyData body;
+    public ObjectPointData opoint;
+    public InteractionData itr;
 }

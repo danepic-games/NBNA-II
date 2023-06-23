@@ -48,12 +48,7 @@ public class InteractionComposerEditor : EditorWindow {
     private int frameIdSelected;
 
     private InteractionData itrData;
-    private InteractionData itrData2;
-    private InteractionData itrData3;
-    private ComposerElementsNumberEnum itrNumber;
     private bool loadItr1ByComposer;
-    private bool loadItr2ByComposer;
-    private bool loadItr3ByComposer;
 
     private Map<int, Sprite> sprites;
     private Map<int, FrameData> frames;
@@ -173,68 +168,25 @@ public class InteractionComposerEditor : EditorWindow {
     }
 
     private void BuildItr() {
-        EditorGUILayout.BeginHorizontal();
-        this.itrNumber = (ComposerElementsNumberEnum)EditorGUILayout.EnumPopup("itrNumber: ", itrNumber);
-        EditorGUILayout.EndHorizontal();
-        if (this.itrNumber == ComposerElementsNumberEnum.MAIN) {
-            this.loadItr1ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
-            "(True = Composer; False = Hitbox + itrNumber)", this.loadItr1ByComposer);
-            if (loadItr1ByComposer) {
-                this.loadItr1ByComposer = this.abstractDataController.interactionsComposer.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificItr(this.itrData, this.abstractDataController.interactionsComposer, 1, this.loadItr1ByComposer);
+        this.loadItr1ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
+        "(True = Composer; False = Hitbox + itrNumber)", this.loadItr1ByComposer);
+        if (loadItr1ByComposer) {
+            this.loadItr1ByComposer = this.abstractDataController.interactionsComposer.ContainsKey(selectedFrame.id);
         }
-
-        if (this.itrNumber == ComposerElementsNumberEnum.SECOND) {
-            this.loadItr2ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
-            "(True = Composer; False = Hitbox + itrNumber)", this.loadItr2ByComposer);
-            if (loadItr2ByComposer) {
-                this.loadItr2ByComposer = this.abstractDataController.interactionsComposer2.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificItr(this.itrData2, this.abstractDataController.interactionsComposer2, 2, this.loadItr2ByComposer);
-        }
-
-        if (this.itrNumber == ComposerElementsNumberEnum.THIRD) {
-            this.loadItr3ByComposer = EditorGUILayout.Toggle("Type of Load Itr dimensions: " +
-            "(True = Composer; False = Hitbox + itrNumber)", this.loadItr3ByComposer);
-            if (loadItr3ByComposer) {
-                this.loadItr3ByComposer = this.abstractDataController.interactionsComposer3.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificItr(this.itrData3, this.abstractDataController.interactionsComposer3, 3, this.loadItr3ByComposer);
-        }
+        this.BuildSpecificItr(this.itrData, this.abstractDataController.interactionsComposer, 1, this.loadItr1ByComposer);
 
         EditorGUILayout.Separator();
     }
 
     private void DrawComposerItrs() {
-        var transformMain = selectedGameObject.transform.Find("Hitboxes");
+        var transformMain = selectedGameObject.transform.Find("Hitbox");
 
         if (transformMain) {
-            if (itrNumber != ComposerElementsNumberEnum.MAIN && abstractDataController.interactionsComposer.TryGetValue(selectedFrame.id, out itrData)) {
-                var transform1 = transformMain.Find("Hitbox1");
-
-                transform1.localPosition = new Vector3(itrData.x, itrData.y, itrData.z);
-                transform1.localScale = new Vector3(itrData.w, itrData.h, itrData.zwidthz);
+            if (abstractDataController.interactionsComposer.TryGetValue(selectedFrame.id, out itrData)) {
+                transformMain.localPosition = new Vector3(itrData.x, itrData.y, itrData.z);
+                transformMain.localScale = new Vector3(itrData.w, itrData.h, itrData.zwidthz);
             } else {
                 itrData = new InteractionData();
-            }
-
-            if (itrNumber != ComposerElementsNumberEnum.SECOND && abstractDataController.interactionsComposer2.TryGetValue(selectedFrame.id, out itrData2)) {
-                var transform2 = transformMain.Find("Hitbox2");
-
-                transform2.localPosition = new Vector3(itrData2.x, itrData2.y, itrData2.z);
-                transform2.localScale = new Vector3(itrData2.w, itrData2.h, itrData2.zwidthz);
-            } else {
-                itrData2 = new InteractionData();
-            }
-
-            if (itrNumber != ComposerElementsNumberEnum.THIRD && abstractDataController.interactionsComposer3.TryGetValue(selectedFrame.id, out itrData3)) {
-                var transform3 = transformMain.Find("Hitbox3");
-
-                transform3.localPosition = new Vector3(itrData3.x, itrData3.y, itrData3.z);
-                transform3.localScale = new Vector3(itrData3.w, itrData3.h, itrData3.zwidthz);
-            } else {
-                itrData3 = new InteractionData();
             }
         }
     }
@@ -247,7 +199,7 @@ public class InteractionComposerEditor : EditorWindow {
             dimensionsToUse.localPosition = new Vector3(itrsComposer[selectedFrame.id].x, itrsComposer[selectedFrame.id].y, itrsComposer[selectedFrame.id].z);
             dimensionsToUse.localScale = new Vector3(itrsComposer[selectedFrame.id].w, itrsComposer[selectedFrame.id].h, itrsComposer[selectedFrame.id].zwidthz);
 
-            var specificHurtbox = selectedGameObject.transform.Find("Hitboxes").Find("Hitbox" + itrNumber);
+            var specificHurtbox = selectedGameObject.transform.Find("Hitbox");
             specificHurtbox.localPosition = dimensionsToUse.localPosition;
             specificHurtbox.localScale = dimensionsToUse.localScale;
 
@@ -282,7 +234,7 @@ public class InteractionComposerEditor : EditorWindow {
             this.paralysis = itrsComposer[selectedFrame.id].paralysis;
             this.freeze = itrsComposer[selectedFrame.id].freeze;
         } else {
-            dimensionsToUse = selectedGameObject.transform.Find("Hitboxes").Find("Hitbox" + itrNumber);
+            dimensionsToUse = selectedGameObject.transform.Find("Hitbox");
         }
 
         if (dimensionsToUse) {
@@ -395,7 +347,7 @@ public class InteractionComposerEditor : EditorWindow {
                 if (itrsComposer.ContainsKey(selectedFrame.id)) {
                     itrsComposer.Remove(selectedFrame.id);
                 }
-                specificItrData.itrNumber = itrNumber;
+                specificItrData.hasValue = true;
                 itrsComposer.Add(selectedFrame.id, specificItrData);
                 Debug.Log("Save Done!");
             }

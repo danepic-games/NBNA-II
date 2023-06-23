@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class HurtboxController : MonoBehaviour {
 
-    public int bodyNumber;
-    public HurtboxesController hurtboxes;
     public BodyData bdy;
+    public BoxCollider mainCollider;
     public BoxCollider boxCollider;
     public SpriteRenderer spriteRenderer;
     public FrameController frame;
@@ -22,11 +21,16 @@ public class HurtboxController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (frame.currentFrame.bodys != null && frame.currentFrame.bodys.Count >= bodyNumber) {
+        if (mainCollider && transform) {
+            mainCollider.center = transform.localPosition;
+            mainCollider.size = transform.localScale;
+        }
+
+        if (frame.currentFrame.body != null && frame.currentFrame.body.HasValue()) {
             boxCollider.enabled = true;
             meshRenderer.enabled = true;
 
-            bdy = frame.currentFrame.bodys[bodyNumber - 1];
+            bdy = frame.currentFrame.body;
 
             transform.localPosition = new Vector3(bdy.x, bdy.y, bdy.z);
             transform.localScale = new Vector3(bdy.w, bdy.h, bdy.zwidth);
@@ -39,7 +43,7 @@ public class HurtboxController : MonoBehaviour {
     void OnTriggerEnter(Collider collider) {
         HitboxController hitbox;
         if (collider.gameObject.TryGetComponent(out hitbox)) {
-            if(frame.currentFrame.itrs.Count > 0) {
+            if(frame.currentFrame.itr != null) {
                 var selfType = frame.data.type;
 
                 var otherObjTeam = hitbox.frame.team;

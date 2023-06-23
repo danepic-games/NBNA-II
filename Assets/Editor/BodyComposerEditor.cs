@@ -25,12 +25,7 @@ public class BodyComposerEditor : EditorWindow {
     private int frameIdSelected;
 
     private BodyData bodyData;
-    private BodyData bodyData2;
-    private BodyData bodyData3;
-    private ComposerElementsNumberEnum bodyNumber;
     private bool loadBdy1ByComposer;
-    private bool loadBdy2ByComposer;
-    private bool loadBdy3ByComposer;
 
     private Map<int, Sprite> sprites;
     private Map<int, FrameData> frames;
@@ -150,69 +145,25 @@ public class BodyComposerEditor : EditorWindow {
     }
 
     private void BuildBdy() {
-        EditorGUILayout.BeginHorizontal();
-        this.bodyNumber = (ComposerElementsNumberEnum)EditorGUILayout.EnumPopup("bodyNumber: ", bodyNumber);
-        EditorGUILayout.EndHorizontal();
-
-        if (this.bodyNumber == ComposerElementsNumberEnum.MAIN) {
-            this.loadBdy1ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
-            "(True = Composer; False = Hurtbox1)", this.loadBdy1ByComposer);
-            if (loadBdy1ByComposer) {
-                this.loadBdy1ByComposer = this.abstractDataController.bodysComposer.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificBdy(this.bodyData, this.abstractDataController.bodysComposer, 1, this.loadBdy1ByComposer);
+        this.loadBdy1ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
+        "(True = Composer; False = Hurtbox1)", this.loadBdy1ByComposer);
+        if (loadBdy1ByComposer) {
+            this.loadBdy1ByComposer = this.abstractDataController.bodysComposer.ContainsKey(selectedFrame.id);
         }
-
-        if (this.bodyNumber == ComposerElementsNumberEnum.SECOND) {
-            this.loadBdy2ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
-            "(True = Composer; False = Hurtbox2)", this.loadBdy2ByComposer);
-            if (loadBdy2ByComposer) {
-                this.loadBdy2ByComposer = this.abstractDataController.bodysComposer2.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificBdy(this.bodyData2, this.abstractDataController.bodysComposer2, 2, this.loadBdy2ByComposer);
-        }
-
-        if (this.bodyNumber == ComposerElementsNumberEnum.THIRD) {
-            this.loadBdy3ByComposer = EditorGUILayout.Toggle("Type of Load Bdy dimensions: " +
-            "(True = Composer; False = Hurtbox3)", this.loadBdy3ByComposer);
-            if (loadBdy3ByComposer) {
-                this.loadBdy3ByComposer = this.abstractDataController.bodysComposer3.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificBdy(this.bodyData3, this.abstractDataController.bodysComposer3, 3, this.loadBdy3ByComposer);
-        }
+        this.BuildSpecificBdy(this.bodyData, this.abstractDataController.bodysComposer, 1, this.loadBdy1ByComposer);
 
         EditorGUILayout.Separator();
     }
 
     private void DrawComposerBodies() {
-        var transformMain = selectedGameObject.transform.Find("Hurtboxes");
+        var transformMain = selectedGameObject.transform.Find("Hurtbox");
 
         if (transformMain) {
-            if (bodyNumber != ComposerElementsNumberEnum.MAIN && abstractDataController.bodysComposer.TryGetValue(selectedFrame.id, out bodyData)) {
-                var transform1 = transformMain.Find("Hurtbox1");
-
-                transform1.localPosition = new Vector3(bodyData.x, bodyData.y, bodyData.z);
-                transform1.localScale = new Vector3(bodyData.w, bodyData.h, bodyData.zwidth);
+            if (abstractDataController.bodysComposer.TryGetValue(selectedFrame.id, out bodyData)) {
+                transformMain.localPosition = new Vector3(bodyData.x, bodyData.y, bodyData.z);
+                transformMain.localScale = new Vector3(bodyData.w, bodyData.h, bodyData.zwidth);
             } else {
                 bodyData = new BodyData();
-            }
-
-            if (bodyNumber != ComposerElementsNumberEnum.SECOND && abstractDataController.bodysComposer2.TryGetValue(selectedFrame.id, out bodyData2)) {
-                var transform2 = transformMain.Find("Hurtbox2");
-
-                transform2.localPosition = new Vector3(bodyData2.x, bodyData2.y, bodyData2.z);
-                transform2.localScale = new Vector3(bodyData2.w, bodyData2.h, bodyData2.zwidth);
-            } else {
-                bodyData2 = new BodyData();
-            }
-
-            if (bodyNumber != ComposerElementsNumberEnum.THIRD && abstractDataController.bodysComposer3.TryGetValue(selectedFrame.id, out bodyData3)) {
-                var transform3 = transformMain.Find("Hurtbox3");
-
-                transform3.localPosition = new Vector3(bodyData3.x, bodyData3.y, bodyData3.z);
-                transform3.localScale = new Vector3(bodyData3.w, bodyData3.h, bodyData3.zwidth);
-            } else {
-                bodyData3 = new BodyData();
             }
         }
     }
@@ -225,13 +176,13 @@ public class BodyComposerEditor : EditorWindow {
             dimensionsToUse.localPosition = new Vector3(bodysComposer[selectedFrame.id].x, bodysComposer[selectedFrame.id].y, bodysComposer[selectedFrame.id].z);
             dimensionsToUse.localScale = new Vector3(bodysComposer[selectedFrame.id].w, bodysComposer[selectedFrame.id].h, bodysComposer[selectedFrame.id].zwidth);
 
-            var specificHurtbox = selectedGameObject.transform.Find("Hurtboxes").Find("Hurtbox" + bodyNumber);
+            var specificHurtbox = selectedGameObject.transform.Find("Hurtbox");
             specificHurtbox.localPosition = dimensionsToUse.localPosition;
             specificHurtbox.localScale = dimensionsToUse.localScale;
             this.kind = bodysComposer[selectedFrame.id].kind;
             this.wallCheck = bodysComposer[selectedFrame.id].wallCheck;
         } else {
-            dimensionsToUse = selectedGameObject.transform.Find("Hurtboxes").Find("Hurtbox" + bodyNumber);
+            dimensionsToUse = selectedGameObject.transform.Find("Hurtbox");
         }
 
         if (dimensionsToUse) {
@@ -257,7 +208,7 @@ public class BodyComposerEditor : EditorWindow {
                 if (bodysComposer.ContainsKey(selectedFrame.id)) {
                     bodysComposer.Remove(selectedFrame.id);
                 }
-                specificBodyData.bodyNumber = bodyNumber;
+                specificBodyData.hasValue = true;
                 bodysComposer.Add(selectedFrame.id, specificBodyData);
                 Debug.Log("Save Done!");
             }
@@ -276,7 +227,7 @@ public class BodyComposerEditor : EditorWindow {
                     if (bodysComposer.ContainsKey(id)) {
                         bodysComposer.Remove(id);
                     }
-                    specificBodyData.bodyNumber = bodyNumber;
+                    specificBodyData.hasValue = true;
                     bodysComposer.Add(id, specificBodyData);
                 }
                 Debug.Log("Save Done!");
@@ -299,7 +250,6 @@ public class BodyComposerEditor : EditorWindow {
                         }
 
                         if (bodysComposer.ContainsKey(copyId)) {
-                            bodysComposer[copyId].bodyNumber = bodyNumber;
                             bodysComposer.Add(id, bodysComposer[copyId]);
                             copyId++;
                         } else {

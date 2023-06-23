@@ -28,12 +28,7 @@ public class OpointComposerEditor : EditorWindow {
     private int frameIdSelected;
 
     private ObjectPointData opointData;
-    private ObjectPointData opointData2;
-    private ObjectPointData opointData3;
-    private ComposerElementsNumberEnum opointNumber;
     private bool loadOpoint1ByComposer;
-    private bool loadOpoint2ByComposer;
-    private bool loadOpoint3ByComposer;
 
     private Map<int, Sprite> sprites;
     private Map<int, FrameData> frames;
@@ -153,77 +148,36 @@ public class OpointComposerEditor : EditorWindow {
     }
 
     private void BuildOpoint() {
-        EditorGUILayout.BeginHorizontal();
-        this.opointNumber = (ComposerElementsNumberEnum)EditorGUILayout.EnumPopup("opointNumber: ", opointNumber);
-        EditorGUILayout.EndHorizontal();
-        if (this.opointNumber == ComposerElementsNumberEnum.MAIN) {
-            this.loadOpoint1ByComposer = EditorGUILayout.Toggle("Type of Load Opoint dimensions: " +
-            "(True = Composer; False = Opoints + opointNumber)", this.loadOpoint1ByComposer);
-            if (loadOpoint1ByComposer) {
-                this.loadOpoint1ByComposer = this.abstractDataController.opointsComposer.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificItr(this.opointData, this.abstractDataController.opointsComposer, 1, this.loadOpoint1ByComposer);
+        this.loadOpoint1ByComposer = EditorGUILayout.Toggle("Type of Load Opoint dimensions: " +
+        "(True = Composer; False = Opoints + opointNumber)", this.loadOpoint1ByComposer);
+        if (loadOpoint1ByComposer) {
+            this.loadOpoint1ByComposer = this.abstractDataController.opointsComposer.ContainsKey(selectedFrame.id);
         }
-
-        if (this.opointNumber == ComposerElementsNumberEnum.SECOND) {
-            this.loadOpoint2ByComposer = EditorGUILayout.Toggle("Type of Load Opoint dimensions: " +
-            "(True = Composer; False = Opoints + opointNumber)", this.loadOpoint2ByComposer);
-            if (loadOpoint2ByComposer) {
-                this.loadOpoint2ByComposer = this.abstractDataController.opointsComposer2.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificItr(this.opointData2, this.abstractDataController.opointsComposer2, 2, this.loadOpoint2ByComposer);
-        }
-
-        if (this.opointNumber == ComposerElementsNumberEnum.THIRD) {
-            this.loadOpoint3ByComposer = EditorGUILayout.Toggle("Type of Load Opoint dimensions: " +
-            "(True = Composer; False = Opoints + opointNumber)", this.loadOpoint3ByComposer);
-            if (loadOpoint3ByComposer) {
-                this.loadOpoint3ByComposer = this.abstractDataController.opointsComposer3.ContainsKey(selectedFrame.id);
-            }
-            this.BuildSpecificItr(this.opointData3, this.abstractDataController.opointsComposer3, 3, this.loadOpoint3ByComposer);
-        }
+        this.BuildSpecificOpoint(this.opointData, this.abstractDataController.opointsComposer, this.loadOpoint1ByComposer);
 
         EditorGUILayout.Separator();
     }
 
     private void DrawComposerOpoints() {
-        var transformMain = selectedGameObject.transform.Find("Opoints");
+        var transformMain = selectedGameObject.transform.Find("Opoint");
 
         if (transformMain) {
-            if (opointNumber != ComposerElementsNumberEnum.MAIN && abstractDataController.opointsComposer.TryGetValue(selectedFrame.id, out opointData)) {
-                var transform1 = transformMain.Find("Opoint1");
-
-                transform1.localPosition = new Vector3(opointData.x, opointData.y, opointData.z);
+            if (abstractDataController.opointsComposer.TryGetValue(selectedFrame.id, out opointData)) {
+                transformMain.localPosition = new Vector3(opointData.x, opointData.y, opointData.z);
             } else {
                 opointData = new ObjectPointData();
-            }
-
-            if (opointNumber != ComposerElementsNumberEnum.SECOND && abstractDataController.opointsComposer2.TryGetValue(selectedFrame.id, out opointData2)) {
-                var transform2 = transformMain.Find("Opoint2");
-
-                transform2.localPosition = new Vector3(opointData2.x, opointData2.y, opointData2.z);
-            } else {
-                opointData2 = new ObjectPointData();
-            }
-
-            if (opointNumber != ComposerElementsNumberEnum.THIRD && abstractDataController.opointsComposer3.TryGetValue(selectedFrame.id, out opointData3)) {
-                var transform3 = transformMain.Find("Opoint3");
-
-                transform3.localPosition = new Vector3(opointData3.x, opointData3.y, opointData3.z);
-            } else {
-                opointData3 = new ObjectPointData();
             }
         }
     }
 
-    private void BuildSpecificItr(ObjectPointData specificObjectPointData, Map<int, ObjectPointData> opointsComposer, int opointNumber, bool loadOpointByComposer) {
+    private void BuildSpecificOpoint(ObjectPointData specificObjectPointData, Map<int, ObjectPointData> opointsComposer, bool loadOpointByComposer) {
         var tempGO = new GameObject();
         Transform dimensionsToUse = tempGO.transform;
 
         if (loadOpointByComposer) {
             dimensionsToUse.localPosition = new Vector3(opointsComposer[selectedFrame.id].x, opointsComposer[selectedFrame.id].y, opointsComposer[selectedFrame.id].z);
 
-            var specificHurtbox = selectedGameObject.transform.Find("Opoints").Find("Opoint" + opointNumber);
+            var specificHurtbox = selectedGameObject.transform.Find("Opoint");
             specificHurtbox.localPosition = dimensionsToUse.localPosition;
             this.kind = opointsComposer[selectedFrame.id].kind;
             this.action = opointsComposer[selectedFrame.id].action;
@@ -236,7 +190,7 @@ public class OpointComposerEditor : EditorWindow {
             this.z_division_per_quantity = opointsComposer[selectedFrame.id].z_division_per_quantity;
             this.enable_dvz_invocation = opointsComposer[selectedFrame.id].enable_dvz_invocation;
         } else {
-            dimensionsToUse = selectedGameObject.transform.Find("Opoints").Find("Opoint" + opointNumber);
+            dimensionsToUse = selectedGameObject.transform.Find("Opoint");
         }
 
         if (dimensionsToUse) {
@@ -284,16 +238,16 @@ public class OpointComposerEditor : EditorWindow {
 
             EditorGUILayout.Separator();
 
-            if (GUILayout.Button("Save OPOINT " + opointNumber)) {
+            if (GUILayout.Button("Save OPOINT")) {
                 if (opointsComposer.ContainsKey(selectedFrame.id)) {
                     opointsComposer.Remove(selectedFrame.id);
                 }
-                specificObjectPointData.opointNumber = opointNumber;
+                specificObjectPointData.hasValue = true;
                 opointsComposer.Add(selectedFrame.id, specificObjectPointData);
                 Debug.Log("Save Done!");
             }
 
-            if (GUILayout.Button("Remove OPOINT " + opointNumber)) {
+            if (GUILayout.Button("Remove OPOINT")) {
                 opointsComposer.Remove(selectedFrame.id);
                 Debug.Log("Remove Done!");
             }
