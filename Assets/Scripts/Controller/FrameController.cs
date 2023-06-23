@@ -251,12 +251,7 @@ public class FrameController : MonoBehaviour {
 
         if (wait == 0) {
             wait = this.currentFrame.wait / 30;
-
-            var centery = Mathf.Abs(this.currentFrame.centery / this.currentFrame.pic.rect.height - 1);
-            var centerx = this.currentFrame.centerx / this.currentFrame.pic.rect.width;
-
-            var pivot = new Vector2(centerx, centery);
-            this.spriteRenderer.sprite = Sprite.Create(this.currentFrame.pic.texture, this.currentFrame.pic.rect, pivot);
+            this.spriteRenderer.sprite = this.currentFrame.pic;
         }
 
         if (wait > 0) {
