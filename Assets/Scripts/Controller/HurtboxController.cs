@@ -8,18 +8,8 @@ public class HurtboxController : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
     public FrameController frame;
     public MeshRenderer meshRenderer;
+    public ObjectPointController objectPointController;
 
-    public int normalHitId;
-    public GameObject normalHit;
-
-    public int swordHitId;
-    public GameObject swordHit;
-
-    // Start is called before the first frame update
-    void Start() {
-    }
-
-    // Update is called once per frame
     void Update() {
         if (mainCollider && transform) {
             mainCollider.center = transform.localPosition;
@@ -72,10 +62,8 @@ public class HurtboxController : MonoBehaviour {
             int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId) {
         switch (itr.kind) {
             case ItrKindEnum.CHAR_NORMAL_HIT:
-                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, normalHit, normalHitId);
-                break;
             case ItrKindEnum.CHAR_SWORD_HIT:
-                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId, swordHit, swordHitId);
+                this.ApplyEnemyDamage(hitbox, itr, otherObjTeam, otherObjId, otherOwnerObjectId, selfObjTeam, selfObjId, selfOwnerObjectId);
                 break;
             case ItrKindEnum.CHAR_SELF:
                 if (selfObjId == otherObjId) {
@@ -93,14 +81,15 @@ public class HurtboxController : MonoBehaviour {
     }
 
     private void ApplyEnemyDamage(HitboxController hitbox, InteractionData itr, TeamEnum otherObjTeam,
-            int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId,
-            GameObject hitEffect, int hitEffectId
+            int otherObjId, int otherOwnerObjectId, TeamEnum selfObjTeam, int selfObjId, int selfOwnerObjectId
     ) {
         if (selfObjTeam != otherObjTeam || otherObjTeam == TeamEnum.INDEPENDENT || selfObjTeam == TeamEnum.INDEPENDENT) {
             if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId) {
-                var opointSpawn = Instantiate(hitEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                var spawnFrame = opointSpawn.GetComponent<FrameController>();
-                spawnFrame.summonAction = hitEffectId;
+                if (itr.kind == ItrKindEnum.CHAR_NORMAL_HIT) {
+                    objectPointController.InvokeNormalHit(transform.position);
+                } else {
+                    objectPointController.InvokeSwordHit(transform.position);
+                }
 
                 Debug.Log("Enemy Hit");
                 frame.externAction = true;

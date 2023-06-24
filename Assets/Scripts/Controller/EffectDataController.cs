@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using UnityEngine;
 
 public class EffectDataController : AbstractDataController {
 
@@ -23,6 +22,7 @@ public class EffectDataController : AbstractDataController {
         this.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
 
         this.header.sprite_folder = GetHeaderParam(headerParams, EffectHeaderKeyEnum.SPRITE_FOLDER);
+        this.header.invoke_limit = int.Parse(GetHeaderParam(headerParams, EffectHeaderKeyEnum.INVOKE_LIMIT));
 
         this.sprites = SpriteMapperUtil.SpriteToMapOfSprite(this.header.sprite_folder, this.header.sprite_file_name);
 

@@ -8,12 +8,6 @@ public class HitboxController : MonoBehaviour {
     public FrameController frame;
     public MeshRenderer meshRenderer;
 
-    // Start is called before the first frame update
-    void Start() {
-
-    }
-
-    // Update is called once per frame
     void Update() {
         if (frame.currentFrame.itr != null && frame.currentFrame.itr.HasValue()) {
             boxCollider.enabled = true;

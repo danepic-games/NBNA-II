@@ -20,4 +20,5 @@ public class HeaderData {
     public int resistence;
     public int stamina;
     public int on_fly;
+    public int invoke_limit;
 }

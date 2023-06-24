@@ -53,12 +53,9 @@ public class PhysicController : MonoBehaviour {
     public Vector3 wallBackOrigin = Vector3.zero;
 
     void Start() {
-        this.physicsOneTimePerFrame = true;
-        this.isGrounded = false;
-        this.isWalled = false;
-        this.currentFrameId = -1;
-        this.externForce = Vector3.zero;
+        this.ResetValues();
 
+        this.externForce = Vector3.zero;
         type = GetObjectType();
     }
 
@@ -176,7 +173,6 @@ public class PhysicController : MonoBehaviour {
 
             if (this.frame.externAction) {
                 if (this.frame.externItr.action == -1) {
-                    //                    Debug.Log("DefendingImpact2 " + this.frame.externItr.x);
                     x = this.frame.externItr.dvx / 2;
                     y = 0f;
                     z = 0f;
@@ -278,7 +274,6 @@ public class PhysicController : MonoBehaviour {
         }
         var velocity = new Vector3(x, y, z);
         if (velocity != Vector3.zero) {
-            //            Debug.Log(name + ":" + frame.currentFrame.id + ":" + velocity);
             rigidbody.AddForce(velocity, ForceMode.Impulse);
             this.physicsOneTimePerFrame = false;
         }
@@ -535,4 +530,11 @@ public class PhysicController : MonoBehaviour {
         }
     }
 #endif
+
+    public void ResetValues() {
+        this.physicsOneTimePerFrame = true;
+        this.isGrounded = false;
+        this.isWalled = false;
+        this.currentFrameId = -1;
+    }
 }

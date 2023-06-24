@@ -28,6 +28,9 @@ public class AbstractDataController : MonoBehaviour {
     [SerializeField]
     protected Map<int, Sprite> sprites;
 
+    [SerializeField]
+    public string assetPath;
+
     public string GetHeaderParam(string[] headerParams, CharacterHeaderKeyEnum paramKey, char separator = ' ') {
         return this.GetHeaderParam(headerParams, (int)paramKey, separator);
     }

@@ -95,10 +95,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056755314183172986}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -117,8 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataFile: {fileID: 1042094116111776886, guid: 05b79dd043bd3a04aa50f79fcb7a2913, type: 3}
-  type: 2
-  listOfFramesContent: []
   header:
     name: 
     sprite_file_name: 
@@ -131,6 +140,7 @@ MonoBehaviour:
     start_mp: 0
     total_hp: 0
     total_mp: 0
+    first_attack: 0
     agressive: 0
     technique: 0
     inteligent: 0
@@ -138,6 +148,24 @@ MonoBehaviour:
     resistence: 0
     stamina: 0
     on_fly: 0
+    invoke_limit: 0
+  type: 2
+  frames:
+    keys: 
+    values: []
+  bodysComposer:
+    keys: 
+    values: []
+  opointsComposer:
+    keys: 
+    values: []
+  interactionsComposer:
+    keys: 
+    values: []
+  sprites:
+    keys: 
+    values: []
+  assetPath: Prefabs/Effects/stop_running_dust
 --- !u!114 &2056755314183172988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,12 +199,117 @@ MonoBehaviour:
     hp: 0
     sound: {fileID: 0}
     hidden: 0
-    bodys: []
-    opoints: []
-    itrs: []
+    repeat_at: 0
+    repeat_next: 0
+    body:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+      h: 0
+      zwidth: 0
+      wallCheck: 0
+      frameId: 0
+      beginFrameId: 0
+      endFrameId: 0
+      hasValue: 0
+    opoint:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      action: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      object_id: 
+      facing: 0
+      quantity: 0
+      z_division_per_quantity: 0
+      enable_dvz_invocation: 0
+      frameId: 0
+      hasValue: 0
+    itr:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+      h: 0
+      zwidthz: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      arest: 0
+      vrest: 0
+      action: 0
+      power: 0
+      defensable: 0
+      injury: 0
+      sound: {fileID: 0}
+      confuse: 0
+      silence: 0
+      slow: 0
+      stun: 0
+      ignite: 0
+      poison: 0
+      root: 0
+      charm: 0
+      fear: 0
+      taunt: 0
+      blind: 0
+      paralysis: 0
+      freeze: 0
+      frameId: 0
+      hasValue: 0
+  debugFrameToGo: 0
+  frameToStopForDebug: 
+  previousId: 0
+  repeatAnimationAt: 0
+  repeatAnimationStart: 0
+  repeatAnimationReady: 0
   wait: 0
+  currentHp: 0
   facingRight: 0
+  facingUp: 0
+  summonAction: 0
   externAction: 0
+  externItr:
+    kind: 0
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+    h: 0
+    zwidthz: 0
+    dvx: 0
+    dvy: 0
+    dvz: 0
+    arest: 0
+    vrest: 0
+    action: 0
+    power: 0
+    defensable: 0
+    injury: 0
+    sound: {fileID: 0}
+    confuse: 0
+    silence: 0
+    slow: 0
+    stun: 0
+    ignite: 0
+    poison: 0
+    root: 0
+    charm: 0
+    fear: 0
+    taunt: 0
+    blind: 0
+    paralysis: 0
+    freeze: 0
+    frameId: 0
+    hasValue: 0
+  attacked: 0
+  wasAttacked: 0
   runningRightCount: 0
   runningRightEnable: 0
   countRightEnable: 0
@@ -184,11 +317,32 @@ MonoBehaviour:
   runningLeftEnable: 0
   countLeftEnable: 0
   sideDashUpCount: 0
+  sideDashUpEnable: 0
+  countSideDashUpEnable: 0
   sideDashDownCount: 0
+  sideDashDownEnable: 0
+  countSideDashDownEnable: 0
   inputDirection: {x: 0, y: 0}
   hitJump: 0
+  hitDefense: 0
+  holdDefense: 0
   hitAttack: 0
-  frameToStopForDebug: 
+  hitTaunt: 0
+  hitPower: 0
+  holdForwardAfter: 0
+  holdDefenseAfter: 0
+  holdPowerAfter: 0
+  team: 0
+  ownerId: 0
+  selfId: 0
+  ownerOpointController: {fileID: 0}
+  objectPointCache:
+    key: 
+    gameObject: {fileID: 0}
+    physicController: {fileID: 0}
+    frameController: {fileID: 0}
+  injuredCount: 0
+  injuredCountOneTimePerState: 0
   timeText: {fileID: 0}
 --- !u!114 &2056755314183172987
 MonoBehaviour:
@@ -205,7 +359,11 @@ MonoBehaviour:
   rigidbody: {fileID: 2056755314183172990}
   characterDataController: {fileID: 0}
   effectDataController: {fileID: 2056755314183172989}
+  powerDataController: {fileID: 0}
+  hurtbox: {fileID: 0}
   frame: {fileID: 2056755314183172988}
+  lockInputDirection: {x: 0, y: 0}
+  enable_dvz_invocation: 0
   physicsOneTimePerFrame: 0
   externForce: {x: 0, y: 0, z: 0}
   isExternForce: 1
@@ -217,6 +375,16 @@ MonoBehaviour:
   isGrounded: 0
   distanceToCheckGround: 0
   yGroundOrigin: 0
-  xGroundOrigin: 0
-  zGroundOrigin: 0
   groundOrigin: {x: -3.344, y: 2.556, z: -7.85}
+  hurtboxForWall: {fileID: 0}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  isWalled: 0
+  distanceToCheckWallLeftRight: 0
+  distanceToCheckWallBackFront: 0
+  xWallOrigin: 0
+  wallLeftOrigin: {x: 0, y: 0, z: 0}
+  wallRightOrigin: {x: 0, y: 0, z: 0}
+  wallFrontOrigin: {x: 0, y: 0, z: 0}
+  wallBackOrigin: {x: 0, y: 0, z: 0}

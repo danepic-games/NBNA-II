@@ -77,6 +77,8 @@ public class FrameController : MonoBehaviour {
     public TeamEnum team;
     public int ownerId;
     public int selfId;
+    public ObjectPointController ownerOpointController;
+    public ObjectPointCache objectPointCache;
 
     //Injured
     public int injuredCount;
@@ -90,39 +92,9 @@ public class FrameController : MonoBehaviour {
         if (this.currentFrame == null) {
             this.currentFrame = this.data.frames[0];
         }
-        this.wait = 0;
-        if (this.facingRight) {
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-        } else {
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-        }
-        this.runningRightCount = 0;
-        this.runningLeftCount = 0;
-        this.sideDashUpCount = 0;
-        this.sideDashDownCount = 0;
-        this.inputDirection = Vector2.zero;
-        this.runningRightEnable = false;
-        this.runningLeftEnable = false;
-        this.countRightEnable = false;
-        this.countLeftEnable = false;
-        this.sideDashDownEnable = false;
-        this.sideDashUpEnable = false;
-        this.countSideDashUpEnable = false;
-        this.countSideDashDownEnable = false;
-        this.holdForwardAfter = false;
-        this.holdDefenseAfter = false;
-        this.holdPowerAfter = false;
-        this.externAction = false;
-        this.injuredCount = 0;
-        this.injuredCountOneTimePerState = true;
 
-        switch (this.data.type) {
-            case ObjectTypeEnum.CHARACTER:
-                this.currentHp = ((CharacterDataController)this.data).header.start_hp;
-                break;
-            case ObjectTypeEnum.POWER:
-                this.currentHp = ((PowerDataController)this.data).header.start_hp;
-                break;
+        if (ownerOpointController != null) {
+            this.ResetValues(ownerOpointController.frame.facingRight);
         }
 
         this.selfId = GetInstanceID();
@@ -299,7 +271,14 @@ public class FrameController : MonoBehaviour {
     public void ChangeFrame(int frameToGo, bool usingNextPattern = true) {
         previousId = currentFrame.id;
         if (currentFrame.next == (int)FrameSpecialValuesEnum.DELETE) {
-            UnityEngine.Object.Destroy(this.gameObject);
+            if (ownerOpointController != null) {
+                this.transform.parent = this.ownerOpointController.gameObjectOpoint.transform;
+                this.transform.localPosition = this.objectPointCache.originalPosition;
+                this.gameObject.SetActive(false);
+                this.ownerOpointController.opoints[objectPointCache.key].Enqueue(objectPointCache);
+            } else {
+                Destroy(this.gameObject);
+            }
             return;
         }
         summonAction = -1;
@@ -411,6 +390,44 @@ public class FrameController : MonoBehaviour {
         if (injuredCount >= INJURED_COUNT_LIMIT) {
             this.ChangeFrame(CharacterSpecialStartFrameEnum.FALLING, false);
             return;
+        }
+    }
+
+    public void ResetValues(bool facingRight) {
+        ResetValues(facingRight ? Vector3.right : Vector3.left);
+    }
+
+    public void ResetValues(Vector3 inputDirection) {
+        this.currentFrame = this.data.frames[0];
+        this.wait = 0;
+        this.Flip(inputDirection);
+        this.runningRightCount = 0;
+        this.runningLeftCount = 0;
+        this.sideDashUpCount = 0;
+        this.sideDashDownCount = 0;
+        this.inputDirection = Vector2.zero;
+        this.runningRightEnable = false;
+        this.runningLeftEnable = false;
+        this.countRightEnable = false;
+        this.countLeftEnable = false;
+        this.sideDashDownEnable = false;
+        this.sideDashUpEnable = false;
+        this.countSideDashUpEnable = false;
+        this.countSideDashDownEnable = false;
+        this.holdForwardAfter = false;
+        this.holdDefenseAfter = false;
+        this.holdPowerAfter = false;
+        this.externAction = false;
+        this.injuredCount = 0;
+        this.injuredCountOneTimePerState = true;
+
+        switch (this.data.type) {
+            case ObjectTypeEnum.CHARACTER:
+                this.currentHp = ((CharacterDataController)this.data).header.start_hp;
+                break;
+            case ObjectTypeEnum.POWER:
+                this.currentHp = ((PowerDataController)this.data).header.start_hp;
+                break;
         }
     }
 }

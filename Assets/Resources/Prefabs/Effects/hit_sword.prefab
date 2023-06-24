@@ -396,17 +396,12 @@ MonoBehaviour:
     resistence: 0
     stamina: 0
     on_fly: 0
+    invoke_limit: 0
   type: 2
   frames:
     keys: 
     values: []
   bodysComposer:
-    keys: 
-    values: []
-  bodysComposer2:
-    keys: 
-    values: []
-  bodysComposer3:
     keys: 
     values: []
   opointsComposer:
@@ -424,26 +419,16 @@ MonoBehaviour:
       facing: 1
       quantity: 1
       z_division_per_quantity: 0
-      opointNumber: 1
+      enable_dvz_invocation: 0
       frameId: 0
-  opointsComposer2:
-    keys: 
-    values: []
-  opointsComposer3:
-    keys: 
-    values: []
+      hasValue: 0
   interactionsComposer:
-    keys: 
-    values: []
-  interactionsComposer2:
-    keys: 
-    values: []
-  interactionsComposer3:
     keys: 
     values: []
   sprites:
     keys: 
     values: []
+  assetPath: Prefabs/Effects/hit_sword
 --- !u!114 &5434202245245580082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,9 +464,68 @@ MonoBehaviour:
     hidden: 0
     repeat_at: 0
     repeat_next: 0
-    bodys: []
-    opoints: []
-    itrs: []
+    body:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+      h: 0
+      zwidth: 0
+      wallCheck: 0
+      frameId: 0
+      beginFrameId: 0
+      endFrameId: 0
+      hasValue: 0
+    opoint:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      action: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      object_id: 
+      facing: 0
+      quantity: 0
+      z_division_per_quantity: 0
+      enable_dvz_invocation: 0
+      frameId: 0
+      hasValue: 0
+    itr:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+      h: 0
+      zwidthz: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      arest: 0
+      vrest: 0
+      action: 0
+      power: 0
+      defensable: 0
+      injury: 0
+      sound: {fileID: 0}
+      confuse: 0
+      silence: 0
+      slow: 0
+      stun: 0
+      ignite: 0
+      poison: 0
+      root: 0
+      charm: 0
+      fear: 0
+      taunt: 0
+      blind: 0
+      paralysis: 0
+      freeze: 0
+      frameId: 0
+      hasValue: 0
   debugFrameToGo: 0
   frameToStopForDebug: 
   previousId: 0
@@ -525,8 +569,8 @@ MonoBehaviour:
     blind: 0
     paralysis: 0
     freeze: 0
-    itrNumber: 0
     frameId: 0
+    hasValue: 0
   attacked: 0
   wasAttacked: 0
   runningRightCount: 0
@@ -554,6 +598,12 @@ MonoBehaviour:
   team: 0
   ownerId: 0
   selfId: 0
+  ownerOpointController: {fileID: 0}
+  objectPointCache:
+    key: 
+    gameObject: {fileID: 0}
+    physicController: {fileID: 0}
+    frameController: {fileID: 0}
   injuredCount: 0
   injuredCountOneTimePerState: 0
   timeText: {fileID: 0}
@@ -573,8 +623,10 @@ MonoBehaviour:
   characterDataController: {fileID: 0}
   effectDataController: {fileID: 4601237383744493812}
   powerDataController: {fileID: 0}
+  hurtbox: {fileID: 0}
   frame: {fileID: 5434202245245580082}
   lockInputDirection: {x: 0, y: 0}
+  enable_dvz_invocation: 0
   physicsOneTimePerFrame: 0
   externForce: {x: 0, y: 0, z: 0}
   isExternForce: 1
@@ -586,9 +638,19 @@ MonoBehaviour:
   isGrounded: 0
   distanceToCheckGround: 0
   yGroundOrigin: 0
-  xGroundOrigin: 0
-  zGroundOrigin: 0
   groundOrigin: {x: -0.049, y: 3.077, z: -8}
+  hurtboxForWall: {fileID: 0}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  isWalled: 0
+  distanceToCheckWallLeftRight: 0
+  distanceToCheckWallBackFront: 0
+  xWallOrigin: 0
+  wallLeftOrigin: {x: 0, y: 0, z: 0}
+  wallRightOrigin: {x: 0, y: 0, z: 0}
+  wallFrontOrigin: {x: 0, y: 0, z: 0}
+  wallBackOrigin: {x: 0, y: 0, z: 0}
 --- !u!114 &7228858651352418638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,9 +664,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frame: {fileID: 5434202245245580082}
-  opoints: []
+  opoint:
+    kind: 0
+    x: 0
+    y: 0
+    z: 0
+    action: 0
+    dvx: 0
+    dvy: 0
+    dvz: 0
+    object_id: 
+    facing: 0
+    quantity: 0
+    z_division_per_quantity: 0
+    enable_dvz_invocation: 0
+    frameId: 0
+    hasValue: 0
   opointOneTimePerFrame: 0
   currentFrameId: 0
+  opoints:
+    keys: []
+  gameObjectOpoint: {fileID: 0}
+  normalHitId: 0
+  normalHit: {fileID: 0}
+  swordHitId: 0
+  swordHit: {fileID: 0}
 --- !u!1 &8739835609520440523
 GameObject:
   m_ObjectHideFlags: 0

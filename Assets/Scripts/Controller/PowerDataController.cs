@@ -22,6 +22,7 @@ public class PowerDataController : AbstractDataController {
         this.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
 
         this.header.sprite_folder = GetHeaderParam(headerParams, PowerHeaderKeyEnum.SPRITE_FOLDER);
+        this.header.invoke_limit = int.Parse(GetHeaderParam(headerParams, PowerHeaderKeyEnum.INVOKE_LIMIT));
 
         this.sprites = SpriteMapperUtil.SpriteToMapOfSprite(this.header.sprite_folder, this.header.sprite_file_name);
 
