@@ -3,7 +3,8 @@ using System.Linq;
 using SerializableHelper;
 using UnityEngine;
 
-public class ObjectPointController : MonoBehaviour {
+public class ObjectPointController : MonoBehaviour
+{
     public FrameController frame;
 
     public ObjectPointData opoint;
@@ -21,7 +22,8 @@ public class ObjectPointController : MonoBehaviour {
     public int swordHitId;
     public GameObject swordHit;
 
-    void Start() {
+    void Start()
+    {
         this.opointOneTimePerFrame = true;
         this.currentFrameId = -1;
 
@@ -29,7 +31,8 @@ public class ObjectPointController : MonoBehaviour {
         .Where(frame => frame.Value.opoint != null && frame.Value.opoint.HasValue())
         .ToList();
 
-        foreach (KeyValuePair<int, FrameData> frame in framesWithOpoints) {
+        foreach (KeyValuePair<int, FrameData> frame in framesWithOpoints)
+        {
             var prefab = Resources.Load<GameObject>(frame.Value.opoint.object_id);
             CacheOpoints(prefab, frame.Value.opoint);
         }
@@ -38,12 +41,15 @@ public class ObjectPointController : MonoBehaviour {
         CacheOpoints(swordHit);
     }
 
-    void CacheOpoints(GameObject prefab, ObjectPointData opoint = null) {
-        if (prefab == null) {
+    void CacheOpoints(GameObject prefab, ObjectPointData opoint = null)
+    {
+        if (prefab == null)
+        {
             return;
         }
 
-        if (opoint != null) {
+        if (opoint != null)
+        {
             opoint.quantity = opoint.quantity == null || opoint.quantity <= 0 ? 0 : opoint.quantity;
             opoint.quantity = opoint.quantity > 5 ? 5 : opoint.quantity;
 
@@ -51,7 +57,8 @@ public class ObjectPointController : MonoBehaviour {
             float y = transform.position.y + opoint.y;
             float z = transform.position.z + opoint.z;
 
-            switch (opoint.quantity) {
+            switch (opoint.quantity)
+            {
                 case 1:
                     InstantiateCache(prefab, new Vector3(x, y, z));
                     break;
@@ -78,19 +85,23 @@ public class ObjectPointController : MonoBehaviour {
                     InstantiateCache(prefab, new Vector3(x, y, z - (opoint.z_division_per_quantity * 2)));
                     break;
             }
-        } else {
+        }
+        else
+        {
             InstantiateCache(prefab, transform.position);
         }
     }
 
-    private void InstantiateCache(GameObject prefab, Vector3 position) {
+    private void InstantiateCache(GameObject prefab, Vector3 position)
+    {
         var opointInstantiate = Instantiate<GameObject>(prefab, position, Quaternion.identity);
         var opointData = opointInstantiate.GetComponent<AbstractDataController>();
         var opointPhysics = opointInstantiate.GetComponent<PhysicController>();
         var opointFrame = opointPhysics.frame;
 
+        opointFrame.isCache = true;
         opointInstantiate.transform.parent = gameObjectOpoint.transform;
-        opointInstantiate.SetActive(false);
+
         var prefabCacheName = opointData.assetPath;
 
         var cache = new ObjectPointCache();
@@ -108,13 +119,14 @@ public class ObjectPointController : MonoBehaviour {
 
         var invoke_limit = opointInstantiate.GetComponent<AbstractDataController>().header.invoke_limit;
 
-        for (int i = 1; invoke_limit > i; i++) {
+        for (int i = 1; invoke_limit > i; i++)
+        {
             var opointInstantiateExtend = Instantiate<GameObject>(prefab, position, Quaternion.identity);
             var opointPhysicsExtend = opointInstantiateExtend.GetComponent<PhysicController>();
             var opointFrameExtend = opointPhysicsExtend.frame;
 
+            opointFrameExtend.isCache = true;
             opointInstantiateExtend.transform.parent = gameObjectOpoint.transform;
-            opointInstantiateExtend.SetActive(false);
 
             var cacheExtend = new ObjectPointCache();
             cacheExtend.gameObject = opointInstantiateExtend;
@@ -128,19 +140,24 @@ public class ObjectPointController : MonoBehaviour {
         }
     }
 
-    void Update() {
-        if (this.currentFrameId != this.frame.currentFrame.id) {
+    void Update()
+    {
+        if (this.currentFrameId != this.frame.currentFrame.id)
+        {
             this.opointOneTimePerFrame = true;
             this.currentFrameId = this.frame.currentFrame.id;
         }
 
-        if (this.opointOneTimePerFrame) {
-            if (frame.currentFrame.opoint != null) {
+        if (this.opointOneTimePerFrame)
+        {
+            if (frame.currentFrame.opoint != null)
+            {
                 opoint = frame.currentFrame.opoint;
                 return;
             }
 
-            if (opoint != null && opoint.HasValue()) {
+            if (opoint != null && opoint.HasValue())
+            {
                 Instantiate(opoint);
                 this.opointOneTimePerFrame = false;
                 this.opoint = null;
@@ -148,11 +165,13 @@ public class ObjectPointController : MonoBehaviour {
         }
     }
 
-    void Instantiate(ObjectPointData opoint) {
+    void Instantiate(ObjectPointData opoint)
+    {
         opoint.quantity = opoint.quantity == null || opoint.quantity <= 0 ? 0 : opoint.quantity;
         opoint.quantity = opoint.quantity > 5 ? 5 : opoint.quantity;
 
-        switch (opoint.quantity) {
+        switch (opoint.quantity)
+        {
             case 1:
                 Instantiate(opoint, 0f);
                 break;
@@ -181,7 +200,8 @@ public class ObjectPointController : MonoBehaviour {
         }
     }
 
-    void Instantiate(ObjectPointData opoint, float z_division_per_quantity) {
+    void Instantiate(ObjectPointData opoint, float z_division_per_quantity)
+    {
         var cacheOpoint = GetCacheOpoint(opoint.object_id);
 
         cacheOpoint.frameController.ResetValues(frame.facingRight);
@@ -194,7 +214,8 @@ public class ObjectPointController : MonoBehaviour {
         cacheOpoint.physicController.externForce = new Vector3(opoint.dvx, opoint.dvy, opoint.dvz);
         cacheOpoint.physicController.isExternForce = true;
         cacheOpoint.physicController.enable_dvz_invocation = opoint.enable_dvz_invocation;
-        if (cacheOpoint.physicController.enable_dvz_invocation) {
+        if (cacheOpoint.physicController.enable_dvz_invocation)
+        {
             cacheOpoint.physicController.lockInputDirection = this.frame.inputDirection;
         }
 
@@ -204,19 +225,23 @@ public class ObjectPointController : MonoBehaviour {
         cacheOpoint.frameController.facingRight = frame.facingRight ? opoint.facing : !opoint.facing;
     }
 
-    private ObjectPointCache GetCacheOpoint(string opointObjectId) {
+    private ObjectPointCache GetCacheOpoint(string opointObjectId)
+    {
         return this.opoints[opointObjectId].Dequeue();
     }
 
-    public void InvokeNormalHit(Vector3 position) {
+    public void InvokeNormalHit(Vector3 position)
+    {
         InvokeHit(position, normalHit, normalHitId);
     }
 
-    public void InvokeSwordHit(Vector3 position) {
+    public void InvokeSwordHit(Vector3 position)
+    {
         InvokeHit(position, swordHit, swordHitId);
     }
 
-    void InvokeHit(Vector3 position, GameObject hit, int hitId) {
+    void InvokeHit(Vector3 position, GameObject hit, int hitId)
+    {
         var opointSpawn = Instantiate(hit, new Vector3(position.x, position.y, position.z), Quaternion.identity);
         var spawnFrame = opointSpawn.GetComponent<FrameController>();
         spawnFrame.summonAction = hitId;

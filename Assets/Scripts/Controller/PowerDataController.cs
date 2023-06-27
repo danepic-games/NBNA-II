@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 public class PowerDataController : AbstractDataController {
 
@@ -31,7 +32,7 @@ public class PowerDataController : AbstractDataController {
         var framesValue = firstSplit[1];
 
         DataMapperUtil.MapDataToObject(framesValue, out this.frames, this.sprites, header.sprite_file_name);
-
+        
         //Add composer properties to frame
         foreach (KeyValuePair<int, FrameData> frame in this.frames) {
             BodyData bodyNew;

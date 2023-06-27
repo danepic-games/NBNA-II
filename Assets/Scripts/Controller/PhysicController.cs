@@ -26,7 +26,7 @@ public class PhysicController : MonoBehaviour {
 
     public int currentFrameId;
 
-    public ObjectTypeEnum type;
+    private ObjectTypeEnum type;
 
     // 550 movement
     private float STOP_MOVEMENT = 0;

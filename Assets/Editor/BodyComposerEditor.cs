@@ -137,11 +137,7 @@ public class BodyComposerEditor : EditorWindow {
     }
 
     private void SetFrameSprite() {
-        var centery = Mathf.Abs(selectedFrame.centery / selectedFrame.pic.rect.height - 1);
-        var centerx = selectedFrame.centerx / selectedFrame.pic.rect.width;
-
-        var pivot = new Vector2(centerx, centery);
-        this.spriteRenderer.sprite = Sprite.Create(selectedFrame.pic.texture, selectedFrame.pic.rect, pivot);
+        this.spriteRenderer.sprite = selectedFrame.pic;
     }
 
     private void BuildBdy() {

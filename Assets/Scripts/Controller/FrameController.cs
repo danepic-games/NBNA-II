@@ -4,7 +4,8 @@ using UnityEngine;
 
 using Random = UnityEngine.Random;
 
-public class FrameController : MonoBehaviour {
+public class FrameController : MonoBehaviour
+{
     public AbstractDataController data;
 
     public SpriteRenderer spriteRenderer;
@@ -23,8 +24,12 @@ public class FrameController : MonoBehaviour {
 
     public float wait;
     public int currentHp;
+    public int currentMp;
     public bool facingRight;
     public bool facingUp;
+
+    // Cache
+    public bool isCache = false;
 
     // Extern Interaction
     public int summonAction;
@@ -88,165 +93,239 @@ public class FrameController : MonoBehaviour {
     public TextMeshPro timeText;
 
     // Start is called before the first frame update
-    void Start() {
-        if (this.currentFrame == null) {
+    void Start()
+    {
+        if (this.currentFrame == null)
+        {
             this.currentFrame = this.data.frames[0];
         }
 
-        if (ownerOpointController != null) {
+        if (ownerOpointController != null)
+        {
             this.ResetValues(ownerOpointController.frame.facingRight);
         }
 
+        this.currentHp = data.header.start_hp;
+        this.currentMp = data.header.start_mp;
         this.selfId = GetInstanceID();
+
+        if (isCache)
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 #if UNITY_EDITOR
-        if (frameToStopForDebug != null && frameToStopForDebug.Trim().Length > 0) {
+        if (frameToStopForDebug != null && frameToStopForDebug.Trim().Length > 0)
+        {
             int idToStop;
-            if (int.TryParse(frameToStopForDebug, out idToStop)) {
-                if (idToStop == this.currentFrame.id) {
+            if (int.TryParse(frameToStopForDebug, out idToStop))
+            {
+                if (idToStop == this.currentFrame.id)
+                {
                     Debug.Break();
                 }
             }
         }
 #endif
 
-        if (debugFrameToGo) {
+        if (debugFrameToGo)
+        {
             //            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
         }
 
-        if (this.currentFrame.state == StateFrameEnum.NONE) {
+        Debug.Log(this.gameObject.name + " - " + this.currentHp + "/" + this.data.header.total_hp);
+
+        if (this.currentFrame.state == StateFrameEnum.NONE)
+        {
             return;
         }
 
-        if (externAction) {
-            if (externItr.action >= 0) {
-                if (externItr.defensable && currentFrame.state == StateFrameEnum.DEFEND) {
-                    this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_DEFENSE, false);
-
-                } else if (externItr.defensable && currentFrame.state == StateFrameEnum.JUMP_DEFEND) {
-                    this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_JUMP_DEFENSE, false);
-
-                } else {
-                    int externActionUpdate = externItr.action;
-                    if (externItr.action == (int)FrameSpecialValuesEnum.INJURED_RANDOM) {
-                        externActionUpdate = Random.value > 0.5f ? (int)CharacterSpecialStartFrameEnum.INJURED_1 : (int)CharacterSpecialStartFrameEnum.INJURED_2;
+        if (externAction)
+        {
+            if (externItr.action >= 0)
+            {
+                if (this.data.type == ObjectTypeEnum.CHARACTER)
+                {
+                    if (externItr.defensable && currentFrame.state == StateFrameEnum.DEFEND)
+                    {
+                        this.currentHp -= (externItr.injury / 3);
+                        this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_DEFENSE, false);
                     }
-                    this.ChangeFrame(externActionUpdate, false);
+                    else if (externItr.defensable && currentFrame.state == StateFrameEnum.JUMP_DEFEND)
+                    {
+                        this.currentHp -= (externItr.injury / 3);
+                        this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_JUMP_DEFENSE, false);
+                    }
+                    else
+                    {
+                        int externActionUpdate = externItr.action;
+                        if (externItr.action == (int)FrameSpecialValuesEnum.INJURED_RANDOM)
+                        {
+                            externActionUpdate = Random.value > 0.5f ? (int)CharacterSpecialStartFrameEnum.INJURED_1 : (int)CharacterSpecialStartFrameEnum.INJURED_2;
+                        }
+                        this.currentHp -= externItr.injury;
+                        this.ChangeFrame(externActionUpdate, false);
+                    }
+
+                    if (this.currentHp <= 0)
+                    {
+                        this.ChangeFrame(CharacterSpecialStartFrameEnum.DEATH, false);
+                    }
+                }
+                else if (this.data.type == ObjectTypeEnum.POWER)
+                {
+                    this.currentHp -= externItr.injury;
+
+                    if (this.currentHp <= 0)
+                    {
+                        this.ChangeFrame(CharacterSpecialStartFrameEnum.DEATH, false);
+                    }
                 }
                 externAction = false;
             }
             return;
         }
 
-        if (summonAction >= 0) {
+        if (summonAction >= 0)
+        {
             this.ChangeFrame(summonAction, false);
             return;
         }
 
         this.ApplyInjuredCount();
 
-        if (hitJump && hitDefense) {
+        if (hitJump && hitDefense)
+        {
             this.ChangeFrame(currentFrame.hit_jump_defense, false);
             hitJump = false;
             hitDefense = false;
             return;
         }
 
-        if (hitDefense && hitAttack) {
+        if (hitDefense && hitAttack)
+        {
             this.ChangeFrame(currentFrame.hit_defense_attack, false);
             hitDefense = false;
             hitAttack = false;
             return;
         }
 
-        if (hitPower && hitDefense) {
+        if (hitPower && hitDefense)
+        {
             this.ChangeFrame(currentFrame.hit_defense_power, false);
             hitPower = false;
             hitDefense = false;
             return;
         }
 
-        if (hitJump) {
+        if (hitJump)
+        {
             this.ChangeFrame(currentFrame.hit_jump, false);
             hitJump = false;
             return;
         }
 
-        if (hitAttack) {
+        if (hitAttack)
+        {
             this.ChangeFrame(currentFrame.hit_attack, false);
             hitAttack = false;
             return;
         }
 
-        if (hitPower) {
+        if (hitPower)
+        {
             this.ChangeFrame(currentFrame.hit_power, false);
             hitPower = false;
             return;
         }
 
-        if (hitDefense) {
+        if (hitDefense)
+        {
             this.ChangeFrame(currentFrame.hit_defense, false);
             hitDefense = false;
             return;
         }
 
-        if (hitTaunt) {
+        if (hitTaunt)
+        {
             this.ChangeFrame(currentFrame.hit_taunt, false);
             hitTaunt = false;
             return;
         }
 
-        if (repeatAnimationReady) {
+        if (repeatAnimationReady)
+        {
             this.ChangeFrame(currentFrame.repeat_next, false);
             repeatAnimationReady = false;
             return;
         }
 
-        if (repeatAnimationAt > 0) {
+        if (repeatAnimationAt > 0)
+        {
             repeatAnimationAt -= Time.deltaTime;
             repeatAnimationStart = true;
-        } else {
+        }
+        else
+        {
             repeatAnimationAt = 0;
 
-            if (repeatAnimationStart) {
+            if (repeatAnimationStart)
+            {
                 repeatAnimationReady = true;
                 repeatAnimationStart = false;
             }
         }
 
-        if (this.currentFrame.scale.HasValue) {
+        if (this.currentFrame.scale.HasValue)
+        {
             transform.localScale = new Vector3(this.currentFrame.scale.Value, this.currentFrame.scale.Value, this.currentFrame.scale.Value);
         }
 
-        if (wait == 0) {
+        if (wait == 0)
+        {
             wait = this.currentFrame.wait / 30;
             this.spriteRenderer.sprite = this.currentFrame.pic;
         }
 
-        if (wait > 0) {
+        if (wait > 0)
+        {
             wait -= Time.deltaTime;
-        } else {
-            if (currentFrame.hold_forward_after != null && holdForwardAfter) {
+        }
+        else
+        {
+            if (currentFrame.hold_forward_after != null && holdForwardAfter)
+            {
                 this.ChangeFrame(currentFrame.hold_forward_after, false);
 
-            } else if (currentFrame.hold_defense_after != null && holdDefenseAfter) {
+            }
+            else if (currentFrame.hold_defense_after != null && holdDefenseAfter)
+            {
                 this.ChangeFrame(currentFrame.hold_defense_after, false);
 
-            } else if (currentFrame.hold_power_after != null && holdPowerAfter) {
+            }
+            else if (currentFrame.hold_power_after != null && holdPowerAfter)
+            {
                 this.ChangeFrame(currentFrame.hold_power_after, false);
 
-            } else if (currentFrame.hit_defense != null && holdDefense) {
+            }
+            else if (currentFrame.hit_defense != null && holdDefense)
+            {
                 this.ChangeFrame(currentFrame.hit_defense, false);
 
-            } else {
+            }
+            else
+            {
                 this.ChangeFrame(currentFrame.next);
             }
         }
 
-        switch (this.data.type) {
+        switch (this.data.type)
+        {
             case ObjectTypeEnum.CHARACTER:
                 RunningCounter();
                 SideDashCounter();
@@ -254,150 +333,194 @@ public class FrameController : MonoBehaviour {
         }
     }
 
-    void DisplayTime(float timeToDisplay) {
+    void DisplayTime(float timeToDisplay)
+    {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void ChangeFrame(Nullable<int> frameToGo, bool usingNextPattern = true) {
-        if (frameToGo == null) {
+    public void ChangeFrame(Nullable<int> frameToGo, bool usingNextPattern = true)
+    {
+        if (frameToGo == null)
+        {
             return;
         }
         var nonNullFrameToGo = frameToGo ?? default(int);
         this.ChangeFrame(nonNullFrameToGo, usingNextPattern);
     }
 
-    public void ChangeFrame(int frameToGo, bool usingNextPattern = true) {
+    public void ChangeFrame(int frameToGo, bool usingNextPattern = true)
+    {
         previousId = currentFrame.id;
-        if (currentFrame.next == (int)FrameSpecialValuesEnum.DELETE) {
-            if (ownerOpointController != null) {
+        if (currentFrame.next == (int)FrameSpecialValuesEnum.DELETE)
+        {
+            if (ownerOpointController != null)
+            {
                 this.transform.parent = this.ownerOpointController.gameObjectOpoint.transform;
                 this.transform.localPosition = this.objectPointCache.originalPosition;
                 this.gameObject.SetActive(false);
                 this.ownerOpointController.opoints[objectPointCache.key].Enqueue(objectPointCache);
-            } else {
+            }
+            else
+            {
                 Destroy(this.gameObject);
             }
             return;
         }
         summonAction = -1;
         wait = 0;
-        if (usingNextPattern) {
+        if (usingNextPattern)
+        {
             currentFrame = currentFrame.next == (int)FrameSpecialValuesEnum.BACK_TO_STANDING ? this.data.frames[0] : this.data.frames[frameToGo];
-        } else {
+        }
+        else
+        {
             currentFrame = this.data.frames[frameToGo];
         }
     }
 
-    public void ChangeFrame(CharacterSpecialStartFrameEnum next, bool usingNextPattern = true) {
+    public void ChangeFrame(CharacterSpecialStartFrameEnum next, bool usingNextPattern = true)
+    {
         this.ChangeFrame((int)next, usingNextPattern);
     }
 
-    public void Flip() {
+    public void Flip()
+    {
         float xScaleFacing = 0;
-        if (transform.localScale.x > 0) {
+        if (transform.localScale.x > 0)
+        {
             xScaleFacing = -transform.localScale.x;
             this.facingRight = false;
-        } else {
+        }
+        else
+        {
             xScaleFacing = Mathf.Abs(transform.localScale.x);
             this.facingRight = true;
         }
         transform.localScale = new Vector3(xScaleFacing, transform.localScale.y, transform.localScale.z);
     }
 
-    public void Flip(Vector3 inputDirection) {
-        if (!facingRight && inputDirection.x > 0) {
+    public void Flip(Vector3 inputDirection)
+    {
+        if (!facingRight && inputDirection.x > 0)
+        {
             this.Flip();
             return;
         }
-        if (facingRight && inputDirection.x < 0) {
+        if (facingRight && inputDirection.x < 0)
+        {
             this.Flip();
             return;
         }
     }
 
-    private void RunningCounter() {
-        if (countRightEnable && !runningRightEnable) {
+    private void RunningCounter()
+    {
+        if (countRightEnable && !runningRightEnable)
+        {
             runningRightEnable = true;
             runningRightCount = RUNNING_COUNT / 30;
             runningLeftCount = 0;
         }
-        if (runningRightCount > 0) {
+        if (runningRightCount > 0)
+        {
             runningRightCount -= Time.deltaTime;
-        } else {
+        }
+        else
+        {
             runningRightCount = 0;
             runningRightEnable = false;
             countRightEnable = false;
         }
 
 
-        if (countLeftEnable && !runningLeftEnable) {
+        if (countLeftEnable && !runningLeftEnable)
+        {
             runningLeftEnable = true;
             runningLeftCount = RUNNING_COUNT / 30;
             runningRightCount = 0;
         }
-        if (runningLeftCount > 0) {
+        if (runningLeftCount > 0)
+        {
             runningLeftCount -= Time.deltaTime;
-        } else {
+        }
+        else
+        {
             runningLeftCount = 0;
             runningLeftEnable = false;
             countLeftEnable = false;
         }
     }
 
-    private void SideDashCounter() {
-        if (countSideDashUpEnable && !sideDashUpEnable) {
+    private void SideDashCounter()
+    {
+        if (countSideDashUpEnable && !sideDashUpEnable)
+        {
             sideDashUpEnable = true;
             sideDashUpCount = SIDE_DASH_COUNT / 30;
             sideDashDownCount = 0;
         }
-        if (sideDashUpCount > 0) {
+        if (sideDashUpCount > 0)
+        {
             sideDashUpCount -= Time.deltaTime;
-        } else {
+        }
+        else
+        {
             sideDashUpCount = 0;
             sideDashUpEnable = false;
             countSideDashUpEnable = false;
         }
 
 
-        if (countSideDashDownEnable && !sideDashDownEnable) {
+        if (countSideDashDownEnable && !sideDashDownEnable)
+        {
             sideDashDownEnable = true;
             sideDashDownCount = SIDE_DASH_COUNT / 30;
             sideDashUpCount = 0;
         }
-        if (sideDashDownCount > 0) {
+        if (sideDashDownCount > 0)
+        {
             sideDashDownCount -= Time.deltaTime;
-        } else {
+        }
+        else
+        {
             sideDashDownCount = 0;
             sideDashDownEnable = false;
             countSideDashDownEnable = false;
         }
     }
 
-    private void ApplyInjuredCount() {
-        if (this.currentFrame.id != (int)CharacterSpecialStartFrameEnum.INJURED_1 && this.currentFrame.id != (int)CharacterSpecialStartFrameEnum.INJURED_2) {
+    private void ApplyInjuredCount()
+    {
+        if (this.currentFrame.id != (int)CharacterSpecialStartFrameEnum.INJURED_1 && this.currentFrame.id != (int)CharacterSpecialStartFrameEnum.INJURED_2)
+        {
             this.injuredCountOneTimePerState = true;
         }
 
-        if (this.injuredCountOneTimePerState) {
-            if (this.currentFrame.id == (int)CharacterSpecialStartFrameEnum.INJURED_1 || this.currentFrame.id == (int)CharacterSpecialStartFrameEnum.INJURED_2) {
+        if (this.injuredCountOneTimePerState)
+        {
+            if (this.currentFrame.id == (int)CharacterSpecialStartFrameEnum.INJURED_1 || this.currentFrame.id == (int)CharacterSpecialStartFrameEnum.INJURED_2)
+            {
                 this.injuredCount += 1;
                 this.injuredCountOneTimePerState = false;
             }
         }
 
-        if (injuredCount >= INJURED_COUNT_LIMIT) {
+        if (injuredCount >= INJURED_COUNT_LIMIT)
+        {
             this.ChangeFrame(CharacterSpecialStartFrameEnum.FALLING, false);
             return;
         }
     }
 
-    public void ResetValues(bool facingRight) {
+    public void ResetValues(bool facingRight)
+    {
         ResetValues(facingRight ? Vector3.right : Vector3.left);
     }
 
-    public void ResetValues(Vector3 inputDirection) {
+    public void ResetValues(Vector3 inputDirection)
+    {
         this.currentFrame = this.data.frames[0];
         this.wait = 0;
         this.Flip(inputDirection);
@@ -421,7 +544,8 @@ public class FrameController : MonoBehaviour {
         this.injuredCount = 0;
         this.injuredCountOneTimePerState = true;
 
-        switch (this.data.type) {
+        switch (this.data.type)
+        {
             case ObjectTypeEnum.CHARACTER:
                 this.currentHp = ((CharacterDataController)this.data).header.start_hp;
                 break;

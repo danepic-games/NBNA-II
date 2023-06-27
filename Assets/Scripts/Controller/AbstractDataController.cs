@@ -46,6 +46,7 @@ public class AbstractDataController : MonoBehaviour {
     public string GetHeaderParam(string[] headerParams, int paramKey, char separator = ' ') {
         var headerParam = headerParams[paramKey];
         var valueParam = headerParam.Split(separator)[1];
+        
         return valueParam.Trim();
     }
 }
