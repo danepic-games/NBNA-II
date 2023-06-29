@@ -14,8 +14,8 @@ public class InteractionData : Data {
     public float dvy;
     public float dvz;
 
-    public float arest;
-    public float vrest;
+    public float damageRest;
+    public bool applyForEntireFrame;
 
     public int action;
     public int power;

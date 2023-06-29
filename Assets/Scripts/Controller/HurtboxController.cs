@@ -12,6 +12,9 @@ public class HurtboxController : MonoBehaviour
     public MeshRenderer meshRenderer;
     public ObjectPointController objectPointController;
 
+    public int lastHitObjId;
+    public float damageRest;
+
     void Update()
     {
         if (mainCollider && transform)
@@ -35,6 +38,13 @@ public class HurtboxController : MonoBehaviour
             boxCollider.enabled = false;
             meshRenderer.enabled = false;
         }
+
+        if (damageRest > 0)
+        {
+            damageRest -= Time.deltaTime;
+        }
+
+        Debug.Log("damageRest: " + damageRest + "|" + "lastHitObjId: " + lastHitObjId);
     }
 
     void OnTriggerEnter(Collider collider)
@@ -54,18 +64,25 @@ public class HurtboxController : MonoBehaviour
                 var selfObjectId = frame.selfId;
                 var selfOwnerObjectId = frame.ownerId;
 
-                switch (selfType)
+                if (hitbox.itr.applyForEntireFrame && damageRest > 0f && otherObjectId == lastHitObjId)
                 {
-                    case ObjectTypeEnum.CHARACTER:
-                        this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
-                                selfObjTeam, selfObjectId, selfOwnerObjectId);
-                        break;
-                    case ObjectTypeEnum.EFFECT:
-                        break;
-                    case ObjectTypeEnum.POWER:
-                        this.ProcessItrForPower(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
-                                selfObjTeam, selfObjectId, selfOwnerObjectId);
-                        break;
+                    return;
+                }
+                else
+                {
+                    switch (selfType)
+                    {
+                        case ObjectTypeEnum.CHARACTER:
+                            this.ProcessItrForCharacter(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
+                                    selfObjTeam, selfObjectId, selfOwnerObjectId);
+                            break;
+                        case ObjectTypeEnum.EFFECT:
+                            break;
+                        case ObjectTypeEnum.POWER:
+                            this.ProcessItrForPower(hitbox, hitbox.itr, otherObjTeam, otherObjectId, otherOwnerObjectId,
+                                    selfObjTeam, selfObjectId, selfOwnerObjectId);
+                            break;
+                    }
                 }
             }
         }
@@ -117,6 +134,12 @@ public class HurtboxController : MonoBehaviour
         {
             if (selfObjId != otherOwnerObjectId && otherObjId != selfOwnerObjectId)
             {
+                if (itr.applyForEntireFrame && itr.damageRest > 0f)
+                {
+                    damageRest = itr.damageRest;
+                    lastHitObjId = otherObjId;
+                }
+                
                 if (itr.kind == ItrKindEnum.CHAR_NORMAL_HIT)
                 {
                     objectPointController.InvokeNormalHit(transform.position);

@@ -138,8 +138,6 @@ public class FrameController : MonoBehaviour
             //            Debug.Log(name + " : " + previousId + " -> " + currentFrame.id);
         }
 
-        Debug.Log(this.gameObject.name + " - " + this.currentHp + "/" + this.data.header.total_hp);
-
         if (this.currentFrame.state == StateFrameEnum.NONE)
         {
             return;

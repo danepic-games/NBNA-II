@@ -23,8 +23,8 @@ public class InteractionComposerEditor : EditorWindow {
     public float dvx;
     public float dvy;
     public float dvz;
-    public float arest;
-    public float vrest;
+    public float damageRest;
+    public bool applyForEntireFrame;
     public int action;
     public int power;
     public bool defensable;
@@ -57,7 +57,7 @@ public class InteractionComposerEditor : EditorWindow {
 
     [MenuItem("Frame/Itr Composer")]
     public static void Init() {
-        var window = GetWindow<OpointComposerEditor>("Itr Composer");
+        var window = GetWindow<InteractionComposerEditor>("Itr Composer");
     }
 
     void OnGUI() {
@@ -209,8 +209,8 @@ public class InteractionComposerEditor : EditorWindow {
             this.dvx = itrsComposer[selectedFrame.id].dvx;
             this.dvy = itrsComposer[selectedFrame.id].dvy;
             this.dvz = itrsComposer[selectedFrame.id].dvz;
-            this.arest = itrsComposer[selectedFrame.id].arest;
-            this.vrest = itrsComposer[selectedFrame.id].vrest;
+            this.damageRest = itrsComposer[selectedFrame.id].damageRest;
+            this.applyForEntireFrame = itrsComposer[selectedFrame.id].applyForEntireFrame;
             this.action = itrsComposer[selectedFrame.id].action;
             this.power = itrsComposer[selectedFrame.id].power;
             this.defensable = itrsComposer[selectedFrame.id].defensable;
@@ -238,11 +238,11 @@ public class InteractionComposerEditor : EditorWindow {
             specificItrData.kind = kind;
 
             EditorGUILayout.BeginHorizontal();
-            arest = EditorGUILayout.FloatField("arest: ", arest);
-            specificItrData.arest = arest;
+            damageRest = EditorGUILayout.FloatField("damageRest: ", damageRest);
+            specificItrData.damageRest = damageRest;
 
-            vrest = EditorGUILayout.FloatField("vrest: ", vrest);
-            specificItrData.vrest = vrest;
+            applyForEntireFrame = EditorGUILayout.Toggle("applyForEntireFrame: ", applyForEntireFrame);
+            specificItrData.applyForEntireFrame = applyForEntireFrame;
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();

@@ -115,7 +115,10 @@ public class ObjectPointController : MonoBehaviour
         var queueObjectPointCache = new Queue<ObjectPointCache>();
         queueObjectPointCache.Enqueue(cache);
 
-        opoints.Add(prefabCacheName, queueObjectPointCache);
+        if (!opoints.ContainsKey(prefabCacheName))
+        {
+            opoints.Add(prefabCacheName, queueObjectPointCache);
+        }
 
         var invoke_limit = opointInstantiate.GetComponent<AbstractDataController>().header.invoke_limit;
 
@@ -242,7 +245,7 @@ public class ObjectPointController : MonoBehaviour
 
     void InvokeHit(Vector3 position, GameObject hit, int hitId)
     {
-        var opointSpawn = Instantiate(hit, new Vector3(position.x, position.y, position.z), Quaternion.identity);
+        var opointSpawn = Instantiate(hit, new Vector3(position.x, position.y + 0.1f, position.z - 0.25f), Quaternion.identity);
         var spawnFrame = opointSpawn.GetComponent<FrameController>();
         spawnFrame.summonAction = hitId;
     }
