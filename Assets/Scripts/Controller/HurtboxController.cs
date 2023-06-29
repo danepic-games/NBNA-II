@@ -43,8 +43,6 @@ public class HurtboxController : MonoBehaviour
         {
             damageRest -= Time.deltaTime;
         }
-
-        Debug.Log("damageRest: " + damageRest + "|" + "lastHitObjId: " + lastHitObjId);
     }
 
     void OnTriggerEnter(Collider collider)
@@ -66,6 +64,7 @@ public class HurtboxController : MonoBehaviour
 
                 if (hitbox.itr.applyForEntireFrame && damageRest > 0f && otherObjectId == lastHitObjId)
                 {
+                    Debug.Log("Rest Damage Up");
                     return;
                 }
                 else

@@ -685,12 +685,12 @@ TextureImporter:
       name: Naruto_Sprite_3_26
       rect:
         serializedVersion: 2
-        x: 512
+        x: 514
         y: 1024
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.5289062, y: 0.09765625}
+      pivot: {x: 0.5289062, y: 0.09375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -727,12 +727,12 @@ TextureImporter:
       name: Naruto_Sprite_3_28
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1029
         y: 1024
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.5277344, y: 0.09765625}
+      pivot: {x: 0.51953125, y: 0.09375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -753,7 +753,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.5257813, y: 0.09765625}
+      pivot: {x: 0.53398436, y: 0.09765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -769,12 +769,12 @@ TextureImporter:
       name: Naruto_Sprite_3_30
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1533
         y: 1024
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.55078125, y: 0.09765625}
+      pivot: {x: 0.56640625, y: 0.09375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -791,11 +791,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1792
-        y: 1025
+        y: 1024
         width: 256
         height: 256
       alignment: 9
-      pivot: {x: 0.52421874, y: 0.09765625}
+      pivot: {x: 0.51953125, y: 0.09765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
