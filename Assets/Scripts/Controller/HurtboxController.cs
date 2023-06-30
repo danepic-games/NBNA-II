@@ -148,9 +148,9 @@ public class HurtboxController : MonoBehaviour
                     objectPointController.InvokeSwordHit(transform.position);
                 }
 
-                Debug.Log("Enemy Hit");
                 frame.externAction = true;
                 frame.externItr = itr;
+                frame.enemyFacingRight = hitbox.frame.facingRight;
                 if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND)
                 {
                     hitbox.DefendingImpact(itr);

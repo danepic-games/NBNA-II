@@ -37,6 +37,7 @@ public class FrameController : MonoBehaviour
     // Extern Interaction
     public bool externAction;
     public InteractionData externItr;
+    public bool enemyFacingRight;
 
     public bool attacked;
     public bool wasAttacked;
@@ -151,12 +152,12 @@ public class FrameController : MonoBehaviour
                 {
                     if (externItr.defensable && currentFrame.state == StateFrameEnum.DEFEND)
                     {
-                        this.currentHp -= (externItr.injury / 3);
+                        this.currentHp -= externItr.injury / 3;
                         this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_DEFENSE, false);
                     }
                     else if (externItr.defensable && currentFrame.state == StateFrameEnum.JUMP_DEFEND)
                     {
-                        this.currentHp -= (externItr.injury / 3);
+                        this.currentHp -= externItr.injury / 3;
                         this.ChangeFrame(CharacterSpecialStartFrameEnum.HIT_JUMP_DEFENSE, false);
                     }
                     else
@@ -166,8 +167,8 @@ public class FrameController : MonoBehaviour
                         {
                             externActionUpdate = Random.value > 0.5f ? (int)CharacterSpecialStartFrameEnum.INJURED_1 : (int)CharacterSpecialStartFrameEnum.INJURED_2;
                         }
-                        this.currentHp -= externItr.injury;
                         this.ChangeFrame(externActionUpdate, false);
+                        this.currentHp -= externItr.injury;
                     }
 
                     if (this.currentHp <= 0)

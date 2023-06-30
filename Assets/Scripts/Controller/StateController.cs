@@ -162,10 +162,13 @@ public class StateController : MonoBehaviour {
             case StateFrameEnum.HIT_JUMP_DEFEND:
             case StateFrameEnum.HIT_DEFEND:
                 this.physic.externForce = new Vector3(this.frame.externItr.dvx, this.frame.externItr.dvy, this.frame.externItr.dvz);
+                this.physic.enemyFacingRight = this.frame.enemyFacingRight;
                 break;
 
             case StateFrameEnum.INJURED:
             case StateFrameEnum.INJURED_2:
+                this.physic.externForce = new Vector3(this.frame.externItr.dvx, this.frame.externItr.dvy, this.frame.externItr.dvz);
+                this.physic.enemyFacingRight = this.frame.enemyFacingRight;
                 break;
         }
     }
