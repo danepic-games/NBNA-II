@@ -87,6 +87,8 @@ MonoBehaviour:
   frame: {fileID: 6402182546824934842}
   meshRenderer: {fileID: 5500791982801467646}
   objectPointController: {fileID: 4956140545727711942}
+  lastHitObjId: 0
+  damageRest: 0
 --- !u!23 &5500791982801467646
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -372,12 +374,13 @@ MonoBehaviour:
     dvx: 0
     dvy: 0
     dvz: 0
-    arest: 0
-    vrest: 0
+    damageRest: 0
+    applyForEntireFrame: 0
     action: 0
     power: 0
     defensable: 0
     injury: 0
+    nextIfHit: 0
     sound: {fileID: 0}
     confuse: 0
     silence: 0
@@ -398,6 +401,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3653577236299671786}
   frame: {fileID: 6402182546824934842}
   meshRenderer: {fileID: 5669077854769985556}
+  physicController: {fileID: 0}
 --- !u!1 &8101675629175196414
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +442,7 @@ Transform:
   - {fileID: 6383864028955995997}
   - {fileID: 670733473973878}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3653577236299671786
 SpriteRenderer:
@@ -481,7 +485,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1510615354, guid: 280dc42cbc51df740b3b1aeece6a4839, type: 3}
+  m_Sprite: {fileID: 835942363, guid: 280dc42cbc51df740b3b1aeece6a4839, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -633,15 +637,16 @@ MonoBehaviour:
       w: 1.1107798
       h: 0.5218916
       zwidthz: 0.5
-      dvx: 0
+      dvx: 3
       dvy: 0
       dvz: 0
-      arest: 0
-      vrest: 0
+      damageRest: 3
+      applyForEntireFrame: 1
       action: 7000
       power: 0
       defensable: 1
       injury: 60
+      nextIfHit: 0
       sound: {fileID: 0}
       confuse: 0
       silence: 0
@@ -668,12 +673,13 @@ MonoBehaviour:
       dvx: 0
       dvy: 0
       dvz: 0
-      arest: 0
-      vrest: 0
+      damageRest: 3
+      applyForEntireFrame: 1
       action: 7000
       power: 0
       defensable: 1
       injury: 60
+      nextIfHit: 0
       sound: {fileID: 0}
       confuse: 0
       silence: 0
@@ -696,16 +702,17 @@ MonoBehaviour:
       z: 0
       w: 1.1107798
       h: 0.5218916
-      zwidthz: 0.5
+      zwidthz: 1
       dvx: 0
       dvy: 0
       dvz: 0
-      arest: 0
-      vrest: 0
+      damageRest: 3
+      applyForEntireFrame: 0
       action: 7000
       power: 0
       defensable: 1
       injury: 60
+      nextIfHit: 0
       sound: {fileID: 0}
       confuse: 0
       silence: 0
@@ -801,12 +808,13 @@ MonoBehaviour:
       dvx: 0
       dvy: 0
       dvz: 0
-      arest: 0
-      vrest: 0
+      damageRest: 0
+      applyForEntireFrame: 0
       action: 0
       power: 0
       defensable: 0
       injury: 0
+      nextIfHit: 0
       sound: {fileID: 0}
       confuse: 0
       silence: 0
@@ -848,12 +856,13 @@ MonoBehaviour:
     dvx: 0
     dvy: 0
     dvz: 0
-    arest: 0
-    vrest: 0
+    damageRest: 0
+    applyForEntireFrame: 0
     action: 0
     power: 0
     defensable: 0
     injury: 0
+    nextIfHit: 0
     sound: {fileID: 0}
     confuse: 0
     silence: 0
@@ -870,6 +879,7 @@ MonoBehaviour:
     freeze: 0
     frameId: 0
     hasValue: 0
+  enemyFacingRight: 0
   attacked: 0
   wasAttacked: 0
   runningRightCount: 0
@@ -885,6 +895,7 @@ MonoBehaviour:
   sideDashDownEnable: 0
   countSideDashDownEnable: 0
   inputDirection: {x: 0, y: 0}
+  enableNextIfHit: 0
   hitJump: 0
   hitDefense: 0
   holdDefense: 0
@@ -930,6 +941,8 @@ MonoBehaviour:
   physicsOneTimePerFrame: 0
   externForce: {x: 0, y: 0, z: 0}
   isExternForce: 1
+  enemyFacingRight: 0
+  defendingImpact: 0
   currentFrameId: 0
   whatIsGround:
     serializedVersion: 2

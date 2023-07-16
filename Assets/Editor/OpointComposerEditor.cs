@@ -5,7 +5,8 @@ using SerializableHelper;
 using UnityEditor;
 using UnityEngine;
 
-public class OpointComposerEditor : EditorWindow {
+public class OpointComposerEditor : EditorWindow
+{
 
     private GameObject selectedGameObject;
 
@@ -36,40 +37,49 @@ public class OpointComposerEditor : EditorWindow {
 
 
     [MenuItem("Frame/Opoint Composer")]
-    public static void Init() {
+    public static void Init()
+    {
         var window = GetWindow<OpointComposerEditor>("Opoint Composer");
     }
 
-    void OnGUI() {
+    void OnGUI()
+    {
         EditorGUILayout.BeginHorizontal();
         this.selectedGameObject = (GameObject)EditorGUILayout.ObjectField("Object Data Controller", this.selectedGameObject, typeof(GameObject), true);
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.Separator();
 
-        if (this.selectedGameObject && !this.selectedGameObject.TryGetComponent<SpriteRenderer>(out this.spriteRenderer)) {
+        if (this.selectedGameObject && !this.selectedGameObject.TryGetComponent<SpriteRenderer>(out this.spriteRenderer))
+        {
             throw new NullReferenceException("Sprite Renderer for LF2 Object Builder must not be null");
         }
-        if (this.selectedGameObject && !this.selectedGameObject.TryGetComponent<AbstractDataController>(out this.abstractDataController)) {
+        if (this.selectedGameObject && !this.selectedGameObject.TryGetComponent<AbstractDataController>(out this.abstractDataController))
+        {
             throw new NullReferenceException("Data Controller for LF2 Object Builder must not be null");
         }
 
-        if (this.selectedGameObject && this.spriteRenderer && this.abstractDataController) {
+        if (this.selectedGameObject && this.spriteRenderer && this.abstractDataController)
+        {
             this.BuildView();
         }
     }
 
-    private void BuildView() {
-        if (activeAbstractDataController == null || activeAbstractDataController.gameObject.GetInstanceID() != selectedGameObject.GetInstanceID()) {
+    private void BuildView()
+    {
+        if (activeAbstractDataController == null || activeAbstractDataController.gameObject.GetInstanceID() != selectedGameObject.GetInstanceID())
+        {
             Debug.Log("Objeto Trocado.");
             this.frames = new Map<int, FrameData>();
         }
 
-        if (this.frames.Count == 0) {
+        if (this.frames.Count == 0)
+        {
             activeAbstractDataController = this.selectedGameObject.GetComponent<AbstractDataController>();
             this.PopulateFramesOfObject();
         }
-        if (this.frames.Count > 0) {
+        if (this.frames.Count > 0)
+        {
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Frame to Edit");
@@ -80,10 +90,12 @@ public class OpointComposerEditor : EditorWindow {
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("<")) {
+            if (GUILayout.Button("<"))
+            {
                 idSelectionSearch--;
             }
-            if (GUILayout.Button(">")) {
+            if (GUILayout.Button(">"))
+            {
                 idSelectionSearch++;
             }
 
@@ -92,7 +104,8 @@ public class OpointComposerEditor : EditorWindow {
 
             EditorGUILayout.EndHorizontal();
 
-            if (frameIds.Length == 1) {
+            if (frameIds.Length == 1)
+            {
                 frameIdSelected = frameIds[0];
                 selectedFrame = this.frames[frameIdSelected];
                 this.SetFrameSprite();
@@ -104,11 +117,13 @@ public class OpointComposerEditor : EditorWindow {
         }
     }
 
-    void OnHierarchyChange() {
+    void OnHierarchyChange()
+    {
         Repaint();
     }
 
-    private void PopulateFramesOfObject() {
+    private void PopulateFramesOfObject()
+    {
         var text_without_bmp_begin = this.abstractDataController.dataFile.text.Replace("<bmp_begin>", "");
         string[] firstSplit = Regex.Split(text_without_bmp_begin, "<bmp_end>");
 
@@ -122,11 +137,15 @@ public class OpointComposerEditor : EditorWindow {
         var spriteFileNameRegex = new Regex("Resources\\\\(.*\\\\)");
         this.abstractDataController.header.sprite_file_name = spriteFileNameRegex.Split(spriteFileNameValueParam.Trim())[2].Replace(".png  w", "");
 
-        switch (this.abstractDataController.type) {
+        switch (this.abstractDataController.type)
+        {
             case ObjectTypeEnum.CHARACTER:
                 this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, CharacterHeaderKeyEnum.SPRITE_FOLDER);
                 break;
             case ObjectTypeEnum.POWER:
+                this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, PowerHeaderKeyEnum.SPRITE_FOLDER);
+                break;
+            case ObjectTypeEnum.EFFECT:
                 this.abstractDataController.header.sprite_folder = abstractDataController.GetHeaderParam(headerParams, PowerHeaderKeyEnum.SPRITE_FOLDER);
                 break;
             default:
@@ -139,14 +158,17 @@ public class OpointComposerEditor : EditorWindow {
         DataMapperUtil.MapDataToObject(framesValue, out this.frames, this.sprites, this.abstractDataController.header.sprite_file_name);
     }
 
-    private void SetFrameSprite() {
+    private void SetFrameSprite()
+    {
         this.spriteRenderer.sprite = selectedFrame.pic;
     }
 
-    private void BuildOpoint() {
+    private void BuildOpoint()
+    {
         this.loadOpoint1ByComposer = EditorGUILayout.Toggle("Type of Load Opoint dimensions: " +
         "(True = Composer; False = Opoints + opointNumber)", this.loadOpoint1ByComposer);
-        if (loadOpoint1ByComposer) {
+        if (loadOpoint1ByComposer)
+        {
             this.loadOpoint1ByComposer = this.abstractDataController.opointsComposer.ContainsKey(selectedFrame.id);
         }
         this.BuildSpecificOpoint(this.opointData, this.abstractDataController.opointsComposer, this.loadOpoint1ByComposer);
@@ -154,23 +176,30 @@ public class OpointComposerEditor : EditorWindow {
         EditorGUILayout.Separator();
     }
 
-    private void DrawComposerOpoints() {
+    private void DrawComposerOpoints()
+    {
         var transformMain = selectedGameObject.transform.Find("Opoint");
 
-        if (transformMain) {
-            if (abstractDataController.opointsComposer.TryGetValue(selectedFrame.id, out opointData)) {
+        if (transformMain)
+        {
+            if (abstractDataController.opointsComposer.TryGetValue(selectedFrame.id, out opointData))
+            {
                 transformMain.localPosition = new Vector3(opointData.x, opointData.y, opointData.z);
-            } else {
+            }
+            else
+            {
                 opointData = new ObjectPointData();
             }
         }
     }
 
-    private void BuildSpecificOpoint(ObjectPointData specificObjectPointData, Map<int, ObjectPointData> opointsComposer, bool loadOpointByComposer) {
+    private void BuildSpecificOpoint(ObjectPointData specificObjectPointData, Map<int, ObjectPointData> opointsComposer, bool loadOpointByComposer)
+    {
         var tempGO = new GameObject();
         Transform dimensionsToUse = tempGO.transform;
 
-        if (loadOpointByComposer) {
+        if (loadOpointByComposer)
+        {
             dimensionsToUse.localPosition = new Vector3(opointsComposer[selectedFrame.id].x, opointsComposer[selectedFrame.id].y, opointsComposer[selectedFrame.id].z);
 
             var specificHurtbox = selectedGameObject.transform.Find("Opoint");
@@ -185,11 +214,14 @@ public class OpointComposerEditor : EditorWindow {
             this.quantity = opointsComposer[selectedFrame.id].quantity;
             this.z_division_per_quantity = opointsComposer[selectedFrame.id].z_division_per_quantity;
             this.enable_dvz_invocation = opointsComposer[selectedFrame.id].enable_dvz_invocation;
-        } else {
+        }
+        else
+        {
             dimensionsToUse = selectedGameObject.transform.Find("Opoint");
         }
 
-        if (dimensionsToUse) {
+        if (dimensionsToUse)
+        {
             kind = (ObjectPointKindEnum)EditorGUILayout.EnumPopup("kind: ", kind);
             specificObjectPointData.kind = kind;
 
@@ -234,8 +266,10 @@ public class OpointComposerEditor : EditorWindow {
 
             EditorGUILayout.Separator();
 
-            if (GUILayout.Button("Save OPOINT")) {
-                if (opointsComposer.ContainsKey(selectedFrame.id)) {
+            if (GUILayout.Button("Save OPOINT"))
+            {
+                if (opointsComposer.ContainsKey(selectedFrame.id))
+                {
                     opointsComposer.Remove(selectedFrame.id);
                 }
                 specificObjectPointData.hasValue = true;
@@ -243,11 +277,14 @@ public class OpointComposerEditor : EditorWindow {
                 Debug.Log("Save Done!");
             }
 
-            if (GUILayout.Button("Remove OPOINT")) {
+            if (GUILayout.Button("Remove OPOINT"))
+            {
                 opointsComposer.Remove(selectedFrame.id);
                 Debug.Log("Remove Done!");
             }
-        } else {
+        }
+        else
+        {
             throw new NullReferenceException("Selected Game Object must have opoints with itr number. (Opoint1, Opoint2, Opoint3)");
         }
     }

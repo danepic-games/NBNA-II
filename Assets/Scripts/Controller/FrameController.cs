@@ -8,6 +8,8 @@ public class FrameController : MonoBehaviour
 {
     public AbstractDataController data;
 
+    private Color originalColor = Color.white;
+    private Color fadeOutColor = Color.white;
     public SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -33,8 +35,6 @@ public class FrameController : MonoBehaviour
 
     // Extern Interaction
     public int summonAction;
-
-    // Extern Interaction
     public bool externAction;
     public InteractionData externItr;
     public bool enemyFacingRight;
@@ -65,6 +65,8 @@ public class FrameController : MonoBehaviour
 
     //Movement
     public Vector2 inputDirection;
+
+    public bool enableNextIfHit;
 
     //Hit
     public bool hitJump;
@@ -285,6 +287,15 @@ public class FrameController : MonoBehaviour
             transform.localScale = new Vector3(this.currentFrame.scale.Value, this.currentFrame.scale.Value, this.currentFrame.scale.Value);
         }
 
+        if (this.currentFrame.fadeOut.HasValue)
+        {
+            this.fadeOutColor = spriteRenderer.color;
+            this.fadeOutColor.a = this.currentFrame.fadeOut.Value;
+            spriteRenderer.color = this.fadeOutColor;
+        } else {
+            spriteRenderer.color = originalColor;
+        }
+
         if (wait == 0)
         {
             wait = this.currentFrame.wait / 30;
@@ -316,6 +327,11 @@ public class FrameController : MonoBehaviour
             {
                 this.ChangeFrame(currentFrame.hit_defense, false);
 
+            }
+            else if (enableNextIfHit)
+            {
+                this.enableNextIfHit = false;
+                this.ChangeFrame(currentFrame.itr.nextIfHit, false);
             }
             else
             {

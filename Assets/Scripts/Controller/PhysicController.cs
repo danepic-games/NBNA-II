@@ -193,7 +193,6 @@ public class PhysicController : MonoBehaviour
                     if (this.externForce != Vector3.zero)
                     {
                         x = this.enemyFacingRight ? this.externForce.x : -this.externForce.x;
-                        Debug.Log("HIT_DEFEND: " + enemyFacingRight);
                         y = 0f;
                         z = 0f;
                         affectedByFacing = false;
@@ -216,7 +215,8 @@ public class PhysicController : MonoBehaviour
 
             if (this.defendingImpact && this.externForce != Vector3.zero)
             {
-                x = this.enemyFacingRight ? this.externForce.x : -this.externForce.x;
+                Debug.Log("Defending Impact");
+                x = this.enemyFacingRight ? this.externForce.x * 2 : -this.externForce.x * 2;
                 y = 0f;
                 z = 0f;
                 affectedByFacing = false;

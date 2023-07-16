@@ -21,6 +21,7 @@ public class InteractionData : Data {
     public int power;
     public bool defensable;
     public int injury;
+    public int nextIfHit;
 
     public AudioClip sound;
     public float confuse;

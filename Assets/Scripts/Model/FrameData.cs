@@ -59,6 +59,7 @@ public class FrameData {
     public int repeat_next;
 
     public Nullable<float> scale;
+    public Nullable<float> fadeOut;
 
     public BodyData body;
     public ObjectPointData opoint;

@@ -67,6 +67,7 @@ public class BodyComposerEditor : EditorWindow {
             this.PopulateFramesOfObject();
         }
         if (this.frames.Count > 0) {
+            Debug.Log(this.frames.Count);
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Frame to Edit");

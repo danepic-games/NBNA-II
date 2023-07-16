@@ -217,6 +217,10 @@ public class DataMapperUtil {
                                 frameData.scale = float.Parse(value);
                                 continue;
                             }
+                            if (key.Equals(FrameKeyEnum.fadeOut.ToString())) {
+                                frameData.fadeOut = float.Parse(value);
+                                continue;
+                            }
                         }
                     }
 #endregion

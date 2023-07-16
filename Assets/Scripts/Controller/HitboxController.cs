@@ -32,6 +32,11 @@ public class HitboxController : MonoBehaviour
     public void DefendingImpact(InteractionData itr)
     {
         this.physicController.defendingImpact = true;
-        this.physicController.externForce = new Vector3(this.frame.externItr.dvx, this.frame.externItr.dvy, this.frame.externItr.dvz);
+        this.physicController.externForce = new Vector3(itr.dvx, itr.dvy, itr.dvz);
+    }
+
+    public void NextIfHit()
+    {
+        this.frame.enableNextIfHit = true;
     }
 }

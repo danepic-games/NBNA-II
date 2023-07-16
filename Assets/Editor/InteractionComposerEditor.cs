@@ -29,6 +29,7 @@ public class InteractionComposerEditor : EditorWindow {
     public int power;
     public bool defensable;
     public int injury;
+    public int nextIfHit;
     public AudioClip sound;
     public float confuse;
     public float silence;
@@ -215,6 +216,7 @@ public class InteractionComposerEditor : EditorWindow {
             this.power = itrsComposer[selectedFrame.id].power;
             this.defensable = itrsComposer[selectedFrame.id].defensable;
             this.injury = itrsComposer[selectedFrame.id].injury;
+            this.nextIfHit = itrsComposer[selectedFrame.id].nextIfHit;
             this.sound = itrsComposer[selectedFrame.id].sound;
             this.confuse = itrsComposer[selectedFrame.id].confuse;
             this.silence = itrsComposer[selectedFrame.id].silence;
@@ -325,8 +327,13 @@ public class InteractionComposerEditor : EditorWindow {
             specificItrData.dvy = dvy;
             EditorGUILayout.EndHorizontal();
 
+            EditorGUILayout.BeginHorizontal();
             dvz = EditorGUILayout.FloatField("dvz: ", dvz);
             specificItrData.dvz = dvz;
+
+            nextIfHit = EditorGUILayout.IntField("nextIfHit: ", nextIfHit);
+            specificItrData.nextIfHit = nextIfHit;
+            EditorGUILayout.EndHorizontal();
 
             specificItrData.x = EditorGUILayout.FloatField("x: ", dimensionsToUse.localPosition.x);
             specificItrData.y = EditorGUILayout.FloatField("y: ", dimensionsToUse.localPosition.y);

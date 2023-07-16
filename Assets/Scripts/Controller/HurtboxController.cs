@@ -138,7 +138,7 @@ public class HurtboxController : MonoBehaviour
                     damageRest = itr.damageRest;
                     lastHitObjId = otherObjId;
                 }
-                
+
                 if (itr.kind == ItrKindEnum.CHAR_NORMAL_HIT)
                 {
                     objectPointController.InvokeNormalHit(transform.position);
@@ -154,6 +154,11 @@ public class HurtboxController : MonoBehaviour
                 if (frame.currentFrame.state == StateFrameEnum.DEFEND || frame.currentFrame.state == StateFrameEnum.JUMP_DEFEND)
                 {
                     hitbox.DefendingImpact(itr);
+                }
+
+                if (itr.nextIfHit > 0)
+                {
+                    hitbox.NextIfHit();
                 }
             }
         }

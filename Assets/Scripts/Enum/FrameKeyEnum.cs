@@ -78,4 +78,5 @@ public enum FrameKeyEnum {
     repeat_next,
     scale,
     hit_wall,
+    fadeOut,
 }
